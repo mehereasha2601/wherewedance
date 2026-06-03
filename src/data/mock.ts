@@ -360,6 +360,9 @@ export const events: Event[] = [
     rsvps: { count: 47, initials: ["JS", "RL", "MK"] },
     cost: "$15",
     tonight: true,
+    officialUrl: "https://havanaclubsalsa.com/",
+    facebookUrl: "https://www.facebook.com/HavanaClubBoston/",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=288%20Green%20St%2C%20Cambridge%2C%20MA%2002139",
   },
   {
     id: "evt-havana-tue",
@@ -389,6 +392,9 @@ export const events: Event[] = [
     ],
     rsvps: { count: 31, initials: ["AL", "PE", "RI"] },
     cost: "$15",
+    officialUrl: "https://havanaclubsalsa.com/",
+    facebookUrl: "https://www.facebook.com/HavanaClubBoston/",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=288%20Green%20St%2C%20Cambridge%2C%20MA%2002139",
   },
   {
     id: "evt-havana-thu",
@@ -418,6 +424,9 @@ export const events: Event[] = [
     ],
     rsvps: { count: 58, initials: ["SI", "GA", "NO"] },
     cost: "$15",
+    officialUrl: "https://havanaclubsalsa.com/",
+    facebookUrl: "https://www.facebook.com/HavanaClubBoston/",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=288%20Green%20St%2C%20Cambridge%2C%20MA%2002139",
   },
   {
     id: "evt-havana-fri",
@@ -446,6 +455,9 @@ export const events: Event[] = [
     ],
     rsvps: { count: 102, initials: ["MA", "EL", "VI"] },
     cost: "$15 / $20",
+    officialUrl: "https://havanaclubsalsa.com/",
+    facebookUrl: "https://www.facebook.com/HavanaClubBoston/",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=288%20Green%20St%2C%20Cambridge%2C%20MA%2002139",
   },
   {
     id: "evt-havana-sun",
@@ -475,6 +487,9 @@ export const events: Event[] = [
     ],
     rsvps: { count: 36, initials: ["DA", "NI", "CL"] },
     cost: "$15",
+    officialUrl: "https://havanaclubsalsa.com/",
+    facebookUrl: "https://www.facebook.com/HavanaClubBoston/",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=288%20Green%20St%2C%20Cambridge%2C%20MA%2002139",
   },
   {
     id: "evt-havana-sat",
@@ -504,6 +519,9 @@ export const events: Event[] = [
     ],
     rsvps: { count: 132, initials: ["AN", "TP", "DV"] },
     cost: "$15 / $20",
+    officialUrl: "https://havanaclubsalsa.com/",
+    facebookUrl: "https://www.facebook.com/HavanaClubBoston/",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=288%20Green%20St%2C%20Cambridge%2C%20MA%2002139",
   },
   {
     id: "evt-bachata-room-wed",
@@ -533,8 +551,9 @@ export const events: Event[] = [
     rsvps: { count: 64, initials: ["LI", "MA", "RB"] },
     cost: "$12",
     tonight: true,
-    officialUrl: "#",
-    instagramUrl: "#",
+    officialUrl: "https://www.bachataroomboston.com/",
+    instagramUrl: "https://www.instagram.com/bachataroom/",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=450%20Massachusetts%20Avenue%2C%20Cambridge%2C%20MA",
   },
   {
     id: "evt-jl",
@@ -563,6 +582,9 @@ export const events: Event[] = [
     communityNote: "If you're new to sensual, do a class or two first. The crowd is welcoming but the dancing is close.",
     rsvps: { count: 38, initials: ["JE", "LU", "KO"] },
     cost: "$20",
+    officialUrl: "https://jandldancestudio.com/",
+    instagramUrl: "https://www.instagram.com/jl_dancestudio/",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=75%20Pleasant%20Street%20%23125%2C%20Malden%2C%20MA%2002148",
   },
   {
     id: "evt-lili-social",
@@ -622,7 +644,9 @@ export const events: Event[] = [
     communityNote: "Managed by community dancers who love dancing. Great outdoor vibe, but can feel socially intimidating if you go alone as a complete beginner.",
     rsvps: { count: 88, initials: ["CA", "RO", "MI"] },
     cost: "Free",
-    instagramUrl: "#",
+    officialUrl: "https://www.instagram.com/bobas.dance/",
+    instagramUrl: "https://www.instagram.com/bobas.dance/",
+    facebookUrl: "https://www.facebook.com/p/Boston-Outdoor-Bachata-And-Salsa-61551665503735/",
   },
   {
     id: "evt-river",
@@ -650,7 +674,9 @@ export const events: Event[] = [
     ],
     rsvps: { count: 71, initials: ["TI", "AL", "BE"] },
     cost: "Free",
-    instagramUrl: "#",
+    officialUrl: "https://www.listerevents.com/events",
+    facebookUrl: "https://www.facebook.com/events/magazine-beach-cambridge/bachata-by-the-river-summer-dance-party-kick-off/682022144271432/",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=668%20Memorial%20Dr%2C%20Cambridge%2C%20MA",
   },
   {
     id: "evt-saborcito",
@@ -680,8 +706,11 @@ export const events: Event[] = [
     communityNote: "Good outdoor option for beginners who want a low-pressure setting, but not a Bachata-heavy event.",
     rsvps: { count: 0, initials: [] },
     cost: "Free",
-    instagramUrl: "#",
-    officialUrl: "#",
+    instagramUrl: "https://www.instagram.com/saborlatinoboston/",
+    facebookUrl: "https://www.facebook.com/SaborLatinoBoston/",
+    officialUrl: "https://www.thebostoncalendar.com/events/saborcito-the-anchor-salsa-bachata-dancing--39",
+    ticketUrl: "https://www.eventbrite.com/e/saborcito-the-anchor-salsa-bachata-dancing-tickets-1989160987059",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=1%20Shipyard%20Park%2C%20Charlestown%2C%20MA%2002129",
   },
 ];
 
