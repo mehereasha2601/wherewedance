@@ -98,11 +98,11 @@ export function EventCard({ event, full = false, dateLabel }: { event: Event; fu
                 href={primaryHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`Open ${event.title} official source`}
+                aria-label={primaryHref.includes("partiful.com") ? `RSVP to ${event.title}` : `Open ${event.title} official source`}
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-ink text-paper text-[11px] font-bold uppercase tracking-widest hover:-translate-y-0.5 transition"
               >
                 <ExternalLink size={12} strokeWidth={2.5} />
-                Official source
+                {primaryHref.includes("partiful.com") ? "RSVP here" : "Official source"}
               </a>
             )}
             {mapHref && (
