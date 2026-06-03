@@ -781,6 +781,7 @@ export const events: Event[] = [
     startsAt: "TBD",
     endsAt: "TBD",
     popUp: true,
+    thisWeek: true,
     scheduleNote: "Pop-up / one-off - Friday June 6 - check Instagram for time",
     cover: "from-magenta via-oxblood to-ink",
     bachataRelevance: "Bachata-included",
