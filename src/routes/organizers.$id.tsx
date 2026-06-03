@@ -11,7 +11,7 @@ export const Route = createFileRoute("/organizers/$id")({
     const scripts = o
       ? [
           {
-            type: "application/ld+json",
+            type: "application/ld+json" as const,
             children: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",

@@ -13,7 +13,7 @@ export const Route = createFileRoute("/events/$id")({
     const scripts = e
       ? [
           {
-            type: "application/ld+json",
+            type: "application/ld+json" as const,
             children: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Event",
