@@ -1289,7 +1289,7 @@ export const askPrompts: AskPrompt[] = [
     prompt: "I'm completely new. Where should I start?",
     category: "Beginner",
     answer: {
-      body: "Take a structured class first. Lili Latin Dance runs brand-new tracks Mon–Thu and J&L Dance Studio teaches partner-free fundamentals. Once you've had a few classes, Bachata Room's Wednesday beginner class flows directly into a beginner-friendly social.",
+      body: "Take a structured class first. Lili Latin Dance runs brand-new tracks Mon–Thu and J&L Dance Studio teaches partner-free fundamentals. Once you've had a few classes, Bachata Room's Wednesday beginner class flows directly into a beginner-friendly social. Bachata Room accepts cash/Venmo, has no coat check, and free water may run out, so bring water.",
       sourceEventIds: ["evt-lili-social", "evt-bachata-room-wed"],
       showBeginnerPathway: true,
       recommendations: [
@@ -1311,7 +1311,7 @@ export const askPrompts: AskPrompt[] = [
     prompt: "I'm nervous to go alone. What should I try?",
     category: "Beginner",
     answer: {
-      body: "Bachata Room Wednesday and Lili Latin's First-Friday social both facilitate rotations, so people who come alone don't get stuck on the wall. Beginner-friendly and dry - easier for a first solo trip than a late-night bar social.",
+      body: "Bachata Room Wednesday and Lili Latin's First-Friday social both facilitate rotations, so people who come alone don't get stuck on the wall. Beginner-friendly and dry - easier for a first solo trip than a late-night bar social. Bachata Room accepts cash/Venmo, has no coat check, and free water may run out, so bring water.",
       sourceEventIds: ["evt-bachata-room-wed", "evt-lili-social"],
       showBeginnerPathway: true,
       recommendations: [
@@ -1333,7 +1333,7 @@ export const askPrompts: AskPrompt[] = [
     prompt: "What's Bachata-heavy this week?",
     category: "Tonight",
     answer: {
-      body: "Havana Club Monday, Havana Club Thursday, and Bachata Room Wednesday are the most Bachata-heavy nights. Havana Bachata Sunday is also Bachata-heavy. Havana Saturday Bachata/Salsa is Bachata-included rather than purely Bachata-heavy. All Havana nights have beginner + intermediate lessons before the social.",
+      body: "Havana Club Monday, Havana Club Thursday, and Bachata Room Wednesday are the most Bachata-heavy nights. Havana Bachata Sunday is also Bachata-heavy. Havana Saturday Bachata/Salsa is Bachata-included rather than purely Bachata-heavy. All Havana nights have beginner + intermediate lessons before the social. Havana is cash only - there is an ATM on site, but it may charge an extra fee, and coat check is available. Bachata Room accepts cash/Venmo, has no coat check, and free water may run out, so bring water.",
       sourceEventIds: ["evt-havana-mon", "evt-havana-thu", "evt-bachata-room-wed", "evt-havana-sun", "evt-havana-sat"],
       recommendations: [
         {
@@ -1407,7 +1407,7 @@ export const askPrompts: AskPrompt[] = [
     prompt: "Where can I go if I don't want alcohol?",
     category: "Logistics",
     answer: {
-      body: "Bachata Room Wednesday, Lili Latin's First-Friday social, and the BOBAS outdoor nights are all dry events - no bar on site. Havana Monday is also now a dry, dance-focused night.",
+      body: "Bachata Room Wednesday, Lili Latin's First-Friday social, and the BOBAS outdoor nights are all dry events - no bar on site. Havana Monday is also now a dry, dance-focused night. Havana is cash only with an on-site ATM that may charge an extra fee, and coat check is available. Bachata Room accepts cash/Venmo and has no coat check, so bring water.",
       sourceEventIds: ["evt-bachata-room-wed", "evt-lili-social", "evt-bobas", "evt-havana-mon"],
       recommendations: [
         {
