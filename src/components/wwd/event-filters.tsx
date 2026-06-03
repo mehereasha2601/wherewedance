@@ -126,7 +126,9 @@ export function EventFilters({
         ) : (
           <div className="space-y-10">
             {DAYS.map((d) => {
-              const items = filtered.filter((e) => !e.popUp && e.dayOfWeek === d);
+              const items = filtered.filter(
+                (e) => (!e.popUp || e.thisWeek) && e.dayOfWeek === d,
+              );
               if (items.length === 0) return null;
               return (
                 <section key={d}>
@@ -149,7 +151,7 @@ export function EventFilters({
               );
             })}
             {(() => {
-              const popUps = filtered.filter((e) => e.popUp);
+              const popUps = filtered.filter((e) => e.popUp && !e.thisWeek);
               if (popUps.length === 0) return null;
               return (
                 <section>
