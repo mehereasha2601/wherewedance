@@ -49,6 +49,7 @@ export function BeginnerPathway({ compact = false }: { compact?: boolean }) {
               {!compact && (
                 <Link
                   to={s.cta.to}
+                  hash={s.cta.hash}
                   className="inline-block mt-2 text-[11px] font-bold uppercase tracking-widest text-terracotta border-b border-terracotta/40 pb-0.5"
                 >
                   {s.cta.label} →
