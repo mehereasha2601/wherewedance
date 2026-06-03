@@ -109,7 +109,7 @@ export type Resource = {
   id: string;
   name: string;
   description: string;
-  category: "Community" | "Competition" | "Classes" | "Studio / instructor-led classes" | "Music" | "Wellness";
+  category: "Community" | "Competition" | "Classes" | "Studio / instructor-led classes" | "Pop-up social / event organizer" | "Music" | "Wellness";
   privacyStatus: ResourcePrivacy;
   sourceStatus: SourceStatus;
   lastVerified: string;
