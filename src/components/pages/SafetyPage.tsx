@@ -13,7 +13,7 @@ export function SafetyPage() {
         <div className="bg-mango text-ink rounded-2xl p-4">
           <p className="text-[10px] uppercase tracking-widest font-bold mb-1">Prototype</p>
           <p className="text-[13px] font-medium leading-snug">
-            Prototype only — no report is submitted yet.
+            Prototype only - no report is submitted yet.
           </p>
         </div>
         <div className="bg-ink text-paper rounded-2xl p-5">
@@ -33,7 +33,7 @@ export function SafetyPage() {
         className="px-5 mt-6 space-y-4"
         onSubmit={(e) => {
           e.preventDefault();
-          alert("Prototype only — no submission is sent.");
+          alert("Prototype only - no submission is sent.");
         }}
       >
         <label className="block">
@@ -60,7 +60,7 @@ export function SafetyPage() {
 
         <label className="block">
           <span className="text-[10px] uppercase tracking-widest font-bold text-ink/60">
-            Your name (optional — leave blank to stay anonymous)
+            Your name (optional - leave blank to stay anonymous)
           </span>
           <input
             type="text"
@@ -85,7 +85,7 @@ export function SafetyPage() {
         </button>
 
         <p className="text-[11px] text-ink/55 leading-relaxed">
-          Prototype only — this form does not submit anywhere.
+          Prototype only - this form does not submit anywhere.
         </p>
       </form>
     </AppShell>

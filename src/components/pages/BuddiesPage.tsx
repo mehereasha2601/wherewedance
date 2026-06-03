@@ -8,7 +8,7 @@ export function BuddiesPage() {
       <PageHero
         eyebrow="Practice buddy board"
         title={<>Find someone to <span className="text-terracotta">drill with.</span></>}
-        description="Public posts only. No private messaging in this prototype — connect at the next social you both list."
+        description="Public posts only. No private messaging in this prototype - connect at the next social you both list."
       />
 
       <section className="px-5 mt-6 bg-mango/15 ring-1 ring-mango/40 rounded-2xl p-4">

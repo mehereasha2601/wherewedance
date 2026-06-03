@@ -28,11 +28,11 @@ export function ResourcesPage() {
       <section className="px-5 mt-6 bg-paper ring-1 ring-ink/10 rounded-2xl p-4 text-[12px] text-ink/70">
         <p className="font-bold text-ink mb-1">What the labels mean</p>
         <ul className="space-y-1">
-          <li>· <span className="font-semibold text-ink">Public link</span> — open to anyone.</li>
-          <li>· <span className="font-semibold text-ink">DM to join</span> — message the listed contact.</li>
-          <li>· <span className="font-semibold text-ink">Ask organizer</span> — intro through a known organizer first.</li>
-          <li>· <span className="font-semibold text-ink">Private group</span> — invite-only, listed for awareness.</li>
-          <li>· <span className="font-semibold text-ink">Needs validation</span> — heard of it, haven't confirmed.</li>
+          <li>· <span className="font-semibold text-ink">Public link</span> - open to anyone.</li>
+          <li>· <span className="font-semibold text-ink">DM to join</span> - message the listed contact.</li>
+          <li>· <span className="font-semibold text-ink">Ask organizer</span> - intro through a known organizer first.</li>
+          <li>· <span className="font-semibold text-ink">Private group</span> - invite-only, listed for awareness.</li>
+          <li>· <span className="font-semibold text-ink">Needs validation</span> - heard of it, haven't confirmed.</li>
         </ul>
       </section>
 

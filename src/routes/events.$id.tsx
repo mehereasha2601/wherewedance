@@ -5,7 +5,7 @@ import { eventBySlug } from "@/data/mock";
 export const Route = createFileRoute("/events/$id")({
   head: ({ params }) => {
     const e = eventBySlug(params.id);
-    const title = e ? `${e.title} — WhereWeDance` : "Event — WhereWeDance";
+    const title = e ? `${e.title} - WhereWeDance` : "Event - WhereWeDance";
     const desc = e
       ? `${e.dayOfWeek}s at ${e.venue}. ${e.beginnerLabel}. ${e.bachataRelevance}.`
       : "Boston bachata event details.";

@@ -6,7 +6,7 @@ export function GoodToKnow({ event, compact = false }: { event: Event; compact?:
     {
       label: "Class before social",
       value: event.classBeforeSocial.offered
-        ? `Yes — ${event.classBeforeSocial.level ?? ""} @ ${event.classBeforeSocial.startsAt ?? ""}`.trim()
+        ? `Yes - ${event.classBeforeSocial.level ?? ""} @ ${event.classBeforeSocial.startsAt ?? ""}`.trim()
         : "No intro class",
     },
     { label: "Water", value: event.waterAvailability },

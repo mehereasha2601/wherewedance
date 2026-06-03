@@ -27,7 +27,7 @@ export function ResourceCard({ resource }: { resource: Resource }) {
 
       {resource.privacyStatus === "Private group" && (
         <p className="mt-2 text-[12px] text-ink/70 leading-relaxed">
-          Listed for awareness — ask a trusted organizer/community member.
+          Listed for awareness - ask a trusted organizer/community member.
         </p>
       )}
 

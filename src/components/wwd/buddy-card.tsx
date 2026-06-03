@@ -22,7 +22,7 @@ export function BuddyCard({ buddy }: { buddy: Buddy }) {
         <button
           type="button"
           className="text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full bg-ink text-paper opacity-90"
-          title="Visual only — messaging is out of scope for this prototype."
+          title="Visual only - messaging is out of scope for this prototype."
         >
           Wave hello
         </button>
