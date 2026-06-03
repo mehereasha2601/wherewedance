@@ -735,7 +735,7 @@ export const events: Event[] = [
     bachataRelevance: "Bachata-heavy",
     beginnerLabel: "Beginner-friendly",
     classBeforeSocial: { offered: true, level: "Beginner-friendly Bachata/Salsa class before the social" },
-    waterAvailability: "Free water",
+    waterAvailability: "Free water may run out / bring water recommended",
     alcoholPolicy: "Bar available · 21+ to drink",
     scheduleReliability: "Weekly recurring, very reliable",
     sourceStatus: "Official website",
