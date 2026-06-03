@@ -54,6 +54,27 @@ export function ResourcesPage() {
 
   const filtersActive = activeFilter !== "All" || activeCategory !== "All";
 
+  const availableCategories = useMemo<CategoryFilterValue[]>(() => {
+    const present = new Set<CategoryFilterValue>();
+    for (const r of resources) {
+      present.add(r.category as CategoryFilterValue);
+      if (
+        r.privacyStatus === "Needs validation" ||
+        r.sourceStatus === "Needs validation"
+      ) {
+        present.add("Needs validation");
+      }
+    }
+    return [
+      "All",
+      ...CATEGORY_ORDER.filter(
+        (c): c is ResourceCategory =>
+          c !== "Featured" && present.has(c as CategoryFilterValue),
+      ),
+      ...(present.has("Needs validation") ? (["Needs validation"] as const) : []),
+    ];
+  }, []);
+
   const filtered = useMemo(() => {
     const matched = resources.filter((r) => {
       const privacyMatch =
@@ -101,14 +122,17 @@ export function ResourcesPage() {
         <ResourceCategoryFilters
           active={activeCategory}
           onChange={setActiveCategory}
+          available={availableCategories}
         />
         <ResourceFilters
           active={activeFilter}
           onChange={setActiveFilter}
-          count={filtered.length}
         />
         {filtersActive && (
-          <div className="px-5">
+          <div className="px-5 flex items-center justify-between gap-3">
+            <p className="text-[10px] uppercase tracking-widest font-bold text-ink/55">
+              {filtered.length} resource{filtered.length === 1 ? "" : "s"}
+            </p>
             <button
               type="button"
               onClick={() => {
