@@ -461,6 +461,8 @@ export const events: Event[] = [
     rsvps: { count: 64, initials: ["LI", "MA", "RB"] },
     cost: "$12",
     tonight: true,
+    officialUrl: "#",
+    instagramUrl: "#",
   },
   {
     id: "evt-jl",
@@ -548,6 +550,7 @@ export const events: Event[] = [
     communityNote: "Managed by community dancers who love dancing. Great outdoor vibe, but can feel socially intimidating if you go alone as a complete beginner.",
     rsvps: { count: 88, initials: ["CA", "RO", "MI"] },
     cost: "Free",
+    instagramUrl: "#",
   },
   {
     id: "evt-river",
@@ -575,6 +578,7 @@ export const events: Event[] = [
     ],
     rsvps: { count: 71, initials: ["TI", "AL", "BE"] },
     cost: "Free",
+    instagramUrl: "#",
   },
   {
     id: "evt-saborcito",
@@ -604,6 +608,8 @@ export const events: Event[] = [
     communityNote: "Good outdoor option for beginners who want a low-pressure setting, but not a Bachata-heavy event.",
     rsvps: { count: 0, initials: [] },
     cost: "Free",
+    instagramUrl: "#",
+    officialUrl: "#",
   },
 ];
 
