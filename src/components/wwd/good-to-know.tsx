@@ -11,6 +11,8 @@ export function GoodToKnow({ event, compact = false }: { event: Event; compact?:
     },
     { label: "Water", value: event.waterAvailability },
     { label: "Alcohol", value: event.alcoholPolicy },
+    ...(event.paymentNotes ? [{ label: "Payment", value: event.paymentNotes }] : []),
+    ...(event.coatCheck ? [{ label: "Coat check", value: event.coatCheck }] : []),
     { label: "Schedule", value: event.scheduleReliability },
   ];
 

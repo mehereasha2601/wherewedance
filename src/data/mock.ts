@@ -42,6 +42,8 @@ export type SourceStatus =
   | "Instagram / community-known"
   | "Instagram / Facebook"
   | "Instagram / Facebook / public listing"
+  | "Public Spotify playlist / Instagram"
+  | "Public SoundCloud / Instagram"
   | "Needs validation";
 
 export type ResourcePrivacy =
@@ -111,6 +113,9 @@ export type Event = {
   facebookUrl?: string;
   websiteUrl?: string;
   mapUrl?: string;
+  paymentNotes?: string;
+  coatCheck?: string;
+  amenities?: string[];
 };
 
 export type Resource = {
@@ -427,7 +432,11 @@ export const events: Event[] = [
       "No partner required",
       "No alcohol / dry event · 18+",
       "More serious dancers tend to come, so complete beginners may feel more comfortable taking the class first",
-      "Check Havana Club's official page before going",
+      "Cash only.",
+      "ATM available on site, but it may charge an extra fee.",
+      "Coat check available.",
+      "Free water available.",
+      "Check Havana Club's official page before going.",
     ],
     communityNote:
       "Bachata-heavy and dry - come for the dancing, not the bar. The lessons beforehand are the right entry point.",
@@ -437,6 +446,9 @@ export const events: Event[] = [
     officialUrl: "https://havanaclubsalsa.com/",
     facebookUrl: "https://www.facebook.com/HavanaClubBoston/",
     mapUrl: "https://www.google.com/maps/search/?api=1&query=288%20Green%20St%2C%20Cambridge%2C%20MA%2002139",
+    paymentNotes: "Cash only. ATM available on site, but it may charge an extra fee.",
+    coatCheck: "Coat check available",
+    amenities: ["Free water", "Coat check available", "ATM on site"],
   },
   {
     id: "evt-havana-tue",
@@ -462,13 +474,20 @@ export const events: Event[] = [
       "Beginner + intermediate lessons before social",
       "No partner required",
       "No alcohol · 18+",
-      "Check official source before going",
+      "Cash only.",
+      "ATM available on site, but it may charge an extra fee.",
+      "Coat check available.",
+      "Free water available.",
+      "Check official source before going.",
     ],
     rsvps: { count: 31, initials: ["AL", "PE", "RI"] },
     cost: "$15",
     officialUrl: "https://havanaclubsalsa.com/",
     facebookUrl: "https://www.facebook.com/HavanaClubBoston/",
     mapUrl: "https://www.google.com/maps/search/?api=1&query=288%20Green%20St%2C%20Cambridge%2C%20MA%2002139",
+    paymentNotes: "Cash only. ATM available on site, but it may charge an extra fee.",
+    coatCheck: "Coat check available",
+    amenities: ["Free water", "Coat check available", "ATM on site"],
   },
   {
     id: "evt-havana-thu",
@@ -494,13 +513,20 @@ export const events: Event[] = [
       "Beginner + intermediate lessons before party",
       "Bar available · 21+",
       "No partner required",
-      "Check official source before going",
+      "Cash only.",
+      "ATM available on site, but it may charge an extra fee.",
+      "Coat check available.",
+      "Free water available.",
+      "Check official source before going.",
     ],
     rsvps: { count: 58, initials: ["SI", "GA", "NO"] },
     cost: "$15",
     officialUrl: "https://havanaclubsalsa.com/",
     facebookUrl: "https://www.facebook.com/HavanaClubBoston/",
     mapUrl: "https://www.google.com/maps/search/?api=1&query=288%20Green%20St%2C%20Cambridge%2C%20MA%2002139",
+    paymentNotes: "Cash only. ATM available on site, but it may charge an extra fee.",
+    coatCheck: "Coat check available",
+    amenities: ["Free water", "Coat check available", "ATM on site"],
   },
   {
     id: "evt-havana-fri",
@@ -525,13 +551,20 @@ export const events: Event[] = [
       "Mixed Bachata/Salsa late-night party",
       "Lessons before dancing",
       "Larger party/nightlife energy · Bar available · 21+",
-      "Check official source before going",
+      "Cash only.",
+      "ATM available on site, but it may charge an extra fee.",
+      "Coat check available.",
+      "Free water available.",
+      "Check official source before going.",
     ],
     rsvps: { count: 102, initials: ["MA", "EL", "VI"] },
     cost: "$15 / $20",
     officialUrl: "https://havanaclubsalsa.com/",
     facebookUrl: "https://www.facebook.com/HavanaClubBoston/",
     mapUrl: "https://www.google.com/maps/search/?api=1&query=288%20Green%20St%2C%20Cambridge%2C%20MA%2002139",
+    paymentNotes: "Cash only. ATM available on site, but it may charge an extra fee.",
+    coatCheck: "Coat check available",
+    amenities: ["Free water", "Coat check available", "ATM on site"],
   },
   {
     id: "evt-havana-sun",
@@ -557,13 +590,20 @@ export const events: Event[] = [
       "No alcohol / dry event · 18+",
       "Lessons/practica structure - check official listing",
       "No partner required",
-      "Check official source before going",
+      "Cash only.",
+      "ATM available on site, but it may charge an extra fee.",
+      "Coat check available.",
+      "Free water available.",
+      "Check official source before going.",
     ],
     rsvps: { count: 36, initials: ["DA", "NI", "CL"] },
     cost: "$15",
     officialUrl: "https://havanaclubsalsa.com/",
     facebookUrl: "https://www.facebook.com/HavanaClubBoston/",
     mapUrl: "https://www.google.com/maps/search/?api=1&query=288%20Green%20St%2C%20Cambridge%2C%20MA%2002139",
+    paymentNotes: "Cash only. ATM available on site, but it may charge an extra fee.",
+    coatCheck: "Coat check available",
+    amenities: ["Free water", "Coat check available", "ATM on site"],
   },
   {
     id: "evt-havana-sat",
@@ -589,13 +629,20 @@ export const events: Event[] = [
       "Beginner + intermediate Bachata/Salsa lessons before dancing",
       "Beginner-welcome, but bigger crowds can feel overwhelming",
       "Bar available · 21+",
-      "Check official source before going",
+      "Cash only.",
+      "ATM available on site, but it may charge an extra fee.",
+      "Coat check available.",
+      "Free water available.",
+      "Check official source before going.",
     ],
     rsvps: { count: 132, initials: ["AN", "TP", "DV"] },
     cost: "$15 / $20",
     officialUrl: "https://havanaclubsalsa.com/",
     facebookUrl: "https://www.facebook.com/HavanaClubBoston/",
     mapUrl: "https://www.google.com/maps/search/?api=1&query=288%20Green%20St%2C%20Cambridge%2C%20MA%2002139",
+    paymentNotes: "Cash only. ATM available on site, but it may charge an extra fee.",
+    coatCheck: "Coat check available",
+    amenities: ["Free water", "Coat check available", "ATM on site"],
   },
   {
     id: "evt-bachata-room-wed",
@@ -617,9 +664,12 @@ export const events: Event[] = [
     sourceStatus: "Verified by organizer",
     lastVerified: "2026-06-01",
     goodToKnow: [
-      "Bachata-heavy Wednesday social with a beginner class before the social",
-      "Bring water - free water may run out later in the night",
-      "Good if going alone - rotations are facilitated",
+      "Cash or Venmo accepted.",
+      "No coat check.",
+      "Bring water because free water may run out.",
+      "Beginner class before social.",
+      "Good if going alone because class/rotations help people meet dancers.",
+      "Bachata-heavy Wednesday social.",
     ],
     communityNote: "Beginner track is patient and welcoming. Worth the trip from anywhere on the Red Line.",
     rsvps: { count: 64, initials: ["LI", "MA", "RB"] },
@@ -628,6 +678,9 @@ export const events: Event[] = [
     officialUrl: "https://www.bachataroomboston.com/",
     instagramUrl: "https://www.instagram.com/bachataroom/",
     mapUrl: "https://www.google.com/maps/search/?api=1&query=450%20Massachusetts%20Avenue%2C%20Cambridge%2C%20MA",
+    paymentNotes: "Cash or Venmo accepted.",
+    coatCheck: "No coat check",
+    amenities: ["Free water may run out", "No coat check"],
   },
   {
     id: "evt-jl",
@@ -864,6 +917,34 @@ export const resources: Resource[] = [
 
   // ---- Playlists ----
   {
+    id: "res-dj-bat-playlist",
+    name: "DJ Bat Bachata playlist",
+    category: "Playlists",
+    privacyStatus: "Public link",
+    description: "Public Bachata playlist associated with DJ Bat for music discovery and practice.",
+    howToJoin: "Open the public Spotify playlist.",
+    websiteUrl: "https://open.spotify.com/playlist/0GBdyOSZ3NAL5M3xFhR3k4?viewMode=1",
+    instagramUrl: "https://www.instagram.com/djbatlive/",
+    sourceStatus: "Public Spotify playlist / Instagram",
+    lastVerified: "2026-06-03",
+    sourceUrl: "https://open.spotify.com/playlist/0GBdyOSZ3NAL5M3xFhR3k4?viewMode=1",
+    tags: ["Music", "Playlist", "Bachata", "Spotify", "Public link"],
+  },
+  {
+    id: "res-dj-enshun-soundcloud",
+    name: "DJ Enshun SoundCloud",
+    category: "Playlists",
+    privacyStatus: "Public link",
+    description: "Public SoundCloud page for DJ Enshun mixes and music discovery.",
+    howToJoin: "Open the public SoundCloud page.",
+    websiteUrl: "https://soundcloud.com/enshun",
+    instagramUrl: "https://www.instagram.com/dj_enshun/",
+    sourceStatus: "Public SoundCloud / Instagram",
+    lastVerified: "2026-06-03",
+    sourceUrl: "https://soundcloud.com/enshun",
+    tags: ["Music", "Playlist", "SoundCloud", "Bachata", "Salsa", "Public link"],
+  },
+  {
     id: "res-jl-music",
     name: "J&L Dance Studio music page",
     category: "Playlists",
@@ -876,32 +957,6 @@ export const resources: Resource[] = [
     lastVerified: "2026-06-03",
     sourceUrl: "https://jandldancestudio.com/music",
     tags: ["Music", "Practice", "Bachata", "Salsa", "Public link"],
-  },
-  {
-    id: "res-dj-bat-playlist",
-    name: "DJ Bat Bachata playlist",
-    category: "Playlists",
-    privacyStatus: "Needs validation",
-    description: "Public Bachata playlist associated with DJ Bat. Exact playlist URL still needs to be added.",
-    howToJoin: "Add the public playlist URL once verified.",
-    instagramUrl: "https://www.instagram.com/djbatlive/",
-    sourceStatus: "Needs validation",
-    lastVerified: "2026-06-03",
-    sourceUrl: "https://www.instagram.com/djbatlive/",
-    tags: ["Music", "Playlist", "Bachata", "Needs validation"],
-  },
-  {
-    id: "res-dj-enshun-cloudmix",
-    name: "DJ Enshun CloudMix / Bachata playlist",
-    category: "Playlists",
-    privacyStatus: "Needs validation",
-    description: "Possible public Bachata/Salsa mix resource associated with DJ Enshun. Exact CloudMix or playlist URL still needs to be verified.",
-    howToJoin: "Add the public CloudMix/playlist URL once verified.",
-    instagramUrl: "https://www.instagram.com/dj_enshun/",
-    sourceStatus: "Needs validation",
-    lastVerified: "2026-06-03",
-    sourceUrl: "https://www.instagram.com/dj_enshun/",
-    tags: ["Music", "Playlist", "Bachata", "Salsa", "Needs validation"],
   },
 
   // ---- Online classes ----
@@ -1234,7 +1289,7 @@ export const askPrompts: AskPrompt[] = [
     prompt: "I'm completely new. Where should I start?",
     category: "Beginner",
     answer: {
-      body: "Take a structured class first. Lili Latin Dance runs brand-new tracks Mon–Thu and J&L Dance Studio teaches partner-free fundamentals. Once you've had a few classes, Bachata Room's Wednesday beginner class flows directly into a beginner-friendly social.",
+      body: "Take a structured class first. Lili Latin Dance runs brand-new tracks Mon–Thu and J&L Dance Studio teaches partner-free fundamentals. Once you've had a few classes, Bachata Room's Wednesday beginner class flows directly into a beginner-friendly social. Bachata Room accepts cash/Venmo, has no coat check, and free water may run out, so bring water.",
       sourceEventIds: ["evt-lili-social", "evt-bachata-room-wed"],
       showBeginnerPathway: true,
       recommendations: [
@@ -1256,7 +1311,7 @@ export const askPrompts: AskPrompt[] = [
     prompt: "I'm nervous to go alone. What should I try?",
     category: "Beginner",
     answer: {
-      body: "Bachata Room Wednesday and Lili Latin's First-Friday social both facilitate rotations, so people who come alone don't get stuck on the wall. Beginner-friendly and dry - easier for a first solo trip than a late-night bar social.",
+      body: "Bachata Room Wednesday and Lili Latin's First-Friday social both facilitate rotations, so people who come alone don't get stuck on the wall. Beginner-friendly and dry - easier for a first solo trip than a late-night bar social. Bachata Room accepts cash/Venmo, has no coat check, and free water may run out, so bring water.",
       sourceEventIds: ["evt-bachata-room-wed", "evt-lili-social"],
       showBeginnerPathway: true,
       recommendations: [
@@ -1278,7 +1333,7 @@ export const askPrompts: AskPrompt[] = [
     prompt: "What's Bachata-heavy this week?",
     category: "Tonight",
     answer: {
-      body: "Havana Club Monday, Havana Club Thursday, and Bachata Room Wednesday are the most Bachata-heavy nights. Havana Bachata Sunday is also Bachata-heavy. Havana Saturday Bachata/Salsa is Bachata-included rather than purely Bachata-heavy. All Havana nights have beginner + intermediate lessons before the social.",
+      body: "Havana Club Monday, Havana Club Thursday, and Bachata Room Wednesday are the most Bachata-heavy nights. Havana Bachata Sunday is also Bachata-heavy. Havana Saturday Bachata/Salsa is Bachata-included rather than purely Bachata-heavy. All Havana nights have beginner + intermediate lessons before the social. Havana is cash only - there is an ATM on site, but it may charge an extra fee, and coat check is available. Bachata Room accepts cash/Venmo, has no coat check, and free water may run out, so bring water.",
       sourceEventIds: ["evt-havana-mon", "evt-havana-thu", "evt-bachata-room-wed", "evt-havana-sun", "evt-havana-sat"],
       recommendations: [
         {
@@ -1352,7 +1407,7 @@ export const askPrompts: AskPrompt[] = [
     prompt: "Where can I go if I don't want alcohol?",
     category: "Logistics",
     answer: {
-      body: "Bachata Room Wednesday, Lili Latin's First-Friday social, and the BOBAS outdoor nights are all dry events - no bar on site. Havana Monday is also now a dry, dance-focused night.",
+      body: "Bachata Room Wednesday, Lili Latin's First-Friday social, and the BOBAS outdoor nights are all dry events - no bar on site. Havana Monday is also now a dry, dance-focused night. Havana is cash only with an on-site ATM that may charge an extra fee, and coat check is available. Bachata Room accepts cash/Venmo and has no coat check, so bring water.",
       sourceEventIds: ["evt-bachata-room-wed", "evt-lili-social", "evt-bobas", "evt-havana-mon"],
       recommendations: [
         {
@@ -1398,6 +1453,29 @@ export const mapUrlForEvent = (e: Event): string | null => {
 };
 
 export const tonightEvents = () => events.filter((e) => e.tonight);
+
+// Short logistics line for compact cards: e.g. "Cash only · Coat check · Free water".
+export const logisticsSummary = (e: Event): string | null => {
+  const parts: string[] = [];
+  if (e.paymentNotes) {
+    if (/^cash only/i.test(e.paymentNotes)) parts.push("Cash only");
+    else if (/cash or venmo/i.test(e.paymentNotes)) parts.push("Cash/Venmo");
+    else parts.push(e.paymentNotes.split(".")[0]);
+  }
+  if (e.coatCheck) {
+    if (/^no coat/i.test(e.coatCheck)) parts.push("No coat check");
+    else parts.push("Coat check");
+  }
+  if (e.amenities && e.amenities.length) {
+    const water = e.amenities.find((a) => /water/i.test(a));
+    if (water) {
+      if (/may run out/i.test(water)) parts.push("Bring water");
+      else parts.push("Free water");
+    }
+  }
+  return parts.length ? parts.join(" · ") : null;
+};
+
 export const eventsByDay = () => {
   const days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] as const;
   return days.map((d) => ({ day: d, events: events.filter((e) => e.dayOfWeek === d) }));

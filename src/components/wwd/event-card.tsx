@@ -1,5 +1,5 @@
 import type { Event } from "@/data/mock";
-import { organizerById, mapUrlForEvent } from "@/data/mock";
+import { organizerById, mapUrlForEvent, logisticsSummary } from "@/data/mock";
 import { Link } from "./ui-router";
 import { BeginnerTag, SceneTag } from "./tags";
 import { GoodToKnow } from "./good-to-know";
@@ -10,6 +10,7 @@ export function EventCard({ event, full = false }: { event: Event; full?: boolea
   const organizer = organizerById(event.organizerId);
   const primaryHref = event.officialUrl ?? event.websiteUrl ?? event.instagramUrl ?? event.facebookUrl;
   const mapHref = mapUrlForEvent(event);
+  const logistics = logisticsSummary(event);
   return (
     <article className="bg-paper rounded-3xl ring-1 ring-ink/10 overflow-hidden flex flex-col">
       <div className={`relative aspect-[5/3] bg-gradient-to-br ${event.cover}`}>
@@ -72,6 +73,12 @@ export function EventCard({ event, full = false }: { event: Event; full?: boolea
         </div>
 
         <GoodToKnow event={event} compact={!full} />
+
+        {logistics && (
+          <p className="text-[11px] text-ink/70 font-medium leading-snug">
+            {logistics}
+          </p>
+        )}
 
         {(primaryHref || mapHref) && (
           <div className="flex flex-wrap items-center gap-2">
