@@ -19,6 +19,7 @@ const dotColor: Record<SourceStatus, string> = {
   "Community-known": "bg-ink/60",
   "Check official source": "bg-mango",
   "Official Instagram / organizer post": "bg-magenta",
+  "Official Instagram / domain-expert confirmed Bachata music": "bg-magenta",
   "Needs validation": "bg-ink/40",
 };
 
