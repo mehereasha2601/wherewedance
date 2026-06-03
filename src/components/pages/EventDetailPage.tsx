@@ -167,6 +167,17 @@ export function EventDetailPage({ slug }: { slug: string }) {
 
       <section className="px-5 mt-6">
         <SourceLabel status={event.sourceStatus} lastVerified={event.lastVerified} />
+        <div className="mt-3 bg-paper ring-1 ring-ink/10 rounded-2xl p-3">
+          <p className="text-[12px] text-ink/75 leading-snug">
+            <span className="font-bold text-ink">Something inaccurate?</span>{" "}
+            <Link
+              to="/contact"
+              className="text-terracotta font-bold uppercase tracking-widest text-[11px]"
+            >
+              Suggest a correction →
+            </Link>
+          </p>
+        </div>
         <Link
           to="/safety"
           className="block mt-3 text-[11px] font-bold uppercase tracking-widest text-ink/60 underline decoration-ink/20 underline-offset-2"

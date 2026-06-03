@@ -2,6 +2,7 @@ import { AppShell, PageHero } from "@/components/wwd/shell";
 import { events, organizers, mapUrlForEvent } from "@/data/mock";
 import { SourceLabel } from "@/components/wwd/source-label";
 import { OfficialLinks } from "@/components/wwd/official-links";
+import { Link } from "@/components/wwd/ui-router";
 
 const submissions = [
   { title: "Saturday Bachata Pop-up", status: "Pending review", color: "bg-mango text-ink" },
@@ -201,6 +202,23 @@ export function OrganizerDashboardPage() {
         <p className="text-[11px] text-ink/55 leading-relaxed">
           Prototype only - no organizer login, claim flow, edits, or submissions are active yet. Havana Club is shown as example data only.
         </p>
+      </section>
+
+      <section className="px-5 mt-8 mb-4">
+        <div className="bg-paper ring-1 ring-ink/10 rounded-2xl p-5 text-center">
+          <p className="font-display italic text-xl text-ink leading-tight">
+            Run a class, social, pop-up, or community resource?
+          </p>
+          <p className="mt-1.5 text-[13px] text-ink/70">
+            Contact us about organizer onboarding.
+          </p>
+          <Link
+            to="/contact"
+            className="mt-4 inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-oxblood text-paper text-[11px] font-bold uppercase tracking-widest hover:-translate-y-0.5 transition-transform"
+          >
+            Organizer onboarding →
+          </Link>
+        </div>
       </section>
     </AppShell>
   );
