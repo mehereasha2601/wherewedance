@@ -1483,8 +1483,8 @@ export const askPrompts: AskPrompt[] = [
     prompt: "Where can I go if I don't want alcohol?",
     category: "Logistics",
     answer: {
-      body: "Bachata Room Wednesday, Lili Latin's monthly studio social, and the BOBAS outdoor nights are all dry events - no bar on site. Havana Monday is also now a dry, dance-focused night. Havana is cash only with an on-site ATM that may charge an extra fee, and coat check is available. Bachata Room accepts cash/Venmo and has no coat check, so bring water.",
-      sourceEventIds: ["evt-bachata-room-wed", "evt-lili-monthly-social", "evt-bobas", "evt-havana-mon"],
+      body: "Bachata Room Wednesday and the BOBAS outdoor nights are dry events - no bar on site. Havana Monday is also now a dry, dance-focused night. Havana is cash only with an on-site ATM that may charge an extra fee, and coat check is available. Bachata Room accepts cash/Venmo and has no coat check, so bring water.",
+      sourceEventIds: ["evt-bachata-room-wed", "evt-bobas", "evt-havana-mon"],
       recommendations: [
         {
           eventId: "evt-havana-mon",
@@ -1497,16 +1497,74 @@ export const askPrompts: AskPrompt[] = [
           whyThisFits: "Dry Wednesday social with a beginner class - Bachata-heavy.",
         },
         {
-          eventId: "evt-lili-monthly-social",
-          label: "Also consider",
-          whyThisFits: "Dry studio social aimed at first-timers, with facilitated rotations.",
-        },
-        {
           eventId: "evt-bobas",
           label: "Also consider",
           whyThisFits: "Free outdoor pop-up with no bar on site.",
         },
       ],
+    },
+  },
+  {
+    id: "ask-free-events",
+    prompt: "What free events are happening?",
+    category: "Logistics",
+    answer: {
+      body: "Free options to keep an eye on: BOBAS outdoor pop-ups at the Charles River Dock, Bachata by the River at Magazine Beach Park, and Saborcito @ The Anchor when running. There's also a one-off free queer dance party from Next Level Fusion at The Anchor on Friday June 6 - check the official Instagram post for exact time, format, and music.",
+      sourceEventIds: ["evt-next-level-queer-jun6", "evt-bobas", "evt-river", "evt-saborcito"],
+      sourceResourceIds: ["res-party-next-level-fusion"],
+      recommendations: [
+        {
+          eventId: "evt-next-level-queer-jun6",
+          label: "Top recommendation",
+          whyThisFits: "Free, queer-friendly, inclusive dance party at The Anchor - pop-up / one-off, check the official Instagram post for exact time.",
+        },
+        {
+          eventId: "evt-bobas",
+          label: "Also consider",
+          whyThisFits: "Free outdoor Salsa/Bachata pop-up - weather-dependent, announced on Instagram.",
+        },
+        {
+          eventId: "evt-river",
+          label: "Also consider",
+          whyThisFits: "Free Bachata by the River day at Magazine Beach Park with a beginner Bachata lesson before dancing.",
+        },
+      ],
+      generalNote: "Pop-up and outdoor events can be cancelled or rescheduled - always check the organizer's official post before going.",
+    },
+  },
+  {
+    id: "ask-queer-friendly",
+    prompt: "Are there queer-friendly dance events?",
+    category: "Community",
+    answer: {
+      body: "Yes. Next Level Fusion runs occasional / pop-up inclusive dance events centered on queer/trans/LGBTQIA+ dancers, access, and safety. Their next listed event is a free queer dance party at The Anchor Boston on Friday June 6. Music/style mix isn't confirmed in the post, so treat it as a dance party rather than a Bachata social. Check the official Instagram for exact time and details.",
+      sourceEventIds: ["evt-next-level-queer-jun6"],
+      sourceResourceIds: ["res-next-level-fusion", "res-party-next-level-fusion"],
+      recommendations: [
+        {
+          eventId: "evt-next-level-queer-jun6",
+          label: "Top recommendation",
+          whyThisFits: "Free, queer-friendly, inclusive dance party at The Anchor hosted by Next Level Fusion.",
+        },
+      ],
+      generalNote: "Next Level Fusion is an inclusive dance community, not a recurring weekly Bachata organizer - events are occasional / pop-up.",
+    },
+  },
+  {
+    id: "ask-monthly-studio-social",
+    prompt: "What beginner-friendly studio socials are happening?",
+    category: "Beginner",
+    answer: {
+      body: "Lili Latin Dance hosts a monthly / occasional studio social at 423 W Broadway, Suite 202, South Boston. The next listed one is Friday June 20: ChaCha workshop 6:00-6:55 PM, then social and shows 7:00-10:00 PM. Music is a mix of Salsa, Bachata, Merengue, and party music - good for beginners, but not Bachata-heavy. $10 general / $5 for Lili students. Check Lili's official Instagram for the current monthly social schedule.",
+      sourceEventIds: ["evt-lili-monthly-social"],
+      recommendations: [
+        {
+          eventId: "evt-lili-monthly-social",
+          label: "Top recommendation",
+          whyThisFits: "Beginner-welcome monthly studio social with a workshop before it - mixed Latin music, not Bachata-heavy.",
+        },
+      ],
+      generalNote: "This is a monthly / occasional event, not a weekly recurring social.",
     },
   },
 ];
