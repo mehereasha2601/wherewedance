@@ -1,13 +1,17 @@
 // Mock data shaped like future Prisma seed data.
 // No fetching, no env, no server logic - pure typed objects.
 
+import {
+  PILOT_BASE_DATE,
+  formatDateLabel,
+  getNextOccurrence,
+  parseIsoDate,
+  type DayName,
+} from "@/lib/event-dates";
+
 export type BachataRelevance =
   | "Bachata-heavy"
-  | "Bachata-forward"
-  | "Bachata-included"
-  | "Salsa-first with Bachata"
-  | "Mixed Latin"
-  | "Dance party / mixed styles";
+  | "Bachata-included";
 
 export type BeginnerLabel =
   | "Beginner-friendly"
@@ -41,6 +45,7 @@ export type SourceStatus =
   | "Check official source"
   | "Official Instagram / organizer post"
   | "Official Instagram / domain-expert confirmed Bachata music"
+  | "Community-updated / WhatsApp announcement"
   | "Needs validation";
 
 export type ResourcePrivacy =
