@@ -133,7 +133,7 @@ export function OrganizerDashboardPage() {
             <li key={e.id} className="bg-paper ring-1 ring-ink/10 rounded-2xl p-4">
               <div className="flex items-baseline justify-between gap-3">
                 <p className="font-display italic font-semibold text-lg text-ink">{e.title}</p>
-                <p className="text-[11px] text-ink/60">{e.dayOfWeek}s · {e.startsAt}</p>
+                <p className="text-[11px] text-ink/60">{e.dateLabel}{e.scheduleLabel ? ` · ${e.scheduleLabel}` : ""}</p>
               </div>
               <p className="text-[12px] text-ink/65 mt-1">+{e.rsvps.count} RSVPs · {e.cost}</p>
               <div className="mt-2">
