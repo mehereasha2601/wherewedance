@@ -1,6 +1,7 @@
 import { AppShell } from "@/components/wwd/shell";
 import { EventCard } from "@/components/wwd/event-card";
 import { Link } from "@/components/wwd/ui-router";
+import { OfficialLinks } from "@/components/wwd/official-links";
 import { eventById, organizerBySlug } from "@/data/mock";
 
 export function OrganizerProfilePage({ slug }: { slug: string }) {
@@ -33,6 +34,15 @@ export function OrganizerProfilePage({ slug }: { slug: string }) {
           {organizer.name}
         </h1>
         <p className="text-sm text-ink/75 mt-3 leading-relaxed">{organizer.bio}</p>
+        <OfficialLinks
+          subject={organizer.name}
+          variant="labeled"
+          websiteUrl={organizer.websiteUrl}
+          instagramUrl={organizer.instagramUrl}
+          facebookUrl={organizer.facebookUrl}
+          email={organizer.email}
+          className="mt-4"
+        />
       </section>
 
       <section className="px-5 mt-6">
