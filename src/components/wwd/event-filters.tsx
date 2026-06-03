@@ -43,8 +43,8 @@ const WEEK_DATE_ORDER = [
   "Fri, Jun 13",
   "Sat, Jun 14",
   "Sun, Jun 15",
-  // Additional in-week one-offs (e.g. Next Level Fusion June 6 last Friday,
-  // or Lili June 20 next Friday) appear in their own date group if present.
+// Additional in-week one-offs (e.g. Lili June 20 next Friday) appear in their
+// own date group if present.
   "Fri, Jun 6",
   "Fri, Jun 20",
 ] as const;
