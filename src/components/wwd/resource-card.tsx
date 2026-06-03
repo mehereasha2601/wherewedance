@@ -11,8 +11,20 @@ const privacyStyle: Record<ResourcePrivacy, string> = {
 };
 
 export function ResourceCard({ resource }: { resource: Resource }) {
+  const primaryHref =
+    resource.websiteUrl ?? resource.link ?? resource.instagramUrl ?? resource.facebookUrl;
   return (
-    <article className="bg-paper rounded-2xl ring-1 ring-ink/10 p-4">
+    <article className="relative bg-paper rounded-2xl ring-1 ring-ink/10 p-4 transition hover:-translate-y-0.5 hover:ring-ink/25 focus-within:ring-2 focus-within:ring-terracotta">
+      {primaryHref && (
+        <a
+          href={primaryHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Open ${resource.name}`}
+          className="absolute inset-0 z-0 focus:outline-none"
+        />
+      )}
+      <div className="relative z-10 pointer-events-none [&_a]:pointer-events-auto [&_button]:pointer-events-auto">
       <div className="flex items-start justify-between gap-3 mb-2">
         <h3 className="font-display italic font-semibold text-lg leading-tight text-ink">
           {resource.name}
@@ -55,6 +67,7 @@ export function ResourceCard({ resource }: { resource: Resource }) {
         <span className="text-[10px] uppercase tracking-widest font-bold text-ink/50">
           {resource.category}
         </span>
+      </div>
       </div>
     </article>
   );
