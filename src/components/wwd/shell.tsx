@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
 import { Link } from "./ui-router";
 import { BottomNav } from "./bottom-nav";
-import { AiCaveat } from "./ai-caveat";
 
 export function AppShell({ children }: { children: ReactNode }) {
   return (
@@ -23,7 +22,6 @@ export function AppShell({ children }: { children: ReactNode }) {
         </header>
         <main className="mt-4">{children}</main>
         <footer className="px-5 mt-16 mb-8 space-y-3">
-          <AiCaveat inline />
           <p className="text-[11px] text-ink/65 leading-relaxed">
             Based on currently listed WhereWeDance data. Check the organizer's official posts before going — we're a local guide, not a live source of truth.
           </p>
