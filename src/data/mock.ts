@@ -1785,9 +1785,45 @@ export const mapUrlForEvent = (e: Event): string | null => {
 // "Tonight" is an explicit per-event flag — never derived from the wall clock,
 // so we don't mislabel events on unrelated days. It renders as a small badge
 // only, not as the main date.
-export const isEventTonight = (e: Event): boolean => e.isTonight === true;
+// "Tonight" and "this week" are derived from PILOT_BASE_DATE so the mocked
+// pilot date drives every date-aware filter. Changing PILOT_BASE_DATE updates
+// the homepage live state, /this-week grouping, and the Tonight chip.
+function sameDay(a: Date, b: Date): boolean {
+  return (
+    a.getFullYear() === b.getFullYear() &&
+    a.getMonth() === b.getMonth() &&
+    a.getDate() === b.getDate()
+  );
+}
 
-export const tonightEvents = () => events.filter(isEventTonight);
+function resolvedEventDate(e: Event, base: Date): Date | null {
+  if (e.fixedDate) return parseIsoDate(e.fixedDate);
+  if (e.popUp) return null; // pop-ups without a fixed date have no real date
+  return getNextOccurrence(e.dayOfWeek as DayName, base);
+}
+
+export function isEventOnPilotDate(e: Event, date: Date = PILOT_BASE_DATE): boolean {
+  const d = resolvedEventDate(e, date);
+  if (!d) return false;
+  return sameDay(d, date);
+}
+
+export function getThisWeekEvents(base: Date = PILOT_BASE_DATE): Event[] {
+  const start = new Date(base);
+  start.setHours(0, 0, 0, 0);
+  const end = new Date(start);
+  end.setDate(end.getDate() + 7);
+  return events.filter((e) => {
+    const d = resolvedEventDate(e, base);
+    if (!d) return false;
+    return d >= start && d < end;
+  });
+}
+
+export const isEventTonight = (e: Event): boolean =>
+  isEventOnPilotDate(e, PILOT_BASE_DATE);
+
+export const tonightEvents = () => getThisWeekEvents().filter(isEventTonight);
 
 // Short logistics line for compact cards: e.g. "Cash only · Coat check · Free water".
 export const logisticsSummary = (e: Event): string | null => {
