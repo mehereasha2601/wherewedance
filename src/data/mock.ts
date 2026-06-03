@@ -616,7 +616,18 @@ export const askPrompts: AskPrompt[] = [
       body: "Take a structured class first. Lili Latin Dance runs brand-new tracks Mon–Thu and J&L Dance Studio teaches partner-free fundamentals. Once you've had a few classes, Bachata Room's Wednesday beginner class flows directly into a beginner-friendly social.",
       sourceEventIds: ["evt-lili-social", "evt-bachata-room-wed"],
       showBeginnerPathway: true,
-      showGoodToKnow: true,
+      recommendations: [
+        {
+          eventId: "evt-lili-social",
+          label: "Top recommendation",
+          whyThisFits: "Designed for brand-new dancers, no partner needed, dry studio, facilitated rotations.",
+        },
+        {
+          eventId: "evt-bachata-room-wed",
+          label: "Also consider",
+          whyThisFits: "Beginner class flows directly into a Bachata-heavy social — a natural next step once you've had a few lessons.",
+        },
+      ],
     },
   },
   {
@@ -627,7 +638,18 @@ export const askPrompts: AskPrompt[] = [
       body: "Bachata Room Wednesday and Lili Latin's First-Friday social both facilitate rotations, so people who come alone don't get stuck on the wall. Beginner-friendly and dry — easier for a first solo trip than a late-night bar social.",
       sourceEventIds: ["evt-bachata-room-wed", "evt-lili-social"],
       showBeginnerPathway: true,
-      showGoodToKnow: true,
+      recommendations: [
+        {
+          eventId: "evt-bachata-room-wed",
+          label: "Top recommendation",
+          whyThisFits: "Facilitated rotations and a beginner class before the social — good if you're going alone.",
+        },
+        {
+          eventId: "evt-lili-social",
+          label: "Also consider",
+          whyThisFits: "Studio social aimed at first-timers, dry, rotations are run so no one is stuck on the wall.",
+        },
+      ],
     },
   },
   {
@@ -637,7 +659,23 @@ export const askPrompts: AskPrompt[] = [
     answer: {
       body: "Havana Club Monday and Bachata Room Wednesday are the most Bachata-heavy weeknights. Havana Saturday Live is Bachata-included with a live band rather than purely Bachata-heavy.",
       sourceEventIds: ["evt-havana-mon", "evt-bachata-room-wed", "evt-havana-sat"],
-      showGoodToKnow: true,
+      recommendations: [
+        {
+          eventId: "evt-havana-mon",
+          label: "Top recommendation",
+          whyThisFits: "Bachata-heavy, dry/no alcohol, class before social, serious dancers.",
+        },
+        {
+          eventId: "evt-bachata-room-wed",
+          label: "Also consider",
+          whyThisFits: "Bachata-heavy, beginner class before social, dry event.",
+        },
+        {
+          eventId: "evt-havana-sat",
+          label: "Also consider",
+          whyThisFits: "Bachata-included and popular Saturday event, but not purely Bachata-heavy.",
+        },
+      ],
     },
   },
   {
@@ -647,7 +685,13 @@ export const askPrompts: AskPrompt[] = [
     answer: {
       body: "BOBAS is outdoor and weather-dependent — check their Instagram before heading out. There's usually no class, so it's better if you know the basics or go with a friend. Wear sneakers and bring a water bottle.",
       sourceEventIds: ["evt-bobas"],
-      showGoodToKnow: true,
+      recommendations: [
+        {
+          eventId: "evt-bobas",
+          label: "Top recommendation",
+          whyThisFits: "Free outdoor Thursday — weather-dependent, no class, better if you know basics or bring a friend.",
+        },
+      ],
     },
   },
   {
@@ -657,7 +701,19 @@ export const askPrompts: AskPrompt[] = [
     answer: {
       body: "BOBAS runs free outdoor Thursdays on Broad Street, and Bachata by the River is free on Sundays at the Esplanade. Both are weather-dependent — check IG morning-of.",
       sourceEventIds: ["evt-bobas", "evt-river"],
-      showGoodToKnow: true,
+      recommendations: [
+        {
+          eventId: "evt-bobas",
+          label: "Top recommendation",
+          whyThisFits: "Free, outdoor, Bachata-heavy on Broad Street — no class, weather-dependent.",
+        },
+        {
+          eventId: "evt-river",
+          label: "Also consider",
+          whyThisFits: "Free Sunday afternoon on the Esplanade with a beginner Bachata lesson on the lawn.",
+        },
+      ],
+      generalNote: "Both events are announced on Instagram morning-of and may be cancelled for weather.",
     },
   },
   {
@@ -667,7 +723,28 @@ export const askPrompts: AskPrompt[] = [
     answer: {
       body: "Bachata Room Wednesday, Lili Latin's First-Friday social, and the BOBAS outdoor nights are all dry events — no bar on site. Havana Monday is also now a dry, dance-focused night.",
       sourceEventIds: ["evt-bachata-room-wed", "evt-lili-social", "evt-bobas", "evt-havana-mon"],
-      showGoodToKnow: true,
+      recommendations: [
+        {
+          eventId: "evt-havana-mon",
+          label: "Top recommendation",
+          whyThisFits: "Dry, Bachata-heavy Monday with a beginner class before the social.",
+        },
+        {
+          eventId: "evt-bachata-room-wed",
+          label: "Also consider",
+          whyThisFits: "Dry Wednesday social with a beginner class — Bachata-heavy.",
+        },
+        {
+          eventId: "evt-lili-social",
+          label: "Also consider",
+          whyThisFits: "Dry studio social aimed at first-timers, with facilitated rotations.",
+        },
+        {
+          eventId: "evt-bobas",
+          label: "Also consider",
+          whyThisFits: "Free outdoor Thursday with no bar on site.",
+        },
+      ],
     },
   },
 ];
