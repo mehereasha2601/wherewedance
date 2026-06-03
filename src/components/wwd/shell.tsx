@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
 import { Link } from "./ui-router";
 import { BottomNav } from "./bottom-nav";
-import logoAsset from "@/assets/wherewedance-logo.png.asset.json";
 
 export function AppShell({ children }: { children: ReactNode }) {
   return (
