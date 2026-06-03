@@ -322,7 +322,7 @@ export const organizers: Organizer[] = [
     slug: "sabor-latino-boston",
     name: "Sabor Latino Boston",
     bio: "Sabor Latino Boston runs Saborcito - a free outdoor Latin social at The Anchor with a beginner lesson.",
-    values: ["Free outdoor social", "Beginner lesson included", "Salsa-first with Bachata"],
+    values: ["Free outdoor social", "Beginner lesson included", "mixed Salsa/Bachata"],
     recurringEventIds: ["evt-saborcito"],
     type: "Outdoor Latin dance event organizer",
     typeFilter: "Outdoor pop-up organizer",
@@ -431,13 +431,13 @@ export const organizers: Organizer[] = [
     id: "org-booze-bachata",
     slug: "booze-and-bachata",
     name: "Booze & Bachata",
-    bio: "Booze & Bachata is a Bachata-forward pop-up/social dance organizer. Check Instagram for current event dates, venues, class details, tickets, and age requirements.",
-    values: ["Bachata-forward", "Pop-up socials", "Social/nightlife setting"],
+    bio: "Booze & Bachata is a Bachata-focused pop-up/social dance organizer. Check Instagram for current event dates, venues, class details, tickets, and age requirements.",
+    values: ["Bachata-focused", "Pop-up socials", "Social/nightlife setting"],
     recurringEventIds: [],
     type: "Pop-up Bachata social organizer",
     typeFilter: "Pop-up Bachata social organizer",
-    secondaryTags: ["Pop-up", "Bachata-forward", "Social dance events", "Check Instagram"],
-    bestFor: "Bachata-forward pop-up socials, intimate social dance events, and dancers looking for a Bachata event in a social/nightlife setting",
+    secondaryTags: ["Pop-up", "Bachata-focused", "Social dance events", "Check Instagram"],
+    bestFor: "Bachata-focused pop-up socials, intimate social dance events, and dancers looking for a Bachata event in a social/nightlife setting",
     instagramUrl: "https://www.instagram.com/boozeandbachata/",
     sourceUrl: "https://www.instagram.com/boozeandbachata/",
     sourceStatus: "Instagram / verified",
@@ -447,13 +447,13 @@ export const organizers: Organizer[] = [
     id: "org-tambo",
     slug: "tambo-salsa-social",
     name: "Tambo Salsa Social",
-    bio: "Tambo Salsa Social runs a weekly Friday mixed Salsa/Bachata social at Dante Alighieri Society in Cambridge with a Salsa class before the social. Salsa-first with Bachata included — not Bachata-heavy.",
+    bio: "Tambo Salsa Social runs a weekly Friday mixed Salsa/Bachata social at Dante Alighieri Society in Cambridge with a Salsa class before the social. mixed Salsa/Bachata, not Bachata-heavy — not Bachata-heavy.",
     values: ["Weekly Friday mixed Salsa/Bachata social", "Salsa class before social", "Bachata-included"],
     recurringEventIds: ["evt-tambo-fri"],
     type: "Weekly Salsa/Bachata social organizer",
     typeFilter: "Weekly Bachata social organizer",
     secondaryTags: ["Salsa-first", "Bachata-included", "Cambridge", "Friday"],
-    bestFor: "Friday mixed Salsa/Bachata social, Salsa-first dancers, social dancing at Dante Alighieri Society",
+    bestFor: "Friday mixed Salsa/Bachata social, mixed Salsa/Bachata dancers, social dancing at Dante Alighieri Society",
     websiteUrl: "https://www.tambosalsa.com/",
     instagramUrl: "https://www.instagram.com/tambosalsa/",
     sourceUrl: "https://www.salsaycontrol.com/events",
@@ -786,8 +786,8 @@ export const events: Event[] = [
     slug: "jl-underground",
     title: "J&L Underground Social",
     organizerId: "org-jl",
-    venue: "J&L Dance Studio or announced venue - check official source",
-    address: "75 Pleasant Street, #125, Malden, MA 02148 (if at studio) - otherwise check official source",
+     venue: "J&L Underground Social",
+     address: "Location TBA — check J&L's official source.",
     dayOfWeek: "Friday",
     startsAt: "TBD",
     endsAt: "TBD",
@@ -805,6 +805,7 @@ export const events: Event[] = [
     dateLabel: "",
     scheduleLabel: "Check official source",
     goodToKnow: [
+      "J&L Dance Studio is based in Malden, but Underground event location should be confirmed from the official event post.",
       "J&L is known for structured Bachata/Salsa classes and fundamentals.",
       "Their social schedule can change.",
       "Check official source before going.",
@@ -1760,7 +1761,7 @@ export const askPrompts: AskPrompt[] = [
     prompt: "What outdoor/free events are happening?",
     category: "Logistics",
     answer: {
-      body: "Outdoor and free options to keep an eye on, if date-relevant: BOBAS free outdoor Salsa/Bachata pop-ups at the Charles River Dock (check Facebook, then Instagram), Saborcito @ The Anchor when running, Bachata by the River at Magazine Beach Park with a beginner Bachata lesson, and Starry Boston's Lakeside Yappin & Grillin as a community outing — not a formal dance social. Outdoor and pop-up events can change quickly — check the official/source link before going.",
+      body: "Outdoor and free options can include BOBAS, Saborcito, Bachata by the River, and community outings when currently listed. Check the event cards below and official/source links before going.",
       sourceEventIds: ["evt-bobas", "evt-saborcito", "evt-river", "event-starry-lakeside-yappin-grillin-jun-7"],
       recommendations: [
         {
@@ -1856,7 +1857,7 @@ export const askPrompts: AskPrompt[] = [
     prompt: "What community events are happening?",
     category: "Community",
     answer: {
-      body: "Starry Boston's Lakeside Yappin & Grillin is a community outing at Shannon Beach when date-relevant. It is not a formal dance social, but it is useful for meeting people in the dance community.",
+      body: "Community outings appear here only when currently listed.",
       sourceEventIds: ["event-starry-lakeside-yappin-grillin-jun-7"],
       sourceResourceIds: ["res-starry-boston"],
       recommendations: [
@@ -1874,7 +1875,7 @@ export const askPrompts: AskPrompt[] = [
     prompt: "Are there queer-friendly dance events?",
     category: "Community",
     answer: {
-      body: "Yes. Next Level Fusion is a queer-inclusive dance community that runs occasional / pop-up inclusive events centered on queer/trans/LGBTQIA+ dancers, access, and safety. When date-relevant, their inclusive events at The Anchor Boston include Bachata music. They host occasional inclusive events; check their official Instagram for current dates.",
+      body: "Next Level Fusion is a queer-inclusive dance community. When an event is currently listed, it will appear below. Otherwise, check their official Instagram.",
       sourceEventIds: ["evt-next-level-queer-jun6"],
       sourceResourceIds: ["res-next-level-fusion", "res-party-next-level-fusion"],
       recommendations: [
@@ -1921,7 +1922,7 @@ export const mapUrlForEvent = (e: Event): string | null => {
   if (e.mapUrl) return e.mapUrl;
   if (!e.address) return null;
   const vague =
-    /(DM organizer|TBD|check Instagram|check WhatsApp|check official|check source|announced|exact location|outdoor pop-up)/i;
+    /(DM organizer|TBD|TBA|check Instagram|check WhatsApp|check official|check source|announced|exact location|outdoor pop-up)/i;
   if (vague.test(e.address)) return null;
   const q = encodeURIComponent(`${e.venue}, ${e.address}`);
   return `https://maps.google.com/?q=${q}`;

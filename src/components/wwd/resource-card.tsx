@@ -11,10 +11,29 @@ const privacyStyle: Record<ResourcePrivacy, string> = {
   "Needs validation": "bg-paper text-ink ring-1 ring-ink/30",
 };
 
+// Only allow known internal routes for full-card Link to keep TanStack Router
+// type-safety happy and avoid dead links.
+const KNOWN_INTERNAL_ROUTES = [
+  "/values",
+  "/beginner-guide",
+  "/resources",
+  "/contact",
+  "/organizers",
+  "/safety",
+] as const;
+type KnownInternalRoute = (typeof KNOWN_INTERNAL_ROUTES)[number];
+function isKnownInternalRoute(href: string): href is KnownInternalRoute {
+  return (KNOWN_INTERNAL_ROUTES as readonly string[]).includes(href);
+}
+
 export function ResourceCard({ resource }: { resource: Resource }) {
   const primaryHref =
     resource.websiteUrl ?? resource.link ?? resource.instagramUrl ?? resource.facebookUrl;
   const isInternal = !!primaryHref && primaryHref.startsWith("/");
+  const internalTo: KnownInternalRoute | null =
+    isInternal && primaryHref && isKnownInternalRoute(primaryHref)
+      ? primaryHref
+      : null;
   // Avoid putting internal app routes into the external icon-link row.
   const externalWebsite =
     resource.websiteUrl && !resource.websiteUrl.startsWith("/")
@@ -24,9 +43,9 @@ export function ResourceCard({ resource }: { resource: Resource }) {
         : undefined;
   return (
     <article className="relative bg-paper rounded-2xl ring-1 ring-ink/10 p-4 transition hover:-translate-y-0.5 hover:ring-ink/25 focus-within:ring-2 focus-within:ring-terracotta">
-      {primaryHref && isInternal && (
+      {internalTo && (
         <Link
-          to={primaryHref}
+          to={internalTo}
           aria-label={`Open ${resource.name}`}
           className="absolute inset-0 z-0 focus:outline-none"
         />

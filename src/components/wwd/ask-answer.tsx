@@ -134,13 +134,22 @@ export function AskAnswer({ prompt }: { prompt: AskPrompt }) {
                     </li>
                   );
                 }
-                if (href.startsWith("/")) {
+                const KNOWN = ["/values", "/beginner-guide", "/resources", "/contact", "/organizers", "/safety"] as const;
+                type Known = (typeof KNOWN)[number];
+                if (href.startsWith("/") && (KNOWN as readonly string[]).includes(href)) {
                   return (
                     <li key={r.id} className="text-[12px] text-ink/80">
                       ·{" "}
-                      <Link to={href} className="font-bold text-terracotta hover:underline">
+                      <Link to={href as Known} className="font-bold text-terracotta hover:underline">
                         {r.name}
                       </Link>
+                    </li>
+                  );
+                }
+                if (href.startsWith("/")) {
+                  return (
+                    <li key={r.id} className="text-[12px] text-ink/80">
+                      · {r.name}
                     </li>
                   );
                 }
