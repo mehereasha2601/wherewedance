@@ -1,5 +1,6 @@
 import { AppShell, PageHero } from "@/components/wwd/shell";
 import { BuddyCard } from "@/components/wwd/buddy-card";
+import { ComingSoonBanner } from "@/components/wwd/coming-soon-banner";
 import { buddies } from "@/data/mock";
 
 export function BuddiesPage() {
@@ -11,14 +12,16 @@ export function BuddiesPage() {
         description="We're designing a safer way for dancers to find practice partners based on level, goals, location, availability, and comfort preferences."
       />
 
-      <section className="px-5 mt-6 bg-magenta/15 ring-1 ring-magenta/40 rounded-2xl p-4">
-        <p className="text-[10px] uppercase tracking-widest font-bold text-magenta mb-1">
-          Coming soon
-        </p>
-        <p className="text-[12px] text-ink/80 leading-relaxed">
-          This feature is not active yet. No posts are real, and no private
-          messaging is available in this prototype.
-        </p>
+      <section className="px-5 mt-6">
+        <ComingSoonBanner
+          description="This feature is not active yet. No posts are real, and no private messaging is available in this prototype."
+          bullets={[
+            "Create a dancer profile.",
+            "Share your level, role, goals, and availability.",
+            "Choose what information is public.",
+            "Connect at public classes, socials, or practice spaces first.",
+          ]}
+        />
       </section>
 
       <section className="px-5 mt-8">
