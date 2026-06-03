@@ -1784,48 +1784,56 @@ export const mapUrlForEvent = (e: Event): string | null => {
   return `https://maps.google.com/?q=${q}`;
 };
 
-// "Tonight" is an explicit per-event flag — never derived from the wall clock,
-// so we don't mislabel events on unrelated days. It renders as a small badge
-// only, not as the main date.
-// "Tonight" and "this week" are derived from PILOT_BASE_DATE so the mocked
-// pilot date drives every date-aware filter. Changing PILOT_BASE_DATE updates
-// the homepage live state, /this-week grouping, and the Tonight chip.
-function sameDay(a: Date, b: Date): boolean {
-  return (
-    a.getFullYear() === b.getFullYear() &&
-    a.getMonth() === b.getMonth() &&
-    a.getDate() === b.getDate()
-  );
-}
-
-function resolvedEventDate(e: Event, base: Date): Date | null {
+// "Tonight" and "this week" are derived from the real current date in
+// America/New_York. There is no simulated pilot date. "This Week" is the
+// current Monday–Sunday calendar week, not a rolling 7-day window.
+function resolvedEventDateInWeek(e: Event, weekStart: Date): Date | null {
   if (e.fixedDate) return parseIsoDate(e.fixedDate);
   if (e.popUp) return null; // pop-ups without a fixed date have no real date
-  return getNextOccurrence(e.dayOfWeek as DayName, base);
+  return getOccurrenceInWeek(e.dayOfWeek as DayName, weekStart);
 }
 
-export function isEventOnPilotDate(e: Event, date: Date = PILOT_BASE_DATE): boolean {
-  const d = resolvedEventDate(e, date);
-  if (!d) return false;
-  return sameDay(d, date);
+export function isEventTonight(
+  e: Event,
+  today: Date = getTodayInBoston(),
+): boolean {
+  if (e.fixedDate) return isSameLocalDay(parseIsoDate(e.fixedDate), today);
+  if (e.popUp) return false;
+  const weekday = ([
+    "Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday",
+  ] as const)[today.getDay()];
+  return e.dayOfWeek === weekday;
 }
 
-export function getThisWeekEvents(base: Date = PILOT_BASE_DATE): Event[] {
-  const start = new Date(base);
-  start.setHours(0, 0, 0, 0);
-  const end = new Date(start);
-  end.setDate(end.getDate() + 7);
+export function getThisWeekEvents(today: Date = getTodayInBoston()): Event[] {
+  const weekStart = getStartOfWeekMonday(today);
+  const weekEnd = getEndOfWeekSunday(today);
+  const startTs = weekStart.getTime();
+  const endTs = weekEnd.getTime();
   return events.filter((e) => {
-    const d = resolvedEventDate(e, base);
+    const d = resolvedEventDateInWeek(e, weekStart);
     if (!d) return false;
-    return d >= start && d < end;
+    const t = d.getTime();
+    return t >= startTs && t <= endTs;
   });
 }
 
-export const isEventTonight = (e: Event): boolean =>
-  isEventOnPilotDate(e, PILOT_BASE_DATE);
+export const tonightEvents = (today: Date = getTodayInBoston()) =>
+  getThisWeekEvents(today).filter((e) => isEventTonight(e, today));
 
-export const tonightEvents = () => getThisWeekEvents().filter(isEventTonight);
+// True if this event is a one-off (has a fixed date and no recurrence) whose
+// fixedDate is strictly before today. Used by /events to hide stale one-offs.
+export function isPastOneOff(
+  e: Event,
+  today: Date = getTodayInBoston(),
+): boolean {
+  if (!e.fixedDate) return false;
+  const d = parseIsoDate(e.fixedDate);
+  d.setHours(12, 0, 0, 0);
+  const t = new Date(today);
+  t.setHours(12, 0, 0, 0);
+  return d.getTime() < t.getTime();
+}
 
 // Short logistics line for compact cards: e.g. "Cash only · Coat check · Free water".
 export const logisticsSummary = (e: Event): string | null => {
