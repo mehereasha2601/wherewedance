@@ -482,6 +482,8 @@ export const events: Event[] = [
     scheduleReliability: "Weekly recurring, very reliable",
     sourceStatus: "From public listing",
     lastVerified: "2026-06-02",
+    dateLabel: "Tue, Jun 10",
+    scheduleLabel: "Lessons 8:15–9:15 PM · Social 9:15 PM–12:30 AM",
     goodToKnow: [
       "Mixed Salsa/Bachata night (~60% Bachata / 40% Salsa where supported)",
       "Beginner + intermediate lessons before social",
@@ -521,6 +523,8 @@ export const events: Event[] = [
     scheduleReliability: "Weekly recurring, very reliable",
     sourceStatus: "Official website",
     lastVerified: "2026-06-02",
+    dateLabel: "Thu, Jun 12",
+    scheduleLabel: "Lessons 8:45–9:45 PM · Party 9:45 PM–12:30 AM",
     goodToKnow: [
       "Bachata-heavy Thursday night (~80% Bachata / 20% Salsa)",
       "Doors 8:30 PM · lessons 8:45–9:45 PM · party 9:45 PM–12:30 AM",
@@ -562,6 +566,8 @@ export const events: Event[] = [
     scheduleReliability: "Weekly recurring, very reliable",
     sourceStatus: "From public listing",
     lastVerified: "2026-06-02",
+    dateLabel: "Fri, Jun 13",
+    scheduleLabel: "Lessons before social · Party 9:15 PM–2:00 AM",
     goodToKnow: [
       "Mixed Bachata/Salsa late-night party",
       "Lessons before dancing",
@@ -600,6 +606,8 @@ export const events: Event[] = [
     scheduleReliability: "Weekly recurring, very reliable",
     sourceStatus: "From public listing",
     lastVerified: "2026-06-02",
+    dateLabel: "Sun, Jun 15",
+    scheduleLabel: "Lessons/practica from 7:15 PM · Social 8:15–11:30 PM",
     goodToKnow: [
       "Bachata-heavy Sunday option",
       "No alcohol / dry event · 18+",
@@ -639,6 +647,8 @@ export const events: Event[] = [
     scheduleReliability: "Weekly recurring, very reliable",
     sourceStatus: "Official website",
     lastVerified: "2026-05-30",
+    dateLabel: "Sat, Jun 14",
+    scheduleLabel: "Lessons before dancing · Party 9:15 PM–2:00 AM",
     goodToKnow: [
       "Large Saturday crowd (~70% Bachata / 25% Salsa / 5% Merengue)",
       "Beginner + intermediate Bachata/Salsa lessons before dancing",
@@ -680,6 +690,8 @@ export const events: Event[] = [
     scheduleReliability: "Weekly recurring, very reliable",
     sourceStatus: "Official website",
     lastVerified: "2026-06-01",
+    dateLabel: "Wed, Jun 11",
+    scheduleLabel: "9:00 PM (class + social)",
     goodToKnow: [
       "Wednesday 9:00 PM class + social.",
       "Class before social: beginner-friendly Bachata/Salsa class followed by social dancing.",
