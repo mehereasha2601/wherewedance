@@ -1922,7 +1922,7 @@ export const mapUrlForEvent = (e: Event): string | null => {
   if (e.mapUrl) return e.mapUrl;
   if (!e.address) return null;
   const vague =
-    /(DM organizer|TBD|check Instagram|check WhatsApp|check official|check source|announced|exact location|outdoor pop-up)/i;
+    /(DM organizer|TBD|TBA|check Instagram|check WhatsApp|check official|check source|announced|exact location|outdoor pop-up)/i;
   if (vague.test(e.address)) return null;
   const q = encodeURIComponent(`${e.venue}, ${e.address}`);
   return `https://maps.google.com/?q=${q}`;
