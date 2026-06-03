@@ -130,6 +130,7 @@ export type Event = {
   paymentNotes?: string;
   coatCheck?: string;
   amenities?: string[];
+  secondaryTags?: string[];
 };
 
 
