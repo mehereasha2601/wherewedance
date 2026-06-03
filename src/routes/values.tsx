@@ -8,6 +8,20 @@ export const Route = createFileRoute("/values")({
       { name: "description", content: "The floor we're trying to keep. Co-written with local organizers." },
       { property: "og:title", content: "WhereWeDance Community Values" },
       { property: "og:description", content: "The floor we're trying to keep." },
+      { property: "og:url", content: "/values" },
+    ],
+    links: [{ rel: "canonical", href: "/values" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: "WhereWeDance Community Values",
+          description: "The floor we're trying to keep. Co-written with local organizers.",
+          author: { "@type": "Organization", name: "WhereWeDance" },
+        }),
+      },
     ],
   }),
   component: ValuesPage,

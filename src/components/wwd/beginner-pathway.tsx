@@ -47,9 +47,9 @@ export function BeginnerPathway({ compact = false }: { compact?: boolean }) {
   return (
     <section className="bg-mango/15 ring-1 ring-mango/40 rounded-3xl p-5">
       <div className="flex items-baseline justify-between mb-1">
-        <h3 className="font-display italic font-semibold text-2xl leading-none text-ink">
+        <h2 className="font-display italic font-semibold text-2xl leading-none text-ink">
           Beginner <span className="text-terracotta">pathway</span>
-        </h3>
+        </h2>
         <span className="text-[10px] uppercase tracking-widest font-bold text-ink/50">
           4 steps
         </span>
@@ -65,9 +65,9 @@ export function BeginnerPathway({ compact = false }: { compact?: boolean }) {
             </span>
             <div className="flex-1">
               <div className="flex items-baseline gap-2 flex-wrap">
-                <h4 className="font-display italic font-semibold text-lg leading-tight text-ink">
+                <h3 className="font-display italic font-semibold text-lg leading-tight text-ink">
                   {s.title}
-                </h4>
+                </h3>
                 {s.badge && (
                   <span className="text-[9px] uppercase tracking-widest font-bold text-ink/60 bg-paper ring-1 ring-ink/15 px-1.5 py-0.5 rounded">
                     {s.badge}

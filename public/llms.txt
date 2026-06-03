@@ -1,0 +1,22 @@
+# WhereWeDance
+
+> A local guide to Boston's bachata scene: socials, classes, organizers, beginner resources, and community values. UI prototype with mock data.
+
+## Pages
+
+- [Home](/): Landing overview of the Boston bachata pilot.
+- [This Week](/this-week): Every Boston bachata social and class, night by night.
+- [All Events](/events): Full directory of listed bachata socials and classes.
+- [Organizers](/organizers): Studios, collectives, and community groups behind Boston's bachata nights.
+- [Resources](/resources): Community docs, playlists, comps, and groups.
+- [Beginner Guide](/beginner-guide): A safe route from zero to your first social.
+- [Boston Bachata Scene](/boston-bachata): Plain-words guide to weekly rhythm, venues, and etiquette.
+- [Community Values](/values): The floor we're trying to keep, co-written with organizers.
+- [Ask WhereWeDance](/ask): Grounded local Q&A that cites events and resources.
+- [Practice Buddies](/buddies): Public board for finding drill partners.
+- [Contact](/contact): Suggest corrections, resources, new cities or styles.
+- [Safety](/safety): How to report a safety concern.
+
+## Optional
+
+- [More](/more): Index of secondary pages.

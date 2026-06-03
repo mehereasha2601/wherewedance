@@ -8,7 +8,9 @@ export const Route = createFileRoute("/boston-bachata")({
       { name: "description", content: "A plain-words guide to Boston bachata: weekly rhythm, key venues, etiquette." },
       { property: "og:title", content: "Boston Bachata Scene" },
       { property: "og:description", content: "A plain-words guide to Boston bachata." },
+      { property: "og:url", content: "/boston-bachata" },
     ],
+    links: [{ rel: "canonical", href: "/boston-bachata" }],
   }),
   component: BostonBachataPage,
 });

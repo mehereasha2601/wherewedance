@@ -8,7 +8,9 @@ export const Route = createFileRoute("/safety")({
       { name: "description", content: "Report privately to the safety team. Anonymous optional." },
       { property: "og:title", content: "Report a Safety Concern" },
       { property: "og:description", content: "Private. Anonymous optional. Not a public accusation wall. Not an emergency service." },
+      { property: "og:url", content: "/safety" },
     ],
+    links: [{ rel: "canonical", href: "/safety" }],
   }),
   component: SafetyPage,
 });

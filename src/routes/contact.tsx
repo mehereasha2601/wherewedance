@@ -16,7 +16,9 @@ export const Route = createFileRoute("/contact")({
         content:
           "Help us keep Boston Bachata listings accurate, useful, and community-safe.",
       },
+      { property: "og:url", content: "/contact" },
     ],
+    links: [{ rel: "canonical", href: "/contact" }],
   }),
   component: ContactPage,
 });
