@@ -818,6 +818,7 @@ export const events: Event[] = [
     startsAt: "Check Instagram",
     endsAt: "Check Instagram",
     popUp: true,
+    thisWeek: true,
     scheduleNote: "This Friday · weather-dependent pop-up — check Instagram",
     cover: "from-mango via-magenta to-terracotta",
     bachataRelevance: "Bachata-included",
