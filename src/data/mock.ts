@@ -1073,21 +1073,25 @@ export const events: Event[] = [
   },
 ];
 
-// Compute dateLabel for every event from PILOT_BASE_DATE. This replaces all
-// hardcoded weekday/date strings so the labels stay accurate when the pilot
-// base date changes. Rules:
-//   - fixedDate present  → format that date
+// Compute dateLabel for every event from TODAY in Boston/Eastern time. The
+// current Monday–Sunday week anchors recurring events to real calendar dates
+// inside that fixed week. Rules:
+//   - fixedDate present       → format that date
 //   - popUp without fixedDate → "Monthly / date TBA"
-//   - otherwise → next occurrence of dayOfWeek on/after PILOT_BASE_DATE
-for (const e of events) {
-  if (e.fixedDate) {
-    e.dateLabel = formatDateLabel(parseIsoDate(e.fixedDate));
-  } else if (e.popUp) {
-    e.dateLabel = "Monthly / date TBA";
-  } else {
-    e.dateLabel = formatDateLabel(
-      getNextOccurrence(e.dayOfWeek as DayName, PILOT_BASE_DATE),
-    );
+//   - recurring weekly        → occurrence inside the current Mon–Sun week
+{
+  const today = getTodayInBoston();
+  const weekStart = getStartOfWeekMonday(today);
+  for (const e of events) {
+    if (e.fixedDate) {
+      e.dateLabel = formatDateLabel(parseIsoDate(e.fixedDate));
+    } else if (e.popUp) {
+      e.dateLabel = "Monthly / date TBA";
+    } else {
+      e.dateLabel = formatDateLabel(
+        getOccurrenceInWeek(e.dayOfWeek as DayName, weekStart),
+      );
+    }
   }
 }
 
