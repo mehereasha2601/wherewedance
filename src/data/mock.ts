@@ -3,6 +3,7 @@
 
 export type BachataRelevance =
   | "Bachata-heavy"
+  | "Bachata-forward"
   | "Bachata-included"
   | "Salsa-first with bachata";
 
@@ -11,22 +12,12 @@ export type BeginnerLabel =
   | "Beginner-welcome"
   | "Intermediate+";
 
-export type WaterAvailability =
-  | "Free water"
-  | "Water for sale"
-  | "BYO water"
-  | "Unknown";
-
-export type AlcoholPolicy =
-  | "Bar on site"
-  | "BYOB"
-  | "Dry event"
-  | "21+";
-
-export type ScheduleReliability =
-  | "Weekly recurring, very reliable"
-  | "Recurring, occasional cancellations"
-  | "One-off";
+// Loosened to strings so events can carry verified copy from official sources
+// (e.g. "Bring water recommended", "Weather-dependent pop-up — check Instagram").
+// Filters still compare against canonical values like "Dry event".
+export type WaterAvailability = string;
+export type AlcoholPolicy = string;
+export type ScheduleReliability = string;
 
 export type SourceStatus =
   | "Verified by organizer"
@@ -44,6 +35,8 @@ export type SourceStatus =
   | "Instagram / Facebook / public listing"
   | "Public Spotify playlist / Instagram"
   | "Public SoundCloud / Instagram"
+  | "Community-known"
+  | "Check official source"
   | "Needs validation";
 
 export type ResourcePrivacy =
