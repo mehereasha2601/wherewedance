@@ -51,6 +51,11 @@ export type Organizer = {
   type?: string;
   bestFor?: string;
   profileLink?: string;
+  websiteUrl?: string;
+  instagramUrl?: string;
+  facebookUrl?: string;
+  email?: string;
+  sourceUrl?: string;
 };
 
 export type Event = {
@@ -86,6 +91,12 @@ export type Event = {
   tonight?: boolean;
   popUp?: boolean;
   scheduleNote?: string;
+  officialUrl?: string;
+  ticketUrl?: string;
+  instagramUrl?: string;
+  facebookUrl?: string;
+  websiteUrl?: string;
+  mapUrl?: string;
 };
 
 export type Resource = {
@@ -97,6 +108,10 @@ export type Resource = {
   sourceStatus: SourceStatus;
   lastVerified: string;
   link?: string;
+  websiteUrl?: string;
+  instagramUrl?: string;
+  facebookUrl?: string;
+  howToJoin?: string;
 };
 
 export type Buddy = {
@@ -155,6 +170,8 @@ export const organizers: Organizer[] = [
     ],
     type: "Weekly Latin social club",
     bestFor: "Bachata-heavy Mondays/Thursdays/Sundays + mixed Salsa/Bachata Tue/Fri/Sat — lessons before the social",
+    websiteUrl: "#",
+    instagramUrl: "#",
   },
   {
     id: "org-bachata-room",
@@ -165,6 +182,7 @@ export const organizers: Organizer[] = [
     recurringEventIds: ["evt-bachata-room-wed"],
     type: "Weekly social + class",
     bestFor: "Mid-week Bachata-heavy social with a beginner track",
+    instagramUrl: "#",
   },
   {
     id: "org-jl",
@@ -175,6 +193,7 @@ export const organizers: Organizer[] = [
     recurringEventIds: ["evt-jl"],
     type: "Pop-up social",
     bestFor: "Intermediate+ sensual bachata with active consent",
+    instagramUrl: "#",
   },
   {
     id: "org-lili",
@@ -185,6 +204,8 @@ export const organizers: Organizer[] = [
     recurringEventIds: ["evt-lili-social"],
     type: "Dance studio",
     bestFor: "Brand-new dancers — structured classes, no partner needed",
+    websiteUrl: "#",
+    instagramUrl: "#",
   },
   {
     id: "org-bobas",
@@ -195,6 +216,7 @@ export const organizers: Organizer[] = [
     recurringEventIds: ["evt-bobas"],
     type: "Outdoor pop-up organizer",
     bestFor: "Free outdoor Salsa/Bachata, dancers who know basics, community outdoor vibes",
+    instagramUrl: "#",
   },
   {
     id: "org-saborcito",
@@ -205,6 +227,7 @@ export const organizers: Organizer[] = [
     recurringEventIds: ["evt-saborcito"],
     type: "Outdoor social",
     bestFor: "Free outdoor Salsa-first social with beginner lesson",
+    instagramUrl: "#",
   },
   {
     id: "org-starry",
@@ -215,6 +238,8 @@ export const organizers: Organizer[] = [
     recurringEventIds: [],
     type: "Community group",
     bestFor: "Cross-scene values, consent, and safer-floor resources",
+    websiteUrl: "#",
+    instagramUrl: "#",
   },
   {
     id: "org-next-level",
@@ -436,6 +461,8 @@ export const events: Event[] = [
     rsvps: { count: 64, initials: ["LI", "MA", "RB"] },
     cost: "$12",
     tonight: true,
+    officialUrl: "#",
+    instagramUrl: "#",
   },
   {
     id: "evt-jl",
@@ -523,6 +550,7 @@ export const events: Event[] = [
     communityNote: "Managed by community dancers who love dancing. Great outdoor vibe, but can feel socially intimidating if you go alone as a complete beginner.",
     rsvps: { count: 88, initials: ["CA", "RO", "MI"] },
     cost: "Free",
+    instagramUrl: "#",
   },
   {
     id: "evt-river",
@@ -550,6 +578,7 @@ export const events: Event[] = [
     ],
     rsvps: { count: 71, initials: ["TI", "AL", "BE"] },
     cost: "Free",
+    instagramUrl: "#",
   },
   {
     id: "evt-saborcito",
@@ -579,6 +608,8 @@ export const events: Event[] = [
     communityNote: "Good outdoor option for beginners who want a low-pressure setting, but not a Bachata-heavy event.",
     rsvps: { count: 0, initials: [] },
     cost: "Free",
+    instagramUrl: "#",
+    officialUrl: "#",
   },
 ];
 
@@ -594,6 +625,8 @@ export const resources: Resource[] = [
     sourceStatus: "Verified by community",
     lastVerified: "2026-05-15",
     link: "#",
+    websiteUrl: "#",
+    instagramUrl: "#",
   },
   {
     id: "res-flow",
@@ -604,6 +637,8 @@ export const resources: Resource[] = [
     sourceStatus: "Verified by organizer",
     lastVerified: "2026-05-10",
     link: "#",
+    websiteUrl: "#",
+    instagramUrl: "#",
   },
   {
     id: "res-next-level",
@@ -613,6 +648,8 @@ export const resources: Resource[] = [
     privacyStatus: "DM to join",
     sourceStatus: "Verified by community",
     lastVerified: "2026-05-18",
+    howToJoin: "DM Instagram to join",
+    instagramUrl: "#",
   },
   {
     id: "res-house-circle",
@@ -622,6 +659,7 @@ export const resources: Resource[] = [
     privacyStatus: "Private group",
     sourceStatus: "Verified by community",
     lastVerified: "2026-05-08",
+    howToJoin: "Ask organizer for an intro — invite-only",
   },
   {
     id: "res-organizer-circle",
@@ -631,6 +669,7 @@ export const resources: Resource[] = [
     privacyStatus: "Ask organizer",
     sourceStatus: "Verified by organizer",
     lastVerified: "2026-05-12",
+    howToJoin: "Ask an existing organizer for an intro",
   },
   {
     id: "res-djset",
@@ -641,6 +680,8 @@ export const resources: Resource[] = [
     sourceStatus: "Verified by community",
     lastVerified: "2026-05-19",
     link: "#",
+    websiteUrl: "#",
+    instagramUrl: "#",
   },
   {
     id: "res-mystery-pop",
@@ -659,6 +700,8 @@ export const resources: Resource[] = [
     privacyStatus: "Needs validation",
     sourceStatus: "Needs validation",
     lastVerified: "2026-05-29",
+    howToJoin: "DM Instagram to join",
+    instagramUrl: "#",
   },
 ];
 
@@ -909,6 +952,15 @@ export const eventBySlug = (slug: string) => events.find((e) => e.slug === slug)
 export const organizerById = (id: string) => organizers.find((o) => o.id === id);
 export const organizerBySlug = (slug: string) => organizers.find((o) => o.slug === slug);
 export const resourceById = (id: string) => resources.find((r) => r.id === id);
+
+// Build a Google Maps URL for an event. Returns the explicit mapUrl when set,
+// otherwise composes one from venue + address. Returns null when neither is usable.
+export const mapUrlForEvent = (e: Event): string | null => {
+  if (e.mapUrl) return e.mapUrl;
+  if (!e.address || /DM organizer|TBD/i.test(e.address)) return null;
+  const q = encodeURIComponent(`${e.venue}, ${e.address}`);
+  return `https://maps.google.com/?q=${q}`;
+};
 
 export const tonightEvents = () => events.filter((e) => e.tonight);
 export const eventsByDay = () => {

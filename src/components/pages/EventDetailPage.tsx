@@ -3,7 +3,8 @@ import { BeginnerTag, SceneTag } from "@/components/wwd/tags";
 import { GoodToKnow } from "@/components/wwd/good-to-know";
 import { SourceLabel } from "@/components/wwd/source-label";
 import { Link } from "@/components/wwd/ui-router";
-import { eventBySlug, organizerById } from "@/data/mock";
+import { eventBySlug, organizerById, mapUrlForEvent } from "@/data/mock";
+import { OfficialLinks } from "@/components/wwd/official-links";
 
 export function EventDetailPage({ slug }: { slug: string }) {
   const event = eventBySlug(slug);
@@ -21,6 +22,11 @@ export function EventDetailPage({ slug }: { slug: string }) {
     );
   }
   const organizer = organizerById(event.organizerId);
+  const mapUrl = mapUrlForEvent(event);
+  const hasOfficialLinks = Boolean(
+    event.officialUrl || event.websiteUrl || event.instagramUrl ||
+    event.facebookUrl || event.ticketUrl || mapUrl
+  );
 
   return (
     <AppShell>
@@ -80,15 +86,36 @@ export function EventDetailPage({ slug }: { slug: string }) {
           <p className="text-[15px] font-semibold text-ink/80 leading-relaxed">{event.venue}</p>
           <p className="text-[13px] text-ink/60 leading-relaxed">{event.address}</p>
         </div>
-        <a
-          href={`https://maps.google.com/?q=${encodeURIComponent(`${event.venue}, ${event.address}`)}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block mt-3 text-[11px] font-bold uppercase tracking-widest text-terracotta"
-        >
-          Open maps →
-        </a>
+        {mapUrl && (
+          <a
+            href={mapUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Open ${event.venue} in maps`}
+            className="inline-block mt-3 text-[11px] font-bold uppercase tracking-widest text-terracotta"
+          >
+            Open maps →
+          </a>
+        )}
       </section>
+
+      {hasOfficialLinks && (
+        <section className="px-5 mt-6">
+          <h2 className="font-display italic font-semibold text-xl text-ink mb-3">Official links</h2>
+          <OfficialLinks
+            subject={event.title}
+            variant="labeled"
+            websiteUrl={event.websiteUrl ?? event.officialUrl}
+            instagramUrl={event.instagramUrl}
+            facebookUrl={event.facebookUrl}
+            ticketUrl={event.ticketUrl}
+            mapUrl={mapUrl}
+          />
+          <p className="mt-3 text-[11px] text-ink/55 leading-relaxed">
+            Links open in a new tab. We're a local guide — always check the organizer's official post before going.
+          </p>
+        </section>
+      )}
 
       <section className="px-5 mt-6">
         <h2 className="font-display italic font-semibold text-xl text-ink mb-2">Schedule</h2>

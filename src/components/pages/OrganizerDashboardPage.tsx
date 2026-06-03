@@ -1,6 +1,7 @@
 import { AppShell, PageHero } from "@/components/wwd/shell";
-import { events, organizers } from "@/data/mock";
+import { events, organizers, mapUrlForEvent } from "@/data/mock";
 import { SourceLabel } from "@/components/wwd/source-label";
+import { OfficialLinks } from "@/components/wwd/official-links";
 
 const submissions = [
   { title: "Saturday Bachata Pop-up", status: "Pending review", color: "bg-mango text-ink" },
@@ -119,6 +120,15 @@ export function OrganizerDashboardPage() {
               <div className="mt-2">
                 <SourceLabel status={e.sourceStatus} lastVerified={e.lastVerified} />
               </div>
+              <OfficialLinks
+                subject={e.title}
+                websiteUrl={e.websiteUrl ?? e.officialUrl}
+                instagramUrl={e.instagramUrl}
+                facebookUrl={e.facebookUrl}
+                ticketUrl={e.ticketUrl}
+                mapUrl={mapUrlForEvent(e)}
+                className="mt-3"
+              />
               <div className="mt-3 flex gap-2">
                 <button type="button" className="px-3 py-1.5 rounded-full bg-ink text-paper text-[10px] font-bold uppercase tracking-widest">
                   View event page

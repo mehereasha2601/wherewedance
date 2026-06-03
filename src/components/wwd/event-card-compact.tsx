@@ -1,8 +1,10 @@
 import type { Event } from "@/data/mock";
 import { Link } from "./ui-router";
 import { BeginnerTag, SceneTag } from "./tags";
+import { ExternalLink } from "lucide-react";
 
 export function EventCardCompact({ event }: { event: Event }) {
+  const primaryHref = event.officialUrl ?? event.websiteUrl ?? event.instagramUrl ?? event.facebookUrl;
   return (
     <article className="bg-paper rounded-2xl ring-1 ring-ink/10 overflow-hidden flex flex-col">
       <div className={`h-16 bg-gradient-to-br ${event.cover} relative`}>
@@ -40,6 +42,18 @@ export function EventCardCompact({ event }: { event: Event }) {
           <p className="text-[11px] text-ink/70 border-l-2 border-mango pl-2 italic">
             {event.goodToKnow[0]}
           </p>
+        )}
+        {primaryHref && (
+          <a
+            href={primaryHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Open ${event.title} details`}
+            className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest text-terracotta self-start"
+          >
+            <ExternalLink size={11} strokeWidth={2.5} />
+            Details
+          </a>
         )}
       </div>
     </article>
