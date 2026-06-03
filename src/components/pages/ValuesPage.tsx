@@ -5,8 +5,8 @@ export function ValuesPage() {
   return (
     <AppShell>
       <PageHero
-        eyebrow="Our floor, our rules"
-        title={<>The non-<span className="text-terracotta">negotiables.</span></>}
+        eyebrow="Our floor, our values"
+        title={<>The kind of floor we <span className="text-terracotta">want.</span></>}
         description="A living guide for safer, kinder social dancing."
       />
 
