@@ -6,6 +6,9 @@ const dotColor: Record<SourceStatus, string> = {
   "From public listing": "bg-mango",
   "Official website / Instagram / public listings": "bg-emerald-500",
   "Instagram / verified": "bg-magenta",
+  "Official website": "bg-emerald-500",
+  "Community-known / private group": "bg-ink/60",
+  "WhereWeDance guide": "bg-terracotta",
   "Needs validation": "bg-ink/40",
 };
 
