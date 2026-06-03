@@ -42,6 +42,8 @@ export type SourceStatus =
   | "Instagram / community-known"
   | "Instagram / Facebook"
   | "Instagram / Facebook / public listing"
+  | "Public Spotify playlist / Instagram"
+  | "Public SoundCloud / Instagram"
   | "Needs validation";
 
 export type ResourcePrivacy =
@@ -111,6 +113,9 @@ export type Event = {
   facebookUrl?: string;
   websiteUrl?: string;
   mapUrl?: string;
+  paymentNotes?: string;
+  coatCheck?: string;
+  amenities?: string[];
 };
 
 export type Resource = {
