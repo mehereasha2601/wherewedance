@@ -339,7 +339,7 @@ export const organizers: Organizer[] = [
     name: "Starry Boston",
     bio: "Community education and social dance culture resource. Listed for community conversations on consent, communication, belonging, and safer-floor topics - not as a recurring Bachata social unless a specific event is verified.",
     values: ["Consent-first", "Community education", "Safer-floor culture"],
-    recurringEventIds: [],
+    recurringEventIds: ["event-starry-lakeside-yappin-grillin-jun-7"],
     type: "Community education / social dance culture resource",
     typeFilter: "Community education",
     bestFor: "Community conversations, consent, communication, social dance culture, belonging, safer-floor topics",
