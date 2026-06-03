@@ -1,4 +1,6 @@
 import { useState, useMemo } from "react";
+import { getRouteApi } from "@tanstack/react-router";
+import { normalizeCategoryParam } from "@/lib/filter-params";
 import { AppShell, PageHero } from "@/components/wwd/shell";
 import { ResourceCard } from "@/components/wwd/resource-card";
 import {
@@ -43,9 +45,12 @@ function sortResources(list: Resource[]): Resource[] {
 }
 
 export function ResourcesPage() {
+  const search = getRouteApi("/resources").useSearch();
+  const initialCategory: CategoryFilterValue =
+    normalizeCategoryParam(search.category) ?? "All";
   const [activeFilter, setActiveFilter] = useState<FilterValue>("All");
   const [activeCategory, setActiveCategory] =
-    useState<CategoryFilterValue>("All");
+    useState<CategoryFilterValue>(initialCategory);
 
   const filtersActive = activeFilter !== "All" || activeCategory !== "All";
 

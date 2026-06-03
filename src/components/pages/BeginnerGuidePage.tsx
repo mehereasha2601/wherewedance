@@ -109,6 +109,7 @@ export function BeginnerGuidePage() {
         <div className="px-5 mt-3">
           <Link
             to="/resources"
+            search={{ category: "Studios" } as never}
             className="inline-block text-[11px] font-bold uppercase tracking-widest text-terracotta border-b border-terracotta/40 pb-0.5"
           >
             See beginner classes →

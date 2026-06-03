@@ -2,6 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ResourcesPage } from "@/components/pages/ResourcesPage";
 
 export const Route = createFileRoute("/resources")({
+  validateSearch: (search: Record<string, unknown>) => ({
+    category: typeof search.category === "string" ? search.category : undefined,
+  }),
   head: () => ({
     meta: [
       { title: "Resource Directory - WhereWeDance" },
