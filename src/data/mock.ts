@@ -51,6 +51,11 @@ export type Organizer = {
   type?: string;
   bestFor?: string;
   profileLink?: string;
+  websiteUrl?: string;
+  instagramUrl?: string;
+  facebookUrl?: string;
+  email?: string;
+  sourceUrl?: string;
 };
 
 export type Event = {
@@ -86,6 +91,12 @@ export type Event = {
   tonight?: boolean;
   popUp?: boolean;
   scheduleNote?: string;
+  officialUrl?: string;
+  ticketUrl?: string;
+  instagramUrl?: string;
+  facebookUrl?: string;
+  websiteUrl?: string;
+  mapUrl?: string;
 };
 
 export type Resource = {
@@ -97,6 +108,10 @@ export type Resource = {
   sourceStatus: SourceStatus;
   lastVerified: string;
   link?: string;
+  websiteUrl?: string;
+  instagramUrl?: string;
+  facebookUrl?: string;
+  howToJoin?: string;
 };
 
 export type Buddy = {
