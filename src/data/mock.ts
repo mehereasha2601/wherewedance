@@ -727,7 +727,7 @@ export const events: Event[] = [
     popUp: true,
     scheduleNote: "Monthly / occasional - check official source",
     cover: "from-ink via-oxblood to-magenta",
-    bachataRelevance: "Bachata-forward",
+    bachataRelevance: "Bachata-included",
     beginnerLabel: "Beginner-welcome",
     classBeforeSocial: { offered: false, level: "Check official event listing" },
     waterAvailability: "Check official source",
@@ -735,6 +735,8 @@ export const events: Event[] = [
     scheduleReliability: "Monthly / occasional - check official source",
     sourceStatus: "Check official source",
     lastVerified: "2026-06-03",
+    dateLabel: "Monthly / date TBA",
+    scheduleLabel: "Check official source",
     goodToKnow: [
       "J&L is known for structured Bachata/Salsa classes and fundamentals.",
       "Their social schedule can change.",
