@@ -18,6 +18,8 @@ export function OrganizersPage() {
         {organizers.map((o) => {
           const recurring = events.filter((e) => o.recurringEventIds.includes(e.id));
           const verifyFrom = recurring[0];
+          const status = verifyFrom?.sourceStatus ?? o.sourceStatus;
+          const verifiedOn = verifyFrom?.lastVerified ?? o.lastVerified;
           return (
             <li
               key={o.id}
@@ -76,11 +78,11 @@ export function OrganizersPage() {
               />
 
               <div className="mt-3 flex items-center justify-between">
-                {verifyFrom ? (
-                  <SourceLabel status={verifyFrom.sourceStatus} lastVerified={verifyFrom.lastVerified} />
+                {status && verifiedOn ? (
+                  <SourceLabel status={status} lastVerified={verifiedOn} />
                 ) : (
                   <span className="text-[10px] uppercase tracking-widest font-bold text-ink/40">
-                    No live events
+                    Profile only
                   </span>
                 )}
                 <Link
