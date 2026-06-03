@@ -1664,13 +1664,13 @@ export const askPrompts: AskPrompt[] = [
     prompt: "What outdoor/free events are happening?",
     category: "Logistics",
     answer: {
-      body: "BOBAS runs free outdoor Salsa/Bachata pop-ups at the Charles River Dock — the next one is this Friday (check Instagram for time and exact location). Bachata by the River is a free monthly/seasonal event at Magazine Beach Park in Cambridge with a beginner Bachata lesson before dancing. Both are weather-dependent — check the official source before going.",
+      body: "BOBAS runs free outdoor Salsa/Bachata pop-ups at the Charles River Dock when currently listed — check WhatsApp/Instagram for time and exact location. Bachata by the River is a free monthly/seasonal event at Magazine Beach Park in Cambridge with a beginner Bachata lesson before dancing. Both are weather-dependent — check the official source before going.",
       sourceEventIds: ["evt-bobas", "evt-river"],
       recommendations: [
         {
           eventId: "evt-bobas",
           label: "Top recommendation",
-          whyThisFits: "Free outdoor Salsa/Bachata pop-up this Friday - no class, weather-dependent, announced on Instagram.",
+          whyThisFits: "Free outdoor Salsa/Bachata pop-up if date-relevant — no class, weather-dependent, announced on Instagram.",
         },
         {
           eventId: "evt-river",
@@ -1707,7 +1707,7 @@ export const askPrompts: AskPrompt[] = [
     prompt: "What free events are happening?",
     category: "Logistics",
     answer: {
-      body: "Free options to keep an eye on: BOBAS outdoor pop-ups at the Charles River Dock, Bachata by the River at Magazine Beach Park, and Saborcito @ The Anchor when running. There's also a one-off free queer dance party from Next Level Fusion at The Anchor on Saturday June 6 - Bachata music included. Check the official Instagram post for exact time, format, and music mix.",
+      body: "Free options to keep an eye on: BOBAS outdoor pop-ups at the Charles River Dock, Bachata by the River at Magazine Beach Park, and Saborcito @ The Anchor when running. Next Level Fusion also hosts a one-off free queer dance party at The Anchor when currently listed — Bachata music included. Check the official Instagram post for exact time, format, and music mix.",
       sourceEventIds: ["evt-next-level-queer-jun6", "evt-bobas", "evt-river", "evt-saborcito"],
       sourceResourceIds: ["res-party-next-level-fusion"],
       recommendations: [
@@ -1735,7 +1735,7 @@ export const askPrompts: AskPrompt[] = [
     prompt: "Are there queer-friendly dance events?",
     category: "Community",
     answer: {
-      body: "Yes. Next Level Fusion runs occasional / pop-up inclusive dance events centered on queer/trans/LGBTQIA+ dancers, access, and safety. Their next listed event is a free queer dance party at The Anchor Boston on Saturday June 6 with Bachata music included. Check the official Instagram for exact time and details.",
+      body: "Yes. Next Level Fusion runs occasional / pop-up inclusive dance events centered on queer/trans/LGBTQIA+ dancers, access, and safety. When currently listed, their inclusive events at The Anchor Boston include Bachata music. Check the official Instagram for exact date, time, and details.",
       sourceEventIds: ["evt-next-level-queer-jun6"],
       sourceResourceIds: ["res-next-level-fusion", "res-party-next-level-fusion"],
       recommendations: [
@@ -1753,7 +1753,7 @@ export const askPrompts: AskPrompt[] = [
     prompt: "What beginner-friendly studio socials are happening?",
     category: "Beginner",
     answer: {
-      body: "Lili Latin Dance hosts a monthly / occasional studio social at 423 W Broadway, Suite 202, South Boston. The next listed one is Friday June 20: ChaCha workshop 6:00-6:55 PM, then social and shows 7:00-10:00 PM. Music is a mix of Salsa, Bachata, Merengue, and party music - good for beginners, but not Bachata-heavy. $10 general / $5 for Lili students. Check Lili's official Instagram for the current monthly social schedule.",
+      body: "Lili Latin Dance hosts a monthly / occasional studio social at 423 W Broadway, Suite 202, South Boston. When currently listed: ChaCha workshop 6:00-6:55 PM, then social and shows 7:00-10:00 PM. Music is a mix of Salsa, Bachata, Merengue, and party music - good for beginners, but not Bachata-heavy. $10 general / $5 for Lili students. Check Lili's official Instagram for the current monthly social schedule.",
       sourceEventIds: ["evt-lili-monthly-social"],
       recommendations: [
         {
