@@ -768,7 +768,7 @@ export const events: Event[] = [
     classBeforeSocial: { offered: false },
     waterAvailability: "BYO water",
     alcoholPolicy: "Dry event",
-    scheduleReliability: "Recurring, occasional cancellations",
+    scheduleReliability: "Weather-dependent pop-up - check Instagram",
     sourceStatus: "Needs validation",
     lastVerified: "2026-05-29",
     goodToKnow: [
