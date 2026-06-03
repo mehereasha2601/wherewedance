@@ -21,10 +21,12 @@ export function BuddyCard({ buddy }: { buddy: Buddy }) {
         </div>
         <button
           type="button"
-          className="text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full bg-ink text-paper opacity-90"
-          title="Visual only - messaging is out of scope for this prototype."
+          disabled
+          aria-disabled="true"
+          className="text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full bg-ink/40 text-paper cursor-not-allowed"
+          title="Coming soon - messaging is not active in this prototype."
         >
-          Wave hello
+          Coming soon
         </button>
       </div>
     </article>
