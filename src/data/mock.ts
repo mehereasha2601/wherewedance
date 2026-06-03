@@ -107,8 +107,8 @@ export type Event = {
   lastVerified: string; // ISO date
   // Optional ISO date (YYYY-MM-DD) for fixed-date one-off / pop-up events.
   // When set, dateLabel is derived from this; otherwise dateLabel is computed
-  // from dayOfWeek as the next occurrence on or after PILOT_BASE_DATE. Pop-ups
-  // with no fixedDate render as "Monthly / date TBA".
+  // from dayOfWeek as the next occurrence inside the current Mon–Sun week.
+  // Pop-ups with no fixedDate render as "Monthly / date TBA".
   fixedDate?: string;
   // Date / time display fields. Cards show dateLabel · scheduleLabel.
   dateLabel: string; // populated by computeEventDateLabels(); do not hardcode
@@ -762,7 +762,7 @@ export const events: Event[] = [
     cost: "$15 class + social",
     officialUrl: "https://www.bachataroomboston.com/",
     instagramUrl: "https://www.instagram.com/bachataroom/",
-    mapUrl: "https://www.google.com/maps/search/?api=1&query=450%20Massachusetts%20Avenue%2C%20Cambridge%2C%20MA",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=450%20Massachusetts%20Ave%2C%20Cambridge%2C%20MA%2002139",
     paymentNotes: "Cash or Venmo accepted.",
     coatCheck: "No coat check",
     amenities: ["Free water may run out", "No coat check"],
@@ -897,7 +897,7 @@ export const events: Event[] = [
     endsAt: "Check Instagram",
     popUp: true,
     thisWeek: true,
-    scheduleNote: "This Friday · weather-dependent pop-up — check Instagram",
+    scheduleNote: "Weather-dependent pop-up — check WhatsApp/Instagram",
     cover: "from-mango via-magenta to-terracotta",
     bachataRelevance: "Bachata-included",
     beginnerLabel: "Beginner-welcome",
@@ -906,7 +906,7 @@ export const events: Event[] = [
     alcoholPolicy: "Dry event",
     scheduleReliability: "Weather-dependent pop-up - check Instagram",
     sourceStatus: "Community-updated / WhatsApp announcement",
-    lastVerified: "2026-05-29",
+    lastVerified: "2026-06-03",
     fixedDate: "2026-06-05",
     dateLabel: "",
     scheduleLabel: "Check Instagram",
@@ -960,7 +960,7 @@ export const events: Event[] = [
     cost: "Free",
     officialUrl: "https://www.listerevents.com/events",
     facebookUrl: "https://www.facebook.com/events/magazine-beach-cambridge/bachata-by-the-river-summer-dance-party-kick-off/682022144271432/",
-    mapUrl: "https://www.google.com/maps/search/?api=1&query=668%20Memorial%20Dr%2C%20Cambridge%2C%20MA",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=668%20Memorial%20Dr%2C%20Cambridge%2C%20MA%2002139",
   },
   {
     id: "evt-saborcito",
@@ -1779,7 +1779,10 @@ export const resourceById = (id: string) => resources.find((r) => r.id === id);
 // otherwise composes one from venue + address. Returns null when neither is usable.
 export const mapUrlForEvent = (e: Event): string | null => {
   if (e.mapUrl) return e.mapUrl;
-  if (!e.address || /DM organizer|TBD/i.test(e.address)) return null;
+  if (!e.address) return null;
+  const vague =
+    /(DM organizer|TBD|check Instagram|check WhatsApp|check official|check source|announced|exact location|outdoor pop-up)/i;
+  if (vague.test(e.address)) return null;
   const q = encodeURIComponent(`${e.venue}, ${e.address}`);
   return `https://maps.google.com/?q=${q}`;
 };
