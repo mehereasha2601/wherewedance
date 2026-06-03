@@ -1,3 +1,6 @@
+/**
+ * Pill components for tagging Bachata relevance, beginner level, pop-up status, etc. Colors come from the design tokens in src/styles.css.
+ */
 import type { BachataRelevance, BeginnerLabel } from "@/data/mock";
 
 const sceneStyles: Record<BachataRelevance, string> = {

@@ -1,3 +1,6 @@
+/**
+ * Roadmap list of upcoming improvements, shown on the More page.
+ */
 const ROADMAP = [
   {
     title: "Real-time verified listings",

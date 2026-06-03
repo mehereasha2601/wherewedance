@@ -1,3 +1,6 @@
+/**
+ * Reusable CTA pointing at the Beginner Guide. Embedded inside Ask answers when an answer flags `showBeginnerPathway`.
+ */
 import { Link } from "./ui-router";
 
 type StepCTA =

@@ -1,3 +1,6 @@
+/**
+ * Day-of-week / Bachata-relevance / pop-up filter controls used on the Events and This Week pages. Pure presentational — filter state is owned by the parent page.
+ */
 import { useMemo, useState } from "react";
 import type { Event } from "@/data/mock";
 import { isEventTonight, catalogDateLabel } from "@/data/mock";

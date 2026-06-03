@@ -1,3 +1,6 @@
+/**
+ * Full-width event card used in lists (This Week, Events, Organizer profile). Renders date, venue, tags, source label, and official-link row. For Partiful community outings the primary CTA reads 'RSVP here' instead of 'Website'.
+ */
 import type { Event } from "@/data/mock";
 import { organizerById, mapUrlForEvent, logisticsSummary, isEventTonight } from "@/data/mock";
 import { Link } from "./ui-router";

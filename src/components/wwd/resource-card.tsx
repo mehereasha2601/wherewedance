@@ -1,3 +1,6 @@
+/**
+ * Card for a directory resource. Routes hrefs through TanStack <Link> only when the path is in the KNOWN_INTERNAL_ROUTES allowlist; external links always open in a new tab with safe rel attributes.
+ */
 import type { Resource, ResourcePrivacy } from "@/data/mock";
 import { SourceLabel } from "./source-label";
 import { OfficialLinks } from "./official-links";

@@ -1,3 +1,6 @@
+/**
+ * Homepage entry-point card for the Ask WhereWeDance preview. Carries the 'Coming soon' magenta badge.
+ */
 import { Link } from "./ui-router";
 import { askPrompts } from "@/data/mock";
 

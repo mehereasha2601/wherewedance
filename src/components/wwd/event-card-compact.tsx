@@ -1,3 +1,6 @@
+/**
+ * Compact event card used in carousels, discovery strips, and 'also consider' slots inside Ask answers. Same data model as <EventCard>, denser layout.
+ */
 import type { Event } from "@/data/mock";
 import { logisticsSummary, isEventTonight } from "@/data/mock";
 import { Link } from "./ui-router";

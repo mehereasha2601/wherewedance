@@ -1,3 +1,6 @@
+/**
+ * Renders the bulleted logistics list on an event card (water, alcohol, cash, coat check, etc.). Has a `compact` mode for inline use inside Ask answers.
+ */
 import type { Event } from "@/data/mock";
 
 // First-class section. Renders on EventCard, event detail, This Week cards, and AI answer cards.
