@@ -1,6 +1,7 @@
 import type { Resource, ResourcePrivacy } from "@/data/mock";
 import { SourceLabel } from "./source-label";
 import { OfficialLinks } from "./official-links";
+import { Link } from "./ui-router";
 
 const privacyStyle: Record<ResourcePrivacy, string> = {
   "Public link": "bg-mango text-ink",
@@ -13,9 +14,24 @@ const privacyStyle: Record<ResourcePrivacy, string> = {
 export function ResourceCard({ resource }: { resource: Resource }) {
   const primaryHref =
     resource.websiteUrl ?? resource.link ?? resource.instagramUrl ?? resource.facebookUrl;
+  const isInternal = !!primaryHref && primaryHref.startsWith("/");
+  // Avoid putting internal app routes into the external icon-link row.
+  const externalWebsite =
+    resource.websiteUrl && !resource.websiteUrl.startsWith("/")
+      ? resource.websiteUrl
+      : resource.link && !resource.link.startsWith("/")
+        ? resource.link
+        : undefined;
   return (
     <article className="relative bg-paper rounded-2xl ring-1 ring-ink/10 p-4 transition hover:-translate-y-0.5 hover:ring-ink/25 focus-within:ring-2 focus-within:ring-terracotta">
-      {primaryHref && (
+      {primaryHref && isInternal && (
+        <Link
+          to={primaryHref}
+          aria-label={`Open ${resource.name}`}
+          className="absolute inset-0 z-0 focus:outline-none"
+        />
+      )}
+      {primaryHref && !isInternal && (
         <a
           href={primaryHref}
           target="_blank"
@@ -57,7 +73,7 @@ export function ResourceCard({ resource }: { resource: Resource }) {
       )}
       <OfficialLinks
         subject={resource.name}
-        websiteUrl={resource.websiteUrl ?? resource.link}
+        websiteUrl={externalWebsite}
         instagramUrl={resource.instagramUrl}
         facebookUrl={resource.facebookUrl}
         className="mt-3"
