@@ -3,7 +3,7 @@ import { BeginnerTag, SceneTag } from "@/components/wwd/tags";
 import { GoodToKnow } from "@/components/wwd/good-to-know";
 import { SourceLabel } from "@/components/wwd/source-label";
 import { Link } from "@/components/wwd/ui-router";
-import { eventBySlug, organizerById, mapUrlForEvent, isEventTonight } from "@/data/mock";
+import { eventBySlug, organizerById, mapUrlForEvent, isEventTonight, catalogDateLabel } from "@/data/mock";
 import { OfficialLinks } from "@/components/wwd/official-links";
 
 export function EventDetailPage({ slug }: { slug: string }) {
@@ -59,7 +59,7 @@ export function EventDetailPage({ slug }: { slug: string }) {
           {event.title}
         </h1>
         <p className="text-sm text-ink/65 mt-3 leading-relaxed">
-          {event.dateLabel}
+          {catalogDateLabel(event)}
           {event.scheduleLabel ? ` · ${event.scheduleLabel}` : ""}
         </p>
         <div className="mt-4 flex items-center gap-3">
