@@ -1761,7 +1761,7 @@ export const askPrompts: AskPrompt[] = [
     prompt: "What outdoor/free events are happening?",
     category: "Logistics",
     answer: {
-      body: "Outdoor and free options to keep an eye on, if date-relevant: BOBAS free outdoor Salsa/Bachata pop-ups at the Charles River Dock (check Facebook, then Instagram), Saborcito @ The Anchor when running, Bachata by the River at Magazine Beach Park with a beginner Bachata lesson, and Starry Boston's Lakeside Yappin & Grillin as a community outing — not a formal dance social. Outdoor and pop-up events can change quickly — check the official/source link before going.",
+      body: "Outdoor and free options can include BOBAS, Saborcito, Bachata by the River, and community outings when currently listed. Check the event cards below and official/source links before going.",
       sourceEventIds: ["evt-bobas", "evt-saborcito", "evt-river", "event-starry-lakeside-yappin-grillin-jun-7"],
       recommendations: [
         {
@@ -1857,7 +1857,7 @@ export const askPrompts: AskPrompt[] = [
     prompt: "What community events are happening?",
     category: "Community",
     answer: {
-      body: "Starry Boston's Lakeside Yappin & Grillin is a community outing at Shannon Beach when date-relevant. It is not a formal dance social, but it is useful for meeting people in the dance community.",
+      body: "Community outings appear here only when currently listed.",
       sourceEventIds: ["event-starry-lakeside-yappin-grillin-jun-7"],
       sourceResourceIds: ["res-starry-boston"],
       recommendations: [
@@ -1875,7 +1875,7 @@ export const askPrompts: AskPrompt[] = [
     prompt: "Are there queer-friendly dance events?",
     category: "Community",
     answer: {
-      body: "Yes. Next Level Fusion is a queer-inclusive dance community that runs occasional / pop-up inclusive events centered on queer/trans/LGBTQIA+ dancers, access, and safety. When date-relevant, their inclusive events at The Anchor Boston include Bachata music. They host occasional inclusive events; check their official Instagram for current dates.",
+      body: "Next Level Fusion is a queer-inclusive dance community. When an event is currently listed, it will appear below. Otherwise, check their official Instagram.",
       sourceEventIds: ["evt-next-level-queer-jun6"],
       sourceResourceIds: ["res-next-level-fusion", "res-party-next-level-fusion"],
       recommendations: [
