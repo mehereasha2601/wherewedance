@@ -6,7 +6,7 @@ import { events, organizers } from "@/data/mock";
 const rhythm = [
   { day: "Monday", desc: "Havana Club anchors the week with a beginner intro." },
   { day: "Wednesday", desc: "Bachata Room — the bachata-heavy mid-week reset." },
-  { day: "Thursday", desc: "BOBAS outdoors on Broad St (May–Sept, weather permitting)." },
+  { day: "Pop-up", desc: "BOBAS outdoor Salsa/Bachata at the Charles River Dock — weather-dependent, check Instagram." },
   { day: "Friday", desc: "Lili Latin first-Friday social + J&L Underground for advanced sensual." },
   { day: "Saturday", desc: "Havana live band night + Saborcito's late multi-genre set." },
   { day: "Sunday", desc: "Bachata by the River on the Esplanade in summer." },

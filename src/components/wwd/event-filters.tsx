@@ -125,7 +125,7 @@ export function EventFilters({
         ) : (
           <div className="space-y-10">
             {DAYS.map((d) => {
-              const items = filtered.filter((e) => e.dayOfWeek === d);
+              const items = filtered.filter((e) => !e.popUp && e.dayOfWeek === d);
               if (items.length === 0) return null;
               return (
                 <section key={d}>
@@ -147,6 +147,27 @@ export function EventFilters({
                 </section>
               );
             })}
+            {(() => {
+              const popUps = filtered.filter((e) => e.popUp);
+              if (popUps.length === 0) return null;
+              return (
+                <section>
+                  <div className="px-5 mb-4">
+                    <p className="text-[10px] uppercase tracking-widest font-bold text-terracotta mb-1">
+                      {popUps.length} pop-up{popUps.length === 1 ? "" : "s"}
+                    </p>
+                    <h2 className="font-display italic font-semibold text-3xl leading-none text-ink">
+                      Pop-up · Check Instagram
+                    </h2>
+                  </div>
+                  <div className="px-5 grid gap-4">
+                    {popUps.map((e) => (
+                      <EventCard key={e.id} event={e} />
+                    ))}
+                  </div>
+                </section>
+              );
+            })()}
           </div>
         )}
       </div>
