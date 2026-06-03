@@ -40,9 +40,14 @@ export function EventCard({ event, full = false }: { event: Event; full?: boolea
               {event.title}
             </Link>
           </h3>
-          <p className="text-[12px] text-ink/60 mt-0.5">
-            {event.venue} · {event.address}
-          </p>
+          <div className="mt-2 space-y-0.5">
+            <p className="text-[13px] font-semibold text-ink/80 leading-relaxed">
+              {event.venue}
+            </p>
+            <p className="text-[12px] text-ink/60 leading-relaxed">
+              {event.address}
+            </p>
+          </div>
         </div>
 
         <div className="flex items-center gap-2">
@@ -65,7 +70,7 @@ export function EventCard({ event, full = false }: { event: Event; full?: boolea
 
         <GoodToKnow event={event} compact={!full} />
 
-        <div className="flex items-center justify-between pt-1">
+        <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
           <SourceLabel status={event.sourceStatus} lastVerified={event.lastVerified} />
           {organizer && (
             <Link
