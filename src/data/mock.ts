@@ -3,6 +3,7 @@
 
 export type BachataRelevance =
   | "Bachata-heavy"
+  | "Bachata-forward"
   | "Bachata-included"
   | "Salsa-first with bachata";
 
@@ -11,22 +12,12 @@ export type BeginnerLabel =
   | "Beginner-welcome"
   | "Intermediate+";
 
-export type WaterAvailability =
-  | "Free water"
-  | "Water for sale"
-  | "BYO water"
-  | "Unknown";
-
-export type AlcoholPolicy =
-  | "Bar on site"
-  | "BYOB"
-  | "Dry event"
-  | "21+";
-
-export type ScheduleReliability =
-  | "Weekly recurring, very reliable"
-  | "Recurring, occasional cancellations"
-  | "One-off";
+// Loosened to strings so events can carry verified copy from official sources
+// (e.g. "Bring water recommended", "Weather-dependent pop-up — check Instagram").
+// Filters still compare against canonical values like "Dry event".
+export type WaterAvailability = string;
+export type AlcoholPolicy = string;
+export type ScheduleReliability = string;
 
 export type SourceStatus =
   | "Verified by organizer"
@@ -44,6 +35,8 @@ export type SourceStatus =
   | "Instagram / Facebook / public listing"
   | "Public Spotify playlist / Instagram"
   | "Public SoundCloud / Instagram"
+  | "Community-known"
+  | "Check official source"
   | "Needs validation";
 
 export type ResourcePrivacy =
@@ -104,7 +97,6 @@ export type Event = {
   communityNote?: string;
   rsvps: { count: number; initials: string[] };
   cost: string;
-  tonight?: boolean;
   popUp?: boolean;
   scheduleNote?: string;
   officialUrl?: string;
@@ -277,6 +269,20 @@ export const organizers: Organizer[] = [
     lastVerified: "2026-06-03",
   },
   {
+    id: "org-bachata-river",
+    slug: "bachata-by-the-river",
+    name: "Bachata by the River",
+    bio: "Free outdoor Bachata event at Magazine Beach Park in Cambridge. Usually includes a beginner Bachata lesson followed by Bachata and Salsa social dancing. Monthly / seasonal - check the official source for exact dates.",
+    values: ["Free and outdoors", "Beginner Bachata lesson", "Bring water, wear shoes you can spin in"],
+    recurringEventIds: ["evt-river"],
+    type: "Outdoor Bachata event organizer",
+    typeFilter: "Outdoor pop-up organizer",
+    bestFor: "Free outdoor Bachata + Salsa days at Magazine Beach Park, beginner-friendly lesson before dancing",
+    facebookUrl: "https://www.facebook.com/events/magazine-beach-cambridge/bachata-by-the-river-summer-dance-party-kick-off/682022144271432/",
+    sourceStatus: "From public listing",
+    lastVerified: "2026-06-03",
+  },
+  {
     id: "org-saborcito",
     slug: "sabor-latino-boston",
     name: "Sabor Latino Boston",
@@ -419,7 +425,7 @@ export const events: Event[] = [
     endsAt: "00:00 / 00:30",
     cover: "from-terracotta via-oxblood to-ink",
     bachataRelevance: "Bachata-heavy",
-    beginnerLabel: "Beginner-friendly",
+    beginnerLabel: "Beginner-welcome",
     classBeforeSocial: { offered: true, startsAt: "20:15", level: "Beginner + intermediate Bachata lessons before the social" },
     waterAvailability: "Free water",
     alcoholPolicy: "Dry event",
@@ -431,7 +437,7 @@ export const events: Event[] = [
       "Beginner + intermediate Bachata lessons before the social",
       "No partner required",
       "No alcohol / dry event · 18+",
-      "More serious dancers tend to come, so complete beginners may feel more comfortable taking the class first",
+      "More serious dancers tend to come, so complete beginners may feel intimidated - taking the class first helps a lot",
       "Cash only.",
       "ATM available on site, but it may charge an extra fee.",
       "Coat check available.",
@@ -442,7 +448,6 @@ export const events: Event[] = [
       "Bachata-heavy and dry - come for the dancing, not the bar. The lessons beforehand are the right entry point.",
     rsvps: { count: 47, initials: ["JS", "RL", "MK"] },
     cost: "$15",
-    tonight: true,
     officialUrl: "https://havanaclubsalsa.com/",
     facebookUrl: "https://www.facebook.com/HavanaClubBoston/",
     mapUrl: "https://www.google.com/maps/search/?api=1&query=288%20Green%20St%2C%20Cambridge%2C%20MA%2002139",
@@ -671,10 +676,9 @@ export const events: Event[] = [
       "Good if going alone because class/rotations help people meet dancers.",
       "Bachata-heavy Wednesday social.",
     ],
-    communityNote: "Beginner track is patient and welcoming. Worth the trip from anywhere on the Red Line.",
+    communityNote: "Beginner track is patient and welcoming.",
     rsvps: { count: 64, initials: ["LI", "MA", "RB"] },
     cost: "$12",
-    tonight: true,
     officialUrl: "https://www.bachataroomboston.com/",
     instagramUrl: "https://www.instagram.com/bachataroom/",
     mapUrl: "https://www.google.com/maps/search/?api=1&query=450%20Massachusetts%20Avenue%2C%20Cambridge%2C%20MA",
@@ -685,41 +689,43 @@ export const events: Event[] = [
   {
     id: "evt-jl",
     slug: "jl-underground",
-    title: "J&L Underground",
+    title: "J&L Underground Social",
     organizerId: "org-jl",
-    venue: "Rotating Cambridge venue",
-    address: "DM organizer for location",
+    venue: "J&L Dance Studio or announced venue - check official source",
+    address: "75 Pleasant Street, #125, Malden, MA 02148 (if at studio) - otherwise check official source",
     dayOfWeek: "Friday",
-    startsAt: "22:00",
-    endsAt: "02:00",
+    startsAt: "TBD",
+    endsAt: "TBD",
+    popUp: true,
+    scheduleNote: "Monthly / occasional - check official source",
     cover: "from-ink via-oxblood to-magenta",
-    bachataRelevance: "Bachata-heavy",
-    beginnerLabel: "Intermediate+",
-    classBeforeSocial: { offered: false },
-    waterAvailability: "Free water",
-    alcoholPolicy: "BYOB",
-    scheduleReliability: "Recurring, occasional cancellations",
-    sourceStatus: "Verified by community",
-    lastVerified: "2026-05-25",
+    bachataRelevance: "Bachata-forward",
+    beginnerLabel: "Beginner-welcome",
+    classBeforeSocial: { offered: false, level: "Check official event listing" },
+    waterAvailability: "Check official source",
+    alcoholPolicy: "Unknown - check official source",
+    scheduleReliability: "Monthly / occasional - check official source",
+    sourceStatus: "Check official source",
+    lastVerified: "2026-06-03",
     goodToKnow: [
-      "Sensual bachata focus - explicit consent culture, ask every dance",
-      "Location shared 24h before - must be on the list",
-      "Small floor, ~60 dancers max",
+      "J&L is known for structured Bachata/Salsa classes and fundamentals.",
+      "Their social schedule can change.",
+      "Check official source before going.",
+      "Don't assume BYOB, exact time, exact price, or Cambridge location unless verified.",
     ],
-    communityNote: "If you're new to sensual, do a class or two first. The crowd is welcoming but the dancing is close.",
+    communityNote: "Schedule and venue change - always check the official J&L source before going.",
     rsvps: { count: 38, initials: ["JE", "LU", "KO"] },
-    cost: "$20",
+    cost: "Check official source",
     officialUrl: "https://jandldancestudio.com/",
     instagramUrl: "https://www.instagram.com/jl_dancestudio/",
-    mapUrl: "https://www.google.com/maps/search/?api=1&query=75%20Pleasant%20Street%20%23125%2C%20Malden%2C%20MA%2002148",
   },
   {
     id: "evt-lili-social",
     slug: "lili-latin-social",
     title: "Lili Latin First-Friday Social",
     organizerId: "org-lili",
-    venue: "Lili Latin Studio",
-    address: "412 Highland Ave, Somerville",
+    venue: "Lili Latin Dance - check official source",
+    address: "Check official source for current studio/event location",
     dayOfWeek: "Friday",
     startsAt: "19:00",
     endsAt: "22:30",
@@ -727,18 +733,21 @@ export const events: Event[] = [
     bachataRelevance: "Bachata-included",
     beginnerLabel: "Beginner-friendly",
     classBeforeSocial: { offered: true, startsAt: "19:00", level: "Brand-new student review" },
-    waterAvailability: "Free water",
+    waterAvailability: "Check official source",
     alcoholPolicy: "Dry event",
-    scheduleReliability: "Recurring, occasional cancellations",
-    sourceStatus: "Verified by organizer",
-    lastVerified: "2026-05-28",
+    scheduleReliability: "Check official source",
+    sourceStatus: "Needs validation",
+    lastVerified: "2026-06-03",
     goodToKnow: [
-      "Designed for first-timers - no prior class required",
-      "Studio is dry - there's a juice bar two doors down",
-      "Rotations are facilitated so no one is stuck on the wall",
+      "Lili Latin Dance is a structured Salsa/Bachata class provider.",
+      "Good option for brand-new dancers.",
+      "Check official schedule before going.",
+      "First-Friday Social details not verified - check the organizer before going.",
     ],
     rsvps: { count: 52, initials: ["SO", "NA", "EM"] },
-    cost: "$10",
+    cost: "Check official source",
+    officialUrl: "https://www.lili.dance/",
+    instagramUrl: "https://www.instagram.com/lililatindance/",
   },
   {
     id: "evt-bobas",
@@ -758,7 +767,7 @@ export const events: Event[] = [
     classBeforeSocial: { offered: false },
     waterAvailability: "BYO water",
     alcoholPolicy: "Dry event",
-    scheduleReliability: "Recurring, occasional cancellations",
+    scheduleReliability: "Weather-dependent pop-up - check Instagram",
     sourceStatus: "Needs validation",
     lastVerified: "2026-05-29",
     goodToKnow: [
@@ -779,25 +788,30 @@ export const events: Event[] = [
     id: "evt-river",
     slug: "bachata-by-the-river",
     title: "Bachata by the River",
-    organizerId: "org-bobas",
-    venue: "Esplanade - Hatch Shell lawn",
-    address: "Charles River Esplanade, Boston",
+    organizerId: "org-bachata-river",
+    venue: "Magazine Beach Park / Nature Center",
+    address: "668 Memorial Dr, Cambridge, MA",
     dayOfWeek: "Sunday",
-    startsAt: "16:00",
-    endsAt: "19:00",
+    startsAt: "TBD",
+    endsAt: "TBD",
+    popUp: true,
+    scheduleNote: "Monthly / seasonal - often Sunday - check official source",
     cover: "from-mango via-terracotta to-magenta",
-    bachataRelevance: "Bachata-heavy",
+    bachataRelevance: "Bachata-forward",
     beginnerLabel: "Beginner-friendly",
-    classBeforeSocial: { offered: true, startsAt: "16:00", level: "Beginner Bachata lesson on the lawn" },
+    classBeforeSocial: { offered: true, level: "Beginner Bachata lesson before dancing" },
     waterAvailability: "BYO water",
     alcoholPolicy: "Dry event",
-    scheduleReliability: "Recurring, occasional cancellations",
+    scheduleReliability: "Monthly / seasonal - check official source",
     sourceStatus: "From public listing",
-    lastVerified: "2026-05-20",
+    lastVerified: "2026-06-03",
     goodToKnow: [
-      "Salsa + Bachata music - Bachata-forward overall",
-      "Beginner Bachata lesson on the lawn - good first outdoor try",
-      "Weather-dependent - check IG morning of",
+      "Free outdoor event at Magazine Beach Park.",
+      "Beginner Bachata lesson before dancing.",
+      "Usually includes Bachata and Salsa dancing.",
+      "No partner needed.",
+      "Bring water and wear shoes you can spin in.",
+      "Check source for exact date and meeting point.",
     ],
     rsvps: { count: 71, initials: ["TI", "AL", "BE"] },
     cost: "Free",
@@ -811,26 +825,28 @@ export const events: Event[] = [
     title: "Saborcito @ The Anchor",
     organizerId: "org-saborcito",
     venue: "The Anchor Boston",
-    address: "Charlestown / The Anchor",
+    address: "1 Shipyard Park, Charlestown, MA 02129",
     dayOfWeek: "Monday",
-    startsAt: "Evening",
+    startsAt: "Evening - check official source",
     endsAt: "TBD",
+    scheduleNote: "Seasonal outdoor recurring - check official source",
     cover: "from-oxblood via-ink to-magenta",
     bachataRelevance: "Salsa-first with bachata",
     beginnerLabel: "Beginner-friendly",
-    classBeforeSocial: { offered: true, level: "Free beginner lesson - may be Salsa, Bachata, or both" },
-    waterAvailability: "Unknown",
-    alcoholPolicy: "Bar on site",
-    scheduleReliability: "Recurring, occasional cancellations",
+    classBeforeSocial: { offered: true, level: "Free beginner lesson (Salsa, Bachata, or both - varies by date)" },
+    waterAvailability: "Food/drinks at venue - bring water recommended",
+    alcoholPolicy: "Bar on site - venue serves drinks",
+    scheduleReliability: "Seasonal outdoor recurring - check official source",
     sourceStatus: "Needs validation",
-    lastVerified: "2026-05-22",
+    lastVerified: "2026-06-03",
     goodToKnow: [
-      "Free outdoor Latin social at The Anchor",
-      "Salsa-first, but usually includes some Bachata",
-      "Beginner lesson may be Salsa, Bachata, or both depending on the day",
-      "Check Instagram or official organizer updates before going",
+      "Free outdoor dance class and social at The Anchor.",
+      "Salsa-first, but Bachata is included.",
+      "Beginner lesson style may vary by date.",
+      "Good low-pressure outdoor option, but not Bachata-heavy.",
+      "Check official source before going.",
     ],
-    communityNote: "Good outdoor option for beginners who want a low-pressure setting, but not a Bachata-heavy event.",
+    communityNote: "Good outdoor option for beginners who want a low-pressure setting - not Bachata-heavy.",
     rsvps: { count: 0, initials: [] },
     cost: "Free",
     instagramUrl: "https://www.instagram.com/saborlatinoboston/",
@@ -1452,7 +1468,26 @@ export const mapUrlForEvent = (e: Event): string | null => {
   return `https://maps.google.com/?q=${q}`;
 };
 
-export const tonightEvents = () => events.filter((e) => e.tonight);
+// "Tonight" is derived from today's weekday so only events that actually
+// happen today get the Tonight label - never multiple unrelated weekdays.
+// Pop-ups (no fixed weekday) are excluded.
+const WEEKDAYS = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+] as const;
+
+export const isEventTonight = (e: Event): boolean => {
+  if (e.popUp) return false;
+  const today = WEEKDAYS[new Date().getDay()];
+  return e.dayOfWeek === today;
+};
+
+export const tonightEvents = () => events.filter(isEventTonight);
 
 // Short logistics line for compact cards: e.g. "Cash only · Coat check · Free water".
 export const logisticsSummary = (e: Event): string | null => {

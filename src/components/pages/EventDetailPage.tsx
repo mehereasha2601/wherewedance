@@ -3,7 +3,7 @@ import { BeginnerTag, SceneTag } from "@/components/wwd/tags";
 import { GoodToKnow } from "@/components/wwd/good-to-know";
 import { SourceLabel } from "@/components/wwd/source-label";
 import { Link } from "@/components/wwd/ui-router";
-import { eventBySlug, organizerById, mapUrlForEvent } from "@/data/mock";
+import { eventBySlug, organizerById, mapUrlForEvent, isEventTonight } from "@/data/mock";
 import { OfficialLinks } from "@/components/wwd/official-links";
 
 export function EventDetailPage({ slug }: { slug: string }) {
@@ -45,7 +45,7 @@ export function EventDetailPage({ slug }: { slug: string }) {
             <SceneTag value={event.bachataRelevance} />
             <BeginnerTag value={event.beginnerLabel} />
           </div>
-          {event.tonight && (
+          {isEventTonight(event) && (
             <div className="absolute top-3 right-3 inline-flex items-center gap-1.5 bg-paper/95 text-ink px-2 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">
               <span className="size-1.5 rounded-full bg-magenta animate-pulse" />
               Tonight

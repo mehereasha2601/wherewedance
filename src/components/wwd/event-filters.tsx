@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import type { Event } from "@/data/mock";
+import { isEventTonight } from "@/data/mock";
 import { EventCard } from "./event-card";
 
 export type FilterKey =
@@ -22,7 +23,7 @@ const LABELS: Record<FilterKey, string> = {
 };
 
 const PREDICATES: Record<FilterKey, (e: Event) => boolean> = {
-  tonight: (e) => e.tonight === true,
+  tonight: (e) => isEventTonight(e),
   weekend: (e) => e.dayOfWeek === "Friday" || e.dayOfWeek === "Saturday" || e.dayOfWeek === "Sunday",
   "bachata-heavy": (e) => e.bachataRelevance === "Bachata-heavy",
   "beginner-friendly": (e) => e.beginnerLabel === "Beginner-friendly",

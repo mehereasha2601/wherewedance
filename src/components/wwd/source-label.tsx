@@ -16,6 +16,8 @@ const dotColor: Record<SourceStatus, string> = {
   "Instagram / Facebook / public listing": "bg-mango",
   "Public Spotify playlist / Instagram": "bg-emerald-500",
   "Public SoundCloud / Instagram": "bg-emerald-500",
+  "Community-known": "bg-ink/60",
+  "Check official source": "bg-mango",
   "Needs validation": "bg-ink/40",
 };
 

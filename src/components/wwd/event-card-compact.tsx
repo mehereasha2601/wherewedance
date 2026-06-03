@@ -1,5 +1,5 @@
 import type { Event } from "@/data/mock";
-import { logisticsSummary } from "@/data/mock";
+import { logisticsSummary, isEventTonight } from "@/data/mock";
 import { Link } from "./ui-router";
 import { BeginnerTag, SceneTag } from "./tags";
 import { ExternalLink } from "lucide-react";
@@ -7,10 +7,11 @@ import { ExternalLink } from "lucide-react";
 export function EventCardCompact({ event }: { event: Event }) {
   const primaryHref = event.officialUrl ?? event.websiteUrl ?? event.instagramUrl ?? event.facebookUrl;
   const logistics = logisticsSummary(event);
+  const tonight = isEventTonight(event);
   return (
     <article className="bg-paper rounded-2xl ring-1 ring-ink/10 overflow-hidden flex flex-col">
       <div className={`h-16 bg-gradient-to-br ${event.cover} relative`}>
-        {event.tonight && (
+        {tonight && (
           <span className="absolute top-2 right-2 inline-flex items-center gap-1.5 bg-paper/95 text-ink px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-widest">
             <span className="size-1.5 rounded-full bg-magenta animate-pulse" />
             Tonight
