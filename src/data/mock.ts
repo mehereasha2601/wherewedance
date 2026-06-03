@@ -19,7 +19,8 @@ export type BachataRelevance =
 export type BeginnerLabel =
   | "Beginner-friendly"
   | "Beginner-welcome"
-  | "Intermediate+";
+  | "Intermediate+"
+  | "Community-welcome";
 
 // Loosened to strings so events can carry verified copy from official sources
 // (e.g. "Bring water recommended", "Weather-dependent pop-up — check Instagram").
@@ -49,6 +50,7 @@ export type SourceStatus =
   | "Official Instagram / organizer post"
   | "Official Instagram / domain-expert confirmed Bachata music"
   | "Community-updated / WhatsApp announcement"
+  | "Partiful / community event"
   | "Needs validation";
 
 export type ResourcePrivacy =
@@ -97,7 +99,7 @@ export type Event = {
   startsAt: string; // "20:00"
   endsAt: string;
   cover: string; // gradient seed string
-  bachataRelevance: BachataRelevance;
+  bachataRelevance: BachataRelevance | null;
   beginnerLabel: BeginnerLabel;
   classBeforeSocial: { offered: boolean; startsAt?: string; level?: string };
   waterAvailability: WaterAvailability;
@@ -131,6 +133,15 @@ export type Event = {
   coatCheck?: string;
   amenities?: string[];
   secondaryTags?: string[];
+  // Optional fields used by community/outing events that don't fit the
+  // recurring Bachata-social shape.
+  eventType?: string;
+  neighborhood?: string;
+  city?: string;
+  musicMix?: string;
+  tags?: string[];
+  needsValidation?: boolean;
+  sourceUrl?: string;
 };
 
 
