@@ -177,7 +177,7 @@ export function OrganizerDashboardPage() {
 
       <section className="px-5 mt-8">
         <p className="text-[11px] text-ink/55 leading-relaxed">
-          Prototype only — organizer actions are visual and do not submit yet.
+          Prototype only - organizer actions are visual and do not submit yet.
         </p>
       </section>
     </AppShell>

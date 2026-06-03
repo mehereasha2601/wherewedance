@@ -1,5 +1,5 @@
 // Mock data shaped like future Prisma seed data.
-// No fetching, no env, no server logic — pure typed objects.
+// No fetching, no env, no server logic - pure typed objects.
 
 export type BachataRelevance =
   | "Bachata-heavy"
@@ -251,7 +251,7 @@ export const organizers: Organizer[] = [
     id: "org-saborcito",
     slug: "sabor-latino-boston",
     name: "Sabor Latino Boston",
-    bio: "Sabor Latino Boston runs Saborcito — a free outdoor Latin social at The Anchor with a beginner lesson.",
+    bio: "Sabor Latino Boston runs Saborcito - a free outdoor Latin social at The Anchor with a beginner lesson.",
     values: ["Free outdoor social", "Beginner lesson included", "Salsa-first with Bachata"],
     recurringEventIds: ["evt-saborcito"],
     type: "Outdoor Latin dance event organizer",
@@ -267,7 +267,7 @@ export const organizers: Organizer[] = [
     id: "org-starry",
     slug: "starry-boston",
     name: "Starry Boston",
-    bio: "Community education and social dance culture resource. Listed for community conversations on consent, communication, belonging, and safer-floor topics — not as a recurring Bachata social unless a specific event is verified.",
+    bio: "Community education and social dance culture resource. Listed for community conversations on consent, communication, belonging, and safer-floor topics - not as a recurring Bachata social unless a specific event is verified.",
     values: ["Consent-first", "Community education", "Safer-floor culture"],
     recurringEventIds: [],
     type: "Community education / social dance culture resource",
@@ -381,7 +381,7 @@ export const events: Event[] = [
   {
     id: "evt-havana-mon",
     slug: "havana-club-monday",
-    title: "Havana Club Monday — Bachata Mondays",
+    title: "Havana Club Monday - Bachata Mondays",
     organizerId: "org-havana",
     venue: "Havana Club",
     address: "288 Green St, Central Square, Cambridge",
@@ -406,7 +406,7 @@ export const events: Event[] = [
       "Check Havana Club's official page before going",
     ],
     communityNote:
-      "Bachata-heavy and dry — come for the dancing, not the bar. The lessons beforehand are the right entry point.",
+      "Bachata-heavy and dry - come for the dancing, not the bar. The lessons beforehand are the right entry point.",
     rsvps: { count: 47, initials: ["JS", "RL", "MK"] },
     cost: "$15",
     tonight: true,
@@ -417,7 +417,7 @@ export const events: Event[] = [
   {
     id: "evt-havana-tue",
     slug: "havana-club-tuesday",
-    title: "Havana Club Tuesday — Salsa-Bachata Tuesdays",
+    title: "Havana Club Tuesday - Salsa-Bachata Tuesdays",
     organizerId: "org-havana",
     venue: "Havana Club",
     address: "288 Green St, Central Square, Cambridge",
@@ -449,7 +449,7 @@ export const events: Event[] = [
   {
     id: "evt-havana-thu",
     slug: "havana-club-thursday",
-    title: "Havana Club Thursday — Bachata Thursdays",
+    title: "Havana Club Thursday - Bachata Thursdays",
     organizerId: "org-havana",
     venue: "Havana Club",
     address: "288 Green St, Central Square, Cambridge",
@@ -531,7 +531,7 @@ export const events: Event[] = [
     goodToKnow: [
       "Bachata-heavy Sunday option",
       "No alcohol / dry event · 18+",
-      "Lessons/practica structure — check official listing",
+      "Lessons/practica structure - check official listing",
       "No partner required",
       "Check official source before going",
     ],
@@ -594,8 +594,8 @@ export const events: Event[] = [
     lastVerified: "2026-06-01",
     goodToKnow: [
       "Bachata-heavy Wednesday social with a beginner class before the social",
-      "Bring water — free water may run out later in the night",
-      "Good if going alone — rotations are facilitated",
+      "Bring water - free water may run out later in the night",
+      "Good if going alone - rotations are facilitated",
     ],
     communityNote: "Beginner track is patient and welcoming. Worth the trip from anywhere on the Red Line.",
     rsvps: { count: 64, initials: ["LI", "MA", "RB"] },
@@ -625,8 +625,8 @@ export const events: Event[] = [
     sourceStatus: "Verified by community",
     lastVerified: "2026-05-25",
     goodToKnow: [
-      "Sensual bachata focus — explicit consent culture, ask every dance",
-      "Location shared 24h before — must be on the list",
+      "Sensual bachata focus - explicit consent culture, ask every dance",
+      "Location shared 24h before - must be on the list",
       "Small floor, ~60 dancers max",
     ],
     communityNote: "If you're new to sensual, do a class or two first. The crowd is welcoming but the dancing is close.",
@@ -656,8 +656,8 @@ export const events: Event[] = [
     sourceStatus: "Verified by organizer",
     lastVerified: "2026-05-28",
     goodToKnow: [
-      "Designed for first-timers — no prior class required",
-      "Studio is dry — there's a juice bar two doors down",
+      "Designed for first-timers - no prior class required",
+      "Studio is dry - there's a juice bar two doors down",
       "Rotations are facilitated so no one is stuck on the wall",
     ],
     rsvps: { count: 52, initials: ["SO", "NA", "EM"] },
@@ -686,7 +686,7 @@ export const events: Event[] = [
     lastVerified: "2026-05-29",
     goodToKnow: [
       "Free outdoor Salsa/Bachata pop-up",
-      "Usually announced on Instagram shortly before — depends on weather",
+      "Usually announced on Instagram shortly before - depends on weather",
       "Beginner-welcome, but not beginner-structured because there is usually no class",
       "Better if you know basics or go with a friend",
       "Bring water",
@@ -703,7 +703,7 @@ export const events: Event[] = [
     slug: "bachata-by-the-river",
     title: "Bachata by the River",
     organizerId: "org-bobas",
-    venue: "Esplanade — Hatch Shell lawn",
+    venue: "Esplanade - Hatch Shell lawn",
     address: "Charles River Esplanade, Boston",
     dayOfWeek: "Sunday",
     startsAt: "16:00",
@@ -718,9 +718,9 @@ export const events: Event[] = [
     sourceStatus: "From public listing",
     lastVerified: "2026-05-20",
     goodToKnow: [
-      "Salsa + Bachata music — Bachata-forward overall",
-      "Beginner Bachata lesson on the lawn — good first outdoor try",
-      "Weather-dependent — check IG morning of",
+      "Salsa + Bachata music - Bachata-forward overall",
+      "Beginner Bachata lesson on the lawn - good first outdoor try",
+      "Weather-dependent - check IG morning of",
     ],
     rsvps: { count: 71, initials: ["TI", "AL", "BE"] },
     cost: "Free",
@@ -741,7 +741,7 @@ export const events: Event[] = [
     cover: "from-oxblood via-ink to-magenta",
     bachataRelevance: "Salsa-first with bachata",
     beginnerLabel: "Beginner-friendly",
-    classBeforeSocial: { offered: true, level: "Free beginner lesson — may be Salsa, Bachata, or both" },
+    classBeforeSocial: { offered: true, level: "Free beginner lesson - may be Salsa, Bachata, or both" },
     waterAvailability: "Unknown",
     alcoholPolicy: "Bar on site",
     scheduleReliability: "Recurring, occasional cancellations",
@@ -769,7 +769,7 @@ export const events: Event[] = [
 export const resources: Resource[] = [
   {
     id: "res-starry",
-    name: "Starry Boston — community values doc",
+    name: "Starry Boston - community values doc",
     description: "Local statement on consent, safety, and dance culture co-written by Boston organizers.",
     category: "Community",
     privacyStatus: "Public link",
@@ -804,18 +804,18 @@ export const resources: Resource[] = [
   },
   {
     id: "res-house-circle",
-    name: "House Circle — sensual study group",
+    name: "House Circle - sensual study group",
     description: "Small invite-only group rotating between members' studios for technique work.",
     category: "Classes",
     privacyStatus: "Private group",
     sourceStatus: "Verified by community",
     lastVerified: "2026-05-08",
-    howToJoin: "Ask organizer for an intro — invite-only",
+    howToJoin: "Ask organizer for an intro - invite-only",
   },
   {
     id: "res-organizer-circle",
     name: "Boston Organizer Circle",
-    description: "Monthly meeting for venue owners and night runners — message an existing organizer for an intro.",
+    description: "Monthly meeting for venue owners and night runners - message an existing organizer for an intro.",
     category: "Community",
     privacyStatus: "Ask organizer",
     sourceStatus: "Verified by organizer",
@@ -824,7 +824,7 @@ export const resources: Resource[] = [
   },
   {
     id: "res-djset",
-    name: "DJ Reni — Boston bachata playlists",
+    name: "DJ Reni - Boston bachata playlists",
     description: "Weekly Spotify mixes of what's being played on local floors.",
     category: "Music",
     privacyStatus: "Public link",
@@ -837,7 +837,7 @@ export const resources: Resource[] = [
   {
     id: "res-mystery-pop",
     name: "Unverified: 'Bachata Speakeasy'",
-    description: "Mentioned on a flyer at Havana — no organizer contact yet. Help us validate.",
+    description: "Mentioned on a flyer at Havana - no organizer contact yet. Help us validate.",
     category: "Community",
     privacyStatus: "Needs validation",
     sourceStatus: "Needs validation",
@@ -845,7 +845,7 @@ export const resources: Resource[] = [
   },
   {
     id: "res-bobas",
-    name: "BOBAS — Boston Outdoor Bachata And Salsa",
+    name: "BOBAS - Boston Outdoor Bachata And Salsa",
     description: "Free outdoor Salsa/Bachata pop-ups in Boston, weather-dependent and community-led. Check Instagram before going.",
     category: "Community",
     privacyStatus: "Needs validation",
@@ -856,8 +856,8 @@ export const resources: Resource[] = [
   },
   {
     id: "res-flow-studios",
-    name: "Flow Studios — Sensual Bachata / Latin dance classes",
-    description: "Instructor-led Sensual Bachata and Latin dance classes directed by François Noel. No partner required. Schedule and location may vary — check the official site or Instagram before going.",
+    name: "Flow Studios - Sensual Bachata / Latin dance classes",
+    description: "Instructor-led Sensual Bachata and Latin dance classes directed by François Noel. No partner required. Schedule and location may vary - check the official site or Instagram before going.",
     category: "Studio / instructor-led classes",
     privacyStatus: "Public link",
     sourceStatus: "Official website / Instagram / public listings",
@@ -869,7 +869,7 @@ export const resources: Resource[] = [
   {
     id: "res-booze-bachata",
     name: "Booze & Bachata",
-    description: "Bachata-forward pop-up/social dance organizer. Event format, venue, and schedule may vary — check Instagram for current announcements.",
+    description: "Bachata-forward pop-up/social dance organizer. Event format, venue, and schedule may vary - check Instagram for current announcements.",
     category: "Pop-up social / event organizer",
     privacyStatus: "Public link",
     sourceStatus: "Instagram / verified",
@@ -896,7 +896,7 @@ export const buddies: Buddy[] = [
     id: "bud-2",
     initials: "EK",
     name: "Elena K.",
-    lookingFor: "Sensual technique partner — body waves and connection drills.",
+    lookingFor: "Sensual technique partner - body waves and connection drills.",
     level: "Intermediate",
     role: "Follow",
     postedAt: "5h ago",
@@ -916,7 +916,7 @@ export const buddies: Buddy[] = [
     id: "bud-4",
     initials: "PR",
     name: "Priya R.",
-    lookingFor: "Prepping for Flow Jack & Jill — looking for a rotating lead.",
+    lookingFor: "Prepping for Flow Jack & Jill - looking for a rotating lead.",
     level: "Advanced",
     role: "Follow",
     postedAt: "1d ago",
@@ -931,7 +931,7 @@ export const values: Value[] = [
     id: "val-01-consent",
     title: "Ask once, accept every no",
     short: "Consent is a baseline, not a feature.",
-    body: "Every dance is opt-in. A no is complete — no follow-up question, no joke, no pressure later. If someone looks uncomfortable, check in gently or give them space. Support does not need to become a scene.",
+    body: "Every dance is opt-in. A no is complete - no follow-up question, no joke, no pressure later. If someone looks uncomfortable, check in gently or give them space. Support does not need to become a scene.",
   },
   {
     id: "val-02-words",
@@ -943,7 +943,7 @@ export const values: Value[] = [
     id: "val-03-anyone",
     title: "Anyone can ask",
     short: "Tradition is not a rule.",
-    body: "Traditionally, leads often ask follows to dance, but it can go both ways. Leads, follows, and switches can all ask respectfully. The important part is not who asks — it is that the invitation is clear, kind, and easy to decline.",
+    body: "Traditionally, leads often ask follows to dance, but it can go both ways. Leads, follows, and switches can all ask respectfully. The important part is not who asks - it is that the invitation is clear, kind, and easy to decline.",
   },
   {
     id: "val-04-advanced",
@@ -985,7 +985,7 @@ export const values: Value[] = [
     id: "val-10-ego",
     title: "Leave the ego at coat check",
     short: "Skill is a tool, not a status.",
-    body: "Unsolicited corrections, forceful leading, over-styling, and showing off at your partner's expense are not advanced — they are uncomfortable. The most respected dancers make the dance feel good for both people.",
+    body: "Unsolicited corrections, forceful leading, over-styling, and showing off at your partner's expense are not advanced - they are uncomfortable. The most respected dancers make the dance feel good for both people.",
   },
   {
     id: "val-11-culture",
@@ -1015,7 +1015,7 @@ export const askPrompts: AskPrompt[] = [
         {
           eventId: "evt-bachata-room-wed",
           label: "Also consider",
-          whyThisFits: "Beginner class flows directly into a Bachata-heavy social — a natural next step once you've had a few lessons.",
+          whyThisFits: "Beginner class flows directly into a Bachata-heavy social - a natural next step once you've had a few lessons.",
         },
       ],
     },
@@ -1025,14 +1025,14 @@ export const askPrompts: AskPrompt[] = [
     prompt: "I'm nervous to go alone. What should I try?",
     category: "Beginner",
     answer: {
-      body: "Bachata Room Wednesday and Lili Latin's First-Friday social both facilitate rotations, so people who come alone don't get stuck on the wall. Beginner-friendly and dry — easier for a first solo trip than a late-night bar social.",
+      body: "Bachata Room Wednesday and Lili Latin's First-Friday social both facilitate rotations, so people who come alone don't get stuck on the wall. Beginner-friendly and dry - easier for a first solo trip than a late-night bar social.",
       sourceEventIds: ["evt-bachata-room-wed", "evt-lili-social"],
       showBeginnerPathway: true,
       recommendations: [
         {
           eventId: "evt-bachata-room-wed",
           label: "Top recommendation",
-          whyThisFits: "Facilitated rotations and a beginner class before the social — good if you're going alone.",
+          whyThisFits: "Facilitated rotations and a beginner class before the social - good if you're going alone.",
         },
         {
           eventId: "evt-lili-social",
@@ -1073,7 +1073,7 @@ export const askPrompts: AskPrompt[] = [
         {
           eventId: "evt-havana-sat",
           label: "Also consider",
-          whyThisFits: "Bachata-included Saturday with a large crowd and lessons before dancing — not purely Bachata-heavy.",
+          whyThisFits: "Bachata-included Saturday with a large crowd and lessons before dancing - not purely Bachata-heavy.",
         },
       ],
     },
@@ -1089,7 +1089,7 @@ export const askPrompts: AskPrompt[] = [
         {
           eventId: "evt-bobas",
           label: "Top recommendation",
-          whyThisFits: "Free outdoor pop-up — weather-dependent, no class, better if you know basics or bring a friend.",
+          whyThisFits: "Free outdoor pop-up - weather-dependent, no class, better if you know basics or bring a friend.",
         },
       ],
     },
@@ -1099,13 +1099,13 @@ export const askPrompts: AskPrompt[] = [
     prompt: "What outdoor/free events are happening?",
     category: "Logistics",
     answer: {
-      body: "BOBAS runs free outdoor Salsa/Bachata pop-ups at the Charles River Dock, and Bachata by the River is free on Sundays at the Esplanade. Both are weather-dependent — check Instagram before going.",
+      body: "BOBAS runs free outdoor Salsa/Bachata pop-ups at the Charles River Dock, and Bachata by the River is free on Sundays at the Esplanade. Both are weather-dependent - check Instagram before going.",
       sourceEventIds: ["evt-bobas", "evt-river"],
       recommendations: [
         {
           eventId: "evt-bobas",
           label: "Top recommendation",
-          whyThisFits: "Free outdoor Salsa/Bachata pop-up — no class, weather-dependent, announced on Instagram.",
+          whyThisFits: "Free outdoor Salsa/Bachata pop-up - no class, weather-dependent, announced on Instagram.",
         },
         {
           eventId: "evt-river",
@@ -1121,7 +1121,7 @@ export const askPrompts: AskPrompt[] = [
     prompt: "Where can I go if I don't want alcohol?",
     category: "Logistics",
     answer: {
-      body: "Bachata Room Wednesday, Lili Latin's First-Friday social, and the BOBAS outdoor nights are all dry events — no bar on site. Havana Monday is also now a dry, dance-focused night.",
+      body: "Bachata Room Wednesday, Lili Latin's First-Friday social, and the BOBAS outdoor nights are all dry events - no bar on site. Havana Monday is also now a dry, dance-focused night.",
       sourceEventIds: ["evt-bachata-room-wed", "evt-lili-social", "evt-bobas", "evt-havana-mon"],
       recommendations: [
         {
@@ -1132,7 +1132,7 @@ export const askPrompts: AskPrompt[] = [
         {
           eventId: "evt-bachata-room-wed",
           label: "Also consider",
-          whyThisFits: "Dry Wednesday social with a beginner class — Bachata-heavy.",
+          whyThisFits: "Dry Wednesday social with a beginner class - Bachata-heavy.",
         },
         {
           eventId: "evt-lili-social",

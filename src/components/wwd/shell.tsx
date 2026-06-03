@@ -23,7 +23,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         <main className="mt-4">{children}</main>
         <footer className="px-5 mt-16 mb-8 space-y-3">
           <p className="text-[11px] text-ink/65 leading-relaxed">
-            Based on currently listed WhereWeDance data. Check the organizer's official posts before going — we're a local guide, not a live source of truth.
+            Based on currently listed WhereWeDance data. Check the organizer's official posts before going - we're a local guide, not a live source of truth.
           </p>
           <p className="text-[10px] uppercase tracking-widest text-ink/40 font-bold">
             © 2026 WhereWeDance · Boston pilot · UI prototype

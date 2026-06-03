@@ -13,7 +13,7 @@ export function AskPage() {
       <PageHero
         eyebrow="Ask WhereWeDance"
         title={<>A grounded <span className="text-terracotta">local guide.</span></>}
-        description="Mock answers in this prototype — no AI calls. Every reply cites the listed events and resources it pulled from."
+        description="Mock answers in this prototype - no AI calls. Every reply cites the listed events and resources it pulled from."
       />
 
       <section className="px-5 mt-6">

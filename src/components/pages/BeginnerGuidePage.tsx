@@ -5,7 +5,7 @@ import { events } from "@/data/mock";
 
 const expect = [
   { t: "You will mess up", d: "Everyone does. Smile, reset, keep dancing. No one is watching as hard as you think." },
-  { t: "Rotations are normal", d: "At a class or beginner social, partners change every few minutes — not because they don't like you." },
+  { t: "Rotations are normal", d: "At a class or beginner social, partners change every few minutes - not because they don't like you." },
   { t: "Saying no is normal too", d: "You don't owe anyone a dance. Don't owe an explanation either." },
 ];
 

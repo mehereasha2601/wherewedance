@@ -112,7 +112,7 @@ export function EventDetailPage({ slug }: { slug: string }) {
             mapUrl={mapUrl}
           />
           <p className="mt-3 text-[11px] text-ink/55 leading-relaxed">
-            Links open in a new tab. We're a local guide — always check the organizer's official post before going.
+            Links open in a new tab. We're a local guide - always check the organizer's official post before going.
           </p>
         </section>
       )}

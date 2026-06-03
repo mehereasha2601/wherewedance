@@ -14,7 +14,7 @@ const items: Item[] = [
   { to: "/safety", label: "Safety", blurb: "Report a concern privately to the safety team.", accent: "bg-magenta" },
   { to: "/resources", label: "Resources", blurb: "Community docs, comps, playlists, and groups.", accent: "bg-oxblood" },
   { to: "/organizers", label: "Organizers", blurb: "Studios, collectives, and people running the floors.", accent: "bg-ink" },
-  { to: "/organizer-dashboard", label: "Organizer Dashboard Preview", blurb: "Mock-only — what organizers see when they sign in.", accent: "bg-ink/60" },
+  { to: "/organizer-dashboard", label: "Organizer Dashboard Preview", blurb: "Mock-only - what organizers see when they sign in.", accent: "bg-ink/60" },
 ];
 
 export function MorePage() {

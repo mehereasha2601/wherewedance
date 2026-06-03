@@ -5,7 +5,7 @@ import { organizerBySlug } from "@/data/mock";
 export const Route = createFileRoute("/organizers/$id")({
   head: ({ params }) => {
     const o = organizerBySlug(params.id);
-    const title = o ? `${o.name} — WhereWeDance` : "Organizer — WhereWeDance";
+    const title = o ? `${o.name} - WhereWeDance` : "Organizer - WhereWeDance";
     return {
       meta: [
         { title },
