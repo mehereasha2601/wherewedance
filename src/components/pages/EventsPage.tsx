@@ -1,8 +1,11 @@
 import { AppShell, PageHero } from "@/components/wwd/shell";
 import { EventFilters } from "@/components/wwd/event-filters";
-import { events } from "@/data/mock";
+import { events, isPastOneOff } from "@/data/mock";
 
 export function EventsPage() {
+  // /events is the evergreen catalog. Hide past one-off events so stale
+  // dates never linger; recurring weekly events stay (shown as recurrence).
+  const catalog = events.filter((e) => !isPastOneOff(e));
   return (
     <AppShell>
       <PageHero
@@ -15,7 +18,7 @@ export function EventsPage() {
       </p>
       <div className="mt-6">
         <EventFilters
-          events={events}
+          events={catalog}
           layout="grid"
           chips={["bachata-heavy","beginner-friendly","free","no-alcohol","class-before-social"]}
         />
