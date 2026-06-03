@@ -37,9 +37,9 @@ const scheduleUpdates = [
 ];
 
 const aiHelpers = [
-  "Generate Good to Know draft",
-  "Draft Instagram caption",
-  "Rewrite for beginners",
+  "Generate Good to Know draft - coming soon",
+  "Draft Instagram caption - coming soon",
+  "Rewrite for beginners - coming soon",
 ];
 
 export function OrganizerDashboardPage() {
@@ -55,15 +55,25 @@ export function OrganizerDashboardPage() {
   return (
     <AppShell>
       <PageHero
-        eyebrow={`Mock organizer view: ${org.name}`}
+        eyebrow="Coming soon for organizers"
         title={<>Organizer <span className="text-terracotta">dashboard</span></>}
-        description="Preview how organizers can manage event visibility, RSVP interest, schedule updates, and dancer-facing information on WhereWeDance."
+        description="A preview of how organizers will be able to manage event visibility, RSVP interest, schedule updates, and dancer-facing information on WhereWeDance."
       />
+
+      <section className="px-5 mt-6 bg-magenta/15 ring-1 ring-magenta/40 rounded-2xl p-4">
+        <p className="text-[10px] uppercase tracking-widest font-bold text-magenta mb-1">
+          Coming soon
+        </p>
+        <p className="text-[12px] text-ink/80 leading-relaxed">
+          This dashboard is a prototype preview. Organizer actions are visual
+          only and do not submit yet.
+        </p>
+      </section>
 
       <section className="px-5 mt-6">
         <div className="bg-ink text-paper rounded-2xl p-5">
           <p className="text-[10px] uppercase tracking-widest font-bold text-mango mb-2">
-            Why organizers use WhereWeDance
+            Why organizers will use WhereWeDance
           </p>
           <ul className="space-y-2 text-[13px] leading-relaxed">
             {valueBullets.map((b) => (
@@ -73,13 +83,21 @@ export function OrganizerDashboardPage() {
         </div>
       </section>
 
-      <section className="px-5 mt-6 grid grid-cols-2 gap-3">
-        {stats.map((s) => (
-          <div key={s.label} className="bg-paper ring-1 ring-ink/10 rounded-2xl p-3">
-            <p className="text-[9px] uppercase tracking-widest font-bold text-ink/55">{s.label}</p>
-            <p className="font-display italic text-xl text-ink mt-1 leading-tight">{s.value}</p>
-          </div>
-        ))}
+      <section className="px-5 mt-8">
+        <h2 className="font-display italic font-semibold text-2xl text-ink mb-1">
+          Example stats
+        </h2>
+        <p className="text-[11px] text-ink/60 mb-3">
+          Example data only - not a real organizer account.
+        </p>
+        <div className="grid grid-cols-2 gap-3">
+          {stats.map((s) => (
+            <div key={s.label} className="bg-paper ring-1 ring-ink/10 rounded-2xl p-3">
+              <p className="text-[9px] uppercase tracking-widest font-bold text-ink/55">{s.label}</p>
+              <p className="font-display italic text-xl text-ink mt-1 leading-tight">{s.value}</p>
+            </div>
+          ))}
+        </div>
       </section>
 
       <section className="px-5 mt-8">
@@ -94,7 +112,7 @@ export function OrganizerDashboardPage() {
       </section>
 
       <section className="px-5 mt-8">
-        <h2 className="font-display italic font-semibold text-2xl text-ink mb-3">Submissions</h2>
+        <h2 className="font-display italic font-semibold text-2xl text-ink mb-3">Example submissions</h2>
         <ul className="space-y-2">
           {submissions.map((s) => (
             <li key={s.title} className="bg-paper ring-1 ring-ink/10 rounded-2xl p-4 flex items-center justify-between gap-3">
@@ -108,7 +126,7 @@ export function OrganizerDashboardPage() {
       </section>
 
       <section className="px-5 mt-8">
-        <h2 className="font-display italic font-semibold text-2xl text-ink mb-3">Live event pages</h2>
+        <h2 className="font-display italic font-semibold text-2xl text-ink mb-3">Example live event pages</h2>
         <ul className="space-y-3">
           {orgEvents.map((e) => (
             <li key={e.id} className="bg-paper ring-1 ring-ink/10 rounded-2xl p-4">
@@ -131,10 +149,10 @@ export function OrganizerDashboardPage() {
               />
               <div className="mt-3 flex gap-2">
                 <button type="button" className="px-3 py-1.5 rounded-full bg-ink text-paper text-[10px] font-bold uppercase tracking-widest">
-                  View event page
+                  Preview event page
                 </button>
-                <button type="button" className="px-3 py-1.5 rounded-full bg-paper ring-1 ring-ink/15 text-ink text-[10px] font-bold uppercase tracking-widest">
-                  Update details
+                <button type="button" disabled aria-disabled="true" className="px-3 py-1.5 rounded-full bg-paper ring-1 ring-ink/15 text-ink/50 text-[10px] font-bold uppercase tracking-widest cursor-not-allowed">
+                  Update details - coming soon
                 </button>
               </div>
             </li>
@@ -143,13 +161,15 @@ export function OrganizerDashboardPage() {
       </section>
 
       <section className="px-5 mt-8">
-        <h2 className="font-display italic font-semibold text-2xl text-ink mb-3">Quick schedule update</h2>
+        <h2 className="font-display italic font-semibold text-2xl text-ink mb-3">Future quick schedule updates</h2>
         <div className="flex flex-wrap gap-2">
           {scheduleUpdates.map((u) => (
             <button
               key={u}
               type="button"
-              className="px-3 py-2 rounded-full bg-paper ring-1 ring-ink/15 text-[11px] font-bold uppercase tracking-widest text-ink"
+              disabled
+              aria-disabled="true"
+              className="px-3 py-2 rounded-full bg-paper ring-1 ring-ink/15 text-[11px] font-bold uppercase tracking-widest text-ink/50 cursor-not-allowed"
             >
               {u}
             </button>
@@ -158,7 +178,7 @@ export function OrganizerDashboardPage() {
       </section>
 
       <section className="px-5 mt-8">
-        <h2 className="font-display italic font-semibold text-2xl text-ink mb-2">AI copy helper</h2>
+        <h2 className="font-display italic font-semibold text-2xl text-ink mb-2">Future AI copy helper</h2>
         <p className="text-[13px] text-ink/70 leading-relaxed mb-3">
           Draft clearer event descriptions, beginner-friendly blurbs, Instagram captions, and Good to Know notes from your event details.
         </p>
@@ -167,7 +187,9 @@ export function OrganizerDashboardPage() {
             <button
               key={a}
               type="button"
-              className="px-3 py-2 rounded-full bg-mango text-ink text-[11px] font-bold uppercase tracking-widest"
+              disabled
+              aria-disabled="true"
+              className="px-3 py-2 rounded-full bg-mango/50 text-ink/60 text-[11px] font-bold uppercase tracking-widest cursor-not-allowed"
             >
               {a}
             </button>
@@ -177,7 +199,7 @@ export function OrganizerDashboardPage() {
 
       <section className="px-5 mt-8">
         <p className="text-[11px] text-ink/55 leading-relaxed">
-          Prototype only - organizer actions are visual and do not submit yet.
+          Prototype only - no organizer login, claim flow, edits, or submissions are active yet. Havana Club is shown as example data only.
         </p>
       </section>
     </AppShell>
