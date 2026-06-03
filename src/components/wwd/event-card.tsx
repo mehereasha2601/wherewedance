@@ -1,12 +1,15 @@
 import type { Event } from "@/data/mock";
-import { organizerById } from "@/data/mock";
+import { organizerById, mapUrlForEvent } from "@/data/mock";
 import { Link } from "./ui-router";
 import { BeginnerTag, SceneTag } from "./tags";
 import { GoodToKnow } from "./good-to-know";
 import { SourceLabel } from "./source-label";
+import { ExternalLink, MapPin } from "lucide-react";
 
 export function EventCard({ event, full = false }: { event: Event; full?: boolean }) {
   const organizer = organizerById(event.organizerId);
+  const primaryHref = event.officialUrl ?? event.websiteUrl ?? event.instagramUrl ?? event.facebookUrl;
+  const mapHref = mapUrlForEvent(event);
   return (
     <article className="bg-paper rounded-3xl ring-1 ring-ink/10 overflow-hidden flex flex-col">
       <div className={`relative aspect-[5/3] bg-gradient-to-br ${event.cover}`}>
@@ -69,6 +72,35 @@ export function EventCard({ event, full = false }: { event: Event; full?: boolea
         </div>
 
         <GoodToKnow event={event} compact={!full} />
+
+        {(primaryHref || mapHref) && (
+          <div className="flex flex-wrap items-center gap-2">
+            {primaryHref && (
+              <a
+                href={primaryHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Open ${event.title} official source`}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-ink text-paper text-[11px] font-bold uppercase tracking-widest hover:-translate-y-0.5 transition"
+              >
+                <ExternalLink size={12} strokeWidth={2.5} />
+                Official source
+              </a>
+            )}
+            {mapHref && (
+              <a
+                href={mapHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Open ${event.venue} in maps`}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-paper ring-1 ring-ink/15 text-ink text-[11px] font-bold uppercase tracking-widest hover:-translate-y-0.5 hover:ring-terracotta/60 transition"
+              >
+                <MapPin size={12} strokeWidth={2.5} />
+                Open maps
+              </a>
+            )}
+          </div>
+        )}
 
         <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
           <SourceLabel status={event.sourceStatus} lastVerified={event.lastVerified} />
