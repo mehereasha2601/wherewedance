@@ -13,7 +13,7 @@ export function AskCard() {
           <h2 className="font-display italic font-semibold text-2xl leading-tight">
             Ask WhereWeDance Preview
           </h2>
-          <span className="text-[10px] uppercase tracking-widest bg-paper/15 px-2 py-1 rounded-full">
+          <span className="text-[10px] uppercase tracking-widest font-bold bg-magenta text-paper px-2 py-1 rounded-full">
             Coming soon
           </span>
         </div>
