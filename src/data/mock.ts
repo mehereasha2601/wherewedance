@@ -1182,6 +1182,22 @@ export function catalogDateLabel(e: Event): string {
   return `${e.dayOfWeek}s`;
 }
 
+// Ask-page friendly date label. Recurring weekly events show recurrence
+// ("Wednesdays"), upcoming one-offs show the real date, and pop-ups with no
+// fixedDate show a TBA hint. Past one-offs should be filtered out before
+// calling this (see isPastOneOff).
+export function getAskDateLabel(
+  e: Event,
+  today: Date = getTodayInBoston(),
+): string {
+  if (e.fixedDate) {
+    if (isPastOneOff(e, today)) return "Past — check official source";
+    return formatDateLabel(parseIsoDate(e.fixedDate));
+  }
+  if (e.popUp) return "Date TBA / check source";
+  return `${e.dayOfWeek}s`;
+}
+
 // ---------- Resources ----------
 
 export const resources: Resource[] = [
