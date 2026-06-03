@@ -6,7 +6,11 @@ export const Route = createFileRoute("/organizers/$id")({
   head: ({ params }) => {
     const o = organizerBySlug(params.id);
     const title = o ? `${o.name} - WhereWeDance` : "Organizer - WhereWeDance";
-    const desc = o?.bio ?? "Boston bachata organizer.";
+    const rawBio = o?.bio ?? "";
+    const truncatedBio = rawBio.length > 160 ? `${rawBio.slice(0, 157).trimEnd()}…` : rawBio;
+    const desc = truncatedBio
+      ? truncatedBio
+      : "Profile for a Boston bachata organizer — studios, collectives, and community groups running local socials and classes.";
     const path = `/organizers/${params.id}`;
     const scripts = o
       ? [

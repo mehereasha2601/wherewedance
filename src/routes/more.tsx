@@ -4,10 +4,10 @@ import { MorePage } from "@/components/pages/MorePage";
 export const Route = createFileRoute("/more")({
   head: () => ({
     meta: [
-      { title: "More - WhereWeDance" },
-      { name: "description", content: "Beginner guide, values, safety, resources, and organizer tools." },
-      { property: "og:title", content: "More - WhereWeDance" },
-      { property: "og:description", content: "Beginner guide, values, safety, resources, and organizer tools." },
+      { title: "Dance Resources & Community Tools — WhereWeDance" },
+      { name: "description", content: "Beginner guide, community values, safety policies, curated resources, and tools for organizers running Boston bachata events." },
+      { property: "og:title", content: "Dance Resources & Community Tools" },
+      { property: "og:description", content: "Beginner guide, community values, safety policies, curated resources, and tools for organizers running Boston bachata events." },
       { property: "og:url", content: "/more" },
     ],
     links: [{ rel: "canonical", href: "/more" }],
