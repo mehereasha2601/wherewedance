@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ValuesRouteImport } from './routes/values'
 import { Route as ThisWeekRouteImport } from './routes/this-week'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SafetyRouteImport } from './routes/safety'
 import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as OrganizerDashboardRouteImport } from './routes/organizer-dashboard'
@@ -34,6 +35,11 @@ const ValuesRoute = ValuesRouteImport.update({
 const ThisWeekRoute = ThisWeekRouteImport.update({
   id: '/this-week',
   path: '/this-week',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SafetyRoute = SafetyRouteImport.update({
@@ -118,6 +124,7 @@ export interface FileRoutesByFullPath {
   '/organizer-dashboard': typeof OrganizerDashboardRoute
   '/resources': typeof ResourcesRoute
   '/safety': typeof SafetyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/this-week': typeof ThisWeekRoute
   '/values': typeof ValuesRoute
   '/events/$id': typeof EventsIdRoute
@@ -136,6 +143,7 @@ export interface FileRoutesByTo {
   '/organizer-dashboard': typeof OrganizerDashboardRoute
   '/resources': typeof ResourcesRoute
   '/safety': typeof SafetyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/this-week': typeof ThisWeekRoute
   '/values': typeof ValuesRoute
   '/events/$id': typeof EventsIdRoute
@@ -155,6 +163,7 @@ export interface FileRoutesById {
   '/organizer-dashboard': typeof OrganizerDashboardRoute
   '/resources': typeof ResourcesRoute
   '/safety': typeof SafetyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/this-week': typeof ThisWeekRoute
   '/values': typeof ValuesRoute
   '/events/$id': typeof EventsIdRoute
@@ -175,6 +184,7 @@ export interface FileRouteTypes {
     | '/organizer-dashboard'
     | '/resources'
     | '/safety'
+    | '/sitemap.xml'
     | '/this-week'
     | '/values'
     | '/events/$id'
@@ -193,6 +203,7 @@ export interface FileRouteTypes {
     | '/organizer-dashboard'
     | '/resources'
     | '/safety'
+    | '/sitemap.xml'
     | '/this-week'
     | '/values'
     | '/events/$id'
@@ -211,6 +222,7 @@ export interface FileRouteTypes {
     | '/organizer-dashboard'
     | '/resources'
     | '/safety'
+    | '/sitemap.xml'
     | '/this-week'
     | '/values'
     | '/events/$id'
@@ -230,6 +242,7 @@ export interface RootRouteChildren {
   OrganizerDashboardRoute: typeof OrganizerDashboardRoute
   ResourcesRoute: typeof ResourcesRoute
   SafetyRoute: typeof SafetyRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   ThisWeekRoute: typeof ThisWeekRoute
   ValuesRoute: typeof ValuesRoute
   EventsIdRoute: typeof EventsIdRoute
@@ -252,6 +265,13 @@ declare module '@tanstack/react-router' {
       path: '/this-week'
       fullPath: '/this-week'
       preLoaderRoute: typeof ThisWeekRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/safety': {
@@ -366,6 +386,7 @@ const rootRouteChildren: RootRouteChildren = {
   OrganizerDashboardRoute: OrganizerDashboardRoute,
   ResourcesRoute: ResourcesRoute,
   SafetyRoute: SafetyRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   ThisWeekRoute: ThisWeekRoute,
   ValuesRoute: ValuesRoute,
   EventsIdRoute: EventsIdRoute,
@@ -376,3 +397,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

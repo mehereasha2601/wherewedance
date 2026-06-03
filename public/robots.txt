@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wherewedance.lovable.app/sitemap.xml
