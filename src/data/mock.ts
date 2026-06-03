@@ -32,6 +32,7 @@ export type SourceStatus =
   | "Verified by organizer"
   | "Verified by community"
   | "From public listing"
+  | "Official website / Instagram / public listings"
   | "Needs validation";
 
 export type ResourcePrivacy =
