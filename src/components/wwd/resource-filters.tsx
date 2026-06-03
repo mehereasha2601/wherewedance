@@ -23,18 +23,15 @@ const CATEGORY_FILTERS: CategoryFilterValue[] = [
   "Shoes / apparel",
   "Blog posts",
   "Safety / values",
-  "Competitions",
-  "Practice spaces",
   "Needs validation",
 ];
 
 interface ResourceFiltersProps {
   active: FilterValue;
   onChange: (value: FilterValue) => void;
-  count: number;
 }
 
-export function ResourceFilters({ active, onChange, count }: ResourceFiltersProps) {
+export function ResourceFilters({ active, onChange }: ResourceFiltersProps) {
   return (
     <div className="px-5">
       <p className="text-[10px] uppercase tracking-widest font-bold text-ink/55 mb-1.5">
@@ -65,11 +62,6 @@ export function ResourceFilters({ active, onChange, count }: ResourceFiltersProp
         })}
         </div>
       </div>
-      {active !== "All" && (
-        <p className="mt-2 text-[10px] uppercase tracking-widest font-bold text-ink/55">
-          {count} resource{count === 1 ? "" : "s"}
-        </p>
-      )}
     </div>
   );
 }
@@ -77,9 +69,15 @@ export function ResourceFilters({ active, onChange, count }: ResourceFiltersProp
 interface ResourceCategoryFiltersProps {
   active: CategoryFilterValue;
   onChange: (value: CategoryFilterValue) => void;
+  available?: CategoryFilterValue[];
 }
 
-export function ResourceCategoryFilters({ active, onChange }: ResourceCategoryFiltersProps) {
+export function ResourceCategoryFilters({
+  active,
+  onChange,
+  available,
+}: ResourceCategoryFiltersProps) {
+  const list = available ?? CATEGORY_FILTERS;
   return (
     <div className="px-5">
       <p className="text-[10px] uppercase tracking-widest font-bold text-ink/55 mb-1.5">
@@ -87,7 +85,7 @@ export function ResourceCategoryFilters({ active, onChange }: ResourceCategoryFi
       </p>
       <div className="w-full max-w-full overflow-x-auto overscroll-x-contain no-scrollbar pb-2 scroll-px-5 [-webkit-overflow-scrolling:touch]">
         <div className="flex flex-nowrap items-center gap-2">
-        {CATEGORY_FILTERS.map((f) => {
+        {list.map((f) => {
           const isActive = active === f;
           return (
             <button
