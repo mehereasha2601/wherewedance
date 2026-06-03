@@ -102,8 +102,13 @@ export type Event = {
   scheduleReliability: ScheduleReliability;
   sourceStatus: SourceStatus;
   lastVerified: string; // ISO date
+  // Optional ISO date (YYYY-MM-DD) for fixed-date one-off / pop-up events.
+  // When set, dateLabel is derived from this; otherwise dateLabel is computed
+  // from dayOfWeek as the next occurrence on or after PILOT_BASE_DATE. Pop-ups
+  // with no fixedDate render as "Monthly / date TBA".
+  fixedDate?: string;
   // Date / time display fields. Cards show dateLabel · scheduleLabel.
-  dateLabel: string; // e.g. "Mon, Jun 9", "Fri, Jun 20", "Monthly / date TBA"
+  dateLabel: string; // populated by computeEventDateLabels(); do not hardcode
   scheduleLabel?: string; // e.g. "9:00 PM", "6:00–10:00 PM", "Time TBA"
   isTonight?: boolean; // shown as a small badge only, never as the main date
   goodToKnow: string[];
@@ -815,6 +820,7 @@ export const events: Event[] = [
     scheduleReliability: "Monthly / occasional - check official source",
     sourceStatus: "Official Instagram / organizer post",
     lastVerified: "2026-06-03",
+    fixedDate: "2026-06-20",
     dateLabel: "Fri, Jun 20",
     scheduleLabel: "6:00–10:00 PM",
     goodToKnow: [
@@ -857,6 +863,7 @@ export const events: Event[] = [
     scheduleReliability: "Pop-up / one-off - check official source",
     sourceStatus: "Official Instagram / domain-expert confirmed Bachata music",
     lastVerified: "2026-06-06",
+    fixedDate: "2026-06-06",
     dateLabel: "Sat, Jun 6",
     scheduleLabel: "Time TBA",
     goodToKnow: [
@@ -895,8 +902,9 @@ export const events: Event[] = [
     waterAvailability: "BYO water",
     alcoholPolicy: "Dry event",
     scheduleReliability: "Weather-dependent pop-up - check Instagram",
-    sourceStatus: "Official Instagram / organizer post",
+    sourceStatus: "Community-updated / WhatsApp announcement",
     lastVerified: "2026-05-29",
+    fixedDate: "2026-06-05",
     dateLabel: "Fri, Jun 13",
     scheduleLabel: "Check Instagram",
     goodToKnow: [
@@ -963,7 +971,7 @@ export const events: Event[] = [
     endsAt: "21:30",
     scheduleNote: "Seasonal outdoor recurring - check official source",
     cover: "from-oxblood via-ink to-magenta",
-    bachataRelevance: "Salsa-first with Bachata",
+    bachataRelevance: "Bachata-included",
     beginnerLabel: "Beginner-friendly",
     classBeforeSocial: { offered: true, level: "Free beginner lesson; style may vary by date" },
     waterAvailability: "Food/drinks at venue - bring water recommended",
@@ -1000,7 +1008,7 @@ export const events: Event[] = [
     startsAt: "20:45",
     endsAt: "01:00",
     cover: "from-mango via-oxblood to-ink",
-    bachataRelevance: "Salsa-first with Bachata",
+    bachataRelevance: "Bachata-included",
     beginnerLabel: "Beginner-welcome",
     classBeforeSocial: { offered: true, level: "Salsa class before social" },
     waterAvailability: "Check official source",
@@ -1035,7 +1043,7 @@ export const events: Event[] = [
     startsAt: "20:40",
     endsAt: "01:00",
     cover: "from-terracotta via-magenta to-ink",
-    bachataRelevance: "Salsa-first with Bachata",
+    bachataRelevance: "Bachata-included",
     beginnerLabel: "Beginner-friendly",
     classBeforeSocial: { offered: true, level: "Beginner-friendly Salsa/Bachata lesson" },
     waterAvailability: "Check official source",
