@@ -866,6 +866,17 @@ export const resources: Resource[] = [
     websiteUrl: "https://flowstudios.dance/",
     instagramUrl: "https://www.instagram.com/flowstudios.dance/",
   },
+  {
+    id: "res-booze-bachata",
+    name: "Booze & Bachata",
+    description: "Bachata-forward pop-up/social dance organizer. Event format, venue, and schedule may vary — check Instagram for current announcements.",
+    category: "Pop-up social / event organizer",
+    privacyStatus: "Public link",
+    sourceStatus: "Instagram / verified",
+    lastVerified: "2026-06-03",
+    howToJoin: "Check Instagram for event announcements, ticket links, venue details, and age requirements.",
+    instagramUrl: "https://www.instagram.com/boozeandbachata/",
+  },
 ];
 
 // ---------- Buddies ----------
