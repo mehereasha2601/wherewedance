@@ -34,6 +34,9 @@ export type SourceStatus =
   | "From public listing"
   | "Official website / Instagram / public listings"
   | "Instagram / verified"
+  | "Official website"
+  | "Community-known / private group"
+  | "WhereWeDance guide"
   | "Needs validation";
 
 export type ResourcePrivacy =
@@ -109,7 +112,7 @@ export type Resource = {
   id: string;
   name: string;
   description: string;
-  category: "Community" | "Competition" | "Classes" | "Studio / instructor-led classes" | "Pop-up social / event organizer" | "Music" | "Wellness";
+  category: ResourceCategory;
   privacyStatus: ResourcePrivacy;
   sourceStatus: SourceStatus;
   lastVerified: string;
@@ -118,7 +121,21 @@ export type Resource = {
   instagramUrl?: string;
   facebookUrl?: string;
   howToJoin?: string;
+  sourceUrl?: string;
+  tags?: string[];
 };
+
+export type ResourceCategory =
+  | "Group chats"
+  | "Playlists"
+  | "Online classes"
+  | "Studios"
+  | "Organizers"
+  | "Shoes / apparel"
+  | "Blog posts"
+  | "Safety / values"
+  | "Competitions"
+  | "Practice spaces";
 
 export type Buddy = {
   id: string;
