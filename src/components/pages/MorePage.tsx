@@ -1,8 +1,16 @@
 import { AppShell, PageHero } from "@/components/wwd/shell";
 import { Link } from "@/components/wwd/ui-router";
+import { NextImprovements } from "@/components/wwd/next-improvements";
 
 type Item = {
-  to: "/beginner-guide" | "/values" | "/safety" | "/resources" | "/organizers" | "/organizer-dashboard";
+  to:
+    | "/beginner-guide"
+    | "/values"
+    | "/safety"
+    | "/resources"
+    | "/organizers"
+    | "/organizer-dashboard"
+    | "/contact";
   label: string;
   blurb: string;
   accent: string;
@@ -14,6 +22,7 @@ const items: Item[] = [
   { to: "/safety", label: "Safety", blurb: "Report a concern privately to the safety team.", accent: "bg-magenta" },
   { to: "/resources", label: "Resources", blurb: "Community docs, comps, playlists, and groups.", accent: "bg-oxblood" },
   { to: "/organizers", label: "Organizers", blurb: "Studios, collectives, and people running the floors.", accent: "bg-ink" },
+  { to: "/contact", label: "Contact / Feedback", blurb: "Suggest a correction, a resource, or a new city or style.", accent: "bg-terracotta" },
   { to: "/organizer-dashboard", label: "Organizer Dashboard Preview", blurb: "Mock-only - what organizers see when they sign in.", accent: "bg-ink/60" },
 ];
 
@@ -43,6 +52,10 @@ export function MorePage() {
           </li>
         ))}
       </ul>
+
+      <div className="mt-10">
+        <NextImprovements />
+      </div>
     </AppShell>
   );
 }
