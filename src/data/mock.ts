@@ -1679,18 +1679,13 @@ export const askPrompts: AskPrompt[] = [
     prompt: "Where can I go if I don't want alcohol?",
     category: "Logistics",
     answer: {
-      body: "Bachata Room Wednesday and the BOBAS outdoor nights are dry events - no bar on site. Havana Monday is also now a dry, dance-focused night. Havana is cash only with an on-site ATM that may charge an extra fee, and coat check is available. Bachata Room accepts cash/Venmo and has no coat check, so bring water.",
-      sourceEventIds: ["evt-bachata-room-wed", "evt-bobas", "evt-havana-mon"],
+      body: "Havana Monday is a dry, dance-focused Bachata-heavy night with a beginner + intermediate lesson before the social — the best no-alcohol pick. BOBAS outdoor pop-ups at the Charles River Dock are also dry (bring water). Bachata Room is at La Fábrica with a bar (21+ to drink); you can still attend without drinking, but it's not a dry venue. Havana is cash only with an on-site ATM that may charge an extra fee, and coat check is available.",
+      sourceEventIds: ["evt-havana-mon", "evt-bobas"],
       recommendations: [
         {
           eventId: "evt-havana-mon",
           label: "Top recommendation",
           whyThisFits: "Dry, Bachata-heavy Monday with a beginner class before the social.",
-        },
-        {
-          eventId: "evt-bachata-room-wed",
-          label: "Also consider",
-          whyThisFits: "Dry Wednesday social with a beginner class - Bachata-heavy.",
         },
         {
           eventId: "evt-bobas",
