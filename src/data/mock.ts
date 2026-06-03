@@ -3,9 +3,7 @@
 
 export type BachataRelevance =
   | "Bachata-heavy"
-  | "Bachata-forward"
-  | "Bachata-included"
-  | "Salsa-first with bachata";
+  | "Bachata-included";
 
 export type BeginnerLabel =
   | "Beginner-friendly"
@@ -94,6 +92,10 @@ export type Event = {
   scheduleReliability: ScheduleReliability;
   sourceStatus: SourceStatus;
   lastVerified: string; // ISO date
+  // Date / time display fields. Cards show dateLabel · scheduleLabel.
+  dateLabel: string; // e.g. "Mon, Jun 9", "Fri, Jun 20", "Monthly / date TBA"
+  scheduleLabel?: string; // e.g. "9:00 PM", "6:00–10:00 PM", "Time TBA"
+  isTonight?: boolean; // shown as a small badge only, never as the main date
   goodToKnow: string[];
   communityNote?: string;
   rsvps: { count: number; initials: string[] };
