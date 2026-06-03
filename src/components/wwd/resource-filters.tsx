@@ -19,6 +19,7 @@ const CATEGORY_FILTERS: CategoryFilterValue[] = [
   "Online classes",
   "Studios",
   "Organizers",
+  "Venues / organizers",
   "Shoes / apparel",
   "Blog posts",
   "Safety / values",
