@@ -5,7 +5,7 @@ const steps = [
     n: "01",
     title: "Take a structured class first",
     body: "Start with Lili Latin Dance or J&L Dance Studio if you are brand new. No partner needed.",
-    cta: { label: "See beginner classes", to: "/beginner-guide" as const },
+    cta: { label: "See beginner classes", to: "/beginner-guide" as const, hash: "recommended-first-events" },
   },
   {
     n: "02",
