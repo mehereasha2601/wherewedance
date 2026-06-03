@@ -26,10 +26,11 @@ export function EventCard({ event, full = false }: { event: Event; full?: boolea
             Tonight
           </div>
         )}
-        <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between text-paper">
-          <div>
-            <p className="text-[10px] uppercase tracking-widest font-bold opacity-80">
-              {event.popUp ? "Pop-up · Check Instagram" : `${event.dayOfWeek} · ${event.startsAt}`}
+        <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between text-paper gap-2">
+          <div className="min-w-0">
+            <p className="text-[10px] uppercase tracking-widest font-bold opacity-90 truncate">
+              {event.dateLabel}
+              {event.scheduleLabel ? ` · ${event.scheduleLabel}` : ""}
             </p>
           </div>
           <span className="font-display italic font-bold text-lg leading-none bg-ink/40 backdrop-blur px-2 py-1 rounded-md">
