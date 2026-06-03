@@ -1365,19 +1365,19 @@ export const askPrompts: AskPrompt[] = [
     prompt: "I'm completely new. Where should I start?",
     category: "Beginner",
     answer: {
-      body: "Take a structured class first. Lili Latin Dance runs brand-new tracks Mon–Thu and J&L Dance Studio teaches partner-free fundamentals. Once you've had a few classes, Bachata Room's Wednesday beginner class flows directly into a beginner-friendly social. Bachata Room accepts cash/Venmo, has no coat check, and free water may run out, so bring water.",
+      body: "Take a structured class first. Lili Latin Dance runs brand-new tracks Mon-Thu and a monthly studio social with a workshop before it. J&L Dance Studio teaches partner-free fundamentals. Once you've had a few classes, Bachata Room's Wednesday beginner class flows directly into a beginner-friendly social. Bachata Room accepts cash/Venmo, has no coat check, and free water may run out, so bring water. Check Lili's official Instagram for the next monthly social date.",
       sourceEventIds: ["evt-lili-monthly-social", "evt-bachata-room-wed"],
       showBeginnerPathway: true,
       recommendations: [
         {
           eventId: "evt-lili-monthly-social",
-          label: "Top recommendation",
-          whyThisFits: "Designed for brand-new dancers, no partner needed, dry studio, facilitated rotations.",
+          label: "Also consider",
+          whyThisFits: "Monthly studio social with a ChaCha workshop before it - beginner-welcome, mixed Latin music, not Bachata-heavy.",
         },
         {
           eventId: "evt-bachata-room-wed",
-          label: "Also consider",
-          whyThisFits: "Beginner class flows directly into a Bachata-heavy social - a natural next step once you've had a few lessons.",
+          label: "Top recommendation",
+          whyThisFits: "Beginner class flows directly into a Bachata-heavy weekly social - a natural next step once you've had a few lessons.",
         },
       ],
     },
@@ -1387,19 +1387,19 @@ export const askPrompts: AskPrompt[] = [
     prompt: "I'm nervous to go alone. What should I try?",
     category: "Beginner",
     answer: {
-      body: "Bachata Room Wednesday and Lili Latin's monthly studio social both facilitate rotations, so people who come alone don't get stuck on the wall. Beginner-friendly and dry - easier for a first solo trip than a late-night bar social. Bachata Room accepts cash/Venmo, has no coat check, and free water may run out, so bring water.",
+      body: "Bachata Room Wednesday is beginner-friendly with a class right before the social, so people who come alone don't get stuck on the wall - easier for a first solo trip than a late-night bar social. Lili Latin's monthly studio social is another beginner-welcome option when it's running; check Lili's Instagram for the next date. Bachata Room accepts cash/Venmo, has no coat check, and free water may run out, so bring water.",
       sourceEventIds: ["evt-bachata-room-wed", "evt-lili-monthly-social"],
       showBeginnerPathway: true,
       recommendations: [
         {
           eventId: "evt-bachata-room-wed",
           label: "Top recommendation",
-          whyThisFits: "Facilitated rotations and a beginner class before the social - good if you're going alone.",
+          whyThisFits: "Beginner class before the social and a Bachata-heavy crowd - good if you're going alone.",
         },
         {
           eventId: "evt-lili-monthly-social",
           label: "Also consider",
-          whyThisFits: "Studio social aimed at first-timers, dry, rotations are run so no one is stuck on the wall.",
+          whyThisFits: "Monthly studio social with a workshop before it - beginner-welcome, but happens monthly / occasionally, so check the official Instagram.",
         },
       ],
     },
