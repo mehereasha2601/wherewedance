@@ -786,8 +786,8 @@ export const events: Event[] = [
     slug: "jl-underground",
     title: "J&L Underground Social",
     organizerId: "org-jl",
-    venue: "J&L Dance Studio or announced venue - check official source",
-    address: "75 Pleasant Street, #125, Malden, MA 02148 (if at studio) - otherwise check official source",
+     venue: "J&L Underground Social",
+     address: "Location TBA — check J&L's official source.",
     dayOfWeek: "Friday",
     startsAt: "TBD",
     endsAt: "TBD",
@@ -805,6 +805,7 @@ export const events: Event[] = [
     dateLabel: "",
     scheduleLabel: "Check official source",
     goodToKnow: [
+      "J&L Dance Studio is based in Malden, but Underground event location should be confirmed from the official event post.",
       "J&L is known for structured Bachata/Salsa classes and fundamentals.",
       "Their social schedule can change.",
       "Check official source before going.",
