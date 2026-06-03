@@ -242,6 +242,8 @@ export const organizers: Organizer[] = [
     type: "Community education / social dance culture resource",
     bestFor: "Community conversations, consent, communication, social dance culture, belonging, safer-floor topics",
     instagramUrl: "https://www.instagram.com/starryboston/",
+    sourceStatus: "From public listing",
+    lastVerified: "2026-05-20",
   },
   {
     id: "org-next-level",
@@ -254,6 +256,8 @@ export const organizers: Organizer[] = [
     bestFor: "Queer-inclusive dance community, fusion performance, Afro-Latin dance, Bachata/Salsa-adjacent programming, inclusion/access/safety work",
     websiteUrl: "https://www.nextlevelfusiondance.com/",
     instagramUrl: "https://www.instagram.com/nextlevelfusion/",
+    sourceStatus: "From public listing",
+    lastVerified: "2026-05-22",
   },
   {
     id: "org-rumba-y-timbal",
@@ -267,6 +271,8 @@ export const organizers: Organizer[] = [
     websiteUrl: "https://www.rumbaytimbal.com/",
     instagramUrl: "https://www.instagram.com/rumbaytimbal/",
     facebookUrl: "https://www.facebook.com/rumbaytimbalboston/",
+    sourceStatus: "From public listing",
+    lastVerified: "2026-05-22",
   },
   {
     id: "org-salsa-y-control",
@@ -280,6 +286,8 @@ export const organizers: Organizer[] = [
     websiteUrl: "https://www.salsaycontrol.com/",
     instagramUrl: "https://www.instagram.com/sycdancestudio/",
     facebookUrl: "https://www.facebook.com/salsaycontroldance/",
+    sourceStatus: "From public listing",
+    lastVerified: "2026-05-22",
   },
   {
     id: "org-moves-and-vibes",
@@ -291,6 +299,8 @@ export const organizers: Organizer[] = [
     type: "Dance school",
     bestFor: "Sensual Bachata, Brazilian Zouk, Forró, Kizomba, Samba, Boston/Cambridge partner dance classes",
     websiteUrl: "https://movesandvibes.com/",
+    sourceStatus: "Needs validation",
+    lastVerified: "2026-05-22",
   },
 ];
 
