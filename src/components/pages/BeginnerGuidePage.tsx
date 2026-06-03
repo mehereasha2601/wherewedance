@@ -51,12 +51,24 @@ export function BeginnerGuidePage() {
 
       <section className="mt-10">
         <SectionHeader eyebrow="Soft landings" title="Recommended first events" />
-        <div className="px-5 grid gap-4">
-          {events
-            .filter((e) => e.classBeforeSocial.offered && e.beginnerLabel === "Beginner-friendly")
-            .map((e) => (
-              <EventCard key={e.id} event={e} />
-            ))}
+        <div id="recommended-first-events" className="px-5 grid gap-4">
+          {(() => {
+            // Hand-curated beginner-first list: prioritize Lili, J&L, Bachata Room,
+            // River, Dante's Saturday, and one Havana Saturday — not Havana Mon/Thu.
+            const order = [
+              "evt-lili-monthly-social",
+              "evt-bachata-room-wed",
+              "evt-dantes-sat",
+              "evt-river",
+              "evt-saborcito",
+              "evt-jl",
+              "evt-havana-sat",
+            ];
+            return order
+              .map((id) => events.find((e) => e.id === id))
+              .filter((e): e is NonNullable<typeof e> => Boolean(e))
+              .map((e) => <EventCard key={e.id} event={e} />);
+          })()}
         </div>
       </section>
 
