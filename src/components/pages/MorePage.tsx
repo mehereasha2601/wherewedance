@@ -43,9 +43,9 @@ export function MorePage() {
             >
               <div className="flex items-center gap-3">
                 <span className={`size-3 rounded-full ${i.accent}`} />
-                <h3 className="font-display italic font-semibold text-xl text-ink">
+                <h2 className="font-display italic font-semibold text-xl text-ink">
                   {i.label}
-                </h3>
+                </h2>
               </div>
               <p className="text-[13px] text-ink/70 mt-1.5 leading-snug">{i.blurb}</p>
             </Link>
