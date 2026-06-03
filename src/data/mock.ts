@@ -663,7 +663,7 @@ export const events: Event[] = [
       "Good if going alone because class/rotations help people meet dancers.",
       "Bachata-heavy Wednesday social.",
     ],
-    communityNote: "Beginner track is patient and welcoming. Worth the trip from anywhere on the Red Line.",
+    communityNote: "Beginner track is patient and welcoming.",
     rsvps: { count: 64, initials: ["LI", "MA", "RB"] },
     cost: "$12",
     officialUrl: "https://www.bachataroomboston.com/",
