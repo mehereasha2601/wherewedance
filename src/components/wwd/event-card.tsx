@@ -1,7 +1,7 @@
 import type { Event } from "@/data/mock";
 import { organizerById, mapUrlForEvent, logisticsSummary, isEventTonight } from "@/data/mock";
 import { Link } from "./ui-router";
-import { BeginnerTag, SceneTag } from "./tags";
+import { BeginnerTag, SceneTag, CrowdFavoriteTag } from "./tags";
 import { GoodToKnow } from "./good-to-know";
 import { SourceLabel } from "./source-label";
 import { ExternalLink, MapPin } from "lucide-react";
@@ -13,13 +13,21 @@ export function EventCard({ event, full = false, dateLabel }: { event: Event; fu
   const logistics = logisticsSummary(event);
   const tonight = isEventTonight(event);
   const displayDate = dateLabel ?? event.dateLabel;
+  const isCrowdFavorite = event.secondaryTags?.includes("Crowd favorite");
   return (
-    <article className="bg-paper rounded-3xl ring-1 ring-ink/10 overflow-hidden flex flex-col">
+    <article className="relative bg-paper rounded-3xl ring-1 ring-ink/10 overflow-hidden flex flex-col transition hover:-translate-y-0.5 hover:ring-ink/25 focus-within:ring-2 focus-within:ring-terracotta">
+      <Link
+        to="/events/$id"
+        params={{ id: event.slug }}
+        aria-label={`Open ${event.title}`}
+        className="absolute inset-0 z-0 focus:outline-none"
+      />
       <div className={`relative aspect-[5/3] bg-gradient-to-br ${event.cover}`}>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(255,255,255,0.15),transparent_60%)]" />
         <div className="absolute top-3 left-3 flex gap-2 flex-wrap">
           <SceneTag value={event.bachataRelevance} />
           <BeginnerTag value={event.beginnerLabel} />
+          {isCrowdFavorite && <CrowdFavoriteTag />}
         </div>
         {tonight && (
           <div className="absolute top-3 right-3 inline-flex items-center gap-1.5 bg-paper/95 text-ink px-2 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">
@@ -40,12 +48,10 @@ export function EventCard({ event, full = false, dateLabel }: { event: Event; fu
         </div>
       </div>
 
-      <div className="p-4 flex flex-col gap-3">
+      <div className="relative z-10 p-4 flex flex-col gap-3 pointer-events-none [&_a]:pointer-events-auto [&_button]:pointer-events-auto">
         <div>
           <h3 className="font-display italic font-semibold text-2xl leading-tight text-ink">
-            <Link to="/events/$id" params={{ id: event.slug }}>
-              {event.title}
-            </Link>
+            {event.title}
           </h3>
           <div className="mt-2 space-y-0.5">
             <p className="text-[13px] font-semibold text-ink/80 leading-relaxed">

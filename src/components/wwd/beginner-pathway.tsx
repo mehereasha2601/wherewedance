@@ -4,25 +4,33 @@ const steps: Array<{
   n: string;
   title: string;
   body: string;
-  cta: { label: string; to: "/beginner-guide" | "/this-week" | "/events"; hash?: string };
+  cta: { label: string; to: "/resources" | "/events" | "/ask" };
+  badge?: string;
 }> = [
   {
     n: "01",
     title: "Take a structured class first",
-    body: "Start with Lili Latin Dance or J&L Dance Studio if you are brand new. No partner needed.",
-    cta: { label: "See beginner classes", to: "/beginner-guide", hash: "recommended-first-events" },
+    body: "Start with J&L Dance Studio or Lili Latin Dance if you are brand new. No partner needed. A class gives you timing, basics, and comfort before entering a social floor.",
+    cta: { label: "See beginner classes", to: "/resources" },
   },
   {
     n: "02",
     title: "Try a class + social",
-    body: "Bachata Room Wednesday or Havana Saturday can help you move from class into social dancing.",
-    cta: { label: "This week", to: "/this-week" },
+    body: "Once you know the basics, try Bachata Room Wednesday or Havana Saturday. Both have a class before the social, which makes entering the room easier.",
+    cta: { label: "See beginner-friendly socials", to: "/events" },
   },
   {
     n: "03",
-    title: "Build confidence",
-    body: "Try Bachata by the River or other outdoor socials, then explore Bachata-heavy nights like Havana Monday or Thursday when ready.",
-    cta: { label: "All events", to: "/events" },
+    title: "Use resources and community context",
+    body: "Use the resource directory for playlists, online learning, group access info, community values, and studio links. This helps you practice outside class and understand the scene before showing up.",
+    cta: { label: "Explore resources", to: "/resources" },
+  },
+  {
+    n: "04",
+    title: "Get better recommendations",
+    body: "Coming soon: personalized recommendations based on your level, comfort, music preference, whether you are going alone, and whether you prefer class-first, outdoor, dry/no-alcohol, or bigger-crowd events.",
+    cta: { label: "Ask WhereWeDance", to: "/ask" },
+    badge: "Coming soon",
   },
 ];
 
@@ -34,7 +42,7 @@ export function BeginnerPathway({ compact = false }: { compact?: boolean }) {
           Beginner <span className="text-terracotta">pathway</span>
         </h3>
         <span className="text-[10px] uppercase tracking-widest font-bold text-ink/50">
-          3 steps
+          4 steps
         </span>
       </div>
       <p className="text-sm text-ink/70 mb-5 max-w-[36ch]">
@@ -47,14 +55,20 @@ export function BeginnerPathway({ compact = false }: { compact?: boolean }) {
               {s.n}
             </span>
             <div className="flex-1">
-              <h4 className="font-display italic font-semibold text-lg leading-tight text-ink">
-                {s.title}
-              </h4>
+              <div className="flex items-baseline gap-2 flex-wrap">
+                <h4 className="font-display italic font-semibold text-lg leading-tight text-ink">
+                  {s.title}
+                </h4>
+                {s.badge && (
+                  <span className="text-[9px] uppercase tracking-widest font-bold text-ink/60 bg-paper ring-1 ring-ink/15 px-1.5 py-0.5 rounded">
+                    {s.badge}
+                  </span>
+                )}
+              </div>
               <p className="text-[13px] text-ink/75 mt-1 leading-relaxed">{s.body}</p>
               {!compact && (
                 <Link
                   to={s.cta.to}
-                  hash={s.cta.hash}
                   className="inline-block mt-2 text-[11px] font-bold uppercase tracking-widest text-terracotta border-b border-terracotta/40 pb-0.5"
                 >
                   {s.cta.label} →

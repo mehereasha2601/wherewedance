@@ -130,7 +130,9 @@ export type Event = {
   paymentNotes?: string;
   coatCheck?: string;
   amenities?: string[];
+  secondaryTags?: string[];
 };
+
 
 export type Resource = {
   id: string;
@@ -278,7 +280,7 @@ export const organizers: Organizer[] = [
     id: "org-bobas",
     slug: "bobas",
     name: "BOBAS Collective",
-    bio: "Community-led free outdoor Salsa/Bachata pop-ups at the Charles River Dock. Weather-dependent and usually announced on Instagram shortly before the event.",
+    bio: "Community-led free outdoor Salsa/Bachata pop-ups at the Charles River Dock. Weather-dependent. Facebook is the most reliable source for updates; Instagram may also have updates.",
     values: ["Free and outdoors", "Community-led", "Bring a friend, bring water"],
     recurringEventIds: ["evt-bobas"],
     type: "Outdoor pop-up organizer",
@@ -286,7 +288,7 @@ export const organizers: Organizer[] = [
     bestFor: "Free outdoor Salsa/Bachata pop-ups, community outdoor dancing, dancers who know basics",
     instagramUrl: "https://www.instagram.com/bobas.dance/",
     facebookUrl: "https://www.facebook.com/p/Boston-Outdoor-Bachata-And-Salsa-61551665503735/",
-    sourceUrl: "https://www.instagram.com/bobas.dance/",
+    sourceUrl: "https://www.facebook.com/p/Boston-Outdoor-Bachata-And-Salsa-61551665503735/",
     sourceStatus: "From public listing",
     lastVerified: "2026-06-03",
   },
@@ -491,6 +493,7 @@ export const events: Event[] = [
     lastVerified: "2026-06-02",
     dateLabel: "",
     scheduleLabel: "Lessons 8:15–9:15 PM · Social 9:15 PM–12:30 AM",
+    secondaryTags: ["Crowd favorite", "Dry event", "Class before social"],
     goodToKnow: [
       "Bachata-heavy Monday night (~90% Bachata / 10% Salsa)",
       "Doors 8:00 PM · lessons 8:15–9:15 PM · social 9:15 PM–12:30 AM",
@@ -891,37 +894,38 @@ export const events: Event[] = [
     title: "BOBAS: Boston Outdoor Bachata And Salsa — Friday Pop-up",
     organizerId: "org-bobas",
     venue: "Charles River Dock / outdoor pop-up",
-    address: "Charles River Dock — check Instagram for exact location",
+    address: "Charles River Dock — check Facebook or Instagram for exact outdoor location",
     dayOfWeek: "Friday",
     startsAt: "Check Instagram",
     endsAt: "Check Instagram",
     popUp: true,
     thisWeek: true,
-    scheduleNote: "Weather-dependent pop-up — check WhatsApp/Instagram",
+    scheduleNote: "Weather-dependent pop-up — check Facebook (most reliable) or Instagram",
     cover: "from-mango via-magenta to-terracotta",
     bachataRelevance: "Bachata-included",
     beginnerLabel: "Beginner-welcome",
     classBeforeSocial: { offered: false, level: "No intro class unless announced" },
     waterAvailability: "BYO water",
     alcoholPolicy: "Dry event",
-    scheduleReliability: "Weather-dependent pop-up - check Instagram",
+    scheduleReliability: "Weather-dependent pop-up - check Facebook or Instagram",
     sourceStatus: "Community-updated / WhatsApp announcement",
     lastVerified: "2026-06-03",
     fixedDate: "2026-06-05",
     dateLabel: "",
-    scheduleLabel: "Check Instagram",
+    scheduleLabel: "Check Facebook or Instagram",
+    secondaryTags: ["Outdoor", "Free", "Pop-up", "Crowd favorite", "Beginner-welcome"],
     goodToKnow: [
       "Free outdoor Salsa/Bachata pop-up.",
-      "Announced close to the event because weather matters.",
+      "Announced close to the event because weather matters — check Facebook for the most reliable updates; Instagram may also have updates.",
       "Beginner-welcome, but not beginner-structured.",
       "Better if you know basics or go with a friend.",
       "Bring water.",
-      "Check Instagram before going.",
+      "Check Facebook (primary) or Instagram before going.",
     ],
     communityNote: "Managed by community dancers who love dancing. Great outdoor vibe, but can feel socially intimidating if you go alone as a complete beginner.",
     rsvps: { count: 88, initials: ["CA", "RO", "MI"] },
     cost: "Free",
-    officialUrl: "https://www.instagram.com/bobas.dance/",
+    officialUrl: "https://www.facebook.com/p/Boston-Outdoor-Bachata-And-Salsa-61551665503735/",
     instagramUrl: "https://www.instagram.com/bobas.dance/",
     facebookUrl: "https://www.facebook.com/p/Boston-Outdoor-Bachata-And-Salsa-61551665503735/",
   },
@@ -1390,12 +1394,12 @@ export const resources: Resource[] = [
     category: "Organizers",
     privacyStatus: "Public link",
     description: "Free outdoor Salsa/Bachata pop-ups, weather-dependent and community-led.",
-    howToJoin: "Check Instagram for weather-dependent announcements and exact location.",
+    howToJoin: "Check Facebook for the most reliable event updates; Instagram may also have updates.",
     instagramUrl: "https://www.instagram.com/bobas.dance/",
     facebookUrl: "https://www.facebook.com/p/Boston-Outdoor-Bachata-And-Salsa-61551665503735/",
     sourceStatus: "Instagram / Facebook",
     lastVerified: "2026-06-03",
-    sourceUrl: "https://www.instagram.com/bobas.dance/",
+    sourceUrl: "https://www.facebook.com/p/Boston-Outdoor-Bachata-And-Salsa-61551665503735/",
     tags: ["Organizer", "Outdoor", "Free", "Salsa", "Bachata", "Public link"],
   },
   {
@@ -1648,7 +1652,7 @@ export const askPrompts: AskPrompt[] = [
     prompt: "What should I know before BOBAS?",
     category: "Logistics",
     answer: {
-      body: "BOBAS is a free outdoor Salsa/Bachata pop-up. It is beginner-welcome, but because there is usually no class, complete beginners may feel more comfortable going with a friend or after taking a few classes. Check Instagram before going because it is weather-dependent and often announced close to the event. Bring water.",
+      body: "BOBAS is a free outdoor Salsa/Bachata pop-up. It is beginner-welcome, but because there is usually no class, complete beginners may feel more comfortable going with a friend or after taking a few classes. Check Facebook for the most reliable event updates; Instagram may also have updates. Weather-dependent and often announced close to the event. Bring water.",
       sourceEventIds: ["evt-bobas"],
       recommendations: [
         {
@@ -1664,7 +1668,7 @@ export const askPrompts: AskPrompt[] = [
     prompt: "What outdoor/free events are happening?",
     category: "Logistics",
     answer: {
-      body: "BOBAS runs free outdoor Salsa/Bachata pop-ups at the Charles River Dock when currently listed — check WhatsApp/Instagram for time and exact location. Bachata by the River is a free monthly/seasonal event at Magazine Beach Park in Cambridge with a beginner Bachata lesson before dancing. Both are weather-dependent — check the official source before going.",
+      body: "BOBAS runs free outdoor Salsa/Bachata pop-ups at the Charles River Dock when currently listed — check Facebook (primary) or Instagram for time and exact location. Bachata by the River is a free monthly/seasonal event at Magazine Beach Park in Cambridge with a beginner Bachata lesson before dancing. Both are weather-dependent — check the official source before going.",
       sourceEventIds: ["evt-bobas", "evt-river"],
       recommendations: [
         {

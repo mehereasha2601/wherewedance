@@ -1,7 +1,9 @@
 import { AppShell, PageHero, SectionHeader } from "@/components/wwd/shell";
 import { BeginnerPathway } from "@/components/wwd/beginner-pathway";
 import { EventCard } from "@/components/wwd/event-card";
-import { events } from "@/data/mock";
+import { ResourceCard } from "@/components/wwd/resource-card";
+import { Link } from "@/components/wwd/ui-router";
+import { events, resources } from "@/data/mock";
 
 const expect = [
   { t: "You will mess up", d: "Everyone does. Smile, reset, keep dancing. No one is watching as hard as you think." },
@@ -91,6 +93,30 @@ export function BeginnerGuidePage() {
       </section>
 
       <section className="mt-10">
+        <SectionHeader eyebrow="Where to learn first" title="Studios for true beginners" />
+        <p className="px-5 -mt-2 mb-4 text-[12px] text-ink/65 leading-relaxed">
+          Start with a structured class first. J&L Dance Studio and Lili Latin Dance are good places to begin before jumping into socials.
+        </p>
+        <div className="px-5 grid gap-4">
+          {(() => {
+            const order = ["res-jl", "res-lili"];
+            return order
+              .map((id) => resources.find((r) => r.id === id))
+              .filter((r): r is NonNullable<typeof r> => Boolean(r))
+              .map((r) => <ResourceCard key={r.id} resource={r} />);
+          })()}
+        </div>
+        <div className="px-5 mt-3">
+          <Link
+            to="/resources"
+            className="inline-block text-[11px] font-bold uppercase tracking-widest text-terracotta border-b border-terracotta/40 pb-0.5"
+          >
+            See beginner classes →
+          </Link>
+        </div>
+      </section>
+
+      <section className="mt-10">
         <SectionHeader eyebrow="Soft landings" title="Recommended first events" />
         <p className="px-5 -mt-2 mb-4 text-[12px] text-ink/65 leading-relaxed">
           A short, deliberately small list — one beginner class + social, plus one bigger social with a lesson up front.
@@ -109,7 +135,7 @@ export function BeginnerGuidePage() {
       <section className="mt-10">
         <SectionHeader eyebrow="When you're ready" title="Explore after basics" />
         <p className="px-5 -mt-2 mb-4 text-[12px] text-ink/65 leading-relaxed">
-          Once you've done a few socials, these are good places to keep growing — Bachata-heavy nights, mixed Latin socials, outdoor pop-ups, and inclusive events. Check the official source before going.
+          Once you've done a few socials, these are good places to keep growing — Bachata-heavy nights, mixed Latin socials, outdoor pop-ups, and seasonal events. Check the official source before going.
         </p>
         <div className="px-5 grid gap-4">
           {(() => {
@@ -120,9 +146,9 @@ export function BeginnerGuidePage() {
               "evt-saborcito",
               "evt-dantes-sat",
               "evt-tambo-fri",
-              "evt-jl",
+              "evt-river",
               "evt-lili-monthly-social",
-              "evt-next-level-queer-jun6",
+              "evt-jl",
             ];
             return order
               .map((id) => events.find((e) => e.id === id))
