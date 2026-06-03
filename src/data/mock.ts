@@ -3,7 +3,11 @@
 
 export type BachataRelevance =
   | "Bachata-heavy"
-  | "Bachata-included";
+  | "Bachata-forward"
+  | "Bachata-included"
+  | "Salsa-first with Bachata"
+  | "Mixed Latin"
+  | "Dance party / mixed styles";
 
 export type BeginnerLabel =
   | "Beginner-friendly"
