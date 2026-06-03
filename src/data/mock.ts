@@ -33,6 +33,7 @@ export type SourceStatus =
   | "Verified by community"
   | "From public listing"
   | "Official website / Instagram / public listings"
+  | "Instagram / verified"
   | "Needs validation";
 
 export type ResourcePrivacy =
@@ -50,6 +51,8 @@ export type Organizer = {
   values: string[];
   recurringEventIds: string[];
   type?: string;
+  typeFilter?: string;
+  secondaryTags?: string[];
   bestFor?: string;
   profileLink?: string;
   websiteUrl?: string;
