@@ -37,6 +37,11 @@ export type SourceStatus =
   | "Official website"
   | "Community-known / private group"
   | "WhereWeDance guide"
+  | "Official website / Facebook"
+  | "Official website / Instagram"
+  | "Instagram / community-known"
+  | "Instagram / Facebook"
+  | "Instagram / Facebook / public listing"
   | "Needs validation";
 
 export type ResourcePrivacy =
@@ -123,6 +128,7 @@ export type Resource = {
   howToJoin?: string;
   sourceUrl?: string;
   tags?: string[];
+  featured?: boolean;
 };
 
 export type ResourceCategory =
@@ -131,6 +137,7 @@ export type ResourceCategory =
   | "Online classes"
   | "Studios"
   | "Organizers"
+  | "Venues / organizers"
   | "Shoes / apparel"
   | "Blog posts"
   | "Safety / values"
