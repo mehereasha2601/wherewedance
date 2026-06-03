@@ -40,6 +40,7 @@ export type SourceStatus =
   | "Community-known"
   | "Check official source"
   | "Official Instagram / organizer post"
+  | "Official Instagram / domain-expert confirmed Bachata music"
   | "Needs validation";
 
 export type ResourcePrivacy =
@@ -836,31 +837,32 @@ export const events: Event[] = [
     organizerId: "org-next-level",
     venue: "The Anchor Boston",
     address: "1 Shipyard Park, Charlestown, MA 02129",
-    dayOfWeek: "Friday",
+    dayOfWeek: "Saturday",
     startsAt: "TBD",
     endsAt: "TBD",
     popUp: true,
-    thisWeek: true,
-    scheduleNote: "Pop-up / one-off - Friday June 6 - check Instagram for time",
+    thisWeek: false,
+    scheduleNote: "Pop-up / one-off - Saturday June 6 - check Instagram for time",
     cover: "from-magenta via-oxblood to-ink",
-    bachataRelevance: "Dance party / mixed styles",
+    bachataRelevance: "Bachata-included",
     beginnerLabel: "Beginner-welcome",
     classBeforeSocial: { offered: false },
     waterAvailability: "Food/drinks at venue - bring water recommended",
     alcoholPolicy: "Bar on site - venue serves drinks",
     scheduleReliability: "Pop-up / one-off - check official source",
-    sourceStatus: "Official Instagram / organizer post",
-    lastVerified: "2026-06-03",
-    dateLabel: "Fri, Jun 6",
+    sourceStatus: "Official Instagram / domain-expert confirmed Bachata music",
+    lastVerified: "2026-06-06",
+    dateLabel: "Sat, Jun 6",
     scheduleLabel: "Time TBA",
     goodToKnow: [
-      "Free queer dance party hosted by Next Level Fusion.",
-      "Held at The Anchor Boston on Friday June 6.",
-      "Beginner-welcome, but check the post for exact format, music, and timing.",
-      "Bar/venue drinks available at The Anchor.",
-      "Check the official Instagram post before going - exact time not confirmed.",
+      "Free queer-friendly dance party hosted by Next Level Fusion / Party with Next Level Fusion.",
+      "Held at The Anchor Boston.",
+      "Bachata music is included.",
+      "Beginner-welcome, but check official post for exact timing, format, and full music mix.",
+      "Bar/venue drinks may be available at The Anchor.",
+      "Check official Instagram before going.",
     ],
-    communityNote: "Inclusive queer-friendly dance/community event. Listed as a dance party, not a regular Bachata social - music/style mix not confirmed.",
+    communityNote: "Inclusive queer-friendly dance/community event. Bachata music confirmed by domain expert. Not a regular weekly Bachata social - pop-up / one-off.",
     rsvps: { count: 24, initials: ["TI", "JO", "AV"] },
     cost: "Free",
     officialUrl: "https://www.instagram.com/partywithnextlevelfusion/",
@@ -1112,9 +1114,9 @@ export const resources: Resource[] = [
     websiteUrl: "https://www.nextlevelfusiondance.com/",
     instagramUrl: "https://www.instagram.com/partywithnextlevelfusion/",
     sourceStatus: "Official Instagram / organizer post",
-    lastVerified: "2026-06-03",
+    lastVerified: "2026-06-06",
     sourceUrl: "https://www.instagram.com/partywithnextlevelfusion/",
-    tags: ["Inclusive", "Queer-friendly", "Pop-up", "The Anchor", "Public link"],
+    tags: ["Inclusive", "Queer-friendly", "Pop-up", "The Anchor", "Public link", "Bachata-included", "Free", "Dance party"],
   },
 
   // ---- Group chats ----
@@ -1661,14 +1663,14 @@ export const askPrompts: AskPrompt[] = [
     prompt: "What free events are happening?",
     category: "Logistics",
     answer: {
-      body: "Free options to keep an eye on: BOBAS outdoor pop-ups at the Charles River Dock, Bachata by the River at Magazine Beach Park, and Saborcito @ The Anchor when running. There's also a one-off free queer dance party from Next Level Fusion at The Anchor on Friday June 6 - check the official Instagram post for exact time, format, and music.",
+      body: "Free options to keep an eye on: BOBAS outdoor pop-ups at the Charles River Dock, Bachata by the River at Magazine Beach Park, and Saborcito @ The Anchor when running. There's also a one-off free queer dance party from Next Level Fusion at The Anchor on Saturday June 6 - Bachata music included. Check the official Instagram post for exact time, format, and music mix.",
       sourceEventIds: ["evt-next-level-queer-jun6", "evt-bobas", "evt-river", "evt-saborcito"],
       sourceResourceIds: ["res-party-next-level-fusion"],
       recommendations: [
         {
           eventId: "evt-next-level-queer-jun6",
           label: "Top recommendation",
-          whyThisFits: "Free, queer-friendly, inclusive dance party at The Anchor - pop-up / one-off, check the official Instagram post for exact time.",
+          whyThisFits: "Free, queer-friendly, inclusive dance party at The Anchor with Bachata music included - pop-up / one-off, check the official Instagram post for exact time.",
         },
         {
           eventId: "evt-bobas",
@@ -1689,14 +1691,14 @@ export const askPrompts: AskPrompt[] = [
     prompt: "Are there queer-friendly dance events?",
     category: "Community",
     answer: {
-      body: "Yes. Next Level Fusion runs occasional / pop-up inclusive dance events centered on queer/trans/LGBTQIA+ dancers, access, and safety. Their next listed event is a free queer dance party at The Anchor Boston on Friday June 6. Music/style mix isn't confirmed in the post, so treat it as a dance party rather than a Bachata social. Check the official Instagram for exact time and details.",
+      body: "Yes. Next Level Fusion runs occasional / pop-up inclusive dance events centered on queer/trans/LGBTQIA+ dancers, access, and safety. Their next listed event is a free queer dance party at The Anchor Boston on Saturday June 6 with Bachata music included. Check the official Instagram for exact time and details.",
       sourceEventIds: ["evt-next-level-queer-jun6"],
       sourceResourceIds: ["res-next-level-fusion", "res-party-next-level-fusion"],
       recommendations: [
         {
           eventId: "evt-next-level-queer-jun6",
           label: "Top recommendation",
-          whyThisFits: "Free, queer-friendly, inclusive dance party at The Anchor hosted by Next Level Fusion.",
+          whyThisFits: "Free, queer-friendly, inclusive dance party at The Anchor with Bachata music included, hosted by Next Level Fusion.",
         },
       ],
       generalNote: "Next Level Fusion is an inclusive dance community, not a recurring weekly Bachata organizer - events are occasional / pop-up.",
