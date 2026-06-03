@@ -524,6 +524,15 @@ export const resources: Resource[] = [
     sourceStatus: "Needs validation",
     lastVerified: "2026-04-30",
   },
+  {
+    id: "res-bobas",
+    name: "BOBAS — Boston Outdoor Bachata And Salsa",
+    description: "Free outdoor Salsa/Bachata pop-ups in Boston, weather-dependent and community-led. Check Instagram before going.",
+    category: "Community",
+    privacyStatus: "Needs validation",
+    sourceStatus: "Needs validation",
+    lastVerified: "2026-05-29",
+  },
 ];
 
 // ---------- Buddies ----------
