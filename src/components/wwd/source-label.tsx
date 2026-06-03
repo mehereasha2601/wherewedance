@@ -15,10 +15,10 @@ export function SourceLabel({
   lastVerified: string;
 }) {
   return (
-    <div className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-widest text-ink/60 font-medium">
+    <div className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 text-[10px] uppercase tracking-widest text-ink/60 font-medium">
       <span className={`size-1.5 rounded-full ${dotColor[status]}`} />
       <span>{status}</span>
-      <span aria-hidden>·</span>
+      <span className="text-ink/30" aria-hidden>·</span>
       <span>Verified {lastVerified}</span>
     </div>
   );

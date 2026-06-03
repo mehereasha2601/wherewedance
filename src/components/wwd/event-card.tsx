@@ -70,7 +70,7 @@ export function EventCard({ event, full = false }: { event: Event; full?: boolea
 
         <GoodToKnow event={event} compact={!full} />
 
-        <div className="flex items-center justify-between pt-1">
+        <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
           <SourceLabel status={event.sourceStatus} lastVerified={event.lastVerified} />
           {organizer && (
             <Link

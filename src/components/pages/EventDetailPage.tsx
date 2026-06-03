@@ -52,10 +52,10 @@ export function EventDetailPage({ slug }: { slug: string }) {
         <h1 className="font-display italic font-semibold text-4xl leading-tight text-ink text-balance">
           {event.title}
         </h1>
-        <p className="text-sm text-ink/65 mt-2">
+        <p className="text-sm text-ink/65 mt-3 leading-relaxed">
           {event.popUp
-            ? `${event.scheduleNote ?? "Pop-up · Check Instagram"} · ${event.venue} · ${event.address}`
-            : `${event.dayOfWeek}s · ${event.startsAt} – ${event.endsAt} · ${event.venue} · ${event.address}`}
+            ? `${event.scheduleNote ?? "Pop-up · Check Instagram"} · ${event.startsAt}`
+            : `${event.dayOfWeek}s · ${event.startsAt} – ${event.endsAt}`}
         </p>
         <div className="mt-4 flex items-center gap-3">
           <div className="flex -space-x-2">
@@ -72,6 +72,22 @@ export function EventDetailPage({ slug }: { slug: string }) {
           </div>
           <span className="text-sm text-ink/65 font-medium">+{event.rsvps.count} going · {event.cost}</span>
         </div>
+      </section>
+
+      <section className="px-5 mt-6">
+        <h2 className="font-display italic font-semibold text-xl text-ink mb-3">Location</h2>
+        <div className="space-y-1">
+          <p className="text-[15px] font-semibold text-ink/80 leading-relaxed">{event.venue}</p>
+          <p className="text-[13px] text-ink/60 leading-relaxed">{event.address}</p>
+        </div>
+        <a
+          href={`https://maps.google.com/?q=${encodeURIComponent(`${event.venue}, ${event.address}`)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block mt-3 text-[11px] font-bold uppercase tracking-widest text-terracotta"
+        >
+          Open maps →
+        </a>
       </section>
 
       <section className="px-5 mt-6">
