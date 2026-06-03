@@ -30,7 +30,7 @@ interface OrganizerFiltersProps {
 export function OrganizerFilters({ active, onChange, count }: OrganizerFiltersProps) {
   return (
     <div className="px-5">
-      <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
+      <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 scroll-px-5">
         {FILTERS.map((f) => {
           const isActive = active === f;
           return (
@@ -39,7 +39,7 @@ export function OrganizerFilters({ active, onChange, count }: OrganizerFiltersPr
               type="button"
               onClick={() => onChange(f)}
               aria-pressed={isActive}
-              className={`shrink-0 px-3.5 py-2 rounded-full text-[11px] font-bold uppercase tracking-widest inline-flex items-center gap-1.5 transition-colors ${
+              className={`shrink-0 whitespace-nowrap px-3.5 py-2 rounded-full text-[11px] font-bold uppercase tracking-widest inline-flex items-center gap-1.5 transition-colors ${
                 isActive
                   ? "bg-oxblood text-paper ring-1 ring-oxblood"
                   : "bg-paper text-ink ring-1 ring-ink/10 hover:ring-ink/25"
