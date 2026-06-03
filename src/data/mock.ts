@@ -908,7 +908,7 @@ export const events: Event[] = [
     waterAvailability: "BYO water",
     alcoholPolicy: "Dry event",
     scheduleReliability: "Weather-dependent pop-up - check Facebook or Instagram",
-    sourceStatus: "Community-updated / Facebook announcement",
+    sourceStatus: "Community-updated / WhatsApp announcement",
     lastVerified: "2026-06-03",
     fixedDate: "2026-06-05",
     dateLabel: "",
