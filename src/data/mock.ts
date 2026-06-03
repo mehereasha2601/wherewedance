@@ -40,6 +40,7 @@ export type SourceStatus =
   | "Community-known"
   | "Check official source"
   | "Official Instagram / organizer post"
+  | "Official Instagram / domain-expert confirmed Bachata music"
   | "Needs validation";
 
 export type ResourcePrivacy =
