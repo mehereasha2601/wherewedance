@@ -42,6 +42,10 @@ type OfficialLinksProps = {
   className?: string;
 };
 
+function isPartifulLink(href?: string) {
+  return Boolean(href && href.includes("partiful.com"));
+}
+
 /**
  * Renders a row of small icon buttons for the official/social links available
  * on an organizer, event, or resource. Hides any link that isn't set.
@@ -59,9 +63,15 @@ export function OfficialLinks({
   variant = "icons",
   className = "",
 }: OfficialLinksProps) {
+  // For Partiful/RSVP links, show "RSVP here" label instead of generic "Official" / "Website"
+  const rsvpUrl = isPartifulLink(officialUrl) ? officialUrl : isPartifulLink(websiteUrl) ? websiteUrl : undefined;
+  const websiteForDisplay = rsvpUrl ? undefined : websiteUrl;
+  const officialForDisplay = rsvpUrl ? undefined : officialUrl;
+
   const links: LinkSpec[] = [
-    { href: officialUrl, label: "Official", ariaLabel: `Open ${subject} official page`, icon: Globe },
-    { href: websiteUrl, label: "Website", ariaLabel: `Open ${subject} website`, icon: Globe },
+    { href: rsvpUrl, label: "RSVP here", ariaLabel: `RSVP to ${subject}`, icon: Ticket },
+    { href: officialForDisplay, label: "Official", ariaLabel: `Open ${subject} official page`, icon: Globe },
+    { href: websiteForDisplay, label: "Website", ariaLabel: `Open ${subject} website`, icon: Globe },
     { href: instagramUrl, label: "Instagram", ariaLabel: `Open ${subject} Instagram`, icon: Instagram },
     { href: facebookUrl, label: "Facebook", ariaLabel: `Open ${subject} Facebook`, icon: Facebook },
     { href: ticketUrl, label: "Tickets", ariaLabel: `Open ${subject} tickets / RSVP`, icon: Ticket },
