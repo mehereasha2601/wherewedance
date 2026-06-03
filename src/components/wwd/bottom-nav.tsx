@@ -1,14 +1,14 @@
 import { Link, useNavigate } from "./ui-router";
 import { useRouterState } from "@tanstack/react-router";
 
-type Tab = { to: "/" | "/this-week" | "/ask" | "/buddies" | "/values"; label: string; pulse?: boolean };
+type Tab = { to: "/" | "/this-week" | "/ask" | "/buddies" | "/more"; label: string; pulse?: boolean };
 
 const tabs: Tab[] = [
   { to: "/", label: "Explore" },
   { to: "/this-week", label: "This Week", pulse: true },
   { to: "/ask", label: "Ask" },
   { to: "/buddies", label: "Buddies" },
-  { to: "/values", label: "Values" },
+  { to: "/more", label: "More" },
 ];
 
 export function BottomNav() {
