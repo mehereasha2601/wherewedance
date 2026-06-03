@@ -9,38 +9,261 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ValuesRouteImport } from './routes/values'
+import { Route as ThisWeekRouteImport } from './routes/this-week'
+import { Route as SafetyRouteImport } from './routes/safety'
+import { Route as ResourcesRouteImport } from './routes/resources'
+import { Route as OrganizerDashboardRouteImport } from './routes/organizer-dashboard'
+import { Route as BuddiesRouteImport } from './routes/buddies'
+import { Route as BostonBachataRouteImport } from './routes/boston-bachata'
+import { Route as BeginnerGuideRouteImport } from './routes/beginner-guide'
+import { Route as AskRouteImport } from './routes/ask'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as EventsIndexRouteImport } from './routes/events.index'
+import { Route as OrganizersIdRouteImport } from './routes/organizers.$id'
+import { Route as EventsIdRouteImport } from './routes/events.$id'
 
+const ValuesRoute = ValuesRouteImport.update({
+  id: '/values',
+  path: '/values',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ThisWeekRoute = ThisWeekRouteImport.update({
+  id: '/this-week',
+  path: '/this-week',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SafetyRoute = SafetyRouteImport.update({
+  id: '/safety',
+  path: '/safety',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResourcesRoute = ResourcesRouteImport.update({
+  id: '/resources',
+  path: '/resources',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrganizerDashboardRoute = OrganizerDashboardRouteImport.update({
+  id: '/organizer-dashboard',
+  path: '/organizer-dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BuddiesRoute = BuddiesRouteImport.update({
+  id: '/buddies',
+  path: '/buddies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BostonBachataRoute = BostonBachataRouteImport.update({
+  id: '/boston-bachata',
+  path: '/boston-bachata',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BeginnerGuideRoute = BeginnerGuideRouteImport.update({
+  id: '/beginner-guide',
+  path: '/beginner-guide',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AskRoute = AskRouteImport.update({
+  id: '/ask',
+  path: '/ask',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EventsIndexRoute = EventsIndexRouteImport.update({
+  id: '/events/',
+  path: '/events/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrganizersIdRoute = OrganizersIdRouteImport.update({
+  id: '/organizers/$id',
+  path: '/organizers/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventsIdRoute = EventsIdRouteImport.update({
+  id: '/events/$id',
+  path: '/events/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ask': typeof AskRoute
+  '/beginner-guide': typeof BeginnerGuideRoute
+  '/boston-bachata': typeof BostonBachataRoute
+  '/buddies': typeof BuddiesRoute
+  '/organizer-dashboard': typeof OrganizerDashboardRoute
+  '/resources': typeof ResourcesRoute
+  '/safety': typeof SafetyRoute
+  '/this-week': typeof ThisWeekRoute
+  '/values': typeof ValuesRoute
+  '/events/$id': typeof EventsIdRoute
+  '/organizers/$id': typeof OrganizersIdRoute
+  '/events/': typeof EventsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ask': typeof AskRoute
+  '/beginner-guide': typeof BeginnerGuideRoute
+  '/boston-bachata': typeof BostonBachataRoute
+  '/buddies': typeof BuddiesRoute
+  '/organizer-dashboard': typeof OrganizerDashboardRoute
+  '/resources': typeof ResourcesRoute
+  '/safety': typeof SafetyRoute
+  '/this-week': typeof ThisWeekRoute
+  '/values': typeof ValuesRoute
+  '/events/$id': typeof EventsIdRoute
+  '/organizers/$id': typeof OrganizersIdRoute
+  '/events': typeof EventsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/ask': typeof AskRoute
+  '/beginner-guide': typeof BeginnerGuideRoute
+  '/boston-bachata': typeof BostonBachataRoute
+  '/buddies': typeof BuddiesRoute
+  '/organizer-dashboard': typeof OrganizerDashboardRoute
+  '/resources': typeof ResourcesRoute
+  '/safety': typeof SafetyRoute
+  '/this-week': typeof ThisWeekRoute
+  '/values': typeof ValuesRoute
+  '/events/$id': typeof EventsIdRoute
+  '/organizers/$id': typeof OrganizersIdRoute
+  '/events/': typeof EventsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/ask'
+    | '/beginner-guide'
+    | '/boston-bachata'
+    | '/buddies'
+    | '/organizer-dashboard'
+    | '/resources'
+    | '/safety'
+    | '/this-week'
+    | '/values'
+    | '/events/$id'
+    | '/organizers/$id'
+    | '/events/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/ask'
+    | '/beginner-guide'
+    | '/boston-bachata'
+    | '/buddies'
+    | '/organizer-dashboard'
+    | '/resources'
+    | '/safety'
+    | '/this-week'
+    | '/values'
+    | '/events/$id'
+    | '/organizers/$id'
+    | '/events'
+  id:
+    | '__root__'
+    | '/'
+    | '/ask'
+    | '/beginner-guide'
+    | '/boston-bachata'
+    | '/buddies'
+    | '/organizer-dashboard'
+    | '/resources'
+    | '/safety'
+    | '/this-week'
+    | '/values'
+    | '/events/$id'
+    | '/organizers/$id'
+    | '/events/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AskRoute: typeof AskRoute
+  BeginnerGuideRoute: typeof BeginnerGuideRoute
+  BostonBachataRoute: typeof BostonBachataRoute
+  BuddiesRoute: typeof BuddiesRoute
+  OrganizerDashboardRoute: typeof OrganizerDashboardRoute
+  ResourcesRoute: typeof ResourcesRoute
+  SafetyRoute: typeof SafetyRoute
+  ThisWeekRoute: typeof ThisWeekRoute
+  ValuesRoute: typeof ValuesRoute
+  EventsIdRoute: typeof EventsIdRoute
+  OrganizersIdRoute: typeof OrganizersIdRoute
+  EventsIndexRoute: typeof EventsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/values': {
+      id: '/values'
+      path: '/values'
+      fullPath: '/values'
+      preLoaderRoute: typeof ValuesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/this-week': {
+      id: '/this-week'
+      path: '/this-week'
+      fullPath: '/this-week'
+      preLoaderRoute: typeof ThisWeekRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/safety': {
+      id: '/safety'
+      path: '/safety'
+      fullPath: '/safety'
+      preLoaderRoute: typeof SafetyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/resources': {
+      id: '/resources'
+      path: '/resources'
+      fullPath: '/resources'
+      preLoaderRoute: typeof ResourcesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/organizer-dashboard': {
+      id: '/organizer-dashboard'
+      path: '/organizer-dashboard'
+      fullPath: '/organizer-dashboard'
+      preLoaderRoute: typeof OrganizerDashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/buddies': {
+      id: '/buddies'
+      path: '/buddies'
+      fullPath: '/buddies'
+      preLoaderRoute: typeof BuddiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/boston-bachata': {
+      id: '/boston-bachata'
+      path: '/boston-bachata'
+      fullPath: '/boston-bachata'
+      preLoaderRoute: typeof BostonBachataRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/beginner-guide': {
+      id: '/beginner-guide'
+      path: '/beginner-guide'
+      fullPath: '/beginner-guide'
+      preLoaderRoute: typeof BeginnerGuideRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ask': {
+      id: '/ask'
+      path: '/ask'
+      fullPath: '/ask'
+      preLoaderRoute: typeof AskRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +271,44 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/events/': {
+      id: '/events/'
+      path: '/events'
+      fullPath: '/events/'
+      preLoaderRoute: typeof EventsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/organizers/$id': {
+      id: '/organizers/$id'
+      path: '/organizers/$id'
+      fullPath: '/organizers/$id'
+      preLoaderRoute: typeof OrganizersIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/events/$id': {
+      id: '/events/$id'
+      path: '/events/$id'
+      fullPath: '/events/$id'
+      preLoaderRoute: typeof EventsIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AskRoute: AskRoute,
+  BeginnerGuideRoute: BeginnerGuideRoute,
+  BostonBachataRoute: BostonBachataRoute,
+  BuddiesRoute: BuddiesRoute,
+  OrganizerDashboardRoute: OrganizerDashboardRoute,
+  ResourcesRoute: ResourcesRoute,
+  SafetyRoute: SafetyRoute,
+  ThisWeekRoute: ThisWeekRoute,
+  ValuesRoute: ValuesRoute,
+  EventsIdRoute: EventsIdRoute,
+  OrganizersIdRoute: OrganizersIdRoute,
+  EventsIndexRoute: EventsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
