@@ -935,6 +935,15 @@ export const organizerById = (id: string) => organizers.find((o) => o.id === id)
 export const organizerBySlug = (slug: string) => organizers.find((o) => o.slug === slug);
 export const resourceById = (id: string) => resources.find((r) => r.id === id);
 
+// Build a Google Maps URL for an event. Returns the explicit mapUrl when set,
+// otherwise composes one from venue + address. Returns null when neither is usable.
+export const mapUrlForEvent = (e: Event): string | null => {
+  if (e.mapUrl) return e.mapUrl;
+  if (!e.address || /DM organizer|TBD/i.test(e.address)) return null;
+  const q = encodeURIComponent(`${e.venue}, ${e.address}`);
+  return `https://maps.google.com/?q=${q}`;
+};
+
 export const tonightEvents = () => events.filter((e) => e.tonight);
 export const eventsByDay = () => {
   const days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] as const;
