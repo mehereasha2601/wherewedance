@@ -1,23 +1,29 @@
 import { Link } from "./ui-router";
 
+type StepCTA =
+  | { label: string; to: "/resources"; search?: { category?: string } }
+  | { label: string; to: "/this-week"; search?: { filter?: string } }
+  | { label: string; to: "/events" }
+  | { label: string; to: "/ask" };
+
 const steps: Array<{
   n: string;
   title: string;
   body: string;
-  cta: { label: string; to: "/resources" | "/events" | "/ask" };
+  cta: StepCTA;
   badge?: string;
 }> = [
   {
     n: "01",
     title: "Take a structured class first",
     body: "Start with J&L Dance Studio or Lili Latin Dance if you are brand new. No partner needed. A class gives you timing, basics, and comfort before entering a social floor.",
-    cta: { label: "See beginner classes", to: "/resources" },
+    cta: { label: "See beginner classes", to: "/resources", search: { category: "Studios" } },
   },
   {
     n: "02",
     title: "Try a class + social",
     body: "Once you know the basics, try Bachata Room Wednesday or Havana Saturday. Both have a class before the social, which makes entering the room easier.",
-    cta: { label: "See beginner-friendly socials", to: "/events" },
+    cta: { label: "See beginner-friendly socials", to: "/this-week", search: { filter: "beginner-friendly" } },
   },
   {
     n: "03",
@@ -69,6 +75,7 @@ export function BeginnerPathway({ compact = false }: { compact?: boolean }) {
               {!compact && (
                 <Link
                   to={s.cta.to}
+                  search={"search" in s.cta ? (s.cta.search as never) : undefined}
                   className="inline-block mt-2 text-[11px] font-bold uppercase tracking-widest text-terracotta border-b border-terracotta/40 pb-0.5"
                 >
                   {s.cta.label} →
