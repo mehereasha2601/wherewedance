@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import type { Event } from "@/data/mock";
 import { isEventTonight } from "@/data/mock";
+import { getPilotWeekLabels, PILOT_BASE_DATE } from "@/lib/event-dates";
 import { EventCard } from "./event-card";
 
 export type FilterKey =
@@ -32,22 +33,11 @@ const PREDICATES: Record<FilterKey, (e: Event) => boolean> = {
   "class-before-social": (e) => e.classBeforeSocial.offered === true,
 };
 
-// Ordered list of dateLabels we expect in the mocked week. Events whose
-// dateLabel isn't in this list (Monthly / TBA, Seasonal, etc.) are grouped
-// under the catch-all "Pop-ups / date TBA" section.
-const WEEK_DATE_ORDER = [
-  "Mon, Jun 9",
-  "Tue, Jun 10",
-  "Wed, Jun 11",
-  "Thu, Jun 12",
-  "Fri, Jun 13",
-  "Sat, Jun 14",
-  "Sun, Jun 15",
-// Additional in-week one-offs (e.g. Lili June 20 next Friday) appear in their
-// own date group if present.
-  "Fri, Jun 6",
-  "Fri, Jun 20",
-] as const;
+// Ordered list of dateLabels for the mocked current week, derived from
+// PILOT_BASE_DATE so weekday/date pairs always match the real calendar.
+// Events whose dateLabel isn't in this list (Monthly / TBA, fixed-date
+// pop-ups outside the week, etc.) fall into the "Pop-ups / date TBA" group.
+const WEEK_DATE_ORDER = getPilotWeekLabels(PILOT_BASE_DATE);
 
 export function EventFilters({
   events,
