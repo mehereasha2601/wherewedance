@@ -100,23 +100,27 @@ export function HomePage() {
         <BeginnerPathway />
       </section>
 
-      <section className="mt-12">
-        <SectionHeader eyebrow="For the dancers" title="Bachata-heavy nights" />
-        <div className="px-5 grid gap-3">
-          {bachataHeavy.map((e) => (
-            <EventCardCompact key={e.id} event={e} />
-          ))}
-        </div>
-      </section>
+      {bachataHeavy.length > 0 && (
+        <section className="mt-12">
+          <SectionHeader eyebrow="For the dancers" title="Bachata-heavy nights" />
+          <div className="px-5 grid gap-3">
+            {bachataHeavy.map((e) => (
+              <EventCardCompact key={e.id} event={e} />
+            ))}
+          </div>
+        </section>
+      )}
 
-      <section className="mt-12">
-        <SectionHeader eyebrow="Free & outdoor" title="No cover required" />
-        <div className="px-5 grid gap-3">
-          {outdoor.map((e) => (
-            <EventCardCompact key={e.id} event={e} />
-          ))}
-        </div>
-      </section>
+      {outdoor.length > 0 && (
+        <section className="mt-12">
+          <SectionHeader eyebrow="Free & outdoor" title="No cover required" />
+          <div className="px-5 grid gap-3">
+            {outdoor.map((e) => (
+              <EventCardCompact key={e.id} event={e} />
+            ))}
+          </div>
+        </section>
+      )}
 
       <section className="px-5 mt-12">
         <SectionHeader
