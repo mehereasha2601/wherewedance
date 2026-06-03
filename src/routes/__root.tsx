@@ -87,6 +87,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:site", content: "@Lovable" },
       { name: "twitter:title", content: "Where We Dance" },
       { name: "twitter:description", content: "WhereWeDance helps dancers discover local socials, classes, organizers, resources, beginner guides, and community values. Starting with a Boston Bachata pilot." },
+      { name: "google-site-verification", content: "SBWgF4PShB5Hk5kkYtoNVqCYXqXWea5617D4KtmRggk" },
       { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/24OcIMfSQnayF8kiMAwFhXQBNIz2/social-images/social-1780469918394-wherewedance.webp" },
       { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/24OcIMfSQnayF8kiMAwFhXQBNIz2/social-images/social-1780469918394-wherewedance.webp" },
     ],
