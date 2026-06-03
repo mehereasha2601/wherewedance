@@ -6,9 +6,9 @@ import { BeginnerPathway } from "./beginner-pathway";
 import { GoodToKnow } from "./good-to-know";
 
 export function AskAnswer({ prompt }: { prompt: AskPrompt }) {
-  const sourceEvents = (prompt.answer.sourceEventIds ?? [])
-    .map(eventById)
-    .filter((e): e is NonNullable<ReturnType<typeof eventById>> => Boolean(e));
+  const recommendations = (prompt.answer.recommendations ?? [])
+    .map((r) => ({ ...r, event: eventById(r.eventId) }))
+    .filter((r): r is typeof r & { event: NonNullable<ReturnType<typeof eventById>> } => Boolean(r.event));
   const sourceResources = (prompt.answer.sourceResourceIds ?? [])
     .map(resourceById)
     .filter((r): r is NonNullable<ReturnType<typeof resourceById>> => Boolean(r));
@@ -28,31 +28,55 @@ export function AskAnswer({ prompt }: { prompt: AskPrompt }) {
         <AiCaveat />
         <p className="text-[14px] leading-relaxed text-ink">{prompt.answer.body}</p>
 
-        {sourceEvents.length > 0 && (
-          <div>
-            <p className="text-[10px] uppercase tracking-widest font-bold text-ink/50 mb-2">
-              Pulled from these events
+        {recommendations.length > 0 && (
+          <div className="space-y-4">
+            {recommendations.map(({ event, label, whyThisFits }) => (
+              <div
+                key={event.id}
+                className="rounded-2xl ring-1 ring-ink/10 bg-paper overflow-hidden"
+              >
+                <div className="px-4 pt-4 pb-3 border-b border-ink/10">
+                  <p
+                    className={`text-[10px] uppercase tracking-widest font-bold ${
+                      label === "Top recommendation" ? "text-terracotta" : "text-ink/50"
+                    }`}
+                  >
+                    {label}
+                  </p>
+                  <p className="font-display italic font-semibold text-lg leading-tight text-ink mt-1">
+                    {event.title}
+                  </p>
+                  <p className="text-[11px] text-ink/60 mt-0.5">
+                    {event.dayOfWeek} · {event.startsAt} · {event.venue}
+                  </p>
+                  <p className="text-[13px] text-ink/80 leading-relaxed mt-2">
+                    <span className="font-bold text-ink">Why this fits: </span>
+                    {whyThisFits}
+                  </p>
+                  <Link
+                    to="/events/$id"
+                    params={{ id: event.slug }}
+                    className="inline-block mt-2 text-[11px] font-bold uppercase tracking-widest text-terracotta"
+                  >
+                    View event page →
+                  </Link>
+                </div>
+                <div className="p-4">
+                  <GoodToKnow event={event} />
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {prompt.answer.generalNote && (
+          <div className="rounded-2xl bg-ink/5 ring-1 ring-ink/10 p-4">
+            <p className="text-[10px] uppercase tracking-widest font-bold text-ink/55 mb-1">
+              General note for this answer
             </p>
-            <div className="space-y-2">
-              {sourceEvents.map((e) => (
-                <Link
-                  key={e.id}
-                  to="/events/$id"
-                  params={{ id: e.slug }}
-                  className="flex items-center justify-between bg-paper ring-1 ring-ink/10 rounded-xl p-3"
-                >
-                  <div>
-                    <p className="font-display italic font-semibold text-base leading-tight text-ink">
-                      {e.title}
-                    </p>
-                    <p className="text-[11px] text-ink/60">
-                      {e.dayOfWeek} · {e.startsAt} · {e.venue}
-                    </p>
-                  </div>
-                  <span className="text-terracotta text-lg">→</span>
-                </Link>
-              ))}
-            </div>
+            <p className="text-[13px] text-ink/80 leading-relaxed">
+              {prompt.answer.generalNote}
+            </p>
           </div>
         )}
 
@@ -69,10 +93,6 @@ export function AskAnswer({ prompt }: { prompt: AskPrompt }) {
               ))}
             </ul>
           </div>
-        )}
-
-        {prompt.answer.showGoodToKnow && sourceEvents[0] && (
-          <GoodToKnow event={sourceEvents[0]} />
         )}
 
         {prompt.answer.showBeginnerPathway && <BeginnerPathway compact />}
