@@ -6,7 +6,7 @@ import logoAsset from "@/assets/wherewedance-logo.png.asset.json";
 export function AppShell({ children }: { children: ReactNode }) {
   return (
     <div className="min-h-screen bg-paper text-ink">
-      <div className="mx-auto w-full max-w-md min-h-screen relative pb-32">
+      <div className="mx-auto w-full max-w-md min-h-screen relative pb-32 overflow-x-hidden">
         <header className="px-5 pt-6 flex justify-between items-center">
           <Link
             to="/"
