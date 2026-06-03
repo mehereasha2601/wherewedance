@@ -32,6 +32,9 @@ export function HomePage() {
   const outdoor = thisWeek
     .filter((e) => e.cost.toLowerCase().includes("free") && e.organizerId !== "org-havana")
     .slice(0, 2);
+  // Community pick: surface non-dance community outings (e.g. Starry Boston)
+  // that happen inside the current Mon–Sun week.
+  const communityPicks = thisWeek.filter((e) => e.bachataRelevance === null);
 
   return (
     <AppShell>
@@ -78,6 +81,20 @@ export function HomePage() {
       <section className="px-5 mt-6">
         <AskCard />
       </section>
+
+      {communityPicks.length > 0 && (
+        <section className="mt-12">
+          <SectionHeader
+            eyebrow="Off the dance floor"
+            title="Community pick this week"
+          />
+          <div className="px-5 grid gap-3">
+            {communityPicks.map((e) => (
+              <EventCardCompact key={e.id} event={e} />
+            ))}
+          </div>
+        </section>
+      )}
 
       <section className="mt-12">
         <SectionHeader
