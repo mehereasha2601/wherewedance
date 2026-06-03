@@ -843,7 +843,7 @@ export const events: Event[] = [
     thisWeek: true,
     scheduleNote: "Pop-up / one-off - Friday June 6 - check Instagram for time",
     cover: "from-magenta via-oxblood to-ink",
-    bachataRelevance: "Bachata-included",
+    bachataRelevance: "Dance party / mixed styles",
     beginnerLabel: "Beginner-welcome",
     classBeforeSocial: { offered: false },
     waterAvailability: "Food/drinks at venue - bring water recommended",
