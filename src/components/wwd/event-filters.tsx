@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import type { Event } from "@/data/mock";
 import { isEventTonight, catalogDateLabel } from "@/data/mock";
-import { getPilotWeekLabels, PILOT_BASE_DATE } from "@/lib/event-dates";
+import { getCurrentWeekLabels, getTodayInBoston } from "@/lib/event-dates";
 import { EventCard } from "./event-card";
 
 export type FilterKey =
@@ -34,12 +34,6 @@ const PREDICATES: Record<FilterKey, (e: Event) => boolean> = {
   "class-before-social": (e) => e.classBeforeSocial.offered === true,
 };
 
-// Ordered list of dateLabels for the mocked current week, derived from
-// PILOT_BASE_DATE so weekday/date pairs always match the real calendar.
-// Events whose dateLabel isn't in this list (Monthly / TBA, fixed-date
-// pop-ups outside the week, etc.) fall into the "Pop-ups / date TBA" group.
-const WEEK_DATE_ORDER = getPilotWeekLabels(PILOT_BASE_DATE);
-
 export function EventFilters({
   events,
   chips,
@@ -52,6 +46,13 @@ export function EventFilters({
   allowTbaGroup?: boolean;
 }) {
   const [active, setActive] = useState<Set<FilterKey>>(new Set());
+  // Ordered date labels for the current Monday–Sunday week, derived from the
+  // real Boston date at render time. Events whose dateLabel isn't in this
+  // list fall into the "Pop-ups / date TBA" group.
+  const WEEK_DATE_ORDER = useMemo(
+    () => getCurrentWeekLabels(getTodayInBoston()),
+    [],
+  );
 
   const toggle = (k: FilterKey) => {
     setActive((prev) => {
