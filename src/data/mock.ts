@@ -1366,11 +1366,11 @@ export const askPrompts: AskPrompt[] = [
     category: "Beginner",
     answer: {
       body: "Take a structured class first. Lili Latin Dance runs brand-new tracks Mon–Thu and J&L Dance Studio teaches partner-free fundamentals. Once you've had a few classes, Bachata Room's Wednesday beginner class flows directly into a beginner-friendly social. Bachata Room accepts cash/Venmo, has no coat check, and free water may run out, so bring water.",
-      sourceEventIds: ["evt-lili-social", "evt-bachata-room-wed"],
+      sourceEventIds: ["evt-lili-monthly-social", "evt-bachata-room-wed"],
       showBeginnerPathway: true,
       recommendations: [
         {
-          eventId: "evt-lili-social",
+          eventId: "evt-lili-monthly-social",
           label: "Top recommendation",
           whyThisFits: "Designed for brand-new dancers, no partner needed, dry studio, facilitated rotations.",
         },
@@ -1387,8 +1387,8 @@ export const askPrompts: AskPrompt[] = [
     prompt: "I'm nervous to go alone. What should I try?",
     category: "Beginner",
     answer: {
-      body: "Bachata Room Wednesday and Lili Latin's First-Friday social both facilitate rotations, so people who come alone don't get stuck on the wall. Beginner-friendly and dry - easier for a first solo trip than a late-night bar social. Bachata Room accepts cash/Venmo, has no coat check, and free water may run out, so bring water.",
-      sourceEventIds: ["evt-bachata-room-wed", "evt-lili-social"],
+      body: "Bachata Room Wednesday and Lili Latin's monthly studio social both facilitate rotations, so people who come alone don't get stuck on the wall. Beginner-friendly and dry - easier for a first solo trip than a late-night bar social. Bachata Room accepts cash/Venmo, has no coat check, and free water may run out, so bring water.",
+      sourceEventIds: ["evt-bachata-room-wed", "evt-lili-monthly-social"],
       showBeginnerPathway: true,
       recommendations: [
         {
@@ -1397,7 +1397,7 @@ export const askPrompts: AskPrompt[] = [
           whyThisFits: "Facilitated rotations and a beginner class before the social - good if you're going alone.",
         },
         {
-          eventId: "evt-lili-social",
+          eventId: "evt-lili-monthly-social",
           label: "Also consider",
           whyThisFits: "Studio social aimed at first-timers, dry, rotations are run so no one is stuck on the wall.",
         },
@@ -1483,8 +1483,8 @@ export const askPrompts: AskPrompt[] = [
     prompt: "Where can I go if I don't want alcohol?",
     category: "Logistics",
     answer: {
-      body: "Bachata Room Wednesday, Lili Latin's First-Friday social, and the BOBAS outdoor nights are all dry events - no bar on site. Havana Monday is also now a dry, dance-focused night. Havana is cash only with an on-site ATM that may charge an extra fee, and coat check is available. Bachata Room accepts cash/Venmo and has no coat check, so bring water.",
-      sourceEventIds: ["evt-bachata-room-wed", "evt-lili-social", "evt-bobas", "evt-havana-mon"],
+      body: "Bachata Room Wednesday, Lili Latin's monthly studio social, and the BOBAS outdoor nights are all dry events - no bar on site. Havana Monday is also now a dry, dance-focused night. Havana is cash only with an on-site ATM that may charge an extra fee, and coat check is available. Bachata Room accepts cash/Venmo and has no coat check, so bring water.",
+      sourceEventIds: ["evt-bachata-room-wed", "evt-lili-monthly-social", "evt-bobas", "evt-havana-mon"],
       recommendations: [
         {
           eventId: "evt-havana-mon",
@@ -1497,7 +1497,7 @@ export const askPrompts: AskPrompt[] = [
           whyThisFits: "Dry Wednesday social with a beginner class - Bachata-heavy.",
         },
         {
-          eventId: "evt-lili-social",
+          eventId: "evt-lili-monthly-social",
           label: "Also consider",
           whyThisFits: "Dry studio social aimed at first-timers, with facilitated rotations.",
         },
