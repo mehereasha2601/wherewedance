@@ -601,38 +601,50 @@ export const values: Value[] = [
 
 export const askPrompts: AskPrompt[] = [
   {
-    id: "ask-tonight",
-    prompt: "What's a safe first social tonight?",
-    category: "Tonight",
+    id: "ask-new",
+    prompt: "I'm completely new. Where should I start?",
+    category: "Beginner",
     answer: {
-      body: "Two solid options on a Monday: Havana Club has an intro lesson at 8pm and a beginner table, and Bachata Room runs a patient beginner track. Both have free water, both are reliably on schedule.",
-      sourceEventIds: ["evt-havana-mon", "evt-bachata-room-wed"],
+      body: "Take a structured class first. Lili Latin Dance runs brand-new tracks Mon–Thu and J&L Dance Studio teaches partner-free fundamentals. Once you've had a few classes, Bachata Room's Wednesday beginner class flows directly into a beginner-friendly social.",
+      sourceEventIds: ["evt-lili-social", "evt-bachata-room-wed"],
       showBeginnerPathway: true,
       showGoodToKnow: true,
     },
   },
   {
-    id: "ask-solo-follow",
-    prompt: "Is it safe to go as a solo follow?",
-    category: "Safety",
+    id: "ask-alone",
+    prompt: "I'm nervous to go alone. What should I try?",
+    category: "Beginner",
     answer: {
-      body: "Yes — Bachata Room and Lili Latin both facilitate rotations so solo follows don't get stuck on the wall. Avoid late-night J&L for a first time alone; the floor is small and the dancing is close.",
+      body: "Bachata Room Wednesday and Lili Latin's First-Friday social both facilitate rotations, so people who come alone don't get stuck on the wall. Beginner-friendly and dry — easier for a first solo trip than a late-night bar social.",
       sourceEventIds: ["evt-bachata-room-wed", "evt-lili-social"],
+      showBeginnerPathway: true,
       showGoodToKnow: true,
     },
   },
   {
-    id: "ask-parking",
-    prompt: "Best parking near Havana Club?",
-    category: "Logistics",
+    id: "ask-heavy",
+    prompt: "What's Bachata-heavy this week?",
+    category: "Tonight",
     answer: {
-      body: "Street parking around Green St gets tight after 8pm. Easiest is the Alewife T (12-min walk) or the public garage on Bishop Allen Dr — $8 flat after 6pm. Don't park in the bank lot across the street, they tow nightly.",
-      sourceEventIds: ["evt-havana-mon"],
+      body: "Havana Club Monday and Bachata Room Wednesday are the most Bachata-heavy weeknights. Havana Saturday Live is Bachata-included with a live band rather than purely Bachata-heavy.",
+      sourceEventIds: ["evt-havana-mon", "evt-bachata-room-wed", "evt-havana-sat"],
+      showGoodToKnow: true,
     },
   },
   {
-    id: "ask-free",
-    prompt: "Anything free this week?",
+    id: "ask-bobas",
+    prompt: "What should I know before BOBAS?",
+    category: "Logistics",
+    answer: {
+      body: "BOBAS is outdoor and weather-dependent — check their Instagram before heading out. There's usually no class, so it's better if you know the basics or go with a friend. Wear sneakers and bring a water bottle.",
+      sourceEventIds: ["evt-bobas"],
+      showGoodToKnow: true,
+    },
+  },
+  {
+    id: "ask-outdoor-free",
+    prompt: "What outdoor/free events are happening?",
     category: "Logistics",
     answer: {
       body: "BOBAS runs free outdoor Thursdays on Broad Street, and Bachata by the River is free on Sundays at the Esplanade. Both are weather-dependent — check IG morning-of.",
@@ -641,31 +653,13 @@ export const askPrompts: AskPrompt[] = [
     },
   },
   {
-    id: "ask-where-to-start",
-    prompt: "I've never danced — where do I start?",
-    category: "Beginner",
-    answer: {
-      body: "Start with a class before a social. Lili Latin runs brand-new tracks Mon–Thu, and Bachata Room's 7:30pm beginner class on Wednesday flows directly into the social — so you can practice what you learned an hour later.",
-      sourceEventIds: ["evt-lili-social", "evt-bachata-room-wed"],
-      showBeginnerPathway: true,
-    },
-  },
-  {
-    id: "ask-sensual",
-    prompt: "Where's sensual bachata done well?",
-    category: "Community",
-    answer: {
-      body: "J&L Underground is the local home for sensual — small, advanced, strong consent culture. Bachata Room has a sensual block around 10pm on Wednesdays that's safer for improvers.",
-      sourceEventIds: ["evt-jl", "evt-bachata-room-wed"],
-    },
-  },
-  {
-    id: "ask-shoes",
-    prompt: "What shoes should I bring?",
+    id: "ask-no-alcohol",
+    prompt: "Where can I go if I don't want alcohol?",
     category: "Logistics",
     answer: {
-      body: "Leather-soled dance shoes glide on Havana's hardwood. Sneakers for BOBAS and Bachata by the River (concrete and grass). Always bring a clean indoor pair for studio nights like Bachata Room.",
-      sourceResourceIds: ["res-djset"],
+      body: "Bachata Room Wednesday, Lili Latin's First-Friday social, and the BOBAS outdoor nights are all dry events — no bar on site. Havana Monday is also now a dry, dance-focused night.",
+      sourceEventIds: ["evt-bachata-room-wed", "evt-lili-social", "evt-bobas", "evt-havana-mon"],
+      showGoodToKnow: true,
     },
   },
 ];
