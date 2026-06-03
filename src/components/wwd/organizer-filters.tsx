@@ -30,7 +30,8 @@ interface OrganizerFiltersProps {
 export function OrganizerFilters({ active, onChange, count }: OrganizerFiltersProps) {
   return (
     <div className="px-5">
-      <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 scroll-px-5">
+      <div className="w-full max-w-full overflow-x-auto overscroll-x-contain no-scrollbar pb-2 scroll-px-5 [-webkit-overflow-scrolling:touch]">
+        <div className="flex flex-nowrap items-center gap-2">
         {FILTERS.map((f) => {
           const isActive = active === f;
           return (
@@ -52,6 +53,7 @@ export function OrganizerFilters({ active, onChange, count }: OrganizerFiltersPr
             </button>
           );
         })}
+        </div>
       </div>
       {active !== "All" && (
         <p className="mt-2 text-[10px] uppercase tracking-widest font-bold text-ink/55">

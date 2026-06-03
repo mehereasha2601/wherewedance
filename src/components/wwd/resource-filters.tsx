@@ -40,7 +40,8 @@ export function ResourceFilters({ active, onChange, count }: ResourceFiltersProp
       <p className="text-[10px] uppercase tracking-widest font-bold text-ink/55 mb-1.5">
         Privacy / status
       </p>
-      <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 scroll-px-5">
+      <div className="w-full max-w-full overflow-x-auto overscroll-x-contain no-scrollbar pb-2 scroll-px-5 [-webkit-overflow-scrolling:touch]">
+        <div className="flex flex-nowrap items-center gap-2">
         {FILTERS.map((f) => {
           const isActive = active === f;
           return (
@@ -62,6 +63,7 @@ export function ResourceFilters({ active, onChange, count }: ResourceFiltersProp
             </button>
           );
         })}
+        </div>
       </div>
       {active !== "All" && (
         <p className="mt-2 text-[10px] uppercase tracking-widest font-bold text-ink/55">
@@ -83,7 +85,8 @@ export function ResourceCategoryFilters({ active, onChange }: ResourceCategoryFi
       <p className="text-[10px] uppercase tracking-widest font-bold text-ink/55 mb-1.5">
         Category
       </p>
-      <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 scroll-px-5">
+      <div className="w-full max-w-full overflow-x-auto overscroll-x-contain no-scrollbar pb-2 scroll-px-5 [-webkit-overflow-scrolling:touch]">
+        <div className="flex flex-nowrap items-center gap-2">
         {CATEGORY_FILTERS.map((f) => {
           const isActive = active === f;
           return (
@@ -105,6 +108,7 @@ export function ResourceCategoryFilters({ active, onChange }: ResourceCategoryFi
             </button>
           );
         })}
+        </div>
       </div>
     </div>
   );

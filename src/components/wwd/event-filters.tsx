@@ -29,7 +29,8 @@ const PREDICATES: Record<FilterKey, (e: Event) => boolean> = {
   "bachata-heavy": (e) => e.bachataRelevance === "Bachata-heavy",
   "beginner-friendly": (e) => e.beginnerLabel === "Beginner-friendly",
   free: (e) => e.cost.toLowerCase().includes("free"),
-  "no-alcohol": (e) => e.alcoholPolicy === "Dry event",
+  "no-alcohol": (e) =>
+    /\b(dry|no alcohol)\b/i.test(e.alcoholPolicy ?? ""),
   "class-before-social": (e) => e.classBeforeSocial.offered === true,
 };
 
@@ -43,10 +44,12 @@ export function EventFilters({
   events,
   chips,
   layout,
+  allowTbaGroup = true,
 }: {
   events: Event[];
   chips: FilterKey[];
   layout: "grid" | "by-day";
+  allowTbaGroup?: boolean;
 }) {
   const [active, setActive] = useState<Set<FilterKey>>(new Set());
 
@@ -69,7 +72,8 @@ export function EventFilters({
 
   return (
     <div>
-      <div className="px-5 flex items-center gap-2 overflow-x-auto no-scrollbar scroll-px-5 -mx-0 [scrollbar-width:none]">
+      <div className="w-full max-w-full overflow-x-auto overscroll-x-contain no-scrollbar pb-2 px-5 scroll-px-5 [-webkit-overflow-scrolling:touch]">
+        <div className="flex flex-nowrap items-center gap-2">
         {chips.map((k) => {
           const on = active.has(k);
           return (
@@ -89,6 +93,7 @@ export function EventFilters({
             </button>
           );
         })}
+        </div>
       </div>
 
       {hasActive && (
@@ -154,6 +159,7 @@ export function EventFilters({
               );
             })}
             {(() => {
+              if (!allowTbaGroup) return null;
               const known = new Set<string>(WEEK_DATE_ORDER);
               const tba = filtered.filter((e) => !known.has(e.dateLabel));
               if (tba.length === 0) return null;

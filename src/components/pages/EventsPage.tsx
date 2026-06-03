@@ -17,7 +17,7 @@ export function EventsPage() {
         <EventFilters
           events={events}
           layout="grid"
-          chips={["bachata-heavy","beginner-friendly","free","no-alcohol","class-before-social","tonight","weekend"]}
+          chips={["bachata-heavy","beginner-friendly","free","no-alcohol","class-before-social"]}
         />
       </div>
     </AppShell>

@@ -486,7 +486,7 @@ export const events: Event[] = [
     scheduleReliability: "Weekly recurring, very reliable",
     sourceStatus: "Official website",
     lastVerified: "2026-06-02",
-    dateLabel: "Mon, Jun 9",
+    dateLabel: "",
     scheduleLabel: "Lessons 8:15–9:15 PM · Social 9:15 PM–12:30 AM",
     goodToKnow: [
       "Bachata-heavy Monday night (~90% Bachata / 10% Salsa)",
@@ -532,7 +532,7 @@ export const events: Event[] = [
     scheduleReliability: "Weekly recurring, very reliable",
     sourceStatus: "From public listing",
     lastVerified: "2026-06-02",
-    dateLabel: "Tue, Jun 10",
+    dateLabel: "",
     scheduleLabel: "Lessons 8:15–9:15 PM · Social 9:15 PM–12:30 AM",
     goodToKnow: [
       "Mixed Salsa/Bachata night (~60% Bachata / 40% Salsa where supported)",
@@ -573,7 +573,7 @@ export const events: Event[] = [
     scheduleReliability: "Weekly recurring, very reliable",
     sourceStatus: "Official website",
     lastVerified: "2026-06-02",
-    dateLabel: "Thu, Jun 12",
+    dateLabel: "",
     scheduleLabel: "Lessons 8:45–9:45 PM · Party 9:45 PM–12:30 AM",
     goodToKnow: [
       "Bachata-heavy Thursday night (~80% Bachata / 20% Salsa)",
@@ -616,7 +616,7 @@ export const events: Event[] = [
     scheduleReliability: "Weekly recurring, very reliable",
     sourceStatus: "From public listing",
     lastVerified: "2026-06-02",
-    dateLabel: "Fri, Jun 13",
+    dateLabel: "",
     scheduleLabel: "Lessons before social · Party 9:15 PM–2:00 AM",
     goodToKnow: [
       "Mixed Bachata/Salsa late-night party",
@@ -656,7 +656,7 @@ export const events: Event[] = [
     scheduleReliability: "Weekly recurring, very reliable",
     sourceStatus: "From public listing",
     lastVerified: "2026-06-02",
-    dateLabel: "Sun, Jun 15",
+    dateLabel: "",
     scheduleLabel: "Lessons/practica from 7:15 PM · Social 8:15–11:30 PM",
     goodToKnow: [
       "Bachata-heavy Sunday option",
@@ -697,7 +697,7 @@ export const events: Event[] = [
     scheduleReliability: "Weekly recurring, very reliable",
     sourceStatus: "Official website",
     lastVerified: "2026-05-30",
-    dateLabel: "Sat, Jun 14",
+    dateLabel: "",
     scheduleLabel: "Lessons before dancing · Party 9:15 PM–2:00 AM",
     goodToKnow: [
       "Large Saturday crowd (~70% Bachata / 25% Salsa / 5% Merengue)",
@@ -735,12 +735,12 @@ export const events: Event[] = [
     bachataRelevance: "Bachata-heavy",
     beginnerLabel: "Beginner-friendly",
     classBeforeSocial: { offered: true, level: "Beginner-friendly Bachata/Salsa class before the social" },
-    waterAvailability: "Free water",
+    waterAvailability: "Free water may run out / bring water recommended",
     alcoholPolicy: "Bar available · 21+ to drink",
     scheduleReliability: "Weekly recurring, very reliable",
     sourceStatus: "Official website",
     lastVerified: "2026-06-01",
-    dateLabel: "Wed, Jun 11",
+    dateLabel: "",
     scheduleLabel: "9:00 PM (class + social)",
     goodToKnow: [
       "Wednesday 9:00 PM class + social.",
@@ -785,7 +785,7 @@ export const events: Event[] = [
     scheduleReliability: "Monthly / occasional - check official source",
     sourceStatus: "Check official source",
     lastVerified: "2026-06-03",
-    dateLabel: "Monthly / date TBA",
+    dateLabel: "",
     scheduleLabel: "Check official source",
     goodToKnow: [
       "J&L is known for structured Bachata/Salsa classes and fundamentals.",
@@ -821,7 +821,7 @@ export const events: Event[] = [
     sourceStatus: "Official Instagram / organizer post",
     lastVerified: "2026-06-03",
     fixedDate: "2026-06-20",
-    dateLabel: "Fri, Jun 20",
+    dateLabel: "",
     scheduleLabel: "6:00–10:00 PM",
     goodToKnow: [
       "Monthly / occasional Lili Latin Dance studio social - next listed: Friday June 20.",
@@ -864,7 +864,7 @@ export const events: Event[] = [
     sourceStatus: "Official Instagram / domain-expert confirmed Bachata music",
     lastVerified: "2026-06-06",
     fixedDate: "2026-06-06",
-    dateLabel: "Sat, Jun 6",
+    dateLabel: "",
     scheduleLabel: "Time TBA",
     goodToKnow: [
       "Free queer-friendly dance party hosted by Next Level Fusion / Party with Next Level Fusion.",
@@ -905,7 +905,7 @@ export const events: Event[] = [
     sourceStatus: "Community-updated / WhatsApp announcement",
     lastVerified: "2026-05-29",
     fixedDate: "2026-06-05",
-    dateLabel: "Fri, Jun 13",
+    dateLabel: "",
     scheduleLabel: "Check Instagram",
     goodToKnow: [
       "Free outdoor Salsa/Bachata pop-up.",
@@ -943,7 +943,7 @@ export const events: Event[] = [
     scheduleReliability: "Monthly / seasonal - check official source",
     sourceStatus: "From public listing",
     lastVerified: "2026-06-03",
-    dateLabel: "Monthly / date TBA",
+    dateLabel: "",
     scheduleLabel: "Usually 6:00 PM lesson · check official source",
     goodToKnow: [
       "Free outdoor event at Magazine Beach Park.",
@@ -979,7 +979,7 @@ export const events: Event[] = [
     scheduleReliability: "Seasonal outdoor recurring - check official source",
     sourceStatus: "From public listing",
     lastVerified: "2026-06-03",
-    dateLabel: "Seasonal / date TBA",
+    dateLabel: "",
     scheduleLabel: "6:00–9:30 PM · check official source",
     goodToKnow: [
       "Free outdoor dance class and social at The Anchor.",
@@ -1016,7 +1016,7 @@ export const events: Event[] = [
     scheduleReliability: "Weekly / check official source",
     sourceStatus: "From public listing",
     lastVerified: "2026-06-03",
-    dateLabel: "Fri, Jun 13",
+    dateLabel: "",
     scheduleLabel: "Class 8:45 PM · Social to 1:00 AM",
     goodToKnow: [
       "Friday mixed Salsa/Bachata social at Dante Alighieri Society.",
@@ -1051,7 +1051,7 @@ export const events: Event[] = [
     scheduleReliability: "Weekly / check official source",
     sourceStatus: "Official website / Facebook",
     lastVerified: "2026-06-03",
-    dateLabel: "Sat, Jun 14",
+    dateLabel: "",
     scheduleLabel: "Lesson 8:40 PM · Social to 1:00 AM",
     goodToKnow: [
       "Saturday mixed Salsa/Bachata social at Dante Alighieri Society.",
@@ -1679,18 +1679,13 @@ export const askPrompts: AskPrompt[] = [
     prompt: "Where can I go if I don't want alcohol?",
     category: "Logistics",
     answer: {
-      body: "Bachata Room Wednesday and the BOBAS outdoor nights are dry events - no bar on site. Havana Monday is also now a dry, dance-focused night. Havana is cash only with an on-site ATM that may charge an extra fee, and coat check is available. Bachata Room accepts cash/Venmo and has no coat check, so bring water.",
-      sourceEventIds: ["evt-bachata-room-wed", "evt-bobas", "evt-havana-mon"],
+      body: "Havana Monday is a dry, dance-focused Bachata-heavy night with a beginner + intermediate lesson before the social — the best no-alcohol pick. BOBAS outdoor pop-ups at the Charles River Dock are also dry (bring water). Bachata Room is at La Fábrica with a bar (21+ to drink); you can still attend without drinking, but it's not a dry venue. Havana is cash only with an on-site ATM that may charge an extra fee, and coat check is available.",
+      sourceEventIds: ["evt-havana-mon", "evt-bobas"],
       recommendations: [
         {
           eventId: "evt-havana-mon",
           label: "Top recommendation",
           whyThisFits: "Dry, Bachata-heavy Monday with a beginner class before the social.",
-        },
-        {
-          eventId: "evt-bachata-room-wed",
-          label: "Also consider",
-          whyThisFits: "Dry Wednesday social with a beginner class - Bachata-heavy.",
         },
         {
           eventId: "evt-bobas",
@@ -1785,9 +1780,45 @@ export const mapUrlForEvent = (e: Event): string | null => {
 // "Tonight" is an explicit per-event flag — never derived from the wall clock,
 // so we don't mislabel events on unrelated days. It renders as a small badge
 // only, not as the main date.
-export const isEventTonight = (e: Event): boolean => e.isTonight === true;
+// "Tonight" and "this week" are derived from PILOT_BASE_DATE so the mocked
+// pilot date drives every date-aware filter. Changing PILOT_BASE_DATE updates
+// the homepage live state, /this-week grouping, and the Tonight chip.
+function sameDay(a: Date, b: Date): boolean {
+  return (
+    a.getFullYear() === b.getFullYear() &&
+    a.getMonth() === b.getMonth() &&
+    a.getDate() === b.getDate()
+  );
+}
 
-export const tonightEvents = () => events.filter(isEventTonight);
+function resolvedEventDate(e: Event, base: Date): Date | null {
+  if (e.fixedDate) return parseIsoDate(e.fixedDate);
+  if (e.popUp) return null; // pop-ups without a fixed date have no real date
+  return getNextOccurrence(e.dayOfWeek as DayName, base);
+}
+
+export function isEventOnPilotDate(e: Event, date: Date = PILOT_BASE_DATE): boolean {
+  const d = resolvedEventDate(e, date);
+  if (!d) return false;
+  return sameDay(d, date);
+}
+
+export function getThisWeekEvents(base: Date = PILOT_BASE_DATE): Event[] {
+  const start = new Date(base);
+  start.setHours(0, 0, 0, 0);
+  const end = new Date(start);
+  end.setDate(end.getDate() + 7);
+  return events.filter((e) => {
+    const d = resolvedEventDate(e, base);
+    if (!d) return false;
+    return d >= start && d < end;
+  });
+}
+
+export const isEventTonight = (e: Event): boolean =>
+  isEventOnPilotDate(e, PILOT_BASE_DATE);
+
+export const tonightEvents = () => getThisWeekEvents().filter(isEventTonight);
 
 // Short logistics line for compact cards: e.g. "Cash only · Coat check · Free water".
 export const logisticsSummary = (e: Event): string | null => {

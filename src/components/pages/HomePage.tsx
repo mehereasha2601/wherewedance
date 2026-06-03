@@ -41,8 +41,17 @@ export function HomePage() {
       />
 
       <div className="px-5 mt-5 flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold text-ink/55">
-        <span className="size-1.5 rounded-full bg-magenta animate-pulse" />
-        {tonight.length} socials live tonight
+        {tonight.length > 0 ? (
+          <>
+            <span className="size-1.5 rounded-full bg-magenta animate-pulse" />
+            {tonight.length} social{tonight.length === 1 ? "" : "s"} live tonight
+          </>
+        ) : (
+          <>
+            <span className="size-1.5 rounded-full bg-ink/30" />
+            No socials listed tonight
+          </>
+        )}
       </div>
 
       <div className="mt-6">
