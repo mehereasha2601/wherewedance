@@ -18,8 +18,8 @@ export function AskCard() {
           </span>
         </div>
         <p className="text-paper/80 text-sm leading-relaxed max-w-[34ch]">
-          A coming-soon local guide. Preview curated answers from listed
-          events, organizers, and resources — no real AI calls yet.
+          A grounded local guide — coming soon. Preview curated answers from
+          listed events, organizers, and resources.
         </p>
         <div className="mt-5 flex flex-wrap gap-2">
           {prompts.map((p) => (

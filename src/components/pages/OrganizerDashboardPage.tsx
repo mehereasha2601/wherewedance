@@ -2,6 +2,7 @@ import { AppShell, PageHero } from "@/components/wwd/shell";
 import { events, organizers, mapUrlForEvent } from "@/data/mock";
 import { SourceLabel } from "@/components/wwd/source-label";
 import { OfficialLinks } from "@/components/wwd/official-links";
+import { ComingSoonBanner } from "@/components/wwd/coming-soon-banner";
 import { Link } from "@/components/wwd/ui-router";
 
 const submissions = [
@@ -61,14 +62,16 @@ export function OrganizerDashboardPage() {
         description="A preview of how organizers will be able to manage event visibility, RSVP interest, schedule updates, and dancer-facing information on WhereWeDance."
       />
 
-      <section className="px-5 mt-6 bg-magenta/15 ring-1 ring-magenta/40 rounded-2xl p-4">
-        <p className="text-[10px] uppercase tracking-widest font-bold text-magenta mb-1">
-          Coming soon
-        </p>
-        <p className="text-[12px] text-ink/80 leading-relaxed">
-          This dashboard is a prototype preview. Organizer actions are visual
-          only and do not submit yet.
-        </p>
+      <section className="px-5 mt-6">
+        <ComingSoonBanner
+          description="This dashboard is a prototype preview. Organizer actions are visual only and do not submit yet."
+          bullets={[
+            "Claim or manage organizer profiles.",
+            "Submit event updates and schedule changes.",
+            "Track RSVP interest.",
+            "Generate clearer event copy and Good to Know notes later.",
+          ]}
+        />
       </section>
 
       <section className="px-5 mt-6">

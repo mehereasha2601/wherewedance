@@ -2,6 +2,7 @@ import { useState } from "react";
 import { AppShell, PageHero } from "@/components/wwd/shell";
 import { AskAnswer } from "@/components/wwd/ask-answer";
 import { AiCaveat } from "@/components/wwd/ai-caveat";
+import { ComingSoonBanner } from "@/components/wwd/coming-soon-banner";
 import { askPrompts } from "@/data/mock";
 
 export function AskPage() {
@@ -12,21 +13,20 @@ export function AskPage() {
     <AppShell>
       <PageHero
         eyebrow="Ask WhereWeDance"
-        title={<>A grounded <span className="text-terracotta">local guide.</span></>}
+        title={<>A grounded <span className="text-terracotta">local guide</span> — coming soon.</>}
         description="Preview curated answers from listed events, organizers, and resources. Real AI-powered recommendations are coming soon."
       />
 
       <section className="px-5 mt-6">
-        <div className="rounded-2xl bg-mango/15 ring-1 ring-mango/40 px-4 py-3">
-          <p className="text-[10px] uppercase tracking-widest font-bold text-oxblood mb-1">
-            Coming soon
-          </p>
-          <p className="text-[13px] text-ink leading-relaxed">
-            Ask WhereWeDance is a prototype preview. These are curated mock
-            answers based on currently listed events and resources. No real AI
-            calls are made yet.
-          </p>
-        </div>
+        <ComingSoonBanner
+          description="Ask WhereWeDance is a prototype preview. These are curated mock answers based on currently listed events and resources. No real AI calls are made yet."
+          bullets={[
+            "Ask practical questions about where to go.",
+            "Preview answers grounded in listed events and resources.",
+            "Real retrieval-based AI recommendations are coming later.",
+            "Always check organizer/source links before going.",
+          ]}
+        />
       </section>
 
       <section className="px-5 mt-3">
