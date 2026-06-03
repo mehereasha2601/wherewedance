@@ -37,6 +37,7 @@ export type SourceStatus =
   | "Public SoundCloud / Instagram"
   | "Community-known"
   | "Check official source"
+  | "Official Instagram / organizer post"
   | "Needs validation";
 
 export type ResourcePrivacy =
