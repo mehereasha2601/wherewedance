@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import type { Event } from "@/data/mock";
-import { isEventTonight } from "@/data/mock";
+import { isEventTonight, catalogDateLabel } from "@/data/mock";
 import { getPilotWeekLabels, PILOT_BASE_DATE } from "@/lib/event-dates";
 import { EventCard } from "./event-card";
 
@@ -125,7 +125,7 @@ export function EventFilters({
         ) : layout === "grid" ? (
           <div className="px-5 grid gap-4">
             {filtered.map((e) => (
-              <EventCard key={e.id} event={e} />
+              <EventCard key={e.id} event={e} dateLabel={catalogDateLabel(e)} />
             ))}
           </div>
         ) : (

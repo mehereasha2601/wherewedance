@@ -4,10 +4,11 @@ import { Link } from "./ui-router";
 import { BeginnerTag, SceneTag } from "./tags";
 import { ExternalLink } from "lucide-react";
 
-export function EventCardCompact({ event }: { event: Event }) {
+export function EventCardCompact({ event, dateLabel }: { event: Event; dateLabel?: string }) {
   const primaryHref = event.officialUrl ?? event.websiteUrl ?? event.instagramUrl ?? event.facebookUrl;
   const logistics = logisticsSummary(event);
   const tonight = isEventTonight(event);
+  const displayDate = dateLabel ?? event.dateLabel;
   return (
     <article className="bg-paper rounded-2xl ring-1 ring-ink/10 overflow-hidden flex flex-col">
       <div className={`h-16 bg-gradient-to-br ${event.cover} relative`}>
@@ -37,7 +38,7 @@ export function EventCardCompact({ event }: { event: Event }) {
           </p>
         </div>
         <p className="text-[11px] text-ink/60">
-          {event.dateLabel}
+          {displayDate}
           {event.scheduleLabel ? ` · ${event.scheduleLabel}` : ""}
           {" · "}
           <span className="font-bold text-ink/80">{event.cost}</span>

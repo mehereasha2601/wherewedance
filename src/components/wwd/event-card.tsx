@@ -6,12 +6,13 @@ import { GoodToKnow } from "./good-to-know";
 import { SourceLabel } from "./source-label";
 import { ExternalLink, MapPin } from "lucide-react";
 
-export function EventCard({ event, full = false }: { event: Event; full?: boolean }) {
+export function EventCard({ event, full = false, dateLabel }: { event: Event; full?: boolean; dateLabel?: string }) {
   const organizer = organizerById(event.organizerId);
   const primaryHref = event.officialUrl ?? event.websiteUrl ?? event.instagramUrl ?? event.facebookUrl;
   const mapHref = mapUrlForEvent(event);
   const logistics = logisticsSummary(event);
   const tonight = isEventTonight(event);
+  const displayDate = dateLabel ?? event.dateLabel;
   return (
     <article className="bg-paper rounded-3xl ring-1 ring-ink/10 overflow-hidden flex flex-col">
       <div className={`relative aspect-[5/3] bg-gradient-to-br ${event.cover}`}>
@@ -29,7 +30,7 @@ export function EventCard({ event, full = false }: { event: Event; full?: boolea
         <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between text-paper gap-2">
           <div className="min-w-0">
             <p className="text-[10px] uppercase tracking-widest font-bold opacity-90 truncate">
-              {event.dateLabel}
+              {displayDate}
               {event.scheduleLabel ? ` · ${event.scheduleLabel}` : ""}
             </p>
           </div>

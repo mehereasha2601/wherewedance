@@ -1088,6 +1088,17 @@ for (const e of events) {
   }
 }
 
+// Directory/catalog label used by /events. Recurring weekly events show
+// recurrence ("Mondays") instead of a generated next-occurrence date so the
+// catalog doesn't lie about specific calendar dates. One-offs with a
+// fixedDate still show the real date. Pop-ups without a fixedDate show a
+// generic TBA hint.
+export function catalogDateLabel(e: Event): string {
+  if (e.fixedDate) return formatDateLabel(parseIsoDate(e.fixedDate));
+  if (e.popUp) return "Monthly / date TBA · check official source";
+  return `${e.dayOfWeek}s`;
+}
+
 // ---------- Resources ----------
 
 export const resources: Resource[] = [
