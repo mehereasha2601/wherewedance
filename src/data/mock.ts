@@ -770,6 +770,8 @@ export const events: Event[] = [
     scheduleReliability: "Monthly / occasional - check official source",
     sourceStatus: "Official Instagram / organizer post",
     lastVerified: "2026-06-03",
+    dateLabel: "Fri, Jun 20",
+    scheduleLabel: "6:00–10:00 PM",
     goodToKnow: [
       "Monthly / occasional Lili Latin Dance studio social - next listed: Friday June 20.",
       "Music includes Salsa, Bachata, Merengue, and some party music.",
@@ -810,6 +812,8 @@ export const events: Event[] = [
     scheduleReliability: "Pop-up / one-off - check official source",
     sourceStatus: "Official Instagram / organizer post",
     lastVerified: "2026-06-03",
+    dateLabel: "Fri, Jun 6",
+    scheduleLabel: "Time TBA",
     goodToKnow: [
       "Free queer dance party hosted by Next Level Fusion.",
       "Held at The Anchor Boston on Friday June 6.",
@@ -847,6 +851,8 @@ export const events: Event[] = [
     scheduleReliability: "Weather-dependent pop-up - check Instagram",
     sourceStatus: "Official Instagram / organizer post",
     lastVerified: "2026-05-29",
+    dateLabel: "Fri, Jun 13",
+    scheduleLabel: "Check Instagram",
     goodToKnow: [
       "Free outdoor Salsa/Bachata pop-up.",
       "Announced close to the event because weather matters.",
@@ -875,7 +881,7 @@ export const events: Event[] = [
     popUp: true,
     scheduleNote: "Monthly / seasonal - often Sunday - check official source",
     cover: "from-mango via-terracotta to-magenta",
-    bachataRelevance: "Bachata-forward",
+    bachataRelevance: "Bachata-included",
     beginnerLabel: "Beginner-friendly",
     classBeforeSocial: { offered: true, level: "Beginner Bachata lesson before dancing, usually 6:00–7:00 PM when listed" },
     waterAvailability: "BYO water",
@@ -883,6 +889,8 @@ export const events: Event[] = [
     scheduleReliability: "Monthly / seasonal - check official source",
     sourceStatus: "From public listing",
     lastVerified: "2026-06-03",
+    dateLabel: "Monthly / date TBA",
+    scheduleLabel: "Usually 6:00 PM lesson · check official source",
     goodToKnow: [
       "Free outdoor event at Magazine Beach Park.",
       "Beginner Bachata lesson before dancing.",
@@ -909,7 +917,7 @@ export const events: Event[] = [
     endsAt: "TBD",
     scheduleNote: "Seasonal outdoor recurring - check official source",
     cover: "from-oxblood via-ink to-magenta",
-    bachataRelevance: "Salsa-first with bachata",
+    bachataRelevance: "Bachata-included",
     beginnerLabel: "Beginner-friendly",
     classBeforeSocial: { offered: true, level: "Free beginner lesson; style may vary by date" },
     waterAvailability: "Food/drinks at venue - bring water recommended",
@@ -917,6 +925,8 @@ export const events: Event[] = [
     scheduleReliability: "Seasonal outdoor recurring - check official source",
     sourceStatus: "Needs validation",
     lastVerified: "2026-06-03",
+    dateLabel: "Seasonal / date TBA",
+    scheduleLabel: "Evening · check official source",
     goodToKnow: [
       "Free outdoor dance class and social at The Anchor.",
       "Salsa-first, but Bachata is included.",
