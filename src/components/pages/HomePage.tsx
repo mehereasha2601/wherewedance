@@ -2,7 +2,8 @@ import { AppShell, PageHero, SectionHeader } from "@/components/wwd/shell";
 import { MarqueeTicker } from "@/components/wwd/marquee";
 import { AskCard } from "@/components/wwd/ask-card";
 import { BeginnerPathway } from "@/components/wwd/beginner-pathway";
-import { EventCard } from "@/components/wwd/event-card";
+import { EventCardCompact } from "@/components/wwd/event-card-compact";
+import { DiscoveryStrip } from "@/components/wwd/discovery-strip";
 import { OrganizerCTA } from "@/components/wwd/organizer-cta";
 import { BuddyCard } from "@/components/wwd/buddy-card";
 import { Link } from "@/components/wwd/ui-router";
@@ -10,9 +11,9 @@ import { buddies, events, tonightEvents, values } from "@/data/mock";
 
 export function HomePage() {
   const tonight = tonightEvents();
-  const week = events.slice(0, 4);
-  const bachataHeavy = events.filter((e) => e.bachataRelevance === "Bachata-heavy");
-  const outdoor = events.filter((e) => e.cost === "Free");
+  const week = events.slice(0, 3);
+  const bachataHeavy = events.filter((e) => e.bachataRelevance === "Bachata-heavy").slice(0, 2);
+  const outdoor = events.filter((e) => e.cost.toLowerCase().includes("free")).slice(0, 2);
 
   return (
     <AppShell>
@@ -39,33 +40,12 @@ export function HomePage() {
         />
       </div>
 
-      <nav className="px-5 mt-6 flex gap-2 overflow-x-auto no-scrollbar">
-        {[
-          { label: "Tonight", active: true },
-          { label: "Bachata-heavy" },
-          { label: "Beginner-friendly" },
-          { label: "Free / outdoor" },
-          { label: "Solo-follow safe" },
-        ].map((c) => (
-          <button
-            key={c.label}
-            className={`px-4 py-2 rounded-full text-sm font-medium shrink-0 ${
-              c.active
-                ? "bg-oxblood text-paper ring-1 ring-oxblood"
-                : "bg-paper text-ink ring-1 ring-ink/10"
-            }`}
-          >
-            {c.label}
-          </button>
-        ))}
-      </nav>
+      <section className="mt-8">
+        <DiscoveryStrip />
+      </section>
 
       <section className="px-5 mt-6">
         <AskCard />
-      </section>
-
-      <section className="px-5 mt-10">
-        <BeginnerPathway />
       </section>
 
       <section className="mt-12">
@@ -78,43 +58,31 @@ export function HomePage() {
             </Link>
           }
         />
-        <div className="flex gap-4 overflow-x-auto px-5 pb-4 snap-x snap-mandatory no-scrollbar">
+        <div className="px-5 grid gap-3">
           {week.map((e) => (
-            <div key={e.id} className="w-[300px] shrink-0 snap-start">
-              <EventCard event={e} />
-            </div>
+            <EventCardCompact key={e.id} event={e} />
           ))}
         </div>
       </section>
 
-      <section className="mt-12">
-        <SectionHeader eyebrow="Best first classes" title="Where to start" />
-        <div className="px-5 grid gap-4">
-          {events
-            .filter((e) => e.classBeforeSocial.offered && e.beginnerLabel === "Beginner-friendly")
-            .slice(0, 2)
-            .map((e) => (
-              <EventCard key={e.id} event={e} />
-            ))}
-        </div>
+      <section className="px-5 mt-12">
+        <BeginnerPathway />
       </section>
 
       <section className="mt-12">
         <SectionHeader eyebrow="For the dancers" title="Bachata-heavy nights" />
-        <div className="flex gap-4 overflow-x-auto px-5 pb-4 snap-x snap-mandatory no-scrollbar">
+        <div className="px-5 grid gap-3">
           {bachataHeavy.map((e) => (
-            <div key={e.id} className="w-[300px] shrink-0 snap-start">
-              <EventCard event={e} />
-            </div>
+            <EventCardCompact key={e.id} event={e} />
           ))}
         </div>
       </section>
 
       <section className="mt-12">
         <SectionHeader eyebrow="Free & outdoor" title="No cover required" />
-        <div className="px-5 grid gap-4">
+        <div className="px-5 grid gap-3">
           {outdoor.map((e) => (
-            <EventCard key={e.id} event={e} />
+            <EventCardCompact key={e.id} event={e} />
           ))}
         </div>
       </section>
