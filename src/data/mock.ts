@@ -125,6 +125,12 @@ export type AskPrompt = {
     sourceResourceIds?: string[];
     showBeginnerPathway?: boolean;
     showGoodToKnow?: boolean;
+    recommendations?: {
+      eventId: string;
+      label: "Top recommendation" | "Also consider";
+      whyThisFits: string;
+    }[];
+    generalNote?: string;
   };
 };
 
