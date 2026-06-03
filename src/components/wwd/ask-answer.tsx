@@ -25,7 +25,7 @@ export function AskAnswer({ prompt }: { prompt: AskPrompt }) {
           <p className="text-[10px] uppercase tracking-widest font-bold text-mango">
             You asked
           </p>
-          <span className="shrink-0 text-[9px] uppercase tracking-widest font-bold bg-mango/20 text-mango px-2 py-1 rounded-full">
+          <span className="shrink-0 text-[9px] uppercase tracking-widest font-bold bg-magenta/20 text-magenta px-2 py-1 rounded-full">
             Mock preview · Coming soon
           </span>
         </div>
