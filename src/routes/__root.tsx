@@ -77,14 +77,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "Where We Dance" },
+      { name: "description", content: "WhereWeDance helps dancers discover local socials, classes, organizers, resources, beginner guides, and community values. Starting with a Boston Bachata pilot." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "Where We Dance" },
+      { property: "og:description", content: "WhereWeDance helps dancers discover local socials, classes, organizers, resources, beginner guides, and community values. Starting with a Boston Bachata pilot." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Where We Dance" },
+      { name: "twitter:description", content: "WhereWeDance helps dancers discover local socials, classes, organizers, resources, beginner guides, and community values. Starting with a Boston Bachata pilot." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/24OcIMfSQnayF8kiMAwFhXQBNIz2/social-images/social-1780469918394-wherewedance.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/24OcIMfSQnayF8kiMAwFhXQBNIz2/social-images/social-1780469918394-wherewedance.webp" },
     ],
     links: [
       {
