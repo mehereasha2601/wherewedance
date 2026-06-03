@@ -800,13 +800,18 @@ export const askPrompts: AskPrompt[] = [
     prompt: "What's Bachata-heavy this week?",
     category: "Tonight",
     answer: {
-      body: "Havana Club Monday and Bachata Room Wednesday are the most Bachata-heavy weeknights. Havana Saturday Live is Bachata-included with a live band rather than purely Bachata-heavy.",
-      sourceEventIds: ["evt-havana-mon", "evt-bachata-room-wed", "evt-havana-sat"],
+      body: "Havana Club Monday, Havana Club Thursday, and Bachata Room Wednesday are the most Bachata-heavy nights. Havana Bachata Sunday is also Bachata-heavy. Havana Saturday Bachata/Salsa is Bachata-included rather than purely Bachata-heavy. All Havana nights have beginner + intermediate lessons before the social.",
+      sourceEventIds: ["evt-havana-mon", "evt-havana-thu", "evt-bachata-room-wed", "evt-havana-sun", "evt-havana-sat"],
       recommendations: [
         {
           eventId: "evt-havana-mon",
           label: "Top recommendation",
-          whyThisFits: "Bachata-heavy, dry/no alcohol, class before social, serious dancers.",
+          whyThisFits: "Bachata-heavy Monday, dry/no alcohol, beginner + intermediate Bachata lessons before the social.",
+        },
+        {
+          eventId: "evt-havana-thu",
+          label: "Also consider",
+          whyThisFits: "Bachata-heavy Thursday, bar available, 21+, beginner + intermediate lessons before the party.",
         },
         {
           eventId: "evt-bachata-room-wed",
@@ -814,9 +819,14 @@ export const askPrompts: AskPrompt[] = [
           whyThisFits: "Bachata-heavy, beginner class before social, dry event.",
         },
         {
+          eventId: "evt-havana-sun",
+          label: "Also consider",
+          whyThisFits: "Bachata-heavy Sunday option, dry/no alcohol, lessons/practica structure.",
+        },
+        {
           eventId: "evt-havana-sat",
           label: "Also consider",
-          whyThisFits: "Bachata-included and popular Saturday event, but not purely Bachata-heavy.",
+          whyThisFits: "Bachata-included Saturday with a large crowd and lessons before dancing — not purely Bachata-heavy.",
         },
       ],
     },
