@@ -23,6 +23,14 @@ export function EventCardCompact({ event }: { event: Event }) {
             {event.title}
           </Link>
         </h3>
+        <div className="space-y-0.5">
+          <p className="text-[11px] font-medium text-ink/70 leading-relaxed">
+            {event.venue}
+          </p>
+          <p className="text-[11px] text-ink/60 leading-relaxed">
+            {event.address}
+          </p>
+        </div>
         <p className="text-[11px] text-ink/60">
           {event.popUp
             ? <>Pop-up · Check Instagram · <span className="font-bold text-ink/80">{event.cost}</span></>
