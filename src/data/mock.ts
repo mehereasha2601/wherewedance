@@ -917,20 +917,6 @@ export const resources: Resource[] = [
 
   // ---- Playlists ----
   {
-    id: "res-jl-music",
-    name: "J&L Dance Studio music page",
-    category: "Playlists",
-    privacyStatus: "Public link",
-    description: "Public practice music page from J&L Dance Studio with Bachata and Salsa music sections.",
-    howToJoin: "Open the public music page.",
-    websiteUrl: "https://jandldancestudio.com/music",
-    instagramUrl: "https://www.instagram.com/jl_dancestudio/",
-    sourceStatus: "Official website",
-    lastVerified: "2026-06-03",
-    sourceUrl: "https://jandldancestudio.com/music",
-    tags: ["Music", "Practice", "Bachata", "Salsa", "Public link"],
-  },
-  {
     id: "res-dj-bat-playlist",
     name: "DJ Bat Bachata playlist",
     category: "Playlists",
@@ -957,6 +943,20 @@ export const resources: Resource[] = [
     lastVerified: "2026-06-03",
     sourceUrl: "https://soundcloud.com/enshun",
     tags: ["Music", "Playlist", "SoundCloud", "Bachata", "Salsa", "Public link"],
+  },
+  {
+    id: "res-jl-music",
+    name: "J&L Dance Studio music page",
+    category: "Playlists",
+    privacyStatus: "Public link",
+    description: "Public practice music page from J&L Dance Studio with Bachata and Salsa music sections.",
+    howToJoin: "Open the public music page.",
+    websiteUrl: "https://jandldancestudio.com/music",
+    instagramUrl: "https://www.instagram.com/jl_dancestudio/",
+    sourceStatus: "Official website",
+    lastVerified: "2026-06-03",
+    sourceUrl: "https://jandldancestudio.com/music",
+    tags: ["Music", "Practice", "Bachata", "Salsa", "Public link"],
   },
 
   // ---- Online classes ----
