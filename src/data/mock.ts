@@ -436,6 +436,8 @@ export const events: Event[] = [
     scheduleReliability: "Weekly recurring, very reliable",
     sourceStatus: "Official website",
     lastVerified: "2026-06-02",
+    dateLabel: "Mon, Jun 9",
+    scheduleLabel: "Lessons 8:15–9:15 PM · Social 9:15 PM–12:30 AM",
     goodToKnow: [
       "Bachata-heavy Monday night (~90% Bachata / 10% Salsa)",
       "Doors 8:00 PM · lessons 8:15–9:15 PM · social 9:15 PM–12:30 AM",
