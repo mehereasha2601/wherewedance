@@ -1652,7 +1652,7 @@ export const askPrompts: AskPrompt[] = [
     prompt: "What should I know before BOBAS?",
     category: "Logistics",
     answer: {
-      body: "BOBAS is a free outdoor Salsa/Bachata pop-up. It is beginner-welcome, but because there is usually no class, complete beginners may feel more comfortable going with a friend or after taking a few classes. Check Instagram before going because it is weather-dependent and often announced close to the event. Bring water.",
+      body: "BOBAS is a free outdoor Salsa/Bachata pop-up. It is beginner-welcome, but because there is usually no class, complete beginners may feel more comfortable going with a friend or after taking a few classes. Check Facebook for the most reliable event updates; Instagram may also have updates. Weather-dependent and often announced close to the event. Bring water.",
       sourceEventIds: ["evt-bobas"],
       recommendations: [
         {
@@ -1668,7 +1668,7 @@ export const askPrompts: AskPrompt[] = [
     prompt: "What outdoor/free events are happening?",
     category: "Logistics",
     answer: {
-      body: "BOBAS runs free outdoor Salsa/Bachata pop-ups at the Charles River Dock when currently listed — check WhatsApp/Instagram for time and exact location. Bachata by the River is a free monthly/seasonal event at Magazine Beach Park in Cambridge with a beginner Bachata lesson before dancing. Both are weather-dependent — check the official source before going.",
+      body: "BOBAS runs free outdoor Salsa/Bachata pop-ups at the Charles River Dock when currently listed — check Facebook (primary) or Instagram for time and exact location. Bachata by the River is a free monthly/seasonal event at Magazine Beach Park in Cambridge with a beginner Bachata lesson before dancing. Both are weather-dependent — check the official source before going.",
       sourceEventIds: ["evt-bobas", "evt-river"],
       recommendations: [
         {
