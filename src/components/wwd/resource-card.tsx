@@ -24,6 +24,19 @@ export function ResourceCard({ resource }: { resource: Resource }) {
         </span>
       </div>
       <p className="text-[13px] text-ink/75 leading-relaxed">{resource.description}</p>
+
+      {resource.privacyStatus === "Private group" && (
+        <p className="mt-2 text-[12px] text-ink/70 leading-relaxed">
+          Listed for awareness — ask a trusted organizer/community member.
+        </p>
+      )}
+
+      {resource.privacyStatus === "Needs validation" && (
+        <p className="mt-2 text-[12px] text-ink/70 leading-relaxed">
+          Check source before relying on this.
+        </p>
+      )}
+
       {resource.howToJoin && (
         <p className="mt-2 text-[12px] text-ink/70 leading-relaxed">
           <span className="font-bold text-ink">How to join: </span>

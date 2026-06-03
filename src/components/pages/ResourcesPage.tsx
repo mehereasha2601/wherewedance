@@ -1,8 +1,22 @@
+import { useState, useMemo } from "react";
 import { AppShell, PageHero } from "@/components/wwd/shell";
 import { ResourceCard } from "@/components/wwd/resource-card";
+import { ResourceFilters } from "@/components/wwd/resource-filters";
 import { resources } from "@/data/mock";
+import type { FilterValue } from "@/components/wwd/resource-filters";
 
 export function ResourcesPage() {
+  const [activeFilter, setActiveFilter] = useState<FilterValue>("All");
+
+  const filtered = useMemo(() => {
+    if (activeFilter === "All") return resources;
+    return resources.filter((r) => r.privacyStatus === activeFilter);
+  }, [activeFilter]);
+
+  const handleFilterChange = (value: FilterValue) => {
+    setActiveFilter(value);
+  };
+
   return (
     <AppShell>
       <PageHero
@@ -22,10 +36,26 @@ export function ResourcesPage() {
         </ul>
       </section>
 
-      <section className="px-5 mt-6 grid gap-3">
-        {resources.map((r) => (
-          <ResourceCard key={r.id} resource={r} />
-        ))}
+      <div className="mt-6">
+        <ResourceFilters
+          active={activeFilter}
+          onChange={handleFilterChange}
+          count={filtered.length}
+        />
+      </div>
+
+      <section className="px-5 mt-5 grid gap-3">
+        {filtered.length === 0 ? (
+          <div className="bg-paper ring-1 ring-ink/10 rounded-2xl p-6 text-center">
+            <p className="font-display italic text-xl text-ink">
+              No resources match this label yet.
+            </p>
+          </div>
+        ) : (
+          filtered.map((r) => (
+            <ResourceCard key={r.id} resource={r} />
+          ))
+        )}
       </section>
     </AppShell>
   );
