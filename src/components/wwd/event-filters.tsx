@@ -64,7 +64,7 @@ export function EventFilters({
 
   return (
     <div>
-      <div className="px-5 flex items-center gap-2 overflow-x-auto no-scrollbar">
+      <div className="px-5 flex items-center gap-2 overflow-x-auto no-scrollbar scroll-px-5 -mx-0 [scrollbar-width:none]">
         {chips.map((k) => {
           const on = active.has(k);
           return (
@@ -73,7 +73,7 @@ export function EventFilters({
               type="button"
               onClick={() => toggle(k)}
               aria-pressed={on}
-              className={`shrink-0 px-4 py-2 rounded-full text-sm font-medium inline-flex items-center gap-1.5 transition-colors ${
+              className={`shrink-0 whitespace-nowrap px-4 py-2 rounded-full text-sm font-medium inline-flex items-center gap-1.5 transition-colors ${
                 on
                   ? "bg-oxblood text-paper ring-1 ring-oxblood"
                   : "bg-paper text-ink ring-1 ring-ink/10"
