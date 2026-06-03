@@ -99,6 +99,7 @@ export type Event = {
   rsvps: { count: number; initials: string[] };
   cost: string;
   popUp?: boolean;
+  thisWeek?: boolean;
   scheduleNote?: string;
   officialUrl?: string;
   ticketUrl?: string;
