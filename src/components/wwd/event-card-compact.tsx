@@ -24,7 +24,9 @@ export function EventCardCompact({ event }: { event: Event }) {
           </Link>
         </h3>
         <p className="text-[11px] text-ink/60">
-          {event.dayOfWeek} · {event.startsAt} · <span className="font-bold text-ink/80">{event.cost}</span>
+          {event.popUp
+            ? <>Pop-up · Check Instagram · <span className="font-bold text-ink/80">{event.cost}</span></>
+            : <>{event.dayOfWeek} · {event.startsAt} · <span className="font-bold text-ink/80">{event.cost}</span></>}
         </p>
         {event.goodToKnow[0] && (
           <p className="text-[11px] text-ink/70 border-l-2 border-mango pl-2 italic">
