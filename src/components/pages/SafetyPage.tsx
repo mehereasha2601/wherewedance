@@ -1,4 +1,5 @@
 import { AppShell, PageHero } from "@/components/wwd/shell";
+import { ComingSoonBanner } from "@/components/wwd/coming-soon-banner";
 
 export function SafetyPage() {
   return (
@@ -10,12 +11,11 @@ export function SafetyPage() {
       />
 
       <section className="px-5 mt-6 space-y-3">
-        <div className="bg-mango text-ink rounded-2xl p-4">
-          <p className="text-[10px] uppercase tracking-widest font-bold mb-1">Prototype</p>
-          <p className="text-[13px] font-medium leading-snug">
-            Prototype only - no report is submitted yet.
-          </p>
-        </div>
+        <ComingSoonBanner
+          eyebrow="Prototype only"
+          description="This safety form is a prototype preview. No report is submitted or sent anywhere yet."
+          variant="safety"
+        />
         <div className="bg-ink text-paper rounded-2xl p-5">
           <p className="text-[10px] uppercase tracking-widest font-bold text-mango mb-2">
             Before you submit
