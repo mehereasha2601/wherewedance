@@ -170,6 +170,8 @@ export const organizers: Organizer[] = [
     ],
     type: "Weekly Latin social club",
     bestFor: "Bachata-heavy Mondays/Thursdays/Sundays + mixed Salsa/Bachata Tue/Fri/Sat — lessons before the social",
+    websiteUrl: "#",
+    instagramUrl: "#",
   },
   {
     id: "org-bachata-room",
@@ -180,6 +182,7 @@ export const organizers: Organizer[] = [
     recurringEventIds: ["evt-bachata-room-wed"],
     type: "Weekly social + class",
     bestFor: "Mid-week Bachata-heavy social with a beginner track",
+    instagramUrl: "#",
   },
   {
     id: "org-jl",
@@ -190,6 +193,7 @@ export const organizers: Organizer[] = [
     recurringEventIds: ["evt-jl"],
     type: "Pop-up social",
     bestFor: "Intermediate+ sensual bachata with active consent",
+    instagramUrl: "#",
   },
   {
     id: "org-lili",
@@ -200,6 +204,8 @@ export const organizers: Organizer[] = [
     recurringEventIds: ["evt-lili-social"],
     type: "Dance studio",
     bestFor: "Brand-new dancers — structured classes, no partner needed",
+    websiteUrl: "#",
+    instagramUrl: "#",
   },
   {
     id: "org-bobas",
@@ -210,6 +216,7 @@ export const organizers: Organizer[] = [
     recurringEventIds: ["evt-bobas"],
     type: "Outdoor pop-up organizer",
     bestFor: "Free outdoor Salsa/Bachata, dancers who know basics, community outdoor vibes",
+    instagramUrl: "#",
   },
   {
     id: "org-saborcito",
@@ -220,6 +227,7 @@ export const organizers: Organizer[] = [
     recurringEventIds: ["evt-saborcito"],
     type: "Outdoor social",
     bestFor: "Free outdoor Salsa-first social with beginner lesson",
+    instagramUrl: "#",
   },
   {
     id: "org-starry",
@@ -230,6 +238,8 @@ export const organizers: Organizer[] = [
     recurringEventIds: [],
     type: "Community group",
     bestFor: "Cross-scene values, consent, and safer-floor resources",
+    websiteUrl: "#",
+    instagramUrl: "#",
   },
   {
     id: "org-next-level",
