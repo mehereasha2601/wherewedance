@@ -10,14 +10,46 @@ import type {
   CategoryFilterValue,
 } from "@/components/wwd/resource-filters";
 import { resources } from "@/data/mock";
+import type { Resource, ResourceCategory } from "@/data/mock";
+
+const CATEGORY_ORDER: (ResourceCategory | "Featured")[] = [
+  "Featured",
+  "Group chats",
+  "Playlists",
+  "Online classes",
+  "Studios",
+  "Venues / organizers",
+  "Organizers",
+  "Shoes / apparel",
+  "Blog posts",
+  "Safety / values",
+  "Competitions",
+  "Practice spaces",
+];
+
+function sortResources(list: Resource[]): Resource[] {
+  return [...list].sort((a, b) => {
+    const aFeat = a.featured ? 0 : 1;
+    const bFeat = b.featured ? 0 : 1;
+    if (aFeat !== bFeat) return aFeat - bFeat;
+    const aNeeds = a.privacyStatus === "Needs validation" || a.sourceStatus === "Needs validation" ? 1 : 0;
+    const bNeeds = b.privacyStatus === "Needs validation" || b.sourceStatus === "Needs validation" ? 1 : 0;
+    if (aNeeds !== bNeeds) return aNeeds - bNeeds;
+    const aCat = CATEGORY_ORDER.indexOf(a.category);
+    const bCat = CATEGORY_ORDER.indexOf(b.category);
+    return aCat - bCat;
+  });
+}
 
 export function ResourcesPage() {
   const [activeFilter, setActiveFilter] = useState<FilterValue>("All");
   const [activeCategory, setActiveCategory] =
     useState<CategoryFilterValue>("All");
 
+  const filtersActive = activeFilter !== "All" || activeCategory !== "All";
+
   const filtered = useMemo(() => {
-    return resources.filter((r) => {
+    const matched = resources.filter((r) => {
       const privacyMatch =
         activeFilter === "All" || r.privacyStatus === activeFilter;
       const categoryMatch =
@@ -28,7 +60,17 @@ export function ResourcesPage() {
           : r.category === activeCategory);
       return privacyMatch && categoryMatch;
     });
+    return sortResources(matched);
   }, [activeFilter, activeCategory]);
+
+  const featured = useMemo(
+    () => (filtersActive ? [] : sortResources(resources.filter((r) => r.featured))),
+    [filtersActive],
+  );
+  const rest = useMemo(
+    () => (filtersActive ? filtered : filtered.filter((r) => !r.featured)),
+    [filtersActive, filtered],
+  );
 
   return (
     <AppShell>
@@ -59,17 +101,44 @@ export function ResourcesPage() {
           onChange={setActiveFilter}
           count={filtered.length}
         />
+        {filtersActive && (
+          <div className="px-5">
+            <button
+              type="button"
+              onClick={() => {
+                setActiveFilter("All");
+                setActiveCategory("All");
+              }}
+              className="text-[11px] font-bold uppercase tracking-widest text-terracotta hover:underline"
+            >
+              Clear filters
+            </button>
+          </div>
+        )}
       </div>
 
+      {featured.length > 0 && (
+        <section className="px-5 mt-6">
+          <p className="text-[10px] uppercase tracking-widest font-bold text-ink/55 mb-2">
+            Top community resources
+          </p>
+          <div className="grid gap-3">
+            {featured.map((r) => (
+              <ResourceCard key={r.id} resource={r} />
+            ))}
+          </div>
+        </section>
+      )}
+
       <section className="px-5 mt-5 grid gap-3">
-        {filtered.length === 0 ? (
+        {rest.length === 0 && featured.length === 0 ? (
           <div className="bg-paper ring-1 ring-ink/10 rounded-2xl p-6 text-center">
             <p className="font-display italic text-xl text-ink">
               No resources match these filters yet.
             </p>
           </div>
         ) : (
-          filtered.map((r) => (
+          rest.map((r) => (
             <ResourceCard key={r.id} resource={r} />
           ))
         )}
