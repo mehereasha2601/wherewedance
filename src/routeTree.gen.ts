@@ -19,6 +19,7 @@ import { Route as BostonBachataRouteImport } from './routes/boston-bachata'
 import { Route as BeginnerGuideRouteImport } from './routes/beginner-guide'
 import { Route as AskRouteImport } from './routes/ask'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as OrganizersIndexRouteImport } from './routes/organizers.index'
 import { Route as EventsIndexRouteImport } from './routes/events.index'
 import { Route as OrganizersIdRouteImport } from './routes/organizers.$id'
 import { Route as EventsIdRouteImport } from './routes/events.$id'
@@ -73,6 +74,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OrganizersIndexRoute = OrganizersIndexRouteImport.update({
+  id: '/organizers/',
+  path: '/organizers/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EventsIndexRoute = EventsIndexRouteImport.update({
   id: '/events/',
   path: '/events/',
@@ -103,6 +109,7 @@ export interface FileRoutesByFullPath {
   '/events/$id': typeof EventsIdRoute
   '/organizers/$id': typeof OrganizersIdRoute
   '/events/': typeof EventsIndexRoute
+  '/organizers/': typeof OrganizersIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -118,6 +125,7 @@ export interface FileRoutesByTo {
   '/events/$id': typeof EventsIdRoute
   '/organizers/$id': typeof OrganizersIdRoute
   '/events': typeof EventsIndexRoute
+  '/organizers': typeof OrganizersIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -134,6 +142,7 @@ export interface FileRoutesById {
   '/events/$id': typeof EventsIdRoute
   '/organizers/$id': typeof OrganizersIdRoute
   '/events/': typeof EventsIndexRoute
+  '/organizers/': typeof OrganizersIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -151,6 +160,7 @@ export interface FileRouteTypes {
     | '/events/$id'
     | '/organizers/$id'
     | '/events/'
+    | '/organizers/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -166,6 +176,7 @@ export interface FileRouteTypes {
     | '/events/$id'
     | '/organizers/$id'
     | '/events'
+    | '/organizers'
   id:
     | '__root__'
     | '/'
@@ -181,6 +192,7 @@ export interface FileRouteTypes {
     | '/events/$id'
     | '/organizers/$id'
     | '/events/'
+    | '/organizers/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -197,6 +209,7 @@ export interface RootRouteChildren {
   EventsIdRoute: typeof EventsIdRoute
   OrganizersIdRoute: typeof OrganizersIdRoute
   EventsIndexRoute: typeof EventsIndexRoute
+  OrganizersIndexRoute: typeof OrganizersIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -271,6 +284,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/organizers/': {
+      id: '/organizers/'
+      path: '/organizers'
+      fullPath: '/organizers/'
+      preLoaderRoute: typeof OrganizersIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/events/': {
       id: '/events/'
       path: '/events'
@@ -309,7 +329,18 @@ const rootRouteChildren: RootRouteChildren = {
   EventsIdRoute: EventsIdRoute,
   OrganizersIdRoute: OrganizersIdRoute,
   EventsIndexRoute: EventsIndexRoute,
+  OrganizersIndexRoute: OrganizersIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
