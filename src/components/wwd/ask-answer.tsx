@@ -47,7 +47,7 @@ export function AskAnswer({ prompt }: { prompt: AskPrompt }) {
                     {event.title}
                   </p>
                   <p className="text-[11px] text-ink/60 mt-0.5">
-                    {event.dayOfWeek} · {event.startsAt} · {event.venue}
+                    {event.popUp ? `Pop-up · Check Instagram · ${event.venue}` : `${event.dayOfWeek} · ${event.startsAt} · ${event.venue}`}
                   </p>
                   <p className="text-[13px] text-ink/80 leading-relaxed mt-2">
                     <span className="font-bold text-ink">Why this fits: </span>
