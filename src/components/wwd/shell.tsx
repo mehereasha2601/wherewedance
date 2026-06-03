@@ -24,6 +24,9 @@ export function AppShell({ children }: { children: ReactNode }) {
         <main className="mt-4">{children}</main>
         <footer className="px-5 mt-16 mb-8 space-y-3">
           <AiCaveat inline />
+          <p className="text-[11px] text-ink/65 leading-relaxed">
+            Based on currently listed WhereWeDance data. Check the organizer's official posts before going — we're a local guide, not a live source of truth.
+          </p>
           <p className="text-[10px] uppercase tracking-widest text-ink/40 font-bold">
             © 2026 WhereWeDance · Boston pilot · UI prototype
           </p>
@@ -32,6 +35,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             <Link to="/safety">Safety</Link>
             <Link to="/resources">Resources</Link>
             <Link to="/beginner-guide">Beginner guide</Link>
+            <Link to="/organizers">Organizers</Link>
             <Link to="/organizer-dashboard">Organizers</Link>
           </nav>
         </footer>
