@@ -1,6 +1,6 @@
 import { AppShell, PageHero } from "@/components/wwd/shell";
 import { EventFilters } from "@/components/wwd/event-filters";
-import { events } from "@/data/mock";
+import { getThisWeekEvents } from "@/data/mock";
 
 export function ThisWeekPage() {
   return (
@@ -13,8 +13,9 @@ export function ThisWeekPage() {
 
       <div className="mt-6">
         <EventFilters
-          events={events}
+          events={getThisWeekEvents()}
           layout="by-day"
+          allowTbaGroup={false}
           chips={["tonight","weekend","bachata-heavy","beginner-friendly","free","no-alcohol","class-before-social"]}
         />
       </div>
