@@ -18,6 +18,7 @@ export function AskPage() {
       />
 
       <section className="px-5 mt-6">
+        <h2 className="sr-only">About this preview</h2>
         <ComingSoonBanner
           description="Ask WhereWeDance is a prototype preview. These are curated mock answers based on currently listed events and resources. No real AI calls are made yet."
           bullets={[
@@ -30,13 +31,14 @@ export function AskPage() {
       </section>
 
       <section className="px-5 mt-3">
+        <h2 className="sr-only">AI caveat</h2>
         <AiCaveat />
       </section>
 
       <section className="px-5 mt-6">
-        <p className="text-[10px] uppercase tracking-widest font-bold text-ink/55 mb-2">
+        <h2 className="text-[10px] uppercase tracking-widest font-bold text-ink/55 mb-2">
           Suggested prompts
-        </p>
+        </h2>
         <div className="w-full max-w-full overflow-x-auto overscroll-x-contain no-scrollbar pb-2 [-webkit-overflow-scrolling:touch]">
           <div className="flex flex-nowrap items-center gap-2">
             {askPrompts.map((p) => (
@@ -57,12 +59,13 @@ export function AskPage() {
       </section>
 
       <section className="px-5 mt-8">
+        <h2 className="sr-only">Your answer</h2>
         <AskAnswer prompt={active} />
       </section>
 
       <section className="px-5 mt-8">
         <div className="bg-ink/5 rounded-2xl p-4 text-[12px] text-ink/70 leading-relaxed">
-          <p className="font-bold text-ink mb-1">What this is not</p>
+          <h2 className="font-bold text-ink mb-1 text-[12px]">What this is not</h2>
           <p>
             This is not a live chatbot yet, not private messaging, not an
             emergency/safety reporting service, and not a replacement for

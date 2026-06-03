@@ -8,7 +8,7 @@ export const Route = createFileRoute("/events/$id")({
     const title = e ? `${e.title} - WhereWeDance` : "Event - WhereWeDance";
     const desc = e
       ? `${e.dayOfWeek}s at ${e.venue}. ${e.beginnerLabel}. ${e.bachataRelevance}.`
-      : "Boston bachata event details.";
+      : "Details for this Boston bachata social or class — venue, schedule, beginner labels, and verified organizer links.";
     const path = `/events/${params.id}`;
     const scripts = e
       ? [
