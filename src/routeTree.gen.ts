@@ -14,6 +14,7 @@ import { Route as ThisWeekRouteImport } from './routes/this-week'
 import { Route as SafetyRouteImport } from './routes/safety'
 import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as OrganizerDashboardRouteImport } from './routes/organizer-dashboard'
+import { Route as MoreRouteImport } from './routes/more'
 import { Route as BuddiesRouteImport } from './routes/buddies'
 import { Route as BostonBachataRouteImport } from './routes/boston-bachata'
 import { Route as BeginnerGuideRouteImport } from './routes/beginner-guide'
@@ -47,6 +48,11 @@ const ResourcesRoute = ResourcesRouteImport.update({
 const OrganizerDashboardRoute = OrganizerDashboardRouteImport.update({
   id: '/organizer-dashboard',
   path: '/organizer-dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MoreRoute = MoreRouteImport.update({
+  id: '/more',
+  path: '/more',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BuddiesRoute = BuddiesRouteImport.update({
@@ -101,6 +107,7 @@ export interface FileRoutesByFullPath {
   '/beginner-guide': typeof BeginnerGuideRoute
   '/boston-bachata': typeof BostonBachataRoute
   '/buddies': typeof BuddiesRoute
+  '/more': typeof MoreRoute
   '/organizer-dashboard': typeof OrganizerDashboardRoute
   '/resources': typeof ResourcesRoute
   '/safety': typeof SafetyRoute
@@ -117,6 +124,7 @@ export interface FileRoutesByTo {
   '/beginner-guide': typeof BeginnerGuideRoute
   '/boston-bachata': typeof BostonBachataRoute
   '/buddies': typeof BuddiesRoute
+  '/more': typeof MoreRoute
   '/organizer-dashboard': typeof OrganizerDashboardRoute
   '/resources': typeof ResourcesRoute
   '/safety': typeof SafetyRoute
@@ -134,6 +142,7 @@ export interface FileRoutesById {
   '/beginner-guide': typeof BeginnerGuideRoute
   '/boston-bachata': typeof BostonBachataRoute
   '/buddies': typeof BuddiesRoute
+  '/more': typeof MoreRoute
   '/organizer-dashboard': typeof OrganizerDashboardRoute
   '/resources': typeof ResourcesRoute
   '/safety': typeof SafetyRoute
@@ -152,6 +161,7 @@ export interface FileRouteTypes {
     | '/beginner-guide'
     | '/boston-bachata'
     | '/buddies'
+    | '/more'
     | '/organizer-dashboard'
     | '/resources'
     | '/safety'
@@ -168,6 +178,7 @@ export interface FileRouteTypes {
     | '/beginner-guide'
     | '/boston-bachata'
     | '/buddies'
+    | '/more'
     | '/organizer-dashboard'
     | '/resources'
     | '/safety'
@@ -184,6 +195,7 @@ export interface FileRouteTypes {
     | '/beginner-guide'
     | '/boston-bachata'
     | '/buddies'
+    | '/more'
     | '/organizer-dashboard'
     | '/resources'
     | '/safety'
@@ -201,6 +213,7 @@ export interface RootRouteChildren {
   BeginnerGuideRoute: typeof BeginnerGuideRoute
   BostonBachataRoute: typeof BostonBachataRoute
   BuddiesRoute: typeof BuddiesRoute
+  MoreRoute: typeof MoreRoute
   OrganizerDashboardRoute: typeof OrganizerDashboardRoute
   ResourcesRoute: typeof ResourcesRoute
   SafetyRoute: typeof SafetyRoute
@@ -247,6 +260,13 @@ declare module '@tanstack/react-router' {
       path: '/organizer-dashboard'
       fullPath: '/organizer-dashboard'
       preLoaderRoute: typeof OrganizerDashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/more': {
+      id: '/more'
+      path: '/more'
+      fullPath: '/more'
+      preLoaderRoute: typeof MoreRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/buddies': {
@@ -321,6 +341,7 @@ const rootRouteChildren: RootRouteChildren = {
   BeginnerGuideRoute: BeginnerGuideRoute,
   BostonBachataRoute: BostonBachataRoute,
   BuddiesRoute: BuddiesRoute,
+  MoreRoute: MoreRoute,
   OrganizerDashboardRoute: OrganizerDashboardRoute,
   ResourcesRoute: ResourcesRoute,
   SafetyRoute: SafetyRoute,
