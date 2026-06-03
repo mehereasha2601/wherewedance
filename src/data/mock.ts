@@ -950,6 +950,20 @@ export const resources: Resource[] = [
     tags: ["Inclusive", "Queer-friendly", "Community", "Safety / values", "Public link"],
     featured: true,
   },
+  {
+    id: "res-party-next-level-fusion",
+    name: "Party with Next Level Fusion",
+    category: "Safety / values",
+    privacyStatus: "Public link",
+    description: "Inclusive/queer-friendly dance events from Next Level Fusion. Check Instagram for occasional / pop-up event announcements.",
+    howToJoin: "Follow the public Instagram for upcoming events.",
+    websiteUrl: "https://www.nextlevelfusiondance.com/",
+    instagramUrl: "https://www.instagram.com/partywithnextlevelfusion/",
+    sourceStatus: "Official Instagram / organizer post",
+    lastVerified: "2026-06-03",
+    sourceUrl: "https://www.instagram.com/partywithnextlevelfusion/",
+    tags: ["Inclusive", "Queer-friendly", "Pop-up", "The Anchor", "Public link"],
+  },
 
   // ---- Group chats ----
   {
