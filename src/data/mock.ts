@@ -828,7 +828,7 @@ export const events: Event[] = [
     startsAt: "18:00",
     endsAt: "22:00",
     popUp: true,
-    scheduleNote: "Monthly / occasional - next: Friday June 20",
+    scheduleNote: "Monthly / occasional — check official Instagram for current date",
     cover: "from-mango via-terracotta to-oxblood",
     bachataRelevance: "Bachata-included",
     beginnerLabel: "Beginner-welcome",
@@ -842,7 +842,7 @@ export const events: Event[] = [
     dateLabel: "",
     scheduleLabel: "6:00–10:00 PM",
     goodToKnow: [
-      "Monthly / occasional Lili Latin Dance studio social - next listed: Friday June 20.",
+      "Monthly / occasional Lili Latin Dance studio social — check the official Instagram for the current date.",
       "Music includes Salsa, Bachata, Merengue, and some party music.",
       "ChaCha workshop from 6:00-6:55 PM.",
       "Social dance and shows from 7:00-10:00 PM.",
