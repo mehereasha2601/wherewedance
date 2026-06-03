@@ -1182,6 +1182,22 @@ export function catalogDateLabel(e: Event): string {
   return `${e.dayOfWeek}s`;
 }
 
+// Ask-page friendly date label. Recurring weekly events show recurrence
+// ("Wednesdays"), upcoming one-offs show the real date, and pop-ups with no
+// fixedDate show a TBA hint. Past one-offs should be filtered out before
+// calling this (see isPastOneOff).
+export function getAskDateLabel(
+  e: Event,
+  today: Date = getTodayInBoston(),
+): string {
+  if (e.fixedDate) {
+    if (isPastOneOff(e, today)) return "Past — check official source";
+    return formatDateLabel(parseIsoDate(e.fixedDate));
+  }
+  if (e.popUp) return "Date TBA / check source";
+  return `${e.dayOfWeek}s`;
+}
+
 // ---------- Resources ----------
 
 export const resources: Resource[] = [
@@ -1644,21 +1660,23 @@ export const askPrompts: AskPrompt[] = [
     prompt: "I'm completely new. Where should I start?",
     category: "Beginner",
     answer: {
-      body: "Take a structured class first. Lili Latin Dance runs brand-new tracks Mon-Thu and a monthly studio social with a workshop before it. J&L Dance Studio teaches partner-free fundamentals. Once you've had a few classes, Bachata Room's Wednesday beginner class flows directly into a beginner-friendly social. Bachata Room accepts cash/Venmo, has no coat check, and free water may run out, so bring water. Check Lili's official Instagram for the next monthly social date.",
-      sourceEventIds: ["evt-lili-monthly-social", "evt-bachata-room-wed"],
+      body: "Start with structured studio classes first. J&L Dance Studio and Lili Latin Dance are better places to learn basics before jumping straight into socials. After a few classes, try Bachata Room Wednesday or Havana Saturday because both have lessons before the social.",
+      sourceEventIds: ["evt-bachata-room-wed", "evt-havana-sat"],
+      sourceResourceIds: ["res-jl", "res-lili"],
       showBeginnerPathway: true,
       recommendations: [
         {
-          eventId: "evt-lili-monthly-social",
-          label: "Also consider",
-          whyThisFits: "Monthly studio social with a ChaCha workshop before it - beginner-welcome, mixed Latin music, not Bachata-heavy.",
-        },
-        {
           eventId: "evt-bachata-room-wed",
           label: "Top recommendation",
-          whyThisFits: "Beginner class flows directly into a Bachata-heavy weekly social - a natural next step once you've had a few lessons.",
+          whyThisFits: "Wednesday class flows directly into a Bachata-heavy social — a natural next step once you've had a few studio lessons.",
+        },
+        {
+          eventId: "evt-havana-sat",
+          label: "Also consider",
+          whyThisFits: "Lessons before the party with a bigger crowd — a good class + social combo once you have basics.",
         },
       ],
+      generalNote: "Studio classes (J&L, Lili) are the best place to learn basics. Bachata Room and Havana Saturday are class + social options, not pure beginner classes.",
     },
   },
   {
@@ -1666,21 +1684,23 @@ export const askPrompts: AskPrompt[] = [
     prompt: "I'm nervous to go alone. What should I try?",
     category: "Beginner",
     answer: {
-      body: "Bachata Room Wednesday is beginner-friendly with a class right before the social, so people who come alone don't get stuck on the wall - easier for a first solo trip than a late-night bar social. Lili Latin's monthly studio social is another beginner-welcome option when it's running; check Lili's Instagram for the next date. Bachata Room accepts cash/Venmo, has no coat check, and free water may run out, so bring water.",
-      sourceEventIds: ["evt-bachata-room-wed", "evt-lili-monthly-social"],
+      body: "Try a class-before-social first. Bachata Room Wednesday is a good structured mid-week option. Havana Saturday is a bigger crowd option with lessons before dancing, but can feel more nightlife/crowded. If you are brand new, take a studio class first.",
+      sourceEventIds: ["evt-bachata-room-wed", "evt-havana-sat"],
+      sourceResourceIds: ["res-jl", "res-lili"],
       showBeginnerPathway: true,
       recommendations: [
         {
           eventId: "evt-bachata-room-wed",
           label: "Top recommendation",
-          whyThisFits: "Beginner class before the social and a Bachata-heavy crowd - good if you're going alone.",
+          whyThisFits: "Beginner class before the social and a Bachata-heavy crowd — good if you're going alone.",
         },
         {
-          eventId: "evt-lili-monthly-social",
+          eventId: "evt-havana-sat",
           label: "Also consider",
-          whyThisFits: "Monthly studio social with a workshop before it - beginner-welcome, but happens monthly / occasionally, so check the official Instagram.",
+          whyThisFits: "Lessons before the social with a bigger crowd — more nightlife feel, but easier than walking into a no-class party.",
         },
       ],
+      generalNote: "If you are brand new, take a studio class at J&L or Lili first.",
     },
   },
   {
@@ -1688,7 +1708,7 @@ export const askPrompts: AskPrompt[] = [
     prompt: "What's Bachata-heavy this week?",
     category: "Tonight",
     answer: {
-      body: "Havana Club Monday, Havana Club Thursday, and Bachata Room Wednesday are the most Bachata-heavy nights. Havana Bachata Sunday is also Bachata-heavy. Havana Saturday Bachata/Salsa is Bachata-included rather than purely Bachata-heavy. All Havana nights have beginner + intermediate lessons before the social. Havana is cash only - there is an ATM on site, but it may charge an extra fee, and coat check is available. Bachata Room accepts cash/Venmo, has no coat check, and free water may run out, so bring water.",
+      body: "Havana Club Monday, Havana Club Thursday, Havana Bachata Sunday, and Bachata Room Wednesday are the Bachata-heavy nights. Havana Saturday Bachata/Salsa is Bachata-included rather than purely Bachata-heavy. All Havana nights have beginner + intermediate lessons before the social. Havana is cash only — there is an ATM on site, but it may charge an extra fee, and coat check is available. Bachata Room is at La Fábrica (18+ to dance, 21+ to drink) and accepts cash/Venmo.",
       sourceEventIds: ["evt-havana-mon", "evt-havana-thu", "evt-bachata-room-wed", "evt-havana-sun", "evt-havana-sat"],
       recommendations: [
         {
@@ -1704,7 +1724,7 @@ export const askPrompts: AskPrompt[] = [
         {
           eventId: "evt-bachata-room-wed",
           label: "Also consider",
-          whyThisFits: "Bachata-heavy, beginner class before social, dry event.",
+          whyThisFits: "Bachata-heavy Wednesday class + social at La Fábrica. Beginner-friendly class before social; 18+ to dance, 21+ to drink.",
         },
         {
           eventId: "evt-havana-sun",
@@ -1714,7 +1734,7 @@ export const askPrompts: AskPrompt[] = [
         {
           eventId: "evt-havana-sat",
           label: "Also consider",
-          whyThisFits: "Bachata-included Saturday with a large crowd and lessons before dancing - not purely Bachata-heavy.",
+          whyThisFits: "Bachata-included Saturday with a large crowd and lessons before dancing — not purely Bachata-heavy.",
         },
       ],
     },
@@ -1724,13 +1744,13 @@ export const askPrompts: AskPrompt[] = [
     prompt: "What should I know before BOBAS?",
     category: "Logistics",
     answer: {
-      body: "BOBAS is a free outdoor Salsa/Bachata pop-up. It is beginner-welcome, but because there is usually no class, complete beginners may feel more comfortable going with a friend or after taking a few classes. Check Facebook for the most reliable event updates; Instagram may also have updates. Weather-dependent and often announced close to the event. Bring water.",
+      body: "BOBAS is a free outdoor Salsa/Bachata pop-up. It is beginner-welcome, but not beginner-structured because there is usually no class. Check Facebook for the most reliable details; Instagram may also have updates. Bring water, check weather, and go with a friend if you are completely new.",
       sourceEventIds: ["evt-bobas"],
       recommendations: [
         {
           eventId: "evt-bobas",
           label: "Top recommendation",
-          whyThisFits: "Free outdoor pop-up - weather-dependent, no class, better if you know basics or bring a friend.",
+          whyThisFits: "Free outdoor pop-up — weather-dependent, check Facebook/Instagram, no class unless announced.",
         },
       ],
     },
@@ -1740,21 +1760,31 @@ export const askPrompts: AskPrompt[] = [
     prompt: "What outdoor/free events are happening?",
     category: "Logistics",
     answer: {
-      body: "BOBAS runs free outdoor Salsa/Bachata pop-ups at the Charles River Dock when currently listed — check Facebook (primary) or Instagram for time and exact location. Bachata by the River is a free monthly/seasonal event at Magazine Beach Park in Cambridge with a beginner Bachata lesson before dancing. Both are weather-dependent — check the official source before going.",
-      sourceEventIds: ["evt-bobas", "evt-river"],
+      body: "Outdoor and free options to keep an eye on, if date-relevant: BOBAS free outdoor Salsa/Bachata pop-ups at the Charles River Dock (check Facebook, then Instagram), Saborcito @ The Anchor when running, Bachata by the River at Magazine Beach Park with a beginner Bachata lesson, and Starry Boston's Lakeside Yappin & Grillin as a community outing — not a formal dance social. Outdoor and pop-up events can change quickly — check the official/source link before going.",
+      sourceEventIds: ["evt-bobas", "evt-saborcito", "evt-river", "event-starry-lakeside-yappin-grillin-jun-7"],
       recommendations: [
         {
           eventId: "evt-bobas",
           label: "Top recommendation",
-          whyThisFits: "Free outdoor Salsa/Bachata pop-up if date-relevant — no class, weather-dependent, announced on Instagram.",
+          whyThisFits: "Free outdoor Salsa/Bachata pop-up if date-relevant — no class, weather-dependent, check Facebook/Instagram.",
+        },
+        {
+          eventId: "evt-saborcito",
+          label: "Also consider",
+          whyThisFits: "Free outdoor Salsa-first/Bachata-included social at The Anchor with a beginner lesson when running.",
         },
         {
           eventId: "evt-river",
           label: "Also consider",
           whyThisFits: "Free Bachata by the River day at Magazine Beach Park with a beginner Bachata lesson before dancing.",
         },
+        {
+          eventId: "event-starry-lakeside-yappin-grillin-jun-7",
+          label: "Also consider",
+          whyThisFits: "Community outing at Shannon Beach — not a formal dance social, but a friendly way to meet dance-community folks outdoors.",
+        },
       ],
-      generalNote: "Both events are announced on Instagram morning-of and may be cancelled for weather.",
+      generalNote: "Outdoor and pop-up events can change quickly. Check the official/source link before going. One-off events disappear after they pass.",
     },
   },
   {
@@ -1762,13 +1792,18 @@ export const askPrompts: AskPrompt[] = [
     prompt: "Where can I go if I don't want alcohol?",
     category: "Logistics",
     answer: {
-      body: "Havana Monday is a dry, dance-focused Bachata-heavy night with a beginner + intermediate lesson before the social — the best no-alcohol pick. BOBAS outdoor pop-ups at the Charles River Dock are also dry (bring water). Bachata Room is at La Fábrica with a bar (21+ to drink); you can still attend without drinking, but it's not a dry venue. Havana is cash only with an on-site ATM that may charge an extra fee, and coat check is available.",
-      sourceEventIds: ["evt-havana-mon", "evt-bobas"],
+      body: "Havana Monday is a dry, dance-focused Bachata-heavy night with a beginner + intermediate lesson before the social — the best no-alcohol pick. Havana Sunday is also dry/no alcohol. BOBAS outdoor pop-ups at the Charles River Dock are also dry (bring water). Bachata Room is at La Fábrica with a bar (21+ to drink); you can still attend without drinking, but it's not a dry venue. For outdoor/community events, alcohol policy varies — check the source.",
+      sourceEventIds: ["evt-havana-mon", "evt-havana-sun", "evt-bobas"],
       recommendations: [
         {
           eventId: "evt-havana-mon",
           label: "Top recommendation",
           whyThisFits: "Dry, Bachata-heavy Monday with a beginner class before the social.",
+        },
+        {
+          eventId: "evt-havana-sun",
+          label: "Also consider",
+          whyThisFits: "Dry/no alcohol Sunday Bachata-heavy option with lessons/practica structure.",
         },
         {
           eventId: "evt-bobas",
@@ -1783,27 +1818,55 @@ export const askPrompts: AskPrompt[] = [
     prompt: "What free events are happening?",
     category: "Logistics",
     answer: {
-      body: "Free options to keep an eye on: BOBAS outdoor pop-ups at the Charles River Dock, Bachata by the River at Magazine Beach Park, and Saborcito @ The Anchor when running. Next Level Fusion also hosts a one-off free queer dance party at The Anchor when currently listed — Bachata music included. Check the official Instagram post for exact time, format, and music mix.",
-      sourceEventIds: ["evt-next-level-queer-jun6", "evt-bobas", "evt-river", "evt-saborcito"],
-      sourceResourceIds: ["res-party-next-level-fusion"],
+      body: "Free options to keep an eye on, if currently listed: BOBAS outdoor pop-ups at the Charles River Dock, Saborcito @ The Anchor when running, Bachata by the River at Magazine Beach Park, Starry Boston's Lakeside Yappin & Grillin as a community outing, and Next Level Fusion's occasional inclusive dance party at The Anchor (Bachata music included) — check the official Instagram post. One-off events disappear after they pass; check the official/source link.",
+      sourceEventIds: ["evt-bobas", "evt-saborcito", "evt-river", "event-starry-lakeside-yappin-grillin-jun-7", "evt-next-level-queer-jun6"],
+      sourceResourceIds: ["res-party-next-level-fusion", "res-next-level-fusion"],
       recommendations: [
         {
-          eventId: "evt-next-level-queer-jun6",
+          eventId: "evt-bobas",
           label: "Top recommendation",
-          whyThisFits: "Free, queer-friendly, inclusive dance party at The Anchor with Bachata music included - pop-up / one-off, check the official Instagram post for exact time.",
+          whyThisFits: "Free outdoor Salsa/Bachata pop-up if date-relevant — weather-dependent, check Facebook/Instagram.",
         },
         {
-          eventId: "evt-bobas",
+          eventId: "evt-saborcito",
           label: "Also consider",
-          whyThisFits: "Free outdoor Salsa/Bachata pop-up - weather-dependent, announced on Instagram.",
+          whyThisFits: "Free recurring outdoor Salsa-first/Bachata-included social at The Anchor with a beginner lesson.",
         },
         {
           eventId: "evt-river",
           label: "Also consider",
           whyThisFits: "Free Bachata by the River day at Magazine Beach Park with a beginner Bachata lesson before dancing.",
         },
+        {
+          eventId: "event-starry-lakeside-yappin-grillin-jun-7",
+          label: "Also consider",
+          whyThisFits: "Community outing at Shannon Beach — not a formal dance social, useful for meeting people in the dance community.",
+        },
+        {
+          eventId: "evt-next-level-queer-jun6",
+          label: "Also consider",
+          whyThisFits: "Free, queer-friendly, inclusive dance party at The Anchor — pop-up / one-off, check the official Instagram post.",
+        },
       ],
-      generalNote: "Pop-up and outdoor events can be cancelled or rescheduled - always check the organizer's official post before going.",
+      generalNote: "Pop-up and outdoor events can be cancelled or rescheduled — always check the organizer's official post. One-off events disappear after they pass.",
+    },
+  },
+  {
+    id: "ask-community-events",
+    prompt: "What community events are happening?",
+    category: "Community",
+    answer: {
+      body: "Starry Boston's Lakeside Yappin & Grillin is a community outing at Shannon Beach when date-relevant. It is not a formal dance social, but it is useful for meeting people in the dance community.",
+      sourceEventIds: ["event-starry-lakeside-yappin-grillin-jun-7"],
+      sourceResourceIds: ["res-starry-boston"],
+      recommendations: [
+        {
+          eventId: "event-starry-lakeside-yappin-grillin-jun-7",
+          label: "Top recommendation",
+          whyThisFits: "Community outing — not a dance social. Good for meeting dance-community folks outdoors when current/upcoming.",
+        },
+      ],
+      generalNote: "Community outings are not Bachata socials. Check the official/source post before going.",
     },
   },
   {
@@ -1811,7 +1874,7 @@ export const askPrompts: AskPrompt[] = [
     prompt: "Are there queer-friendly dance events?",
     category: "Community",
     answer: {
-      body: "Yes. Next Level Fusion runs occasional / pop-up inclusive dance events centered on queer/trans/LGBTQIA+ dancers, access, and safety. When currently listed, their inclusive events at The Anchor Boston include Bachata music. Check the official Instagram for exact date, time, and details.",
+      body: "Yes. Next Level Fusion is a queer-inclusive dance community that runs occasional / pop-up inclusive events centered on queer/trans/LGBTQIA+ dancers, access, and safety. When date-relevant, their inclusive events at The Anchor Boston include Bachata music. They host occasional inclusive events; check their official Instagram for current dates.",
       sourceEventIds: ["evt-next-level-queer-jun6"],
       sourceResourceIds: ["res-next-level-fusion", "res-party-next-level-fusion"],
       recommendations: [
@@ -1821,7 +1884,7 @@ export const askPrompts: AskPrompt[] = [
           whyThisFits: "Free, queer-friendly, inclusive dance party at The Anchor with Bachata music included, hosted by Next Level Fusion.",
         },
       ],
-      generalNote: "Next Level Fusion is an inclusive dance community, not a recurring weekly Bachata organizer - events are occasional / pop-up.",
+      generalNote: "Next Level Fusion is an inclusive dance community, not a recurring weekly Bachata organizer — events are occasional / pop-up. If no event is currently listed, check the official Instagram for the next date.",
     },
   },
   {
@@ -1829,13 +1892,14 @@ export const askPrompts: AskPrompt[] = [
     prompt: "What beginner-friendly studio socials are happening?",
     category: "Beginner",
     answer: {
-      body: "Lili Latin Dance hosts a monthly / occasional studio social at 423 W Broadway, Suite 202, South Boston. When currently listed: ChaCha workshop 6:00-6:55 PM, then social and shows 7:00-10:00 PM. Music is a mix of Salsa, Bachata, Merengue, and party music - good for beginners, but not Bachata-heavy. $10 general / $5 for Lili students. Check Lili's official Instagram for the current monthly social schedule.",
+      body: "Lili Latin Dance hosts a monthly / occasional studio social at 423 W Broadway, Suite 202, South Boston. When date-relevant: ChaCha workshop 6:00–6:55 PM, then social and shows 7:00–10:00 PM. Music is a mix of Salsa, Bachata, Merengue, and party music — good for beginners, but not Bachata-heavy. $10 general / $5 for Lili students. Check Lili's official Instagram for the current monthly social schedule.",
       sourceEventIds: ["evt-lili-monthly-social"],
+      sourceResourceIds: ["res-lili"],
       recommendations: [
         {
           eventId: "evt-lili-monthly-social",
           label: "Top recommendation",
-          whyThisFits: "Beginner-welcome monthly studio social with a workshop before it - mixed Latin music, not Bachata-heavy.",
+          whyThisFits: "Beginner-welcome monthly studio social with a workshop before it — mixed Latin music, not Bachata-heavy.",
         },
       ],
       generalNote: "This is a monthly / occasional event, not a weekly recurring social.",

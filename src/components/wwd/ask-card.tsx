@@ -11,15 +11,15 @@ export function AskCard() {
       <div className="relative z-10">
         <div className="flex items-center justify-between mb-2">
           <h2 className="font-display italic font-semibold text-2xl leading-tight">
-            Ask WhereWeDance
+            Ask WhereWeDance Preview
           </h2>
           <span className="text-[10px] uppercase tracking-widest bg-paper/15 px-2 py-1 rounded-full">
-            Local guide
+            Coming soon
           </span>
         </div>
         <p className="text-paper/80 text-sm leading-relaxed max-w-[34ch]">
-          A grounded local concierge. Answers come from real listed events and
-          community-verified resources.
+          A coming-soon local guide. Preview curated answers from listed
+          events, organizers, and resources — no real AI calls yet.
         </p>
         <div className="mt-5 flex flex-wrap gap-2">
           {prompts.map((p) => (
@@ -31,6 +31,9 @@ export function AskCard() {
             </span>
           ))}
         </div>
+        <p className="mt-4 text-[11px] uppercase tracking-widest font-bold text-mango">
+          Preview answers →
+        </p>
       </div>
       <div className="absolute -bottom-10 -right-10 size-40 bg-mango/30 rounded-full blur-2xl" />
     </Link>
