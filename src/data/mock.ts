@@ -486,7 +486,7 @@ export const events: Event[] = [
     scheduleReliability: "Weekly recurring, very reliable",
     sourceStatus: "Official website",
     lastVerified: "2026-06-02",
-    dateLabel: "Mon, Jun 9",
+    dateLabel: "",
     scheduleLabel: "Lessons 8:15–9:15 PM · Social 9:15 PM–12:30 AM",
     goodToKnow: [
       "Bachata-heavy Monday night (~90% Bachata / 10% Salsa)",
@@ -532,7 +532,7 @@ export const events: Event[] = [
     scheduleReliability: "Weekly recurring, very reliable",
     sourceStatus: "From public listing",
     lastVerified: "2026-06-02",
-    dateLabel: "Tue, Jun 10",
+    dateLabel: "",
     scheduleLabel: "Lessons 8:15–9:15 PM · Social 9:15 PM–12:30 AM",
     goodToKnow: [
       "Mixed Salsa/Bachata night (~60% Bachata / 40% Salsa where supported)",
@@ -573,7 +573,7 @@ export const events: Event[] = [
     scheduleReliability: "Weekly recurring, very reliable",
     sourceStatus: "Official website",
     lastVerified: "2026-06-02",
-    dateLabel: "Thu, Jun 12",
+    dateLabel: "",
     scheduleLabel: "Lessons 8:45–9:45 PM · Party 9:45 PM–12:30 AM",
     goodToKnow: [
       "Bachata-heavy Thursday night (~80% Bachata / 20% Salsa)",
@@ -616,7 +616,7 @@ export const events: Event[] = [
     scheduleReliability: "Weekly recurring, very reliable",
     sourceStatus: "From public listing",
     lastVerified: "2026-06-02",
-    dateLabel: "Fri, Jun 13",
+    dateLabel: "",
     scheduleLabel: "Lessons before social · Party 9:15 PM–2:00 AM",
     goodToKnow: [
       "Mixed Bachata/Salsa late-night party",
@@ -656,7 +656,7 @@ export const events: Event[] = [
     scheduleReliability: "Weekly recurring, very reliable",
     sourceStatus: "From public listing",
     lastVerified: "2026-06-02",
-    dateLabel: "Sun, Jun 15",
+    dateLabel: "",
     scheduleLabel: "Lessons/practica from 7:15 PM · Social 8:15–11:30 PM",
     goodToKnow: [
       "Bachata-heavy Sunday option",
@@ -697,7 +697,7 @@ export const events: Event[] = [
     scheduleReliability: "Weekly recurring, very reliable",
     sourceStatus: "Official website",
     lastVerified: "2026-05-30",
-    dateLabel: "Sat, Jun 14",
+    dateLabel: "",
     scheduleLabel: "Lessons before dancing · Party 9:15 PM–2:00 AM",
     goodToKnow: [
       "Large Saturday crowd (~70% Bachata / 25% Salsa / 5% Merengue)",
@@ -740,7 +740,7 @@ export const events: Event[] = [
     scheduleReliability: "Weekly recurring, very reliable",
     sourceStatus: "Official website",
     lastVerified: "2026-06-01",
-    dateLabel: "Wed, Jun 11",
+    dateLabel: "",
     scheduleLabel: "9:00 PM (class + social)",
     goodToKnow: [
       "Wednesday 9:00 PM class + social.",
@@ -785,7 +785,7 @@ export const events: Event[] = [
     scheduleReliability: "Monthly / occasional - check official source",
     sourceStatus: "Check official source",
     lastVerified: "2026-06-03",
-    dateLabel: "Monthly / date TBA",
+    dateLabel: "",
     scheduleLabel: "Check official source",
     goodToKnow: [
       "J&L is known for structured Bachata/Salsa classes and fundamentals.",
@@ -821,7 +821,7 @@ export const events: Event[] = [
     sourceStatus: "Official Instagram / organizer post",
     lastVerified: "2026-06-03",
     fixedDate: "2026-06-20",
-    dateLabel: "Fri, Jun 20",
+    dateLabel: "",
     scheduleLabel: "6:00–10:00 PM",
     goodToKnow: [
       "Monthly / occasional Lili Latin Dance studio social - next listed: Friday June 20.",
@@ -864,7 +864,7 @@ export const events: Event[] = [
     sourceStatus: "Official Instagram / domain-expert confirmed Bachata music",
     lastVerified: "2026-06-06",
     fixedDate: "2026-06-06",
-    dateLabel: "Sat, Jun 6",
+    dateLabel: "",
     scheduleLabel: "Time TBA",
     goodToKnow: [
       "Free queer-friendly dance party hosted by Next Level Fusion / Party with Next Level Fusion.",
@@ -905,7 +905,7 @@ export const events: Event[] = [
     sourceStatus: "Community-updated / WhatsApp announcement",
     lastVerified: "2026-05-29",
     fixedDate: "2026-06-05",
-    dateLabel: "Fri, Jun 13",
+    dateLabel: "",
     scheduleLabel: "Check Instagram",
     goodToKnow: [
       "Free outdoor Salsa/Bachata pop-up.",
@@ -943,7 +943,7 @@ export const events: Event[] = [
     scheduleReliability: "Monthly / seasonal - check official source",
     sourceStatus: "From public listing",
     lastVerified: "2026-06-03",
-    dateLabel: "Monthly / date TBA",
+    dateLabel: "",
     scheduleLabel: "Usually 6:00 PM lesson · check official source",
     goodToKnow: [
       "Free outdoor event at Magazine Beach Park.",
@@ -979,7 +979,7 @@ export const events: Event[] = [
     scheduleReliability: "Seasonal outdoor recurring - check official source",
     sourceStatus: "From public listing",
     lastVerified: "2026-06-03",
-    dateLabel: "Seasonal / date TBA",
+    dateLabel: "",
     scheduleLabel: "6:00–9:30 PM · check official source",
     goodToKnow: [
       "Free outdoor dance class and social at The Anchor.",
@@ -1016,7 +1016,7 @@ export const events: Event[] = [
     scheduleReliability: "Weekly / check official source",
     sourceStatus: "From public listing",
     lastVerified: "2026-06-03",
-    dateLabel: "Fri, Jun 13",
+    dateLabel: "",
     scheduleLabel: "Class 8:45 PM · Social to 1:00 AM",
     goodToKnow: [
       "Friday mixed Salsa/Bachata social at Dante Alighieri Society.",
@@ -1051,7 +1051,7 @@ export const events: Event[] = [
     scheduleReliability: "Weekly / check official source",
     sourceStatus: "Official website / Facebook",
     lastVerified: "2026-06-03",
-    dateLabel: "Sat, Jun 14",
+    dateLabel: "",
     scheduleLabel: "Lesson 8:40 PM · Social to 1:00 AM",
     goodToKnow: [
       "Saturday mixed Salsa/Bachata social at Dante Alighieri Society.",
