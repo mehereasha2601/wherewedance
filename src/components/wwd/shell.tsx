@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
 import { Link } from "./ui-router";
 import { BottomNav } from "./bottom-nav";
-import logoAsset from "@/assets/wherewedance-logo.png.asset.json";
 
 export function AppShell({ children }: { children: ReactNode }) {
   return (
@@ -10,15 +9,8 @@ export function AppShell({ children }: { children: ReactNode }) {
         <header className="px-5 pt-6 flex justify-between items-center">
           <Link
             to="/"
-            className="flex items-center gap-2 font-display italic font-semibold text-xl leading-none text-ink"
+            className="font-display italic font-semibold text-xl leading-none text-ink"
           >
-            <img
-              src={logoAsset.url}
-              alt="WhereWeDance logo"
-              className="size-9 rounded-full ring-1 ring-ink/10 object-cover"
-              width={36}
-              height={36}
-            />
             Where<span className="text-terracotta">We</span>Dance
           </Link>
           <Link
