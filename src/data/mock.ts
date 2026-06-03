@@ -1469,7 +1469,26 @@ export const mapUrlForEvent = (e: Event): string | null => {
   return `https://maps.google.com/?q=${q}`;
 };
 
-export const tonightEvents = () => events.filter((e) => e.tonight);
+// "Tonight" is derived from today's weekday so only events that actually
+// happen today get the Tonight label - never multiple unrelated weekdays.
+// Pop-ups (no fixed weekday) are excluded.
+const WEEKDAYS = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+] as const;
+
+export const isEventTonight = (e: Event): boolean => {
+  if (e.popUp) return false;
+  const today = WEEKDAYS[new Date().getDay()];
+  return e.dayOfWeek === today;
+};
+
+export const tonightEvents = () => events.filter(isEventTonight);
 
 // Short logistics line for compact cards: e.g. "Cash only · Coat check · Free water".
 export const logisticsSummary = (e: Event): string | null => {
