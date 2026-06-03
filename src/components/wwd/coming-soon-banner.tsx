@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-type Variant = "feature" | "safety" | "organizer";
+type Variant = "feature" | "contact" | "organizer" | "safety";
 
 interface ComingSoonBannerProps {
   eyebrow?: string;
@@ -19,16 +19,17 @@ export function ComingSoonBanner({
   variant = "feature",
   className = "",
 }: ComingSoonBannerProps) {
-  // Single shared visual treatment across Ask, Buddies, Organizer Dashboard.
-  // Variant is accepted for future use but currently maps to one consistent style.
+  // Single shared pink/magenta visual treatment across Ask, Buddies,
+  // Organizer Dashboard, and Contact. Variant is accepted for future use
+  // but currently maps to one consistent pink style.
   void variant;
 
   return (
     <section
-      className={`bg-mango/10 ring-1 ring-terracotta/25 rounded-2xl p-4 ${className}`}
+      className={`bg-magenta/10 ring-1 ring-magenta/25 rounded-3xl p-4 ${className}`}
     >
       <div className="flex items-center gap-2 mb-1.5">
-        <span className="inline-block size-2 rounded-full bg-terracotta" />
+        <span className="inline-block size-2 rounded-full bg-magenta" />
         <span className="text-[10px] uppercase tracking-widest font-bold bg-oxblood text-paper px-2 py-0.5 rounded-full">
           {eyebrow}
         </span>
