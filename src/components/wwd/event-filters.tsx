@@ -65,13 +65,17 @@ export function EventFilters({
   chips,
   layout,
   allowTbaGroup = true,
+  initialActive,
 }: {
   events: Event[];
   chips: FilterKey[];
   layout: "grid" | "by-day";
   allowTbaGroup?: boolean;
+  initialActive?: FilterKey[];
 }) {
-  const [active, setActive] = useState<Set<FilterKey>>(new Set());
+  const [active, setActive] = useState<Set<FilterKey>>(
+    () => new Set(initialActive ?? []),
+  );
   // Ordered date labels for the current Monday–Sunday week, derived from the
   // real Boston date at render time. Events whose dateLabel isn't in this
   // list fall into the "Pop-ups / date TBA" group.
