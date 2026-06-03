@@ -9,9 +9,13 @@ export function GoodToKnow({ event, compact = false }: { event: Event; compact?:
         ? (() => {
             const level = event.classBeforeSocial.level?.trim() ?? "";
             const at = event.classBeforeSocial.startsAt?.trim() ?? "";
-            const body = [level, at && /^\d/.test(at) ? `@ ${at}` : at]
-              .filter(Boolean)
-              .join(" ");
+            const TIME_RE = /\b(\d{1,2}:\d{2}|\d{1,2}\s?(?:AM|PM|am|pm))\b/;
+            const levelHasTime = TIME_RE.test(level);
+            const parts = [level];
+            if (at && !levelHasTime) {
+              parts.push(/^\d/.test(at) ? `@ ${at}` : at);
+            }
+            const body = parts.filter(Boolean).join(" ");
             return body ? `Yes — ${body}` : "Yes";
           })()
         : "No intro class",
