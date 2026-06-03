@@ -1,5 +1,21 @@
-// Mock data shaped like future Prisma seed data.
-// No fetching, no env, no server logic - pure typed objects.
+/**
+ * Single source of truth for everything user-visible in the app.
+ *
+ * This file is intentionally pure typed data — no I/O, no env vars,
+ * no server calls. It is shaped like a future Prisma seed so the
+ * same record structure can be lifted into a database later.
+ *
+ * Editorial rules for adding/updating entries live in
+ * `docs/CONTENT.md`. Highlights:
+ *   - Never invent dates you can't verify; prefer "check official
+ *     Instagram" wording over hardcoded "next: Friday June 20".
+ *   - Use `Bachata-heavy` vs `Bachata-included` precisely. Never
+ *     ship "Bachata-forward" or "Salsa-first with Bachata" copy.
+ *   - Past one-off events are filtered from upcoming surfaces by
+ *     `isPastOneOff(event)`.
+ *   - Vague addresses (`TBA`, `Location TBA`) cause
+ *     `mapUrlForEvent()` to return null and hide the Open Maps CTA.
+ */
 
 import {
   formatDateLabel,
