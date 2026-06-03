@@ -1,3 +1,6 @@
+/**
+ * AppShell + PageHero layout primitives. Every page wraps its content in <AppShell> and starts with a <PageHero> for consistent eyebrow/title/description framing.
+ */
 import type { ReactNode } from "react";
 import { Link } from "./ui-router";
 import { BottomNav } from "./bottom-nav";

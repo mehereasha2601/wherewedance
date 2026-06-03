@@ -1,5 +1,21 @@
-// Mock data shaped like future Prisma seed data.
-// No fetching, no env, no server logic - pure typed objects.
+/**
+ * Single source of truth for everything user-visible in the app.
+ *
+ * This file is intentionally pure typed data — no I/O, no env vars,
+ * no server calls. It is shaped like a future Prisma seed so the
+ * same record structure can be lifted into a database later.
+ *
+ * Editorial rules for adding/updating entries live in
+ * `docs/CONTENT.md`. Highlights:
+ *   - Never invent dates you can't verify; prefer "check official
+ *     Instagram" wording over hardcoded "next: Friday June 20".
+ *   - Use `Bachata-heavy` vs `Bachata-included` precisely. Never
+ *     ship "Bachata-forward" or "Salsa-first with Bachata" copy.
+ *   - Past one-off events are filtered from upcoming surfaces by
+ *     `isPastOneOff(event)`.
+ *   - Vague addresses (`TBA`, `Location TBA`) cause
+ *     `mapUrlForEvent()` to return null and hide the Open Maps CTA.
+ */
 
 import {
   formatDateLabel,
@@ -1910,14 +1926,25 @@ export const askPrompts: AskPrompt[] = [
 
 // ---------- Helpers ----------
 
+/** Look up an event by its stable internal id. */
 export const eventById = (id: string) => events.find((e) => e.id === id);
+/** Look up an event by its URL slug (used by `/events/$id`). */
 export const eventBySlug = (slug: string) => events.find((e) => e.slug === slug);
+/** Look up an organizer by its stable internal id. */
 export const organizerById = (id: string) => organizers.find((o) => o.id === id);
+/** Look up an organizer by its URL slug (used by `/organizers/$id`). */
 export const organizerBySlug = (slug: string) => organizers.find((o) => o.slug === slug);
+/** Look up a resource by its stable internal id. */
 export const resourceById = (id: string) => resources.find((r) => r.id === id);
 
-// Build a Google Maps URL for an event. Returns the explicit mapUrl when set,
-// otherwise composes one from venue + address. Returns null when neither is usable.
+/**
+ * Build a Google Maps URL for an event.
+ *
+ * Returns the explicit `mapUrl` when set, otherwise composes one from
+ * `venue` + `address`. Returns `null` when the address is vague
+ * (`TBA`, `Location TBA`, "check Instagram", etc.) so the UI can
+ * hide the Open Maps CTA instead of linking somewhere misleading.
+ */
 export const mapUrlForEvent = (e: Event): string | null => {
   if (e.mapUrl) return e.mapUrl;
   if (!e.address) return null;
@@ -1937,6 +1964,7 @@ function resolvedEventDateInWeek(e: Event, weekStart: Date): Date | null {
   return getOccurrenceInWeek(e.dayOfWeek as DayName, weekStart);
 }
 
+/** True if `e` happens today in Boston (America/New_York). */
 export function isEventTonight(
   e: Event,
   today: Date = getTodayInBoston(),
@@ -1949,6 +1977,12 @@ export function isEventTonight(
   return e.dayOfWeek === weekday;
 }
 
+/**
+ * Events whose resolved date falls inside the current Monday–Sunday
+ * Boston week. Recurring weekly events resolve to their next
+ * occurrence in that window; fixed-date one-offs resolve to that
+ * date; pop-ups without a fixedDate are excluded.
+ */
 export function getThisWeekEvents(today: Date = getTodayInBoston()): Event[] {
   const weekStart = getStartOfWeekMonday(today);
   const weekEnd = getEndOfWeekSunday(today);
@@ -1962,11 +1996,16 @@ export function getThisWeekEvents(today: Date = getTodayInBoston()): Event[] {
   });
 }
 
+/** Subset of `getThisWeekEvents` that happen today. */
 export const tonightEvents = (today: Date = getTodayInBoston()) =>
   getThisWeekEvents(today).filter((e) => isEventTonight(e, today));
 
-// True if this event is a one-off (has a fixed date and no recurrence) whose
-// fixedDate is strictly before today. Used by /events to hide stale one-offs.
+/**
+ * True if this event is a fixed-date one-off whose date is strictly
+ * before today. Used by `/events`, `/this-week`, and `AskAnswer` to
+ * hide stale one-offs so past events are never recommended as
+ * upcoming.
+ */
 export function isPastOneOff(
   e: Event,
   today: Date = getTodayInBoston(),

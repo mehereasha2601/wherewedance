@@ -1,3 +1,6 @@
+/**
+ * Small disclaimer reminding users that Ask is not a live chatbot and answers are curated mock data.
+ */
 export function AiCaveat({ inline = false }: { inline?: boolean }) {
   const text =
     "Based on currently listed WhereWeDance data. Check the organizer's own posts before going - we're a local guide, not a live source of truth.";

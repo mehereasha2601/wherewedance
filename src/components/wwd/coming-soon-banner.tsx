@@ -1,3 +1,6 @@
+/**
+ * Shared pink/magenta banner used on every prototype-only page (Ask, Buddies, Contact, Safety, Organizer Dashboard). Always import this instead of building an inline 'Prototype only' card.
+ */
 import type { ReactNode } from "react";
 
 type Variant = "feature" | "contact" | "organizer" | "safety";

@@ -1,3 +1,6 @@
+/**
+ * Category + privacy-status filter controls for the Resources page.
+ */
 import type { ResourcePrivacy, ResourceCategory } from "@/data/mock";
 
 export type FilterValue = "All" | ResourcePrivacy;

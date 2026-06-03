@@ -1,3 +1,6 @@
+/**
+ * Renders a single curated Ask answer: prompt header, mock-preview badge, body, recommendations, sources used. Filters out past one-off events via isPastOneOff. Internal source links are gated through a KNOWN allowlist for type-safe routing.
+ */
 import type { AskPrompt } from "@/data/mock";
 import { eventById, resourceById, isPastOneOff, getAskDateLabel } from "@/data/mock";
 import { Link } from "./ui-router";

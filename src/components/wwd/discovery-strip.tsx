@@ -1,3 +1,6 @@
+/**
+ * Horizontally scrollable strip of compact event cards used on the homepage to surface tonight / this-week picks.
+ */
 import { Link } from "./ui-router";
 
 type ChipTo = "/beginner-guide" | "/values" | "/safety" | "/resources" | "/organizers";

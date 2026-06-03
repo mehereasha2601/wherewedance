@@ -1,3 +1,6 @@
+/**
+ * Type / day filter controls for the Organizers index page.
+ */
 export type OrganizerFilterValue =
   | "All"
   | "Venue / recurring social hub"

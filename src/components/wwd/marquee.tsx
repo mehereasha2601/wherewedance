@@ -1,3 +1,6 @@
+/**
+ * Animated text marquee used as decorative chrome on editorial pages.
+ */
 export function MarqueeTicker({ items }: { items: string[] }) {
   const doubled = [...items, ...items];
   return (

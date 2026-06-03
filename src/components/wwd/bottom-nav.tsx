@@ -1,3 +1,6 @@
+/**
+ * Mobile bottom navigation bar. Shown across the app shell on small viewports; uses TanStack Link so active state is route-driven.
+ */
 import { Link, useNavigate } from "./ui-router";
 import { useRouterState } from "@tanstack/react-router";
 

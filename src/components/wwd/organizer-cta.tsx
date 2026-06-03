@@ -1,3 +1,6 @@
+/**
+ * Call-to-action card inviting organizers to claim/onboard. Links to the Contact and Organizer Dashboard pages.
+ */
 import { Link } from "./ui-router";
 
 export function OrganizerCTA() {

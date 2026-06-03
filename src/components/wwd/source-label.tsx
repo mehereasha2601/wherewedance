@@ -1,3 +1,6 @@
+/**
+ * Small footer label showing where an event/resource entry was sourced from and when it was last verified (e.g. 'Verified by organizer · 2026-06-03').
+ */
 import type { SourceStatus } from "@/data/mock";
 
 const dotColor: Record<SourceStatus, string> = {

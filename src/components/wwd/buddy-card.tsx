@@ -1,3 +1,6 @@
+/**
+ * Card used on the Practice Buddies Coming Soon page. Visual only — no profile pages or messaging behind it.
+ */
 import type { Buddy } from "@/data/mock";
 
 export function BuddyCard({ buddy }: { buddy: Buddy }) {

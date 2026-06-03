@@ -1,3 +1,6 @@
+/**
+ * Icon row of canonical outbound links (website, Instagram, Facebook, RSVP, Open maps). For community outings on Partiful, the website link is relabeled 'RSVP here'.
+ */
 import { Globe, Instagram, Facebook, MapPin, Ticket, Mail } from "lucide-react";
 
 type LinkSpec = {
