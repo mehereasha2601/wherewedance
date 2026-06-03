@@ -11,9 +11,23 @@ import { buddies, events, tonightEvents, values } from "@/data/mock";
 
 export function HomePage() {
   const tonight = tonightEvents();
-  const week = events.slice(0, 3);
-  const bachataHeavy = events.filter((e) => e.bachataRelevance === "Bachata-heavy").slice(0, 2);
-  const outdoor = events.filter((e) => e.cost.toLowerCase().includes("free")).slice(0, 2);
+  // Diversify the week preview: at most one Havana card, mix in other organizers.
+  const havanaPick = events.find((e) => e.organizerId === "org-havana" && e.bachataRelevance === "Bachata-heavy");
+  const nonHavana = events.filter((e) => e.organizerId !== "org-havana");
+  const week = [
+    nonHavana.find((e) => e.id === "evt-bachata-room-wed"),
+    havanaPick,
+    nonHavana.find((e) => e.id === "evt-tambo-fri"),
+  ].filter((e): e is NonNullable<typeof e> => Boolean(e));
+  // Bachata-heavy preview: include the Havana pick once + Bachata Room.
+  const bachataHeavy = [
+    events.find((e) => e.id === "evt-bachata-room-wed"),
+    events.find((e) => e.id === "evt-havana-mon"),
+  ].filter((e): e is NonNullable<typeof e> => Boolean(e));
+  // Outdoor / free: prioritize non-Havana outdoor and pop-up events.
+  const outdoor = events
+    .filter((e) => e.cost.toLowerCase().includes("free") && e.organizerId !== "org-havana")
+    .slice(0, 2);
 
   return (
     <AppShell>
