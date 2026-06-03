@@ -3,21 +3,21 @@ import { Link } from "./ui-router";
 const steps = [
   {
     n: "01",
-    title: "Take a class first",
-    body: "Lili Latin Mon–Thu or Bachata Room Wednesday at 7:30pm. One hour, no partner needed.",
+    title: "Take a structured class first",
+    body: "Start with Lili Latin Dance or J&L Dance Studio if you are brand new. No partner needed.",
     cta: { label: "See beginner classes", to: "/beginner-guide" as const },
   },
   {
     n: "02",
-    title: "Try a beginner-friendly social",
-    body: "Havana Club Monday has an 8pm intro and a beginner table. Bachata Room's Wednesday class flows into the social.",
-    cta: { label: "Tonight's options", to: "/this-week" as const },
+    title: "Try a class + social",
+    body: "Bachata Room Wednesday or Havana Saturday can help you move from class into social dancing.",
+    cta: { label: "This week", to: "/this-week" as const },
   },
   {
     n: "03",
-    title: "Find a practice buddy",
-    body: "Drilling 20 minutes with the same person matters more than another class. Post on the buddy board.",
-    cta: { label: "Buddy board", to: "/buddies" as const },
+    title: "Build confidence",
+    body: "Try Bachata by the River or other outdoor socials, then explore Bachata-heavy nights like Havana Monday or Thursday when ready.",
+    cta: { label: "All events", to: "/events" as const },
   },
 ];
 
