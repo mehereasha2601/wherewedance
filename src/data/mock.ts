@@ -19,7 +19,8 @@ export type BachataRelevance =
 export type BeginnerLabel =
   | "Beginner-friendly"
   | "Beginner-welcome"
-  | "Intermediate+";
+  | "Intermediate+"
+  | "Community-welcome";
 
 // Loosened to strings so events can carry verified copy from official sources
 // (e.g. "Bring water recommended", "Weather-dependent pop-up — check Instagram").
@@ -49,6 +50,7 @@ export type SourceStatus =
   | "Official Instagram / organizer post"
   | "Official Instagram / domain-expert confirmed Bachata music"
   | "Community-updated / WhatsApp announcement"
+  | "Partiful / community event"
   | "Needs validation";
 
 export type ResourcePrivacy =
@@ -97,7 +99,7 @@ export type Event = {
   startsAt: string; // "20:00"
   endsAt: string;
   cover: string; // gradient seed string
-  bachataRelevance: BachataRelevance;
+  bachataRelevance: BachataRelevance | null;
   beginnerLabel: BeginnerLabel;
   classBeforeSocial: { offered: boolean; startsAt?: string; level?: string };
   waterAvailability: WaterAvailability;
@@ -131,6 +133,15 @@ export type Event = {
   coatCheck?: string;
   amenities?: string[];
   secondaryTags?: string[];
+  // Optional fields used by community/outing events that don't fit the
+  // recurring Bachata-social shape.
+  eventType?: string;
+  neighborhood?: string;
+  city?: string;
+  musicMix?: string;
+  tags?: string[];
+  needsValidation?: boolean;
+  sourceUrl?: string;
 };
 
 
@@ -328,7 +339,7 @@ export const organizers: Organizer[] = [
     name: "Starry Boston",
     bio: "Community education and social dance culture resource. Listed for community conversations on consent, communication, belonging, and safer-floor topics - not as a recurring Bachata social unless a specific event is verified.",
     values: ["Consent-first", "Community education", "Safer-floor culture"],
-    recurringEventIds: [],
+    recurringEventIds: ["event-starry-lakeside-yappin-grillin-jun-7"],
     type: "Community education / social dance culture resource",
     typeFilter: "Community education",
     bestFor: "Community conversations, consent, communication, social dance culture, belonging, safer-floor topics",
@@ -1074,6 +1085,67 @@ export const events: Event[] = [
     instagramUrl: "https://www.instagram.com/salsabachata617/",
     facebookUrl: "https://www.facebook.com/dantessalsaandbachata/",
     mapUrl: "https://www.google.com/maps/search/?api=1&query=41%20Hampshire%20St%2C%20Cambridge%2C%20MA%2002139",
+  },
+  {
+    id: "event-starry-lakeside-yappin-grillin-jun-7",
+    slug: "starry-lakeside-yappin-grillin-jun-7",
+    title: "Lakeside Yappin & Grillin",
+    organizerId: "org-starry",
+    venue: "Shannon Beach",
+    address: "481 Mystic Valley Pkwy, Medford, MA",
+    neighborhood: "Mystic Lakes / Medford",
+    city: "Medford",
+    dayOfWeek: "Sunday",
+    startsAt: "15:00",
+    endsAt: "19:00",
+    cover: "from-mango via-terracotta to-oxblood",
+    bachataRelevance: null,
+    beginnerLabel: "Community-welcome",
+    classBeforeSocial: { offered: false },
+    musicMix: "Community outing; dancing possible only if music is allowed",
+    waterAvailability: "BYO drinks / bring water",
+    alcoholPolicy: "Alcohol at your own risk",
+    paymentNotes: "Free event",
+    coatCheck: "No coat check / outdoor event",
+    scheduleReliability: "One-off community outing — check Partiful",
+    sourceStatus: "Partiful / community event",
+    fixedDate: "2026-06-07",
+    dateLabel: "",
+    scheduleLabel: "3:00–7:00 PM",
+    eventType: "Community outing",
+    needsValidation: false,
+    tags: [
+      "Community outing",
+      "Outdoor",
+      "Free",
+      "Starry Boston",
+      "Bring supplies",
+      "Not a dance social",
+    ],
+    secondaryTags: [
+      "Community outing",
+      "Outdoor",
+      "Free",
+      "Partiful",
+      "Starry Boston",
+    ],
+    goodToKnow: [
+      "Community outing hosted by Starry Boston.",
+      "Sunday, Jun 7 from 3:00–7:00 PM at Shannon Beach.",
+      "Plan includes grilling, fishing, swimming, hanging out, and possibly dancing if music is allowed.",
+      "Bring a chair or blanket, sunscreen, drinks/water, fruit, grill items, swimming clothes, or fishing gear if you have it.",
+      "June 6–7 is Free Fishing Weekend, so fishing license requirements may be waived for that weekend.",
+      "This is not a formal Bachata social or class.",
+    ],
+    communityNote:
+      "Good community-building event for dancers who want to meet people outside the dance floor. Not a Bachata-heavy event.",
+    rsvps: { count: 12, initials: ["ST", "BO", "SU"] },
+    cost: "Free",
+    officialUrl: "https://partiful.com/e/5nacjILiuN7H6TvFYahX",
+    sourceUrl: "https://partiful.com/e/5nacjILiuN7H6TvFYahX",
+    instagramUrl: "https://www.instagram.com/starryboston/",
+    lastVerified: "2026-06-03",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=481%20Mystic%20Valley%20Pkwy%2C%20Medford%2C%20MA",
   },
 ];
 

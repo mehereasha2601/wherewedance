@@ -9,9 +9,11 @@ const beginnerStyles: Record<BeginnerLabel, string> = {
   "Beginner-friendly": "bg-paper text-ink ring-1 ring-ink/15 rotate-1",
   "Beginner-welcome": "bg-paper text-ink ring-1 ring-ink/15 -rotate-1",
   "Intermediate+": "bg-ink text-paper rotate-1",
+  "Community-welcome": "bg-paper text-ink ring-1 ring-ink/15 rotate-1",
 };
 
-export function SceneTag({ value }: { value: BachataRelevance }) {
+export function SceneTag({ value }: { value: BachataRelevance | null }) {
+  if (!value) return null;
   return (
     <span
       className={`inline-block px-2 py-1 rounded-sm text-[10px] font-bold uppercase tracking-wider ring-1 ring-black/5 ${sceneStyles[value]}`}
@@ -38,6 +40,17 @@ export function CrowdFavoriteTag() {
       title="Crowd favorite"
     >
       ★ Crowd favorite
+    </span>
+  );
+}
+
+export function CommunityOutingTag() {
+  return (
+    <span
+      className="inline-flex items-center gap-1 px-2 py-1 rounded-sm text-[10px] font-bold uppercase tracking-wider bg-terracotta text-paper ring-1 ring-ink/10 -rotate-1"
+      title="Community outing"
+    >
+      Community outing
     </span>
   );
 }
