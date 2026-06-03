@@ -1,5 +1,6 @@
 import type { Resource, ResourcePrivacy } from "@/data/mock";
 import { SourceLabel } from "./source-label";
+import { OfficialLinks } from "./official-links";
 
 const privacyStyle: Record<ResourcePrivacy, string> = {
   "Public link": "bg-mango text-ink",
@@ -23,6 +24,19 @@ export function ResourceCard({ resource }: { resource: Resource }) {
         </span>
       </div>
       <p className="text-[13px] text-ink/75 leading-relaxed">{resource.description}</p>
+      {resource.howToJoin && (
+        <p className="mt-2 text-[12px] text-ink/70 leading-relaxed">
+          <span className="font-bold text-ink">How to join: </span>
+          {resource.howToJoin}
+        </p>
+      )}
+      <OfficialLinks
+        subject={resource.name}
+        websiteUrl={resource.websiteUrl ?? resource.link}
+        instagramUrl={resource.instagramUrl}
+        facebookUrl={resource.facebookUrl}
+        className="mt-3"
+      />
       <div className="mt-3 pt-3 border-t border-ink/10 flex items-center justify-between flex-wrap gap-2">
         <SourceLabel status={resource.sourceStatus} lastVerified={resource.lastVerified} />
         <span className="text-[10px] uppercase tracking-widest font-bold text-ink/50">
