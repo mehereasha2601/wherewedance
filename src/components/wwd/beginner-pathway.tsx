@@ -1,23 +1,28 @@
 import { Link } from "./ui-router";
 
-const steps = [
+const steps: Array<{
+  n: string;
+  title: string;
+  body: string;
+  cta: { label: string; to: "/beginner-guide" | "/this-week" | "/events"; hash?: string };
+}> = [
   {
     n: "01",
     title: "Take a structured class first",
     body: "Start with Lili Latin Dance or J&L Dance Studio if you are brand new. No partner needed.",
-    cta: { label: "See beginner classes", to: "/beginner-guide" as const, hash: "recommended-first-events" },
+    cta: { label: "See beginner classes", to: "/beginner-guide", hash: "recommended-first-events" },
   },
   {
     n: "02",
     title: "Try a class + social",
     body: "Bachata Room Wednesday or Havana Saturday can help you move from class into social dancing.",
-    cta: { label: "This week", to: "/this-week" as const },
+    cta: { label: "This week", to: "/this-week" },
   },
   {
     n: "03",
     title: "Build confidence",
     body: "Try Bachata by the River or other outdoor socials, then explore Bachata-heavy nights like Havana Monday or Thursday when ready.",
-    cta: { label: "All events", to: "/events" as const },
+    cta: { label: "All events", to: "/events" },
   },
 ];
 
