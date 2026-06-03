@@ -53,7 +53,9 @@ export function EventDetailPage({ slug }: { slug: string }) {
           {event.title}
         </h1>
         <p className="text-sm text-ink/65 mt-2">
-          {event.dayOfWeek}s · {event.startsAt} – {event.endsAt} · {event.venue} · {event.address}
+          {event.popUp
+            ? `${event.scheduleNote ?? "Pop-up · Check Instagram"} · ${event.venue} · ${event.address}`
+            : `${event.dayOfWeek}s · ${event.startsAt} – ${event.endsAt} · ${event.venue} · ${event.address}`}
         </p>
         <div className="mt-4 flex items-center gap-3">
           <div className="flex -space-x-2">
