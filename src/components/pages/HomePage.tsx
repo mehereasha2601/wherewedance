@@ -7,25 +7,29 @@ import { DiscoveryStrip } from "@/components/wwd/discovery-strip";
 import { OrganizerCTA } from "@/components/wwd/organizer-cta";
 import { BuddyCard } from "@/components/wwd/buddy-card";
 import { Link } from "@/components/wwd/ui-router";
-import { buddies, events, tonightEvents, values } from "@/data/mock";
+import { buddies, getThisWeekEvents, tonightEvents, values } from "@/data/mock";
 
 export function HomePage() {
   const tonight = tonightEvents();
+  // Everything on the homepage is sourced from the current Mon–Sun week so
+  // future/past events never show up as if they are happening now.
+  const thisWeek = getThisWeekEvents();
   // Diversify the week preview: at most one Havana card, mix in other organizers.
-  const havanaPick = events.find((e) => e.organizerId === "org-havana" && e.bachataRelevance === "Bachata-heavy");
-  const nonHavana = events.filter((e) => e.organizerId !== "org-havana");
+  const havanaPick = thisWeek.find(
+    (e) => e.organizerId === "org-havana" && e.bachataRelevance === "Bachata-heavy",
+  );
+  const nonHavana = thisWeek.filter((e) => e.organizerId !== "org-havana");
   const week = [
     nonHavana.find((e) => e.id === "evt-bachata-room-wed"),
     havanaPick,
     nonHavana.find((e) => e.id === "evt-tambo-fri"),
   ].filter((e): e is NonNullable<typeof e> => Boolean(e));
-  // Bachata-heavy preview: include the Havana pick once + Bachata Room.
-  const bachataHeavy = [
-    events.find((e) => e.id === "evt-bachata-room-wed"),
-    events.find((e) => e.id === "evt-havana-mon"),
-  ].filter((e): e is NonNullable<typeof e> => Boolean(e));
-  // Outdoor / free: prioritize non-Havana outdoor and pop-up events.
-  const outdoor = events
+  // Bachata-heavy preview: only current-week Bachata-heavy events.
+  const bachataHeavy = thisWeek
+    .filter((e) => e.bachataRelevance === "Bachata-heavy")
+    .slice(0, 2);
+  // Outdoor / free preview: only current-week, prioritize non-Havana.
+  const outdoor = thisWeek
     .filter((e) => e.cost.toLowerCase().includes("free") && e.organizerId !== "org-havana")
     .slice(0, 2);
 
@@ -56,9 +60,13 @@ export function HomePage() {
 
       <div className="mt-6">
         <MarqueeTicker
-          items={tonight.map((e) => `Live Tonight: ${e.title}`).concat([
-            "Beginner-friendly all week",
-            "Free outdoor Thursday",
+          items={(tonight.length > 0
+            ? tonight.map((e) => `Live Tonight: ${e.title}`)
+            : []
+          ).concat([
+            "Check official sources before going",
+            "Outdoor pop-ups are weather-dependent",
+            "Beginner classes available this week",
           ])}
         />
       </div>
@@ -92,23 +100,27 @@ export function HomePage() {
         <BeginnerPathway />
       </section>
 
-      <section className="mt-12">
-        <SectionHeader eyebrow="For the dancers" title="Bachata-heavy nights" />
-        <div className="px-5 grid gap-3">
-          {bachataHeavy.map((e) => (
-            <EventCardCompact key={e.id} event={e} />
-          ))}
-        </div>
-      </section>
+      {bachataHeavy.length > 0 && (
+        <section className="mt-12">
+          <SectionHeader eyebrow="For the dancers" title="Bachata-heavy nights" />
+          <div className="px-5 grid gap-3">
+            {bachataHeavy.map((e) => (
+              <EventCardCompact key={e.id} event={e} />
+            ))}
+          </div>
+        </section>
+      )}
 
-      <section className="mt-12">
-        <SectionHeader eyebrow="Free & outdoor" title="No cover required" />
-        <div className="px-5 grid gap-3">
-          {outdoor.map((e) => (
-            <EventCardCompact key={e.id} event={e} />
-          ))}
-        </div>
-      </section>
+      {outdoor.length > 0 && (
+        <section className="mt-12">
+          <SectionHeader eyebrow="Free & outdoor" title="No cover required" />
+          <div className="px-5 grid gap-3">
+            {outdoor.map((e) => (
+              <EventCardCompact key={e.id} event={e} />
+            ))}
+          </div>
+        </section>
+      )}
 
       <section className="px-5 mt-12">
         <SectionHeader

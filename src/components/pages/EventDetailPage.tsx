@@ -23,6 +23,12 @@ export function EventDetailPage({ slug }: { slug: string }) {
   }
   const organizer = organizerById(event.organizerId);
   const mapUrl = mapUrlForEvent(event);
+  const VAGUE_TIME = /^\s*(TBD|check\s+(instagram|whatsapp|official|source)|$)/i;
+  const hasConcreteSchedule =
+    !!event.startsAt &&
+    !VAGUE_TIME.test(event.startsAt) &&
+    !!event.endsAt &&
+    !VAGUE_TIME.test(event.endsAt);
   const hasOfficialLinks = Boolean(
     event.officialUrl || event.websiteUrl || event.instagramUrl ||
     event.facebookUrl || event.ticketUrl || mapUrl
@@ -118,32 +124,43 @@ export function EventDetailPage({ slug }: { slug: string }) {
 
       <section className="px-5 mt-6">
         <h2 className="font-display italic font-semibold text-xl text-ink mb-2">Schedule</h2>
-        <ol className="space-y-2">
-          {event.classBeforeSocial.offered && (
+        {hasConcreteSchedule ? (
+          <ol className="space-y-2">
+            {event.classBeforeSocial.offered && (
+              <li className="flex gap-3 items-start">
+                <span className="text-[10px] uppercase tracking-widest font-bold text-terracotta w-14 shrink-0 pt-1">
+                  {event.classBeforeSocial.startsAt && /^\d/.test(event.classBeforeSocial.startsAt)
+                    ? event.classBeforeSocial.startsAt
+                    : "Class"}
+                </span>
+                <span className="text-sm text-ink">
+                  {event.classBeforeSocial.level}
+                </span>
+              </li>
+            )}
             <li className="flex gap-3 items-start">
               <span className="text-[10px] uppercase tracking-widest font-bold text-terracotta w-14 shrink-0 pt-1">
-                {event.classBeforeSocial.startsAt && /^\d/.test(event.classBeforeSocial.startsAt)
-                  ? event.classBeforeSocial.startsAt
-                  : "Class"}
+                {event.startsAt}
               </span>
-              <span className="text-sm text-ink">
-                {event.classBeforeSocial.level}
-              </span>
+              <span className="text-sm text-ink">Social dancing begins</span>
             </li>
-          )}
-          <li className="flex gap-3 items-start">
-            <span className="text-[10px] uppercase tracking-widest font-bold text-terracotta w-14 shrink-0 pt-1">
-              {event.startsAt}
-            </span>
-            <span className="text-sm text-ink">Social dancing begins</span>
-          </li>
-          <li className="flex gap-3 items-start">
-            <span className="text-[10px] uppercase tracking-widest font-bold text-terracotta w-14 shrink-0 pt-1">
-              {event.endsAt}
-            </span>
-            <span className="text-sm text-ink">Last dance</span>
-          </li>
-        </ol>
+            <li className="flex gap-3 items-start">
+              <span className="text-[10px] uppercase tracking-widest font-bold text-terracotta w-14 shrink-0 pt-1">
+                {event.endsAt}
+              </span>
+              <span className="text-sm text-ink">Last dance</span>
+            </li>
+          </ol>
+        ) : (
+          <div className="space-y-2">
+            <p className="text-sm text-ink leading-relaxed">
+              {event.scheduleNote || event.scheduleReliability}
+            </p>
+            <p className="text-[12px] text-ink/60 leading-relaxed">
+              Check official source for exact timing.
+            </p>
+          </div>
+        )}
       </section>
 
       <section className="px-5 mt-6">
