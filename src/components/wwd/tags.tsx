@@ -2,9 +2,7 @@ import type { BachataRelevance, BeginnerLabel } from "@/data/mock";
 
 const sceneStyles: Record<BachataRelevance, string> = {
   "Bachata-heavy": "bg-magenta text-paper -rotate-2",
-  "Bachata-forward": "bg-magenta text-paper rotate-1",
   "Bachata-included": "bg-mango text-ink rotate-1",
-  "Salsa-first with bachata": "bg-oxblood text-paper -rotate-1",
 };
 
 const beginnerStyles: Record<BeginnerLabel, string> = {

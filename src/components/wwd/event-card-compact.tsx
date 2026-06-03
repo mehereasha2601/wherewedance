@@ -37,9 +37,10 @@ export function EventCardCompact({ event }: { event: Event }) {
           </p>
         </div>
         <p className="text-[11px] text-ink/60">
-          {event.popUp
-            ? <>Pop-up · Check Instagram · <span className="font-bold text-ink/80">{event.cost}</span></>
-            : <>{event.dayOfWeek} · {event.startsAt} · <span className="font-bold text-ink/80">{event.cost}</span></>}
+          {event.dateLabel}
+          {event.scheduleLabel ? ` · ${event.scheduleLabel}` : ""}
+          {" · "}
+          <span className="font-bold text-ink/80">{event.cost}</span>
         </p>
         {logistics && (
           <p className="text-[10px] text-ink/65 font-medium leading-snug">

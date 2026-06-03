@@ -3,9 +3,7 @@
 
 export type BachataRelevance =
   | "Bachata-heavy"
-  | "Bachata-forward"
-  | "Bachata-included"
-  | "Salsa-first with bachata";
+  | "Bachata-included";
 
 export type BeginnerLabel =
   | "Beginner-friendly"
@@ -94,6 +92,10 @@ export type Event = {
   scheduleReliability: ScheduleReliability;
   sourceStatus: SourceStatus;
   lastVerified: string; // ISO date
+  // Date / time display fields. Cards show dateLabel · scheduleLabel.
+  dateLabel: string; // e.g. "Mon, Jun 9", "Fri, Jun 20", "Monthly / date TBA"
+  scheduleLabel?: string; // e.g. "9:00 PM", "6:00–10:00 PM", "Time TBA"
+  isTonight?: boolean; // shown as a small badge only, never as the main date
   goodToKnow: string[];
   communityNote?: string;
   rsvps: { count: number; initials: string[] };
@@ -398,13 +400,13 @@ export const organizers: Organizer[] = [
     id: "org-booze-bachata",
     slug: "booze-and-bachata",
     name: "Booze & Bachata",
-    bio: "Booze & Bachata is a Bachata-forward pop-up/social dance organizer. Check Instagram for current event dates, venues, class details, tickets, and age requirements.",
-    values: ["Bachata-forward", "Pop-up socials", "Social/nightlife setting"],
+    bio: "Booze & Bachata is a Bachata-heavy pop-up/social dance organizer. Check Instagram for current event dates, venues, class details, tickets, and age requirements.",
+    values: ["Bachata-heavy", "Pop-up socials", "Social/nightlife setting"],
     recurringEventIds: [],
     type: "Pop-up Bachata social organizer",
     typeFilter: "Pop-up Bachata social organizer",
-    secondaryTags: ["Pop-up", "Bachata-forward", "Social dance events", "Check Instagram"],
-    bestFor: "Bachata-forward pop-up socials, intimate social dance events, and dancers looking for a Bachata event in a social/nightlife setting",
+    secondaryTags: ["Pop-up", "Bachata-heavy", "Social dance events", "Check Instagram"],
+    bestFor: "Bachata-heavy pop-up socials, intimate social dance events, and dancers looking for a Bachata event in a social/nightlife setting",
     instagramUrl: "https://www.instagram.com/boozeandbachata/",
     sourceUrl: "https://www.instagram.com/boozeandbachata/",
     sourceStatus: "Instagram / verified",
@@ -434,6 +436,8 @@ export const events: Event[] = [
     scheduleReliability: "Weekly recurring, very reliable",
     sourceStatus: "Official website",
     lastVerified: "2026-06-02",
+    dateLabel: "Mon, Jun 9",
+    scheduleLabel: "Lessons 8:15–9:15 PM · Social 9:15 PM–12:30 AM",
     goodToKnow: [
       "Bachata-heavy Monday night (~90% Bachata / 10% Salsa)",
       "Doors 8:00 PM · lessons 8:15–9:15 PM · social 9:15 PM–12:30 AM",
@@ -478,6 +482,8 @@ export const events: Event[] = [
     scheduleReliability: "Weekly recurring, very reliable",
     sourceStatus: "From public listing",
     lastVerified: "2026-06-02",
+    dateLabel: "Tue, Jun 10",
+    scheduleLabel: "Lessons 8:15–9:15 PM · Social 9:15 PM–12:30 AM",
     goodToKnow: [
       "Mixed Salsa/Bachata night (~60% Bachata / 40% Salsa where supported)",
       "Beginner + intermediate lessons before social",
@@ -517,6 +523,8 @@ export const events: Event[] = [
     scheduleReliability: "Weekly recurring, very reliable",
     sourceStatus: "Official website",
     lastVerified: "2026-06-02",
+    dateLabel: "Thu, Jun 12",
+    scheduleLabel: "Lessons 8:45–9:45 PM · Party 9:45 PM–12:30 AM",
     goodToKnow: [
       "Bachata-heavy Thursday night (~80% Bachata / 20% Salsa)",
       "Doors 8:30 PM · lessons 8:45–9:45 PM · party 9:45 PM–12:30 AM",
@@ -558,6 +566,8 @@ export const events: Event[] = [
     scheduleReliability: "Weekly recurring, very reliable",
     sourceStatus: "From public listing",
     lastVerified: "2026-06-02",
+    dateLabel: "Fri, Jun 13",
+    scheduleLabel: "Lessons before social · Party 9:15 PM–2:00 AM",
     goodToKnow: [
       "Mixed Bachata/Salsa late-night party",
       "Lessons before dancing",
@@ -596,6 +606,8 @@ export const events: Event[] = [
     scheduleReliability: "Weekly recurring, very reliable",
     sourceStatus: "From public listing",
     lastVerified: "2026-06-02",
+    dateLabel: "Sun, Jun 15",
+    scheduleLabel: "Lessons/practica from 7:15 PM · Social 8:15–11:30 PM",
     goodToKnow: [
       "Bachata-heavy Sunday option",
       "No alcohol / dry event · 18+",
@@ -635,6 +647,8 @@ export const events: Event[] = [
     scheduleReliability: "Weekly recurring, very reliable",
     sourceStatus: "Official website",
     lastVerified: "2026-05-30",
+    dateLabel: "Sat, Jun 14",
+    scheduleLabel: "Lessons before dancing · Party 9:15 PM–2:00 AM",
     goodToKnow: [
       "Large Saturday crowd (~70% Bachata / 25% Salsa / 5% Merengue)",
       "Beginner + intermediate Bachata/Salsa lessons before dancing",
@@ -676,6 +690,8 @@ export const events: Event[] = [
     scheduleReliability: "Weekly recurring, very reliable",
     sourceStatus: "Official website",
     lastVerified: "2026-06-01",
+    dateLabel: "Wed, Jun 11",
+    scheduleLabel: "9:00 PM (class + social)",
     goodToKnow: [
       "Wednesday 9:00 PM class + social.",
       "Class before social: beginner-friendly Bachata/Salsa class followed by social dancing.",
@@ -711,7 +727,7 @@ export const events: Event[] = [
     popUp: true,
     scheduleNote: "Monthly / occasional - check official source",
     cover: "from-ink via-oxblood to-magenta",
-    bachataRelevance: "Bachata-forward",
+    bachataRelevance: "Bachata-included",
     beginnerLabel: "Beginner-welcome",
     classBeforeSocial: { offered: false, level: "Check official event listing" },
     waterAvailability: "Check official source",
@@ -719,6 +735,8 @@ export const events: Event[] = [
     scheduleReliability: "Monthly / occasional - check official source",
     sourceStatus: "Check official source",
     lastVerified: "2026-06-03",
+    dateLabel: "Monthly / date TBA",
+    scheduleLabel: "Check official source",
     goodToKnow: [
       "J&L is known for structured Bachata/Salsa classes and fundamentals.",
       "Their social schedule can change.",
@@ -752,6 +770,8 @@ export const events: Event[] = [
     scheduleReliability: "Monthly / occasional - check official source",
     sourceStatus: "Official Instagram / organizer post",
     lastVerified: "2026-06-03",
+    dateLabel: "Fri, Jun 20",
+    scheduleLabel: "6:00–10:00 PM",
     goodToKnow: [
       "Monthly / occasional Lili Latin Dance studio social - next listed: Friday June 20.",
       "Music includes Salsa, Bachata, Merengue, and some party music.",
@@ -792,6 +812,8 @@ export const events: Event[] = [
     scheduleReliability: "Pop-up / one-off - check official source",
     sourceStatus: "Official Instagram / organizer post",
     lastVerified: "2026-06-03",
+    dateLabel: "Fri, Jun 6",
+    scheduleLabel: "Time TBA",
     goodToKnow: [
       "Free queer dance party hosted by Next Level Fusion.",
       "Held at The Anchor Boston on Friday June 6.",
@@ -829,6 +851,8 @@ export const events: Event[] = [
     scheduleReliability: "Weather-dependent pop-up - check Instagram",
     sourceStatus: "Official Instagram / organizer post",
     lastVerified: "2026-05-29",
+    dateLabel: "Fri, Jun 13",
+    scheduleLabel: "Check Instagram",
     goodToKnow: [
       "Free outdoor Salsa/Bachata pop-up.",
       "Announced close to the event because weather matters.",
@@ -857,7 +881,7 @@ export const events: Event[] = [
     popUp: true,
     scheduleNote: "Monthly / seasonal - often Sunday - check official source",
     cover: "from-mango via-terracotta to-magenta",
-    bachataRelevance: "Bachata-forward",
+    bachataRelevance: "Bachata-included",
     beginnerLabel: "Beginner-friendly",
     classBeforeSocial: { offered: true, level: "Beginner Bachata lesson before dancing, usually 6:00–7:00 PM when listed" },
     waterAvailability: "BYO water",
@@ -865,6 +889,8 @@ export const events: Event[] = [
     scheduleReliability: "Monthly / seasonal - check official source",
     sourceStatus: "From public listing",
     lastVerified: "2026-06-03",
+    dateLabel: "Monthly / date TBA",
+    scheduleLabel: "Usually 6:00 PM lesson · check official source",
     goodToKnow: [
       "Free outdoor event at Magazine Beach Park.",
       "Beginner Bachata lesson before dancing.",
@@ -891,7 +917,7 @@ export const events: Event[] = [
     endsAt: "TBD",
     scheduleNote: "Seasonal outdoor recurring - check official source",
     cover: "from-oxblood via-ink to-magenta",
-    bachataRelevance: "Salsa-first with bachata",
+    bachataRelevance: "Bachata-included",
     beginnerLabel: "Beginner-friendly",
     classBeforeSocial: { offered: true, level: "Free beginner lesson; style may vary by date" },
     waterAvailability: "Food/drinks at venue - bring water recommended",
@@ -899,6 +925,8 @@ export const events: Event[] = [
     scheduleReliability: "Seasonal outdoor recurring - check official source",
     sourceStatus: "Needs validation",
     lastVerified: "2026-06-03",
+    dateLabel: "Seasonal / date TBA",
+    scheduleLabel: "Evening · check official source",
     goodToKnow: [
       "Free outdoor dance class and social at The Anchor.",
       "Salsa-first, but Bachata is included.",
@@ -1187,13 +1215,13 @@ export const resources: Resource[] = [
     name: "Booze & Bachata",
     category: "Organizers",
     privacyStatus: "Public link",
-    description: "Bachata-forward pop-up/social dance organizer. Check Instagram for current announcements.",
+    description: "Bachata-heavy pop-up/social dance organizer. Check Instagram for current announcements.",
     howToJoin: "Check Instagram for event announcements, ticket links, venue details, and age requirements.",
     instagramUrl: "https://www.instagram.com/boozeandbachata/",
     sourceStatus: "Instagram / verified",
     lastVerified: "2026-06-03",
     sourceUrl: "https://www.instagram.com/boozeandbachata/",
-    tags: ["Organizer", "Pop-up", "Bachata-forward", "Public link"],
+    tags: ["Organizer", "Pop-up", "Bachata-heavy", "Public link"],
   },
   {
     id: "res-bobas",
@@ -1600,24 +1628,10 @@ export const mapUrlForEvent = (e: Event): string | null => {
   return `https://maps.google.com/?q=${q}`;
 };
 
-// "Tonight" is derived from today's weekday so only events that actually
-// happen today get the Tonight label - never multiple unrelated weekdays.
-// Pop-ups (no fixed weekday) are excluded.
-const WEEKDAYS = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-] as const;
-
-export const isEventTonight = (e: Event): boolean => {
-  if (e.popUp) return false;
-  const today = WEEKDAYS[new Date().getDay()];
-  return e.dayOfWeek === today;
-};
+// "Tonight" is an explicit per-event flag — never derived from the wall clock,
+// so we don't mislabel events on unrelated days. It renders as a small badge
+// only, not as the main date.
+export const isEventTonight = (e: Event): boolean => e.isTonight === true;
 
 export const tonightEvents = () => events.filter(isEventTonight);
 

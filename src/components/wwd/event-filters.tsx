@@ -32,7 +32,22 @@ const PREDICATES: Record<FilterKey, (e: Event) => boolean> = {
   "class-before-social": (e) => e.classBeforeSocial.offered === true,
 };
 
-const DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] as const;
+// Ordered list of dateLabels we expect in the mocked week. Events whose
+// dateLabel isn't in this list (Monthly / TBA, Seasonal, etc.) are grouped
+// under the catch-all "Pop-ups / date TBA" section.
+const WEEK_DATE_ORDER = [
+  "Mon, Jun 9",
+  "Tue, Jun 10",
+  "Wed, Jun 11",
+  "Thu, Jun 12",
+  "Fri, Jun 13",
+  "Sat, Jun 14",
+  "Sun, Jun 15",
+  // Additional in-week one-offs (e.g. Next Level Fusion June 6 last Friday,
+  // or Lili June 20 next Friday) appear in their own date group if present.
+  "Fri, Jun 6",
+  "Fri, Jun 20",
+] as const;
 
 export function EventFilters({
   events,
@@ -125,10 +140,8 @@ export function EventFilters({
           </div>
         ) : (
           <div className="space-y-10">
-            {DAYS.map((d) => {
-              const items = filtered.filter(
-                (e) => (!e.popUp || e.thisWeek) && e.dayOfWeek === d,
-              );
+            {WEEK_DATE_ORDER.map((d) => {
+              const items = filtered.filter((e) => e.dateLabel === d);
               if (items.length === 0) return null;
               return (
                 <section key={d}>
@@ -151,20 +164,21 @@ export function EventFilters({
               );
             })}
             {(() => {
-              const popUps = filtered.filter((e) => e.popUp && !e.thisWeek);
-              if (popUps.length === 0) return null;
+              const known = new Set<string>(WEEK_DATE_ORDER);
+              const tba = filtered.filter((e) => !known.has(e.dateLabel));
+              if (tba.length === 0) return null;
               return (
                 <section>
                   <div className="px-5 mb-4">
                     <p className="text-[10px] uppercase tracking-widest font-bold text-terracotta mb-1">
-                      {popUps.length} pop-up{popUps.length === 1 ? "" : "s"}
+                      {tba.length} event{tba.length === 1 ? "" : "s"}
                     </p>
                     <h2 className="font-display italic font-semibold text-3xl leading-none text-ink">
-                      Pop-up · Check Instagram
+                      Pop-ups / date TBA
                     </h2>
                   </div>
                   <div className="px-5 grid gap-4">
-                    {popUps.map((e) => (
+                    {tba.map((e) => (
                       <EventCard key={e.id} event={e} />
                     ))}
                   </div>
