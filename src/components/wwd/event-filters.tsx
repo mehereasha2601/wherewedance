@@ -32,7 +32,22 @@ const PREDICATES: Record<FilterKey, (e: Event) => boolean> = {
   "class-before-social": (e) => e.classBeforeSocial.offered === true,
 };
 
-const DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] as const;
+// Ordered list of dateLabels we expect in the mocked week. Events whose
+// dateLabel isn't in this list (Monthly / TBA, Seasonal, etc.) are grouped
+// under the catch-all "Pop-ups / date TBA" section.
+const WEEK_DATE_ORDER = [
+  "Mon, Jun 9",
+  "Tue, Jun 10",
+  "Wed, Jun 11",
+  "Thu, Jun 12",
+  "Fri, Jun 13",
+  "Sat, Jun 14",
+  "Sun, Jun 15",
+  // Additional in-week one-offs (e.g. Next Level Fusion June 6 last Friday,
+  // or Lili June 20 next Friday) appear in their own date group if present.
+  "Fri, Jun 6",
+  "Fri, Jun 20",
+] as const;
 
 export function EventFilters({
   events,
