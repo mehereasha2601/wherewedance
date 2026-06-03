@@ -132,6 +132,7 @@ export type Event = {
   amenities?: string[];
 };
 
+
 export type Resource = {
   id: string;
   name: string;
