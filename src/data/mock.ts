@@ -48,6 +48,9 @@ export type Organizer = {
   bio: string;
   values: string[];
   recurringEventIds: string[];
+  type?: string;
+  bestFor?: string;
+  profileLink?: string;
 };
 
 export type Event = {
