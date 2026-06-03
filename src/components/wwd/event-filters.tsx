@@ -1,7 +1,15 @@
 import { useMemo, useState } from "react";
 import type { Event } from "@/data/mock";
 import { isEventTonight, catalogDateLabel } from "@/data/mock";
-import { getCurrentWeekLabels, getTodayInBoston } from "@/lib/event-dates";
+import {
+  formatDateLabel,
+  getCurrentWeekLabels,
+  getOccurrenceInWeek,
+  getStartOfWeekMonday,
+  getTodayInBoston,
+  parseIsoDate,
+  type DayName,
+} from "@/lib/event-dates";
 import { EventCard } from "./event-card";
 
 export type FilterKey =
@@ -23,9 +31,27 @@ const LABELS: Record<FilterKey, string> = {
   "class-before-social": "Class before social",
 };
 
+// Weekend means Fri/Sat/Sun inside the current Mon–Sun week, but only from
+// today forward — so on Sunday we don't show last Friday's events.
+function isUpcomingWeekendEvent(e: Event, today: Date = getTodayInBoston()): boolean {
+  const weekStart = getStartOfWeekMonday(today);
+  let when: Date | null = null;
+  if (e.fixedDate) when = parseIsoDate(e.fixedDate);
+  else if (!e.popUp) when = getOccurrenceInWeek(e.dayOfWeek as DayName, weekStart);
+  if (!when) return false;
+  const dow = when.getDay(); // 0=Sun..6=Sat
+  const isFriSatSun = dow === 5 || dow === 6 || dow === 0;
+  if (!isFriSatSun) return false;
+  const t = new Date(when);
+  t.setHours(12, 0, 0, 0);
+  const today12 = new Date(today);
+  today12.setHours(12, 0, 0, 0);
+  return t.getTime() >= today12.getTime();
+}
+
 const PREDICATES: Record<FilterKey, (e: Event) => boolean> = {
   tonight: (e) => isEventTonight(e),
-  weekend: (e) => e.dayOfWeek === "Friday" || e.dayOfWeek === "Saturday" || e.dayOfWeek === "Sunday",
+  weekend: (e) => isUpcomingWeekendEvent(e),
   "bachata-heavy": (e) => e.bachataRelevance === "Bachata-heavy",
   "beginner-friendly": (e) => e.beginnerLabel === "Beginner-friendly",
   free: (e) => e.cost.toLowerCase().includes("free"),
@@ -33,6 +59,9 @@ const PREDICATES: Record<FilterKey, (e: Event) => boolean> = {
     /\b(dry|no alcohol)\b/i.test(e.alcoholPolicy ?? ""),
   "class-before-social": (e) => e.classBeforeSocial.offered === true,
 };
+
+// Silence unused-import warning for helpers referenced only via predicate.
+void formatDateLabel;
 
 export function EventFilters({
   events,
