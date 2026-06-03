@@ -690,13 +690,13 @@ export const askPrompts: AskPrompt[] = [
     prompt: "What should I know before BOBAS?",
     category: "Logistics",
     answer: {
-      body: "BOBAS is outdoor and weather-dependent — check their Instagram before heading out. There's usually no class, so it's better if you know the basics or go with a friend. Wear sneakers and bring a water bottle.",
+      body: "BOBAS is a free outdoor Salsa/Bachata pop-up. It is beginner-welcome, but because there is usually no class, complete beginners may feel more comfortable going with a friend or after taking a few classes. Check Instagram before going because it is weather-dependent and often announced close to the event. Bring water.",
       sourceEventIds: ["evt-bobas"],
       recommendations: [
         {
           eventId: "evt-bobas",
           label: "Top recommendation",
-          whyThisFits: "Free outdoor Thursday — weather-dependent, no class, better if you know basics or bring a friend.",
+          whyThisFits: "Free outdoor pop-up — weather-dependent, no class, better if you know basics or bring a friend.",
         },
       ],
     },
@@ -706,13 +706,13 @@ export const askPrompts: AskPrompt[] = [
     prompt: "What outdoor/free events are happening?",
     category: "Logistics",
     answer: {
-      body: "BOBAS runs free outdoor Thursdays on Broad Street, and Bachata by the River is free on Sundays at the Esplanade. Both are weather-dependent — check IG morning-of.",
+      body: "BOBAS runs free outdoor Salsa/Bachata pop-ups at the Charles River Dock, and Bachata by the River is free on Sundays at the Esplanade. Both are weather-dependent — check Instagram before going.",
       sourceEventIds: ["evt-bobas", "evt-river"],
       recommendations: [
         {
           eventId: "evt-bobas",
           label: "Top recommendation",
-          whyThisFits: "Free, outdoor, Bachata-heavy on Broad Street — no class, weather-dependent.",
+          whyThisFits: "Free outdoor Salsa/Bachata pop-up — no class, weather-dependent, announced on Instagram.",
         },
         {
           eventId: "evt-river",
@@ -749,7 +749,7 @@ export const askPrompts: AskPrompt[] = [
         {
           eventId: "evt-bobas",
           label: "Also consider",
-          whyThisFits: "Free outdoor Thursday with no bar on site.",
+          whyThisFits: "Free outdoor pop-up with no bar on site.",
         },
       ],
     },
