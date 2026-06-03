@@ -1,10 +1,26 @@
+import { useMemo, useState } from "react";
 import { AppShell, PageHero, SectionHeader } from "@/components/wwd/shell";
 import { Link } from "@/components/wwd/ui-router";
 import { SourceLabel } from "@/components/wwd/source-label";
 import { OfficialLinks } from "@/components/wwd/official-links";
+import { OrganizerFilters, type OrganizerFilterValue } from "@/components/wwd/organizer-filters";
 import { events, organizers } from "@/data/mock";
 
 export function OrganizersPage() {
+  const [activeFilter, setActiveFilter] = useState<OrganizerFilterValue>("All");
+
+  const filtered = useMemo(() => {
+    if (activeFilter === "All") return organizers;
+    if (activeFilter === "Needs validation") {
+      return organizers.filter(
+        (o) =>
+          o.sourceStatus === "Needs validation" ||
+          o.secondaryTags?.includes("Needs validation"),
+      );
+    }
+    return organizers.filter((o) => o.typeFilter === activeFilter);
+  }, [activeFilter]);
+
   return (
     <AppShell>
       <PageHero
@@ -13,9 +29,26 @@ export function OrganizersPage() {
         description="Studios, collectives, and community groups behind Boston's bachata nights. Tap any card to see their profile."
       />
 
+      <div className="mt-4">
+        <OrganizerFilters
+          active={activeFilter}
+          onChange={setActiveFilter}
+          count={filtered.length}
+        />
+      </div>
+
       <SectionHeader eyebrow={`${organizers.length} organizers`} title="Boston" />
+      {filtered.length === 0 ? (
+        <div className="px-5">
+          <div className="bg-paper ring-1 ring-ink/10 rounded-2xl p-6 text-center">
+            <p className="font-display italic text-xl text-ink">
+              No organizers match this filter yet.
+            </p>
+          </div>
+        </div>
+      ) : (
       <ul className="px-5 grid gap-3">
-        {organizers.map((o) => {
+        {filtered.map((o) => {
           const recurring = events.filter((e) => o.recurringEventIds.includes(e.id));
           const verifyFrom = recurring[0];
           const status = verifyFrom?.sourceStatus ?? o.sourceStatus;
@@ -45,6 +78,19 @@ export function OrganizersPage() {
                   <span className="font-bold text-ink">Best for: </span>
                   {o.bestFor}
                 </p>
+              )}
+
+              {o.secondaryTags && o.secondaryTags.length > 0 && (
+                <ul className="mt-3 flex flex-wrap gap-1.5">
+                  {o.secondaryTags.map((t) => (
+                    <li
+                      key={t}
+                      className="px-2 py-1 bg-mango/30 text-ink rounded-md text-[11px] font-medium"
+                    >
+                      {t}
+                    </li>
+                  ))}
+                </ul>
               )}
 
               {recurring.length > 0 && (
@@ -97,6 +143,7 @@ export function OrganizersPage() {
           );
         })}
       </ul>
+      )}
     </AppShell>
   );
 }
