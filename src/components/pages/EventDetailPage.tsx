@@ -83,7 +83,7 @@ export function EventDetailPage({ slug }: { slug: string }) {
                 {event.classBeforeSocial.startsAt}
               </span>
               <span className="text-sm text-ink">
-                Intro class — {event.classBeforeSocial.level}
+                {event.classBeforeSocial.level}
               </span>
             </li>
           )}
@@ -91,7 +91,7 @@ export function EventDetailPage({ slug }: { slug: string }) {
             <span className="text-[10px] uppercase tracking-widest font-bold text-terracotta w-14 shrink-0 pt-1">
               {event.startsAt}
             </span>
-            <span className="text-sm text-ink">Social opens</span>
+            <span className="text-sm text-ink">Social dancing begins</span>
           </li>
           <li className="flex gap-3 items-start">
             <span className="text-[10px] uppercase tracking-widest font-bold text-terracotta w-14 shrink-0 pt-1">
