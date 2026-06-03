@@ -1397,7 +1397,7 @@ export const resources: Resource[] = [
     howToJoin: "Check Facebook for the most reliable event updates; Instagram may also have updates.",
     instagramUrl: "https://www.instagram.com/bobas.dance/",
     facebookUrl: "https://www.facebook.com/p/Boston-Outdoor-Bachata-And-Salsa-61551665503735/",
-    sourceStatus: "Facebook (primary) / Instagram",
+    sourceStatus: "Instagram / Facebook",
     lastVerified: "2026-06-03",
     sourceUrl: "https://www.facebook.com/p/Boston-Outdoor-Bachata-And-Salsa-61551665503735/",
     tags: ["Organizer", "Outdoor", "Free", "Salsa", "Bachata", "Public link"],
