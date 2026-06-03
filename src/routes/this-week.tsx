@@ -2,6 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ThisWeekPage } from "@/components/pages/ThisWeekPage";
 
 export const Route = createFileRoute("/this-week")({
+  validateSearch: (search: Record<string, unknown>) => ({
+    filter: typeof search.filter === "string" ? search.filter : undefined,
+  }),
   head: () => ({
     meta: [
       { title: "This Week in Boston Bachata - WhereWeDance" },
