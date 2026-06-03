@@ -2,7 +2,6 @@ import { useMemo, useState } from "react";
 import type { Event } from "@/data/mock";
 import { isEventTonight, catalogDateLabel } from "@/data/mock";
 import {
-  formatDateLabel,
   getCurrentWeekLabels,
   getOccurrenceInWeek,
   getStartOfWeekMonday,
@@ -60,8 +59,6 @@ const PREDICATES: Record<FilterKey, (e: Event) => boolean> = {
   "class-before-social": (e) => e.classBeforeSocial.offered === true,
 };
 
-// Silence unused-import warning for helpers referenced only via predicate.
-void formatDateLabel;
 
 export function EventFilters({
   events,
