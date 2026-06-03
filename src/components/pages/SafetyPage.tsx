@@ -10,6 +10,12 @@ export function SafetyPage() {
       />
 
       <section className="px-5 mt-6 space-y-3">
+        <div className="bg-mango text-ink rounded-2xl p-4">
+          <p className="text-[10px] uppercase tracking-widest font-bold mb-1">Prototype</p>
+          <p className="text-[13px] font-medium leading-snug">
+            Prototype only — no report is submitted yet.
+          </p>
+        </div>
         <div className="bg-ink text-paper rounded-2xl p-5">
           <p className="text-[10px] uppercase tracking-widest font-bold text-mango mb-2">
             Before you submit
@@ -18,7 +24,7 @@ export function SafetyPage() {
             <li>· <span className="font-bold">Reports are private.</span> Only the safety team reads them.</li>
             <li>· <span className="font-bold">Anonymous submission is optional.</span> Leave your name blank if you prefer.</li>
             <li>· <span className="font-bold">This is not a public accusation wall.</span> We do not publish names, screenshots, or stories.</li>
-            <li>· <span className="font-bold">This is not an emergency service.</span> If you are in immediate danger, call 911 and the venue staff.</li>
+            <li>· <span className="font-bold">This is not an emergency service.</span> For emergencies, contact local emergency services or a trusted person nearby.</li>
           </ul>
         </div>
       </section>

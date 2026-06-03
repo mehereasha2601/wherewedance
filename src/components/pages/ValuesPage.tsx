@@ -7,8 +7,14 @@ export function ValuesPage() {
       <PageHero
         eyebrow="Our floor, our rules"
         title={<>The non-<span className="text-terracotta">negotiables.</span></>}
-        description="Co-written with local organizers. Not enforcement, not policing — just the floor we're trying to keep."
+        description="A living guide for safer, kinder social dancing."
       />
+
+      <section className="px-5 mt-6">
+        <div className="bg-mango/15 ring-1 ring-mango/40 rounded-2xl p-4 text-[13px] text-ink/80 leading-relaxed">
+          These values are not a replacement for organizer policies or emergency support. They are a shared guide for the kind of floor we want to encourage.
+        </div>
+      </section>
 
       <ol className="px-5 mt-8 space-y-4">
         {values.map((v, i) => (

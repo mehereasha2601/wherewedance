@@ -14,11 +14,13 @@ import { Route as ThisWeekRouteImport } from './routes/this-week'
 import { Route as SafetyRouteImport } from './routes/safety'
 import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as OrganizerDashboardRouteImport } from './routes/organizer-dashboard'
+import { Route as MoreRouteImport } from './routes/more'
 import { Route as BuddiesRouteImport } from './routes/buddies'
 import { Route as BostonBachataRouteImport } from './routes/boston-bachata'
 import { Route as BeginnerGuideRouteImport } from './routes/beginner-guide'
 import { Route as AskRouteImport } from './routes/ask'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as OrganizersIndexRouteImport } from './routes/organizers.index'
 import { Route as EventsIndexRouteImport } from './routes/events.index'
 import { Route as OrganizersIdRouteImport } from './routes/organizers.$id'
 import { Route as EventsIdRouteImport } from './routes/events.$id'
@@ -48,6 +50,11 @@ const OrganizerDashboardRoute = OrganizerDashboardRouteImport.update({
   path: '/organizer-dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MoreRoute = MoreRouteImport.update({
+  id: '/more',
+  path: '/more',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BuddiesRoute = BuddiesRouteImport.update({
   id: '/buddies',
   path: '/buddies',
@@ -73,6 +80,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OrganizersIndexRoute = OrganizersIndexRouteImport.update({
+  id: '/organizers/',
+  path: '/organizers/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EventsIndexRoute = EventsIndexRouteImport.update({
   id: '/events/',
   path: '/events/',
@@ -95,6 +107,7 @@ export interface FileRoutesByFullPath {
   '/beginner-guide': typeof BeginnerGuideRoute
   '/boston-bachata': typeof BostonBachataRoute
   '/buddies': typeof BuddiesRoute
+  '/more': typeof MoreRoute
   '/organizer-dashboard': typeof OrganizerDashboardRoute
   '/resources': typeof ResourcesRoute
   '/safety': typeof SafetyRoute
@@ -103,6 +116,7 @@ export interface FileRoutesByFullPath {
   '/events/$id': typeof EventsIdRoute
   '/organizers/$id': typeof OrganizersIdRoute
   '/events/': typeof EventsIndexRoute
+  '/organizers/': typeof OrganizersIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -110,6 +124,7 @@ export interface FileRoutesByTo {
   '/beginner-guide': typeof BeginnerGuideRoute
   '/boston-bachata': typeof BostonBachataRoute
   '/buddies': typeof BuddiesRoute
+  '/more': typeof MoreRoute
   '/organizer-dashboard': typeof OrganizerDashboardRoute
   '/resources': typeof ResourcesRoute
   '/safety': typeof SafetyRoute
@@ -118,6 +133,7 @@ export interface FileRoutesByTo {
   '/events/$id': typeof EventsIdRoute
   '/organizers/$id': typeof OrganizersIdRoute
   '/events': typeof EventsIndexRoute
+  '/organizers': typeof OrganizersIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -126,6 +142,7 @@ export interface FileRoutesById {
   '/beginner-guide': typeof BeginnerGuideRoute
   '/boston-bachata': typeof BostonBachataRoute
   '/buddies': typeof BuddiesRoute
+  '/more': typeof MoreRoute
   '/organizer-dashboard': typeof OrganizerDashboardRoute
   '/resources': typeof ResourcesRoute
   '/safety': typeof SafetyRoute
@@ -134,6 +151,7 @@ export interface FileRoutesById {
   '/events/$id': typeof EventsIdRoute
   '/organizers/$id': typeof OrganizersIdRoute
   '/events/': typeof EventsIndexRoute
+  '/organizers/': typeof OrganizersIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -143,6 +161,7 @@ export interface FileRouteTypes {
     | '/beginner-guide'
     | '/boston-bachata'
     | '/buddies'
+    | '/more'
     | '/organizer-dashboard'
     | '/resources'
     | '/safety'
@@ -151,6 +170,7 @@ export interface FileRouteTypes {
     | '/events/$id'
     | '/organizers/$id'
     | '/events/'
+    | '/organizers/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -158,6 +178,7 @@ export interface FileRouteTypes {
     | '/beginner-guide'
     | '/boston-bachata'
     | '/buddies'
+    | '/more'
     | '/organizer-dashboard'
     | '/resources'
     | '/safety'
@@ -166,6 +187,7 @@ export interface FileRouteTypes {
     | '/events/$id'
     | '/organizers/$id'
     | '/events'
+    | '/organizers'
   id:
     | '__root__'
     | '/'
@@ -173,6 +195,7 @@ export interface FileRouteTypes {
     | '/beginner-guide'
     | '/boston-bachata'
     | '/buddies'
+    | '/more'
     | '/organizer-dashboard'
     | '/resources'
     | '/safety'
@@ -181,6 +204,7 @@ export interface FileRouteTypes {
     | '/events/$id'
     | '/organizers/$id'
     | '/events/'
+    | '/organizers/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -189,6 +213,7 @@ export interface RootRouteChildren {
   BeginnerGuideRoute: typeof BeginnerGuideRoute
   BostonBachataRoute: typeof BostonBachataRoute
   BuddiesRoute: typeof BuddiesRoute
+  MoreRoute: typeof MoreRoute
   OrganizerDashboardRoute: typeof OrganizerDashboardRoute
   ResourcesRoute: typeof ResourcesRoute
   SafetyRoute: typeof SafetyRoute
@@ -197,6 +222,7 @@ export interface RootRouteChildren {
   EventsIdRoute: typeof EventsIdRoute
   OrganizersIdRoute: typeof OrganizersIdRoute
   EventsIndexRoute: typeof EventsIndexRoute
+  OrganizersIndexRoute: typeof OrganizersIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -236,6 +262,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OrganizerDashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/more': {
+      id: '/more'
+      path: '/more'
+      fullPath: '/more'
+      preLoaderRoute: typeof MoreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/buddies': {
       id: '/buddies'
       path: '/buddies'
@@ -271,6 +304,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/organizers/': {
+      id: '/organizers/'
+      path: '/organizers'
+      fullPath: '/organizers/'
+      preLoaderRoute: typeof OrganizersIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/events/': {
       id: '/events/'
       path: '/events'
@@ -301,6 +341,7 @@ const rootRouteChildren: RootRouteChildren = {
   BeginnerGuideRoute: BeginnerGuideRoute,
   BostonBachataRoute: BostonBachataRoute,
   BuddiesRoute: BuddiesRoute,
+  MoreRoute: MoreRoute,
   OrganizerDashboardRoute: OrganizerDashboardRoute,
   ResourcesRoute: ResourcesRoute,
   SafetyRoute: SafetyRoute,
@@ -309,6 +350,7 @@ const rootRouteChildren: RootRouteChildren = {
   EventsIdRoute: EventsIdRoute,
   OrganizersIdRoute: OrganizersIdRoute,
   EventsIndexRoute: EventsIndexRoute,
+  OrganizersIndexRoute: OrganizersIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

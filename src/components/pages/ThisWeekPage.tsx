@@ -1,9 +1,8 @@
-import { AppShell, PageHero, SectionHeader } from "@/components/wwd/shell";
-import { EventCard } from "@/components/wwd/event-card";
-import { eventsByDay } from "@/data/mock";
+import { AppShell, PageHero } from "@/components/wwd/shell";
+import { EventFilters } from "@/components/wwd/event-filters";
+import { events } from "@/data/mock";
 
 export function ThisWeekPage() {
-  const grouped = eventsByDay().filter((g) => g.events.length > 0);
   return (
     <AppShell>
       <PageHero
@@ -12,30 +11,12 @@ export function ThisWeekPage() {
         description="Filter by what matters: scene, level, cost, indoors or out. Every card shows what to know before you go."
       />
 
-      <nav className="px-5 mt-6 flex gap-2 overflow-x-auto no-scrollbar">
-        {["All", "Tonight", "Bachata-heavy", "Beginner-friendly", "Free", "Dry event"].map((c, i) => (
-          <button
-            key={c}
-            className={`px-4 py-2 rounded-full text-sm font-medium shrink-0 ${
-              i === 0 ? "bg-oxblood text-paper" : "bg-paper text-ink ring-1 ring-ink/10"
-            }`}
-          >
-            {c}
-          </button>
-        ))}
-      </nav>
-
-      <div className="mt-8 space-y-10">
-        {grouped.map((g) => (
-          <section key={g.day}>
-            <SectionHeader eyebrow={`${g.events.length} event${g.events.length > 1 ? "s" : ""}`} title={g.day} />
-            <div className="px-5 grid gap-4">
-              {g.events.map((e) => (
-                <EventCard key={e.id} event={e} />
-              ))}
-            </div>
-          </section>
-        ))}
+      <div className="mt-6">
+        <EventFilters
+          events={events}
+          layout="by-day"
+          chips={["tonight","weekend","bachata-heavy","beginner-friendly","free","no-alcohol","class-before-social"]}
+        />
       </div>
     </AppShell>
   );
