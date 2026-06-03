@@ -1453,6 +1453,29 @@ export const mapUrlForEvent = (e: Event): string | null => {
 };
 
 export const tonightEvents = () => events.filter((e) => e.tonight);
+
+// Short logistics line for compact cards: e.g. "Cash only · Coat check · Free water".
+export const logisticsSummary = (e: Event): string | null => {
+  const parts: string[] = [];
+  if (e.paymentNotes) {
+    if (/^cash only/i.test(e.paymentNotes)) parts.push("Cash only");
+    else if (/cash or venmo/i.test(e.paymentNotes)) parts.push("Cash/Venmo");
+    else parts.push(e.paymentNotes.split(".")[0]);
+  }
+  if (e.coatCheck) {
+    if (/^no coat/i.test(e.coatCheck)) parts.push("No coat check");
+    else parts.push("Coat check");
+  }
+  if (e.amenities && e.amenities.length) {
+    const water = e.amenities.find((a) => /water/i.test(a));
+    if (water) {
+      if (/may run out/i.test(water)) parts.push("Bring water");
+      else parts.push("Free water");
+    }
+  }
+  return parts.length ? parts.join(" · ") : null;
+};
+
 export const eventsByDay = () => {
   const days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] as const;
   return days.map((d) => ({ day: d, events: events.filter((e) => e.dayOfWeek === d) }));
