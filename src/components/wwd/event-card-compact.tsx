@@ -64,12 +64,12 @@ export function EventCardCompact({ event, dateLabel }: { event: Event; dateLabel
             href={primaryHref}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={`Open ${event.title} details`}
+            aria-label={`Open ${event.title} official site`}
             className="relative z-10 inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest text-terracotta self-start"
             onClick={(e) => e.stopPropagation()}
           >
             <ExternalLink size={11} strokeWidth={2.5} />
-            Details
+            Official site
           </a>
         )}
       </div>
