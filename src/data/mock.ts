@@ -105,7 +105,7 @@ export type Resource = {
   id: string;
   name: string;
   description: string;
-  category: "Community" | "Competition" | "Classes" | "Music" | "Wellness";
+  category: "Community" | "Competition" | "Classes" | "Studio / instructor-led classes" | "Music" | "Wellness";
   privacyStatus: ResourcePrivacy;
   sourceStatus: SourceStatus;
   lastVerified: string;
@@ -322,6 +322,21 @@ export const organizers: Organizer[] = [
     websiteUrl: "https://movesandvibes.com/",
     sourceStatus: "Needs validation",
     lastVerified: "2026-05-22",
+  },
+  {
+    id: "org-flow",
+    slug: "flow-studios",
+    name: "Flow Studios",
+    bio: "Flow Studios is an instructor-led Bachata/Sensual Bachata dance brand directed by François Noel. Public listings describe Flow as offering Sensual Bachata and Latin dance classes, with no partner required. Schedules and locations may vary, so dancers should check the official site or Instagram before going.",
+    values: ["Sensual Bachata", "Combo-focused training", "No partner required"],
+    recurringEventIds: [],
+    type: "Instructor-led Sensual Bachata / Latin dance classes",
+    bestFor: "Sensual Bachata classes, combo-focused training, dancers who want to improve technique and movement quality",
+    websiteUrl: "https://flowstudios.dance/",
+    instagramUrl: "https://www.instagram.com/flowstudios.dance/",
+    sourceUrl: "https://flowstudios.dance/",
+    sourceStatus: "Official website / Instagram / public listings",
+    lastVerified: "2026-06-03",
   },
 ];
 
@@ -803,6 +818,18 @@ export const resources: Resource[] = [
     lastVerified: "2026-05-29",
     howToJoin: "DM Instagram to join",
     instagramUrl: "#",
+  },
+  {
+    id: "res-flow-studios",
+    name: "Flow Studios — Sensual Bachata / Latin dance classes",
+    description: "Instructor-led Sensual Bachata and Latin dance classes directed by François Noel. No partner required. Schedule and location may vary — check the official site or Instagram before going.",
+    category: "Studio / instructor-led classes",
+    privacyStatus: "Public link",
+    sourceStatus: "Official website / Instagram / public listings",
+    lastVerified: "2026-06-03",
+    howToJoin: "Check official site or Instagram for current schedule/location.",
+    websiteUrl: "https://flowstudios.dance/",
+    instagramUrl: "https://www.instagram.com/flowstudios.dance/",
   },
 ];
 
