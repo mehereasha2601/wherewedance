@@ -8,7 +8,9 @@ export const Route = createFileRoute("/more")({
       { name: "description", content: "Beginner guide, values, safety, resources, and organizer tools." },
       { property: "og:title", content: "More - WhereWeDance" },
       { property: "og:description", content: "Beginner guide, values, safety, resources, and organizer tools." },
+      { property: "og:url", content: "/more" },
     ],
+    links: [{ rel: "canonical", href: "/more" }],
   }),
   component: MorePage,
 });

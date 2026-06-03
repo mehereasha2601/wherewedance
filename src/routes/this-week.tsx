@@ -11,7 +11,9 @@ export const Route = createFileRoute("/this-week")({
       { name: "description", content: "Every Boston bachata social and class, night by night." },
       { property: "og:title", content: "This Week in Boston Bachata" },
       { property: "og:description", content: "Every Boston bachata social and class, night by night." },
+      { property: "og:url", content: "/this-week" },
     ],
+    links: [{ rel: "canonical", href: "/this-week" }],
   }),
   component: ThisWeekPage,
 });

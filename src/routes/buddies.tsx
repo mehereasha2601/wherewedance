@@ -8,7 +8,9 @@ export const Route = createFileRoute("/buddies")({
       { name: "description", content: "Find someone to drill with. Public posts only, no DMs." },
       { property: "og:title", content: "Practice Buddy Board" },
       { property: "og:description", content: "Find someone to drill with." },
+      { property: "og:url", content: "/buddies" },
     ],
+    links: [{ rel: "canonical", href: "/buddies" }],
   }),
   component: BuddiesPage,
 });

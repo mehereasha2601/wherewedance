@@ -8,7 +8,9 @@ export const Route = createFileRoute("/organizer-dashboard")({
       { name: "description", content: "Submissions, verification status, and weekly RSVPs at a glance." },
       { property: "og:title", content: "Organizer Dashboard" },
       { property: "og:description", content: "Submissions, verification status, and weekly RSVPs." },
+      { property: "og:url", content: "/organizer-dashboard" },
     ],
+    links: [{ rel: "canonical", href: "/organizer-dashboard" }],
   }),
   component: OrganizerDashboardPage,
 });

@@ -11,7 +11,9 @@ export const Route = createFileRoute("/resources")({
       { name: "description", content: "Community docs, comps, playlists, and groups. Each clearly labeled by privacy and verification." },
       { property: "og:title", content: "Boston Bachata Resources" },
       { property: "og:description", content: "Community docs, comps, playlists, and groups." },
+      { property: "og:url", content: "/resources" },
     ],
+    links: [{ rel: "canonical", href: "/resources" }],
   }),
   component: ResourcesPage,
 });

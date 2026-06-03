@@ -8,7 +8,9 @@ export const Route = createFileRoute("/ask")({
       { name: "description", content: "A grounded local guide to Boston bachata. Answers cite the events and resources they came from." },
       { property: "og:title", content: "Ask WhereWeDance" },
       { property: "og:description", content: "A grounded local guide to Boston bachata." },
+      { property: "og:url", content: "/ask" },
     ],
+    links: [{ rel: "canonical", href: "/ask" }],
   }),
   component: AskPage,
 });
