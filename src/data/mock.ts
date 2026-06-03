@@ -625,6 +625,8 @@ export const resources: Resource[] = [
     sourceStatus: "Verified by community",
     lastVerified: "2026-05-15",
     link: "#",
+    websiteUrl: "#",
+    instagramUrl: "#",
   },
   {
     id: "res-flow",
@@ -635,6 +637,8 @@ export const resources: Resource[] = [
     sourceStatus: "Verified by organizer",
     lastVerified: "2026-05-10",
     link: "#",
+    websiteUrl: "#",
+    instagramUrl: "#",
   },
   {
     id: "res-next-level",
@@ -644,6 +648,8 @@ export const resources: Resource[] = [
     privacyStatus: "DM to join",
     sourceStatus: "Verified by community",
     lastVerified: "2026-05-18",
+    howToJoin: "DM Instagram to join",
+    instagramUrl: "#",
   },
   {
     id: "res-house-circle",
@@ -653,6 +659,7 @@ export const resources: Resource[] = [
     privacyStatus: "Private group",
     sourceStatus: "Verified by community",
     lastVerified: "2026-05-08",
+    howToJoin: "Ask organizer for an intro — invite-only",
   },
   {
     id: "res-organizer-circle",
@@ -662,6 +669,7 @@ export const resources: Resource[] = [
     privacyStatus: "Ask organizer",
     sourceStatus: "Verified by organizer",
     lastVerified: "2026-05-12",
+    howToJoin: "Ask an existing organizer for an intro",
   },
   {
     id: "res-djset",
@@ -672,6 +680,8 @@ export const resources: Resource[] = [
     sourceStatus: "Verified by community",
     lastVerified: "2026-05-19",
     link: "#",
+    websiteUrl: "#",
+    instagramUrl: "#",
   },
   {
     id: "res-mystery-pop",
@@ -690,6 +700,8 @@ export const resources: Resource[] = [
     privacyStatus: "Needs validation",
     sourceStatus: "Needs validation",
     lastVerified: "2026-05-29",
+    howToJoin: "DM Instagram to join",
+    instagramUrl: "#",
   },
 ];
 
