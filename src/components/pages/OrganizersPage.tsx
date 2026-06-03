@@ -1,6 +1,7 @@
 import { AppShell, PageHero, SectionHeader } from "@/components/wwd/shell";
 import { Link } from "@/components/wwd/ui-router";
 import { SourceLabel } from "@/components/wwd/source-label";
+import { OfficialLinks } from "@/components/wwd/official-links";
 import { events, organizers } from "@/data/mock";
 
 export function OrganizersPage() {
@@ -64,6 +65,15 @@ export function OrganizersPage() {
                   </ul>
                 </div>
               )}
+
+              <OfficialLinks
+                subject={o.name}
+                websiteUrl={o.websiteUrl}
+                instagramUrl={o.instagramUrl}
+                facebookUrl={o.facebookUrl}
+                email={o.email}
+                className="mt-3"
+              />
 
               <div className="mt-3 flex items-center justify-between">
                 {verifyFrom ? (
