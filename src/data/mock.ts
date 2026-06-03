@@ -2,9 +2,12 @@
 // No fetching, no env, no server logic - pure typed objects.
 
 import {
-  PILOT_BASE_DATE,
   formatDateLabel,
-  getNextOccurrence,
+  getOccurrenceInWeek,
+  getStartOfWeekMonday,
+  getEndOfWeekSunday,
+  getTodayInBoston,
+  isSameLocalDay,
   parseIsoDate,
   type DayName,
 } from "@/lib/event-dates";
