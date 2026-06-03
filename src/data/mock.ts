@@ -56,6 +56,8 @@ export type Organizer = {
   facebookUrl?: string;
   email?: string;
   sourceUrl?: string;
+  sourceStatus?: SourceStatus;
+  lastVerified?: string;
 };
 
 export type Event = {
