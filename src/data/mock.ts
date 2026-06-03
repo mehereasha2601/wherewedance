@@ -1628,24 +1628,10 @@ export const mapUrlForEvent = (e: Event): string | null => {
   return `https://maps.google.com/?q=${q}`;
 };
 
-// "Tonight" is derived from today's weekday so only events that actually
-// happen today get the Tonight label - never multiple unrelated weekdays.
-// Pop-ups (no fixed weekday) are excluded.
-const WEEKDAYS = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-] as const;
-
-export const isEventTonight = (e: Event): boolean => {
-  if (e.popUp) return false;
-  const today = WEEKDAYS[new Date().getDay()];
-  return e.dayOfWeek === today;
-};
+// "Tonight" is an explicit per-event flag — never derived from the wall clock,
+// so we don't mislabel events on unrelated days. It renders as a small badge
+// only, not as the main date.
+export const isEventTonight = (e: Event): boolean => e.isTonight === true;
 
 export const tonightEvents = () => events.filter(isEventTonight);
 
