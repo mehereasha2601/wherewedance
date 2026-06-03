@@ -123,7 +123,9 @@ export function EventDetailPage({ slug }: { slug: string }) {
           {event.classBeforeSocial.offered && (
             <li className="flex gap-3 items-start">
               <span className="text-[10px] uppercase tracking-widest font-bold text-terracotta w-14 shrink-0 pt-1">
-                {event.classBeforeSocial.startsAt}
+                {event.classBeforeSocial.startsAt && /^\d/.test(event.classBeforeSocial.startsAt)
+                  ? event.classBeforeSocial.startsAt
+                  : "Class"}
               </span>
               <span className="text-sm text-ink">
                 {event.classBeforeSocial.level}

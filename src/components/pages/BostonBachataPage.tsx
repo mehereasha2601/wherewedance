@@ -7,10 +7,10 @@ const rhythm = [
   { day: "Monday", desc: "Havana Club Bachata Monday - Bachata-heavy, dry, beginner + intermediate lessons before the social. Saborcito @ The Anchor (seasonal) is the free outdoor option." },
   { day: "Tuesday", desc: "Havana Club Salsa-Bachata Tuesday - mixed night with beginner + intermediate lessons before the social, dry." },
   { day: "Wednesday", desc: "Bachata Room - the bachata-heavy mid-week reset with a beginner class before the social." },
-  { day: "Thursday", desc: "Havana Club Bachata Thursday - Bachata-heavy, 21+, lessons before the party. BOBAS outdoor pop-up may happen - check Instagram." },
-  { day: "Friday", desc: "Havana Friday Bachata/Salsa late-night party (lessons before) + Lili Latin first-Friday social + J&L Underground for advanced sensual." },
+  { day: "Thursday", desc: "Havana Club Bachata Thursday - Bachata-heavy, 21+, lessons before the party." },
+  { day: "Friday", desc: "Havana Friday Bachata/Salsa late-night party (lessons before). BOBAS outdoor pop-up may happen on Friday - check Instagram. Lili Latin and J&L Underground events are occasional/pop-up - check official sources." },
   { day: "Saturday", desc: "Havana Saturday Bachata/Salsa - big crowd, 21+, lessons before dancing." },
-  { day: "Sunday", desc: "Havana Bachata Sunday - Bachata-heavy, dry, lessons/practica structure. Bachata by the River on the Esplanade in summer." },
+  { day: "Sunday", desc: "Havana Bachata Sunday - Bachata-heavy, dry, lessons/practica structure. Bachata by the River at Magazine Beach Park is a monthly/seasonal outdoor option." },
 ];
 
 export function BostonBachataPage() {

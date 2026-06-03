@@ -6,7 +6,14 @@ export function GoodToKnow({ event, compact = false }: { event: Event; compact?:
     {
       label: "Class before social",
       value: event.classBeforeSocial.offered
-        ? `Yes - ${event.classBeforeSocial.level ?? ""} @ ${event.classBeforeSocial.startsAt ?? ""}`.trim()
+        ? (() => {
+            const level = event.classBeforeSocial.level?.trim() ?? "";
+            const at = event.classBeforeSocial.startsAt?.trim() ?? "";
+            const body = [level, at && /^\d/.test(at) ? `@ ${at}` : at]
+              .filter(Boolean)
+              .join(" ");
+            return body ? `Yes — ${body}` : "Yes";
+          })()
         : "No intro class",
     },
     { label: "Water", value: event.waterAvailability },
