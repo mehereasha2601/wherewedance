@@ -43,3 +43,14 @@ export function CrowdFavoriteTag() {
     </span>
   );
 }
+
+export function CommunityOutingTag() {
+  return (
+    <span
+      className="inline-flex items-center gap-1 px-2 py-1 rounded-sm text-[10px] font-bold uppercase tracking-wider bg-terracotta text-paper ring-1 ring-ink/10 -rotate-1"
+      title="Community outing"
+    >
+      Community outing
+    </span>
+  );
+}
