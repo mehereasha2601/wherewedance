@@ -4,6 +4,7 @@ const dotColor: Record<SourceStatus, string> = {
   "Verified by organizer": "bg-magenta",
   "Verified by community": "bg-terracotta",
   "From public listing": "bg-mango",
+  "Official website / Instagram / public listings": "bg-emerald-500",
   "Needs validation": "bg-ink/40",
 };
 
