@@ -97,7 +97,6 @@ export type Event = {
   communityNote?: string;
   rsvps: { count: number; initials: string[] };
   cost: string;
-  tonight?: boolean;
   popUp?: boolean;
   scheduleNote?: string;
   officialUrl?: string;
