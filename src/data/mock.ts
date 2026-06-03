@@ -1472,18 +1472,18 @@ export const askPrompts: AskPrompt[] = [
     prompt: "What outdoor/free events are happening?",
     category: "Logistics",
     answer: {
-      body: "BOBAS runs free outdoor Salsa/Bachata pop-ups at the Charles River Dock, and Bachata by the River is free on Sundays at the Esplanade. Both are weather-dependent - check Instagram before going.",
+      body: "BOBAS runs free outdoor Salsa/Bachata pop-ups at the Charles River Dock — the next one is this Friday (check Instagram for time and exact location). Bachata by the River is a free monthly/seasonal event at Magazine Beach Park in Cambridge with a beginner Bachata lesson before dancing. Both are weather-dependent — check the official source before going.",
       sourceEventIds: ["evt-bobas", "evt-river"],
       recommendations: [
         {
           eventId: "evt-bobas",
           label: "Top recommendation",
-          whyThisFits: "Free outdoor Salsa/Bachata pop-up - no class, weather-dependent, announced on Instagram.",
+          whyThisFits: "Free outdoor Salsa/Bachata pop-up this Friday - no class, weather-dependent, announced on Instagram.",
         },
         {
           eventId: "evt-river",
           label: "Also consider",
-          whyThisFits: "Free Sunday afternoon on the Esplanade with a beginner Bachata lesson on the lawn.",
+          whyThisFits: "Free Bachata by the River day at Magazine Beach Park with a beginner Bachata lesson before dancing.",
         },
       ],
       generalNote: "Both events are announced on Instagram morning-of and may be cancelled for weather.",
