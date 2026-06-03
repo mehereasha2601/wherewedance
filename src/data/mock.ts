@@ -1070,6 +1070,24 @@ export const events: Event[] = [
   },
 ];
 
+// Compute dateLabel for every event from PILOT_BASE_DATE. This replaces all
+// hardcoded weekday/date strings so the labels stay accurate when the pilot
+// base date changes. Rules:
+//   - fixedDate present  → format that date
+//   - popUp without fixedDate → "Monthly / date TBA"
+//   - otherwise → next occurrence of dayOfWeek on/after PILOT_BASE_DATE
+for (const e of events) {
+  if (e.fixedDate) {
+    e.dateLabel = formatDateLabel(parseIsoDate(e.fixedDate));
+  } else if (e.popUp) {
+    e.dateLabel = "Monthly / date TBA";
+  } else {
+    e.dateLabel = formatDateLabel(
+      getNextOccurrence(e.dayOfWeek as DayName, PILOT_BASE_DATE),
+    );
+  }
+}
+
 // ---------- Resources ----------
 
 export const resources: Resource[] = [
