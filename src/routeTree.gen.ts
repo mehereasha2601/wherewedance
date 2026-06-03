@@ -15,6 +15,7 @@ import { Route as SafetyRouteImport } from './routes/safety'
 import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as OrganizerDashboardRouteImport } from './routes/organizer-dashboard'
 import { Route as MoreRouteImport } from './routes/more'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BuddiesRouteImport } from './routes/buddies'
 import { Route as BostonBachataRouteImport } from './routes/boston-bachata'
 import { Route as BeginnerGuideRouteImport } from './routes/beginner-guide'
@@ -53,6 +54,11 @@ const OrganizerDashboardRoute = OrganizerDashboardRouteImport.update({
 const MoreRoute = MoreRouteImport.update({
   id: '/more',
   path: '/more',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BuddiesRoute = BuddiesRouteImport.update({
@@ -107,6 +113,7 @@ export interface FileRoutesByFullPath {
   '/beginner-guide': typeof BeginnerGuideRoute
   '/boston-bachata': typeof BostonBachataRoute
   '/buddies': typeof BuddiesRoute
+  '/contact': typeof ContactRoute
   '/more': typeof MoreRoute
   '/organizer-dashboard': typeof OrganizerDashboardRoute
   '/resources': typeof ResourcesRoute
@@ -124,6 +131,7 @@ export interface FileRoutesByTo {
   '/beginner-guide': typeof BeginnerGuideRoute
   '/boston-bachata': typeof BostonBachataRoute
   '/buddies': typeof BuddiesRoute
+  '/contact': typeof ContactRoute
   '/more': typeof MoreRoute
   '/organizer-dashboard': typeof OrganizerDashboardRoute
   '/resources': typeof ResourcesRoute
@@ -142,6 +150,7 @@ export interface FileRoutesById {
   '/beginner-guide': typeof BeginnerGuideRoute
   '/boston-bachata': typeof BostonBachataRoute
   '/buddies': typeof BuddiesRoute
+  '/contact': typeof ContactRoute
   '/more': typeof MoreRoute
   '/organizer-dashboard': typeof OrganizerDashboardRoute
   '/resources': typeof ResourcesRoute
@@ -161,6 +170,7 @@ export interface FileRouteTypes {
     | '/beginner-guide'
     | '/boston-bachata'
     | '/buddies'
+    | '/contact'
     | '/more'
     | '/organizer-dashboard'
     | '/resources'
@@ -178,6 +188,7 @@ export interface FileRouteTypes {
     | '/beginner-guide'
     | '/boston-bachata'
     | '/buddies'
+    | '/contact'
     | '/more'
     | '/organizer-dashboard'
     | '/resources'
@@ -195,6 +206,7 @@ export interface FileRouteTypes {
     | '/beginner-guide'
     | '/boston-bachata'
     | '/buddies'
+    | '/contact'
     | '/more'
     | '/organizer-dashboard'
     | '/resources'
@@ -213,6 +225,7 @@ export interface RootRouteChildren {
   BeginnerGuideRoute: typeof BeginnerGuideRoute
   BostonBachataRoute: typeof BostonBachataRoute
   BuddiesRoute: typeof BuddiesRoute
+  ContactRoute: typeof ContactRoute
   MoreRoute: typeof MoreRoute
   OrganizerDashboardRoute: typeof OrganizerDashboardRoute
   ResourcesRoute: typeof ResourcesRoute
@@ -267,6 +280,13 @@ declare module '@tanstack/react-router' {
       path: '/more'
       fullPath: '/more'
       preLoaderRoute: typeof MoreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/buddies': {
@@ -341,6 +361,7 @@ const rootRouteChildren: RootRouteChildren = {
   BeginnerGuideRoute: BeginnerGuideRoute,
   BostonBachataRoute: BostonBachataRoute,
   BuddiesRoute: BuddiesRoute,
+  ContactRoute: ContactRoute,
   MoreRoute: MoreRoute,
   OrganizerDashboardRoute: OrganizerDashboardRoute,
   ResourcesRoute: ResourcesRoute,
@@ -355,3 +376,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
