@@ -491,6 +491,7 @@ export const events: Event[] = [
     lastVerified: "2026-06-02",
     dateLabel: "",
     scheduleLabel: "Lessons 8:15–9:15 PM · Social 9:15 PM–12:30 AM",
+    secondaryTags: ["Crowd favorite", "Dry event", "Class before social"],
     goodToKnow: [
       "Bachata-heavy Monday night (~90% Bachata / 10% Salsa)",
       "Doors 8:00 PM · lessons 8:15–9:15 PM · social 9:15 PM–12:30 AM",
