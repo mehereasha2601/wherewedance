@@ -84,6 +84,8 @@ export type Event = {
   rsvps: { count: number; initials: string[] };
   cost: string;
   tonight?: boolean;
+  popUp?: boolean;
+  scheduleNote?: string;
 };
 
 export type Resource = {
@@ -180,12 +182,12 @@ export const organizers: Organizer[] = [
   {
     id: "org-bobas",
     slug: "bobas",
-    name: "BOBAS — Boston Outdoor Bachata And Salsa",
-    bio: "Outdoor warm-weather socials, weather-dependent and announced on Instagram. Free and open to anyone passing by.",
-    values: ["Free and outdoors", "Bring a friend", "Loud music, kind floor"],
-    recurringEventIds: ["evt-bobas", "evt-river"],
-    type: "Outdoor social collective",
-    bestFor: "Free outdoor bachata — bring a friend, check IG first",
+    name: "BOBAS Collective",
+    bio: "Community-led free outdoor Salsa/Bachata pop-ups at the Charles River Dock. Weather-dependent and usually announced on Instagram shortly before the event.",
+    values: ["Free and outdoors", "Community-led", "Bring a friend, bring water"],
+    recurringEventIds: ["evt-bobas"],
+    type: "Outdoor pop-up organizer",
+    bestFor: "Free outdoor Salsa/Bachata, dancers who know basics, community outdoor vibes",
   },
   {
     id: "org-saborcito",
