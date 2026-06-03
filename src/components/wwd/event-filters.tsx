@@ -140,10 +140,8 @@ export function EventFilters({
           </div>
         ) : (
           <div className="space-y-10">
-            {DAYS.map((d) => {
-              const items = filtered.filter(
-                (e) => (!e.popUp || e.thisWeek) && e.dayOfWeek === d,
-              );
+            {WEEK_DATE_ORDER.map((d) => {
+              const items = filtered.filter((e) => e.dateLabel === d);
               if (items.length === 0) return null;
               return (
                 <section key={d}>
@@ -166,20 +164,21 @@ export function EventFilters({
               );
             })}
             {(() => {
-              const popUps = filtered.filter((e) => e.popUp && !e.thisWeek);
-              if (popUps.length === 0) return null;
+              const known = new Set<string>(WEEK_DATE_ORDER);
+              const tba = filtered.filter((e) => !known.has(e.dateLabel));
+              if (tba.length === 0) return null;
               return (
                 <section>
                   <div className="px-5 mb-4">
                     <p className="text-[10px] uppercase tracking-widest font-bold text-terracotta mb-1">
-                      {popUps.length} pop-up{popUps.length === 1 ? "" : "s"}
+                      {tba.length} event{tba.length === 1 ? "" : "s"}
                     </p>
                     <h2 className="font-display italic font-semibold text-3xl leading-none text-ink">
-                      Pop-up · Check Instagram
+                      Pop-ups / date TBA
                     </h2>
                   </div>
                   <div className="px-5 grid gap-4">
-                    {popUps.map((e) => (
+                    {tba.map((e) => (
                       <EventCard key={e.id} event={e} />
                     ))}
                   </div>
