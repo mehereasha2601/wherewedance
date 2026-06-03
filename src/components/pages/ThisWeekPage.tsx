@@ -1,8 +1,12 @@
 import { AppShell, PageHero } from "@/components/wwd/shell";
 import { EventFilters } from "@/components/wwd/event-filters";
 import { getThisWeekEvents } from "@/data/mock";
+import { getRouteApi } from "@tanstack/react-router";
+import { normalizeFilterParam } from "@/lib/filter-params";
 
 export function ThisWeekPage() {
+  const search = getRouteApi("/this-week").useSearch();
+  const initial = normalizeFilterParam(search.filter);
   return (
     <AppShell>
       <PageHero
@@ -17,6 +21,7 @@ export function ThisWeekPage() {
           layout="by-day"
           allowTbaGroup={false}
           chips={["tonight","weekend","bachata-heavy","beginner-friendly","free","no-alcohol","class-before-social"]}
+          initialActive={initial ? [initial] : undefined}
         />
       </div>
     </AppShell>
