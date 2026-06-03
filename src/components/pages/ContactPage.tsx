@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { AppShell, PageHero } from "@/components/wwd/shell";
+import { ComingSoonBanner } from "@/components/wwd/coming-soon-banner";
 
 /*
  * TODO production:
@@ -46,14 +47,17 @@ export function ContactPage() {
         </p>
       </section>
 
-      <section className="px-5 mt-6 bg-magenta/15 ring-1 ring-magenta/40 rounded-2xl p-4">
-        <p className="text-[10px] uppercase tracking-widest font-bold text-magenta mb-1">
-          Prototype only
-        </p>
-        <p className="text-[12px] text-ink/80 leading-relaxed">
-          No message is submitted yet. This form is a UI preview while we
-          finish the backend.
-        </p>
+      <section className="px-5 mt-6">
+        <ComingSoonBanner
+          eyebrow="Prototype only"
+          variant="contact"
+          description="This contact form is a prototype preview. No message is submitted yet."
+          bullets={[
+            "Use this page to suggest corrections, resources, organizers, or new locations.",
+            "In production, this form will send feedback privately.",
+            "Do not use this for emergencies or urgent safety issues.",
+          ]}
+        />
       </section>
 
       <form
