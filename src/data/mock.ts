@@ -1252,6 +1252,7 @@ export const events: Event[] = [
     ],
     rsvps: { count: 8, initials: ["EP", "MA", "LU"] },
     cost: "Check official source",
+    instagramUrl: "https://www.instagram.com/pabon_pabon_pabon/",
   },
 ];
 
