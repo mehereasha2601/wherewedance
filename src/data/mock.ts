@@ -997,7 +997,7 @@ export const events: Event[] = [
     instagramUrl: "https://www.instagram.com/bobas.dance/",
     facebookUrl: "https://www.facebook.com/p/Boston-Outdoor-Bachata-And-Salsa-61551665503735/",
     mapUrl: "https://maps.google.com/?q=Hatch+Shell+Boston+Esplanade",
-  }
+  },
   {
     id: "evt-river",
     slug: "bachata-by-the-river",
