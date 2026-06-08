@@ -504,6 +504,8 @@ export const organizers: Organizer[] = [
     type: "Live music / concert organizer",
     typeFilter: "Live music organizer",
     bestFor: "Live Salsa and Bomba music events, community concerts, cultural dance events",
+    instagramUrl: "https://www.instagram.com/pabon_pabon_pabon/",
+    sourceUrl: "https://www.instagram.com/pabon_pabon_pabon/",
     sourceStatus: "Official Instagram / organizer post",
     lastVerified: "2026-06-08",
   },
