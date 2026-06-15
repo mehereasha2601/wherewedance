@@ -2095,7 +2095,21 @@ export const mapUrlForEvent = (e: Event): string | null => {
 function resolvedEventDateInWeek(e: Event, weekStart: Date): Date | null {
   if (e.fixedDate) return parseIsoDate(e.fixedDate);
   if (e.popUp) return null; // pop-ups without a fixed date have no real date
-  return getOccurrenceInWeek(e.dayOfWeek as DayName, weekStart);
+  const d = getOccurrenceInWeek(e.dayOfWeek as DayName, weekStart);
+  if (isEventCancelledOn(e, d)) return null;
+  return d;
+}
+
+function toIsoLocalDate(d: Date): string {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
+}
+
+export function isEventCancelledOn(e: Event, date: Date): boolean {
+  if (!e.cancellations || e.cancellations.length === 0) return false;
+  return e.cancellations.includes(toIsoLocalDate(date));
 }
 
 /** True if `e` happens today in Boston (America/New_York). */
