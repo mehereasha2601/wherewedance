@@ -791,7 +791,7 @@ export const events: Event[] = [
     dateLabel: "",
     scheduleLabel: "9:00 PM (class + social)",
     goodToKnow: [
-      "Cancelled on Wednesday June 17 and Wednesday June 24 — no class or social on those nights.",
+      "Cancelled on Wednesday June 24 — no class or social that night.",
       "Wednesday 9:00 PM class + social.",
       "Class before social: beginner-friendly Bachata/Salsa class followed by social dancing.",
       "18+ to dance, 21+ to drink.",
@@ -803,7 +803,7 @@ export const events: Event[] = [
       "Bachata-heavy Wednesday social.",
       "Check the official website before going.",
     ],
-    communityNote: "Beginner track is patient and welcoming. Note: no Bachata Room on June 17 or June 24 — check the official website for the return date.",
+    communityNote: "Beginner track is patient and welcoming. Note: no Bachata Room on June 24 — check the official website for the return date.",
     rsvps: { count: 64, initials: ["LI", "MA", "RB"] },
     cost: "$15 class + social",
     officialUrl: "https://www.bachataroomboston.com/",
