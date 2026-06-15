@@ -128,6 +128,8 @@ export type Event = {
   // from dayOfWeek as the next occurrence inside the current Mon–Sun week.
   // Pop-ups with no fixedDate render as "Monthly / date TBA".
   fixedDate?: string;
+  // ISO dates (YYYY-MM-DD) on which a recurring event is cancelled / skipped.
+  cancellations?: string[];
   // Date / time display fields. Cards show dateLabel · scheduleLabel.
   dateLabel: string; // populated by computeEventDateLabels(); do not hardcode
   scheduleLabel?: string; // e.g. "9:00 PM", "6:00–10:00 PM", "Time TBA"
@@ -790,6 +792,7 @@ export const events: Event[] = [
     lastVerified: "2026-06-15",
     dateLabel: "",
     scheduleLabel: "9:00 PM (class + social)",
+    cancellations: ["2026-06-17", "2026-06-24"],
     goodToKnow: [
       "Cancelled on Wednesday June 17 and Wednesday June 24 — no class or social on those nights.",
       "Wednesday 9:00 PM class + social.",
@@ -2093,7 +2096,21 @@ export const mapUrlForEvent = (e: Event): string | null => {
 function resolvedEventDateInWeek(e: Event, weekStart: Date): Date | null {
   if (e.fixedDate) return parseIsoDate(e.fixedDate);
   if (e.popUp) return null; // pop-ups without a fixed date have no real date
-  return getOccurrenceInWeek(e.dayOfWeek as DayName, weekStart);
+  const d = getOccurrenceInWeek(e.dayOfWeek as DayName, weekStart);
+  if (isEventCancelledOn(e, d)) return null;
+  return d;
+}
+
+function toIsoLocalDate(d: Date): string {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
+}
+
+export function isEventCancelledOn(e: Event, date: Date): boolean {
+  if (!e.cancellations || e.cancellations.length === 0) return false;
+  return e.cancellations.includes(toIsoLocalDate(date));
 }
 
 /** True if `e` happens today in Boston (America/New_York). */
@@ -2106,7 +2123,8 @@ export function isEventTonight(
   const weekday = ([
     "Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday",
   ] as const)[today.getDay()];
-  return e.dayOfWeek === weekday;
+  if (e.dayOfWeek !== weekday) return false;
+  return !isEventCancelledOn(e, today);
 }
 
 /**
