@@ -792,6 +792,7 @@ export const events: Event[] = [
     lastVerified: "2026-06-15",
     dateLabel: "",
     scheduleLabel: "9:00 PM (class + social)",
+    cancellations: ["2026-06-17", "2026-06-24"],
     goodToKnow: [
       "Cancelled on Wednesday June 17 and Wednesday June 24 — no class or social on those nights.",
       "Wednesday 9:00 PM class + social.",
