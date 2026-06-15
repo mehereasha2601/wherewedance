@@ -128,6 +128,8 @@ export type Event = {
   // from dayOfWeek as the next occurrence inside the current Mon–Sun week.
   // Pop-ups with no fixedDate render as "Monthly / date TBA".
   fixedDate?: string;
+  // ISO dates (YYYY-MM-DD) on which a recurring event is cancelled / skipped.
+  cancellations?: string[];
   // Date / time display fields. Cards show dateLabel · scheduleLabel.
   dateLabel: string; // populated by computeEventDateLabels(); do not hardcode
   scheduleLabel?: string; // e.g. "9:00 PM", "6:00–10:00 PM", "Time TBA"
