@@ -2122,7 +2122,8 @@ export function isEventTonight(
   const weekday = ([
     "Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday",
   ] as const)[today.getDay()];
-  return e.dayOfWeek === weekday;
+  if (e.dayOfWeek !== weekday) return false;
+  return !isEventCancelledOn(e, today);
 }
 
 /**
