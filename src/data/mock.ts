@@ -1156,7 +1156,8 @@ export const events: Event[] = [
     alcoholPolicy: "Bar on site - venue serves drinks",
     scheduleReliability: "Seasonal outdoor recurring - check official source",
     sourceStatus: "From public listing",
-    lastVerified: "2026-06-03",
+    lastVerified: "2026-06-22",
+    cancellations: ["2026-06-22"],
     dateLabel: "",
     scheduleLabel: "6:00–9:30 PM · check official source",
     goodToKnow: [
