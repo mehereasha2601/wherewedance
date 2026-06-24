@@ -807,7 +807,7 @@ export const events: Event[] = [
       "Bachata-heavy Wednesday social.",
       "Check the official website before going.",
     ],
-    communityNote: "Beginner track is patient and welcoming. Note: no Bachata Room on June 17. On June 24, Bachata Room hosts a Bachata & Mango pop-up at Coco Mango (see separate event).",
+    communityNote: "Beginner track is patient and welcoming. Note: no Bachata Room on June 17 or June 24. On June 24, Bachata Room hosts a Bachata & Mango pop-up at Coco Mango (see separate event)."
     rsvps: { count: 64, initials: ["LI", "MA", "RB"] },
     cost: "$15 class + social",
     officialUrl: "https://www.bachataroomboston.com/",
