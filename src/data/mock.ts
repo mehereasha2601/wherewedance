@@ -792,7 +792,7 @@ export const events: Event[] = [
     lastVerified: "2026-06-15",
     dateLabel: "",
     scheduleLabel: "9:00 PM (class + social)",
-    cancellations: ["2026-06-17"],
+    cancellations: ["2026-06-17", "2026-06-24"],
     goodToKnow: [
       "Cancelled on Wednesday June 17 — no class or social that night.",
       "Wednesday June 24: Bachata & Mango Pop-Up at Coco Mango (50 Cambridgepark Dr) — see separate event.",
