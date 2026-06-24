@@ -794,7 +794,7 @@ export const events: Event[] = [
     scheduleLabel: "9:00 PM (class + social)",
     cancellations: ["2026-06-17", "2026-06-24"],
     goodToKnow: [
-      "Cancelled on Wednesday June 17 — no class or social that night.",
+      "Cancelled on Wednesday June 17 and June 24 — no class or social those nights.",
       "Wednesday June 24: Bachata & Mango Pop-Up at Coco Mango (50 Cambridgepark Dr) — see separate event.",
       "Wednesday 9:00 PM class + social.",
       "Class before social: beginner-friendly Bachata/Salsa class followed by social dancing.",
