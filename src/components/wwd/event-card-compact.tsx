@@ -37,6 +37,7 @@ export function EventCardCompact({ event, dateLabel }: { event: Event; dateLabel
           {isCommunityOuting && <CommunityOutingTag />}
           <BeginnerTag value={event.beginnerLabel} />
           {isCrowdFavorite && <CrowdFavoriteTag />}
+          {isFree && <FreeTag />}
         </div>
         <h3 className="font-display italic font-semibold text-lg leading-tight text-ink">
           {event.title}

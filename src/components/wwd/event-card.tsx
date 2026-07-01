@@ -34,6 +34,7 @@ export function EventCard({ event, full = false, dateLabel }: { event: Event; fu
           {isCommunityOuting && <CommunityOutingTag />}
           <BeginnerTag value={event.beginnerLabel} />
           {isCrowdFavorite && <CrowdFavoriteTag />}
+          {isFree && <FreeTag />}
         </div>
         {tonight && (
           <div className="absolute top-3 right-3 inline-flex items-center gap-1.5 bg-paper/95 text-ink px-2 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">
