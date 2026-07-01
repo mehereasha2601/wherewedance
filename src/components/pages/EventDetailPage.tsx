@@ -1,5 +1,5 @@
 import { AppShell } from "@/components/wwd/shell";
-import { BeginnerTag, SceneTag, CommunityOutingTag } from "@/components/wwd/tags";
+import { BeginnerTag, SceneTag, CommunityOutingTag, FreeTag } from "@/components/wwd/tags";
 import { GoodToKnow } from "@/components/wwd/good-to-know";
 import { SourceLabel } from "@/components/wwd/source-label";
 import { Link } from "@/components/wwd/ui-router";
@@ -51,6 +51,7 @@ export function EventDetailPage({ slug }: { slug: string }) {
             <SceneTag value={event.bachataRelevance} />
             {(event.secondaryTags?.includes("Community outing") || event.bachataRelevance === null) && <CommunityOutingTag />}
             <BeginnerTag value={event.beginnerLabel} />
+            {(event.cost === "Free" || event.secondaryTags?.includes("Free")) && <FreeTag />}
           </div>
           {isEventTonight(event) && (
             <div className="absolute top-3 right-3 inline-flex items-center gap-1.5 bg-paper/95 text-ink px-2 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">

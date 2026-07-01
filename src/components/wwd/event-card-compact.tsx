@@ -4,7 +4,7 @@
 import type { Event } from "@/data/mock";
 import { logisticsSummary, isEventTonight } from "@/data/mock";
 import { Link } from "./ui-router";
-import { BeginnerTag, SceneTag, CrowdFavoriteTag, CommunityOutingTag } from "./tags";
+import { BeginnerTag, SceneTag, CrowdFavoriteTag, CommunityOutingTag, FreeTag } from "./tags";
 import { ExternalLink } from "lucide-react";
 
 export function EventCardCompact({ event, dateLabel }: { event: Event; dateLabel?: string }) {
@@ -14,6 +14,7 @@ export function EventCardCompact({ event, dateLabel }: { event: Event; dateLabel
   const displayDate = dateLabel ?? event.dateLabel;
   const isCrowdFavorite = event.secondaryTags?.includes("Crowd favorite");
   const isCommunityOuting = event.secondaryTags?.includes("Community outing") || event.bachataRelevance === null;
+  const isFree = event.cost === "Free" || event.secondaryTags?.includes("Free");
   return (
     <article className="group relative bg-paper rounded-2xl ring-1 ring-ink/10 overflow-hidden flex flex-col transition hover:-translate-y-0.5 hover:ring-ink/25 focus-within:ring-2 focus-within:ring-terracotta cursor-pointer">
       <Link
@@ -36,6 +37,7 @@ export function EventCardCompact({ event, dateLabel }: { event: Event; dateLabel
           {isCommunityOuting && <CommunityOutingTag />}
           <BeginnerTag value={event.beginnerLabel} />
           {isCrowdFavorite && <CrowdFavoriteTag />}
+          {isFree && <FreeTag />}
         </div>
         <h3 className="font-display italic font-semibold text-lg leading-tight text-ink">
           {event.title}

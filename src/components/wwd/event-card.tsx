@@ -4,7 +4,7 @@
 import type { Event } from "@/data/mock";
 import { organizerById, mapUrlForEvent, logisticsSummary, isEventTonight } from "@/data/mock";
 import { Link } from "./ui-router";
-import { BeginnerTag, SceneTag, CrowdFavoriteTag, CommunityOutingTag } from "./tags";
+import { BeginnerTag, SceneTag, CrowdFavoriteTag, CommunityOutingTag, FreeTag } from "./tags";
 import { GoodToKnow } from "./good-to-know";
 import { SourceLabel } from "./source-label";
 import { ExternalLink, MapPin } from "lucide-react";
@@ -18,6 +18,7 @@ export function EventCard({ event, full = false, dateLabel }: { event: Event; fu
   const displayDate = dateLabel ?? event.dateLabel;
   const isCrowdFavorite = event.secondaryTags?.includes("Crowd favorite");
   const isCommunityOuting = event.secondaryTags?.includes("Community outing") || event.bachataRelevance === null;
+  const isFree = event.cost === "Free" || event.secondaryTags?.includes("Free");
   return (
     <article className="relative bg-paper rounded-3xl ring-1 ring-ink/10 overflow-hidden flex flex-col transition hover:-translate-y-0.5 hover:ring-ink/25 focus-within:ring-2 focus-within:ring-terracotta">
       <Link
@@ -33,6 +34,7 @@ export function EventCard({ event, full = false, dateLabel }: { event: Event; fu
           {isCommunityOuting && <CommunityOutingTag />}
           <BeginnerTag value={event.beginnerLabel} />
           {isCrowdFavorite && <CrowdFavoriteTag />}
+          {isFree && <FreeTag />}
         </div>
         {tonight && (
           <div className="absolute top-3 right-3 inline-flex items-center gap-1.5 bg-paper/95 text-ink px-2 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">
