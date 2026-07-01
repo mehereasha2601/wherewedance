@@ -70,6 +70,7 @@
   --color-oxblood: var(--oxblood);
   --color-mango: var(--mango);
   --color-magenta: var(--magenta);
+  --color-free: var(--free);
 
   --font-display: "Fraunces Variable", ui-serif, Georgia, serif;
   --font-sans: "Instrument Sans Variable", ui-sans-serif, system-ui, sans-serif;
