@@ -1,5 +1,5 @@
 import { AppShell } from "@/components/wwd/shell";
-import { BeginnerTag, SceneTag, CommunityOutingTag } from "@/components/wwd/tags";
+import { BeginnerTag, SceneTag, CommunityOutingTag, FreeTag } from "@/components/wwd/tags";
 import { GoodToKnow } from "@/components/wwd/good-to-know";
 import { SourceLabel } from "@/components/wwd/source-label";
 import { Link } from "@/components/wwd/ui-router";

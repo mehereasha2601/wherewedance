@@ -4,7 +4,7 @@
 import type { Event } from "@/data/mock";
 import { logisticsSummary, isEventTonight } from "@/data/mock";
 import { Link } from "./ui-router";
-import { BeginnerTag, SceneTag, CrowdFavoriteTag, CommunityOutingTag } from "./tags";
+import { BeginnerTag, SceneTag, CrowdFavoriteTag, CommunityOutingTag, FreeTag } from "./tags";
 import { ExternalLink } from "lucide-react";
 
 export function EventCardCompact({ event, dateLabel }: { event: Event; dateLabel?: string }) {

@@ -4,7 +4,7 @@
 import type { Event } from "@/data/mock";
 import { organizerById, mapUrlForEvent, logisticsSummary, isEventTonight } from "@/data/mock";
 import { Link } from "./ui-router";
-import { BeginnerTag, SceneTag, CrowdFavoriteTag, CommunityOutingTag } from "./tags";
+import { BeginnerTag, SceneTag, CrowdFavoriteTag, CommunityOutingTag, FreeTag } from "./tags";
 import { GoodToKnow } from "./good-to-know";
 import { SourceLabel } from "./source-label";
 import { ExternalLink, MapPin } from "lucide-react";
