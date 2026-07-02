@@ -1127,7 +1127,7 @@ export const events: Event[] = [
     scheduleLabel: "7:20–9:00 PM",
     secondaryTags: ["Outdoor", "Free", "Pop-up", "Crowd favorite", "Beginner-welcome"],
     goodToKnow: [
-      "Free outdoor Salsa/Bachata pop-up at ICA Doc.",
+      "Free outdoor Salsa/Bachata pop-up at ICA Dock.",
       "Thursday July 2, 7:20–9:00 PM — later start than usual.",
       "One-time location; back to Charles River Dock after this.",
       "Beginner-welcome, but not beginner-structured — no class unless announced.",
